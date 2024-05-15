@@ -1,0 +1,18 @@
+/* companyPage.css */
+
+.JobOpportunitiesContainer {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.ApplicantsContainer {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.ApplicantsList {
+  list-style: none;
+  padding: 0;
+}

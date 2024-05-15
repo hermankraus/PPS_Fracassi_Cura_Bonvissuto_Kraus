@@ -1,0 +1,45 @@
+* {
+  /* color: rgb(77, 90, 98); */
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+/* BOTONES: SIEMPRE: 
+border-radius: 2px;
+bg: #265171
+color: white
+Pointer y hover -> Sin bordes!
+
+LETRA: 
+color: rgb(77, 90, 98);
+"Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+"Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+
+COLORES: 
+  Principal: rgba(38, 81, 113);   #265171
+  black
+  hover:   color: #71aef0;
+
+
+PASO A PASO PARA EL CLARO | OSCURO PARA DEFINIR EN PROXIMA VISTAS
+
+EN EL CSS QUE ARMES TENES QUE PONERLE
+
+.dark-mode * {
+  color: white;   ****ESTOS COLORES VIENEN POR EL BUTTON DEL CONTEXT, EN CASO DE QUERER
+                  APLICAR OTROS COLORES, TENES QUE ARMAR EN EL CSS DE TU ARCHIVO DOS CLASES
+}                 Y PONERLE CON EL MISMO NOMBRE DE .dark-mode y .light-mode A TU GUSTO
+.light-mode * {   Y PISARIA ESTAS DOS CLASES PARA HACER LOS CAMBIOS QUE QUIERAS
+  color: rgb(77, 90, 98);
+}
+
+EN EL JSX TENES QUE DEFINIR
+import { ThemeContext } from "../../components/context/themeContext/themeContext";
+import { useContext } from "react";
+
+export const HomePage = () => {
+  const { isDarkMode } = useContext(ThemeContext);
+    
+  return ( <div className={isDarkMode ? "dark-mode" : "light-mode"}> )
+
+*/
