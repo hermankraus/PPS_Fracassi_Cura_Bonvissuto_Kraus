@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
-using WorkRepAPI.Entities;
 
-namespace WorkRepAPI.Context
+namespace WorkRepAPI.Entities
 {
     public partial class pps_databaseContext : DbContext
     {
@@ -19,7 +18,6 @@ namespace WorkRepAPI.Context
 
         public virtual DbSet<Company> Companies { get; set; } = null!;
         public virtual DbSet<Student> Students { get; set; } = null!;
-        public virtual DbSet<User> Users { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -39,10 +37,6 @@ namespace WorkRepAPI.Context
 
                 entity.ToTable("company");
 
-                entity.HasIndex(e => e.UserCompId, "UserCompId_idx");
-
-                entity.HasIndex(e => e.UserId, "UserId_idx");
-
                 entity.Property(e => e.Cuit)
                     .HasMaxLength(11)
                     .HasColumnName("CUIT");
@@ -57,15 +51,11 @@ namespace WorkRepAPI.Context
 
                 entity.Property(e => e.ContactPhone).HasMaxLength(45);
 
+                entity.Property(e => e.Password).HasMaxLength(45);
+
                 entity.Property(e => e.Type).HasMaxLength(45);
 
                 entity.Property(e => e.Website).HasMaxLength(100);
-
-                entity.HasOne(d => d.UserComp)
-                    .WithMany(p => p.Companies)
-                    .HasForeignKey(d => d.UserCompId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("UserCompId");
             });
 
             modelBuilder.Entity<Student>(entity =>
@@ -74,8 +64,6 @@ namespace WorkRepAPI.Context
                     .HasName("PRIMARY");
 
                 entity.ToTable("student");
-
-                entity.HasIndex(e => e.UserId, "StudenId_idx");
 
                 entity.Property(e => e.Address).HasMaxLength(45);
 
@@ -89,9 +77,9 @@ namespace WorkRepAPI.Context
 
                 entity.Property(e => e.Country).HasMaxLength(45);
 
-                entity.Property(e => e.Cuit)
+                entity.Property(e => e.Cuil)
                     .HasMaxLength(45)
-                    .HasColumnName("CUIT");
+                    .HasColumnName("CUIL");
 
                 entity.Property(e => e.CurriculumPlan).HasMaxLength(45);
 
@@ -100,6 +88,8 @@ namespace WorkRepAPI.Context
                 entity.Property(e => e.DocumentNumber).HasMaxLength(45);
 
                 entity.Property(e => e.DocumentType).HasMaxLength(45);
+
+                entity.Property(e => e.Email).HasMaxLength(45);
 
                 entity.Property(e => e.Flat).HasMaxLength(45);
 
@@ -115,6 +105,8 @@ namespace WorkRepAPI.Context
 
                 entity.Property(e => e.Name).HasMaxLength(45);
 
+                entity.Property(e => e.Password).HasMaxLength(45);
+
                 entity.Property(e => e.PhoneNumber).HasMaxLength(45);
 
                 entity.Property(e => e.Province).HasMaxLength(45);
@@ -122,34 +114,6 @@ namespace WorkRepAPI.Context
                 entity.Property(e => e.SecondaryTitle).HasMaxLength(45);
 
                 entity.Property(e => e.Turn).HasMaxLength(45);
-
-                entity.HasOne(d => d.User)
-                    .WithMany(p => p.Students)
-                    .HasForeignKey(d => d.UserId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("UserId");
-            });
-
-            modelBuilder.Entity<User>(entity =>
-            {
-                entity.HasKey(e => e.Idusers)
-                    .HasName("PRIMARY");
-
-                entity.ToTable("user");
-
-                entity.Property(e => e.Idusers).HasColumnName("idusers");
-
-                entity.Property(e => e.Email)
-                    .HasMaxLength(45)
-                    .HasColumnName("email");
-
-                entity.Property(e => e.Password)
-                    .HasMaxLength(45)
-                    .HasColumnName("password");
-
-                entity.Property(e => e.Username)
-                    .HasMaxLength(45)
-                    .HasColumnName("username");
             });
 
             OnModelCreatingPartial(modelBuilder);

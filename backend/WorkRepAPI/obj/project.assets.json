@@ -2960,11 +2960,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\PPS\\backend\\WorkRepAPI\\WorkRepAPI.csproj",
+      "projectUniqueName": "C:\\Users\\Usuario\\Documents\\PPS_Fracassi_Cura_Bonvissuto_Kraus\\backend\\WorkRepAPI\\WorkRepAPI.csproj",
       "projectName": "WorkRepAPI",
-      "projectPath": "C:\\PPS\\backend\\WorkRepAPI\\WorkRepAPI.csproj",
+      "projectPath": "C:\\Users\\Usuario\\Documents\\PPS_Fracassi_Cura_Bonvissuto_Kraus\\backend\\WorkRepAPI\\WorkRepAPI.csproj",
       "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
-      "outputPath": "C:\\PPS\\backend\\WorkRepAPI\\obj\\",
+      "outputPath": "C:\\Users\\Usuario\\Documents\\PPS_Fracassi_Cura_Bonvissuto_Kraus\\backend\\WorkRepAPI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",

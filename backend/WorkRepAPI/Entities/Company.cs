@@ -10,13 +10,10 @@ namespace WorkRepAPI.Entities
         public string BusinessName { get; set; } = null!;
         public string Address { get; set; } = null!;
         public string ContactEmail { get; set; } = null!;
-        public string ContactPhone { get; set; } = null!;
-        public string Website { get; set; } = null!;
-        public string Type { get; set; } = null!;
-        public int NumberOfEmployees { get; set; }
-        public int UserCompId { get; set; }
-        public int UserId { get; set; }
-
-        public virtual User UserComp { get; set; } = null!;
+        public string? ContactPhone { get; set; }
+        public string? Website { get; set; }
+        public string? Type { get; set; }
+        public int? NumberOfEmployees { get; set; }
+        public string Password { get; set; } = null!;
     }
 }

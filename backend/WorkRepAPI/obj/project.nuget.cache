@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "dE+Wdkn0c20Uh5qt6ch3remAUF2qJR7H6yTm8UNT3FWPShKYWpKC67q5P5dOlbH857nNO2Q7NajLuzVNnCTYiA==",
+  "dgSpecHash": "8OevYmYJOYASyZt+tYBjlf2pxVrzXviUzWpcZQdCybrf7WCx15Dhs4SRi+o3TFl5J3NWlNAOeMhP9bW0t9VUhg==",
   "success": true,
-  "projectFilePath": "C:\\PPS\\backend\\WorkRepAPI\\WorkRepAPI.csproj",
+  "projectFilePath": "C:\\Users\\Usuario\\Documents\\PPS_Fracassi_Cura_Bonvissuto_Kraus\\backend\\WorkRepAPI\\WorkRepAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Usuario\\.nuget\\packages\\bouncycastle.cryptography\\2.2.1\\bouncycastle.cryptography.2.2.1.nupkg.sha512",
     "C:\\Users\\Usuario\\.nuget\\packages\\google.protobuf\\3.25.1\\google.protobuf.3.25.1.nupkg.sha512",
