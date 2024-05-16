@@ -4,14 +4,22 @@ import { Flex, Box, Image, VStack, HStack } from "@chakra-ui/react";
 import { ThemeContext } from "../../context/themeContext/themeContext";
 import { useContext } from "react";
 import images from "../../../assets/constants/images";
+import { useNavigate } from "react-router-dom";
 
 export default function Login() {
   const { isDarkMode } = useContext(ThemeContext);
-
+  const navigate = useNavigate();
   return (
     <>
       <VStack>
-        <Image src={images.logo} alt="Logo" w="14rem" h="8.5rem" />
+        <Image
+          src={images.logo}
+          alt="Logo"
+          w="14rem"
+          h="8.5rem"
+          onClick={() => navigate("/")}
+          cursor="pointer"
+        />
       </VStack>
       <Flex p="1rem" position="relative" mb="4rem">
         <Image

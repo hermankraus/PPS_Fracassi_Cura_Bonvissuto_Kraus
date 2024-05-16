@@ -16,8 +16,7 @@ import RegisterStudent from "./register-student";
 const register = () => {
   return (
     <>
-      (
-      <RegisterStudent />)
+      <RegisterStudent />
     </>
   );
 };

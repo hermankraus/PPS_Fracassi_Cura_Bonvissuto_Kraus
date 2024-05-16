@@ -4,7 +4,7 @@ import "./homePage.css";
 import { useNavigate } from "react-router-dom";
 import { ThemeContext } from "../../components/context/themeContext/themeContext";
 import { useContext, useEffect } from "react";
-import { gettest } from "../../Axios/test-service"
+import { gettest } from "../../Axios/test-service";
 
 export const HomePage = () => {
   /*ACA RECIBIMOS A TODOS LOS USUARIOS -> hay que agregar el boton de log ig que viaje al form de azu y un boton de registrarse*/
@@ -19,24 +19,23 @@ export const HomePage = () => {
     navigate("/register");
   };
 
-  
   useEffect(() => {
     const fetchProducts = async () => {
-        try {
-            const response = await gettest();
-            console.log(response);
-        } catch (error) {
-            console.error("Error fetching products:", error);
-        }
+      try {
+        const response = await gettest();
+        console.log(response);
+      } catch (error) {
+        console.error("Error fetching products:", error);
+      }
     };
 
     fetchProducts();
-}, []);
+  }, []);
   return (
     <div className={isDarkMode ? "dark-mode" : "light-mode"}>
       <Container className="home-page">
         <Image src={images.logo} alt="Logo" w="14rem" h="4.5rem" p={0} mt={0} />
-        <Button onClick={handlerLogin} className="home-page-buton">
+        <Button onClick={handlerLogin} className="home-page-button">
           Iniciar sesión
         </Button>
       </Container>
