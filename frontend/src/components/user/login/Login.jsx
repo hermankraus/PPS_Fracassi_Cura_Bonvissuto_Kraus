@@ -23,7 +23,7 @@ export default function Login() {
       </VStack>
       <Flex p="1rem" position="relative" mb="4rem">
         <Image
-          src={images.HomeImg2}
+          src={images.bgImgLogin}
           position="absolute"
           width="100%"
           height="100%"
@@ -39,7 +39,7 @@ export default function Login() {
           zIndex="1"
           backgroundColor="transparent"
         >
-          <HStack mt="2rem">
+          <HStack mt="4.5rem">
             <Box
               className={isDarkMode ? "dark-mode" : "light-mode"}
               borderRadius="1rem"
