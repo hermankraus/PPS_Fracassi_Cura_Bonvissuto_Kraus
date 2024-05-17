@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using WorkRepAPI.Enums;
 
 namespace WorkRepAPI.Entities
 {
     public partial class Student
     {
         public int Legajo { get; set; }
-        public string DocumentType { get; set; } = null!;
+        public DocumentType DocumentType { get; set; }
         public string DocumentNumber { get; set; } = null!;
         public string Name { get; set; } = null!;
         public string LastName { get; set; } = null!;
