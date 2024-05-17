@@ -1,5 +1,5 @@
 ﻿using System.Security.Cryptography.X509Certificates;
-using WorkRepAPI.Data.Intefaces;
+using WorkRepAPI.Data.Interfaces;
 using WorkRepAPI.Entities;
 using WorkRepAPI.Models.StudentsDTOs;
 using WorkRepAPI.Services.Interfaces;
@@ -24,6 +24,10 @@ namespace WorkRepAPI.Services.Implementations
                 LastName = student.Lastname,
                 Email = student.email,
                 Password = student.password,
+                Cuil = student.Cuil,
+                Gender = student.Gender,
+                DocumentType = student.TipoDoc,
+                DocumentNumber = student.NroDoc,
 
             };
 
