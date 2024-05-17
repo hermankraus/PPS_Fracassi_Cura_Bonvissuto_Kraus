@@ -1,4 +1,9 @@
 using WorkRepAPI.Controllers;
+using WorkRepAPI.Data.Implementations;
+using WorkRepAPI.Data.Intefaces;
+using WorkRepAPI.Entities;
+using WorkRepAPI.Services.Implementations;
+using WorkRepAPI.Services.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -23,7 +28,13 @@ builder.Services.AddCors(options =>
     });
 });
 
+
 builder.Services.AddSingleton<testController>();
+builder.Services.AddScoped<IRegisterService, RegisterService>();
+builder.Services.AddScoped<IRegisterRepository, RegisterRepository>();
+
+
+
 
 var app = builder.Build();
 
