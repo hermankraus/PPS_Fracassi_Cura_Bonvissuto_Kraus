@@ -102,7 +102,7 @@ const LoginCompany = () => {
                 color="white"
                 w="auto"
                 alignSelf="center"
-                onClick={() => navigate("/register")}
+                onClick={() => navigate("/register-company")}
               >
                 Registrate
               </Button>

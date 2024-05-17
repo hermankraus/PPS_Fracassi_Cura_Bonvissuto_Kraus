@@ -16,7 +16,7 @@ export const HomePage = () => {
   };
 
   const handlerRegister = () => {
-    navigate("/register");
+    navigate("/register-student");
   };
 
   useEffect(() => {

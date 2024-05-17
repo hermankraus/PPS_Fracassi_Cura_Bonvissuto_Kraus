@@ -11,8 +11,9 @@ import { CompanyPage } from "./pages/company-page/companyPage";
 import { AdminPage } from "./pages/admin-page/adminPage";
 import FooterPage from "./components/footer/footer";
 import Login from "./components/user/login/Login";
-import Register from "./components/user/register/Register";
+import RegisterStudent from "./components/user/register/RegisterStudent";
 import { ThemeProvider } from "./components/context/themeContext/themeContext";
+import RegisterCompany from "./components/user/register/RegisterCompany";
 
 function App() {
   const [previousPath, setPreviousPath] = useState("/");
@@ -27,7 +28,8 @@ function App() {
             onChange={(params) => setPreviousPath(params.location.pathname)}
           />
           <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
+          <Route path="/register-student" element={<RegisterStudent />} />
+          <Route path="/register-company" element={<RegisterCompany />} />
           <Route path="/student" element={<StudentPage />} />
           <Route path="/company" element={<CompanyPage />} />
           <Route path="/admin" element={<AdminPage />} />
