@@ -1,6 +1,7 @@
+using WorkRepAPI.Context;
 using WorkRepAPI.Controllers;
 using WorkRepAPI.Data.Implementations;
-using WorkRepAPI.Data.Intefaces;
+using WorkRepAPI.Data.Interfaces;
 using WorkRepAPI.Entities;
 using WorkRepAPI.Services.Implementations;
 using WorkRepAPI.Services.Interfaces;
@@ -29,9 +30,10 @@ builder.Services.AddCors(options =>
 });
 
 
-builder.Services.AddSingleton<testController>();
-builder.Services.AddScoped<IRegisterService, RegisterService>();
-builder.Services.AddScoped<IRegisterRepository, RegisterRepository>();
+builder.Services.AddSingleton<pps_databaseContext>();
+
+builder.Services.AddSingleton<IRegisterService, RegisterService>();
+builder.Services.AddSingleton<IRegisterRepository, RegisterRepository>();
 
 
 

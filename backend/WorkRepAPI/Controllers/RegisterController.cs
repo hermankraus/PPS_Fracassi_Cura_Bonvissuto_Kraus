@@ -17,7 +17,7 @@ namespace WorkRepAPI.Controllers
         }
 
         [HttpPost("RegisterStudent")]
-        public async Task<ActionResult<bool>>CreateStudent(CreateNewStudentDTO student)
+        public ActionResult<bool>CreateStudent(CreateNewStudentDTO student)
         {
             bool  newStudent =  _registerService.CreateStudent(student);
         

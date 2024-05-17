@@ -18,6 +18,18 @@ namespace WorkRepAPI.Models.StudentsDTOs
 
         [Required]
         public string? password { get; set; }
+        [Required]
+        public string NroDoc { get; set; }
+
+        [Required]
+        [JsonConverter(typeof(JsonStringEnumConverter))]
+        public DocumentType TipoDoc { get; set; }
+
+        [Required]
+        public string Gender { get; set; }
+
+        [Required]
+        public string Cuil { get; set; }
 
         [JsonConverter(typeof(JsonStringEnumConverter))] //Hace string el enum
         public State State { get; set; } = State.Pending;

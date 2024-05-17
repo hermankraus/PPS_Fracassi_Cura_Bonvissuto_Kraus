@@ -1,5 +1,6 @@
 ﻿
-using WorkRepAPI.Data.Intefaces;
+using WorkRepAPI.Context;
+using WorkRepAPI.Data.Interfaces;
 using WorkRepAPI.Entities;
 
 namespace WorkRepAPI.Data.Implementations

@@ -1,6 +1,6 @@
 ﻿using WorkRepAPI.Entities;
 
-namespace WorkRepAPI.Data.Intefaces
+namespace WorkRepAPI.Data.Interfaces
 {
     public interface IRegisterRepository
     {
