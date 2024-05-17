@@ -102,12 +102,12 @@ const LoginStudent = () => {
                 color="white"
                 w={["full", "auto"]}
                 alignSelf="end"
-                borderRadius={2}
+                borderRadius={6}
               >
-                Inicia sesión
+                Iniciar sesión
               </Button>
               <Button
-                borderRadius={2}
+                borderRadius={6}
                 bg="#265171"
                 color="white"
                 w="auto"
