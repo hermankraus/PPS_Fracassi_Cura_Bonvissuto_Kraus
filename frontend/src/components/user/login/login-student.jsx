@@ -112,7 +112,7 @@ const LoginStudent = () => {
                 color="white"
                 w="auto"
                 alignSelf="center"
-                onClick={() => navigate("/register")}
+                onClick={() => navigate("/register-student")}
               >
                 Registrate
               </Button>

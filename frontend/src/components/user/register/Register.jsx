@@ -11,7 +11,7 @@
 //   Image,
 // } from "@chakra-ui/react";
 import "./Register.css";
-import RegisterStudent from "./register-student";
+import RegisterStudent from "./RegisterStudent";
 
 const register = () => {
   return (
