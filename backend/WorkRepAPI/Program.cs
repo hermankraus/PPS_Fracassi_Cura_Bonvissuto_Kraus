@@ -2,7 +2,6 @@ using WorkRepAPI.Context;
 using WorkRepAPI.Controllers;
 using WorkRepAPI.Data.Implementations;
 using WorkRepAPI.Data.Interfaces;
-using WorkRepAPI.Entities;
 using WorkRepAPI.Services.Implementations;
 using WorkRepAPI.Services.Interfaces;
 
