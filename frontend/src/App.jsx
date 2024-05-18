@@ -14,6 +14,7 @@ import Login from "./components/user/login/Login";
 import RegisterStudent from "./components/user/register/RegisterStudent";
 import { ThemeProvider } from "./components/context/themeContext/themeContext";
 import RegisterCompany from "./components/user/register/RegisterCompany";
+import AccountAuth from "./components/user/register/AccountAuth";
 
 function App() {
   const [previousPath, setPreviousPath] = useState("/");
@@ -30,6 +31,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/register-student" element={<RegisterStudent />} />
           <Route path="/register-company" element={<RegisterCompany />} />
+          <Route path="/account-auth" element={<AccountAuth />} />
           <Route path="/student" element={<StudentPage />} />
           <Route path="/company" element={<CompanyPage />} />
           <Route path="/admin" element={<AdminPage />} />
