@@ -63,6 +63,8 @@ builder.Services.AddScoped<IAuthService, AuthenticationService>();
 builder.Services.AddScoped<IAuthenticationRepository, AuthenticationRepository>();
 builder.Services.AddScoped<IRegisterService, RegisterService>();
 builder.Services.AddScoped<IRegisterRepository, RegisterRepository>();
+builder.Services.AddScoped<IStudentRepository, StudentRepository>();
+builder.Services.AddScoped<IStudentService, StudentService>();
 
 // Configurar JWT
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
