@@ -26,9 +26,9 @@ namespace WorkRepAPI.Services.Implementations
                 Password = student.password,
                 Cuil = student.Cuil,
                 Gender = student.Gender,
-                DocumentType = student.TipoDoc,
-                DocumentNumber = student.NroDoc,
-
+                DocumentType = student.DocumentType,
+                DocumentNumber = student.DocumentNumber,
+                State = student.State,
             };
 
             bool newStudent = _registerRepository.CreateStudent(studentData);

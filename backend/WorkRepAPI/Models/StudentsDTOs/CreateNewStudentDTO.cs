@@ -19,11 +19,11 @@ namespace WorkRepAPI.Models.StudentsDTOs
         [Required]
         public string? password { get; set; }
         [Required]
-        public string NroDoc { get; set; }
+        public string DocumentNumber { get; set; }
 
         [Required]
         [JsonConverter(typeof(JsonStringEnumConverter))]
-        public DocumentType TipoDoc { get; set; }
+        public DocumentType DocumentType { get; set; }
 
         [Required]
         public string Gender { get; set; }

@@ -268,3 +268,11 @@ C:\Users\Usuario\OneDrive\Escritorio\PPS_Fracassi_Cura_Bonvissuto_Kraus\backend\
 C:\Users\Usuario\OneDrive\Escritorio\PPS_Fracassi_Cura_Bonvissuto_Kraus\backend\WorkRepAPI\obj\Debug\net6.0\WorkRepAPI.pdb
 C:\Users\Usuario\OneDrive\Escritorio\PPS_Fracassi_Cura_Bonvissuto_Kraus\backend\WorkRepAPI\obj\Debug\net6.0\WorkRepAPI.genruntimeconfig.cache
 C:\Users\Usuario\OneDrive\Escritorio\PPS_Fracassi_Cura_Bonvissuto_Kraus\backend\WorkRepAPI\obj\Debug\net6.0\ref\WorkRepAPI.dll
+C:\Users\Usuario\Documents\PPS_Fracassi_Cura_Bonvissuto_Kraus\backend\WorkRepAPI\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\Usuario\Documents\PPS_Fracassi_Cura_Bonvissuto_Kraus\backend\WorkRepAPI\bin\Debug\net6.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\Usuario\Documents\PPS_Fracassi_Cura_Bonvissuto_Kraus\backend\WorkRepAPI\bin\Debug\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\Usuario\Documents\PPS_Fracassi_Cura_Bonvissuto_Kraus\backend\WorkRepAPI\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\Usuario\Documents\PPS_Fracassi_Cura_Bonvissuto_Kraus\backend\WorkRepAPI\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\Usuario\Documents\PPS_Fracassi_Cura_Bonvissuto_Kraus\backend\WorkRepAPI\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\Usuario\Documents\PPS_Fracassi_Cura_Bonvissuto_Kraus\backend\WorkRepAPI\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\Usuario\Documents\PPS_Fracassi_Cura_Bonvissuto_Kraus\backend\WorkRepAPI\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
