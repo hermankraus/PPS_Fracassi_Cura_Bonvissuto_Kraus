@@ -7,5 +7,6 @@ namespace WorkRepAPI.Services.Interfaces
         object Authenticate(string identifier, string password);
         Student ValidateStudent(int legajo, string password);
         Company ValidateCompany(string email, string password);
+        Administrator ValidateAdmin(int legajo, string password);
     }
 }

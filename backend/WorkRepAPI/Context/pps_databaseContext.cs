@@ -17,13 +17,30 @@ namespace WorkRepAPI.Context
         {
         }
 
+        public virtual DbSet<Administrator> Administrators { get; set; } = null!;
         public virtual DbSet<Company> Companies { get; set; } = null!;
         public virtual DbSet<Student> Students { get; set; } = null!;
 
-        public virtual DbSet<Admin> Administrators { get; set; } = null!;
- 
+     
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Administrator>(entity =>
+            {
+                entity.HasKey(e => e.Legajo)
+                    .HasName("PRIMARY");
+
+                entity.ToTable("administrators");
+
+                entity.Property(e => e.Email)
+                    .HasMaxLength(130)
+                    .HasColumnName("email");
+
+                entity.Property(e => e.Password)
+                    .HasMaxLength(45)
+                    .HasColumnName("password");
+            });
+
             modelBuilder.Entity<Company>(entity =>
             {
                 entity.HasKey(e => e.Cuit)

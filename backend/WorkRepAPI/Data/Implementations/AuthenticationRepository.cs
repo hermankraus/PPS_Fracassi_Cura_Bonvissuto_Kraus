@@ -18,5 +18,9 @@ namespace WorkRepAPI.Data.Implementations
             return _context.Companies.FirstOrDefault(u => u.ContactEmail == email && u.Password == password);
 
         }
+        public Administrator? ValidateAdmin(int legajo, string password)
+        {
+            return _context.Administrators.FirstOrDefault(a => a.Legajo == legajo &&  a.Password == password);
+        }
     }
 }

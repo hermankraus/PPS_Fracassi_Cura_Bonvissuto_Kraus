@@ -6,5 +6,6 @@ namespace WorkRepAPI.Data.Interfaces
     {
         Student? ValidateStudent(int legajo, string password);
         Company? ValidateCompany(string email, string password);
+        Administrator? ValidateAdmin(int legajo, string password);
     }
 }

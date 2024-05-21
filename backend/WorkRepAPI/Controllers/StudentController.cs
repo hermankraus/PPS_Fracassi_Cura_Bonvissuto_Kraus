@@ -7,7 +7,7 @@ namespace WorkRepAPI.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    
+    [Authorize]
     public class StudentController : Controller
     {
         private readonly IStudentService _studentService;
@@ -19,6 +19,7 @@ namespace WorkRepAPI.Controllers
 
 
         [HttpPut("UpdStudentState")]
+        [Authorize(Roles = "Admin")]
         public ActionResult SetStudentState(setStudentStateDTO student)
         {
             try

@@ -17,16 +17,28 @@ namespace WorkRepAPI.Services.Implementations
         {
             if (string.IsNullOrEmpty(identifier) || string.IsNullOrEmpty(password))
                 return null;
-
             if (int.TryParse(identifier, out int legajo))
             {
-                return ValidateStudent(legajo, password);
+                var student = ValidateStudent(legajo, password);
+                if (student != null)
+                {
+                    return student;
+                }
+                var admin = ValidateAdmin(legajo, password);
+                if (admin != null)
+                {
+                    return admin;
+                }
+
+                return null;
             }
             else
             {
                 return ValidateCompany(identifier, password);
             }
         }
+
+
 
         public Student ValidateStudent(int legajo, string password)
         {
@@ -42,6 +54,13 @@ namespace WorkRepAPI.Services.Implementations
                 return null;
 
             return _authenticationRepository.ValidateCompany(email, password);
+        }
+
+        public Administrator ValidateAdmin(int legajo, string password)
+        {
+            if (legajo < 0 || string.IsNullOrEmpty(password))
+                return null;
+            return _authenticationRepository.ValidateAdmin(legajo, password);
         }
     }
 }

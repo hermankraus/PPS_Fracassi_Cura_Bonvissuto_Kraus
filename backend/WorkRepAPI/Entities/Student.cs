@@ -38,6 +38,6 @@ namespace WorkRepAPI.Entities
         public string? LinkedUrl { get; set; }
         public string Email { get; set; } = null!;
         public string Password { get; set; } = null!;
-        public State? State { get; set; }
+        public State State { get; set; }
     }
 }

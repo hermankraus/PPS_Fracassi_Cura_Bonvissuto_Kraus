@@ -57,6 +57,13 @@ namespace WorkRepAPI.Controllers
                 claims.Add(new Claim("email", company.ContactEmail));
                 claims.Add(new Claim(ClaimTypes.Role, "Company"));
             }
+            else if (user is Administrator admin)
+            {
+                
+                claims.Add(new Claim("legajo", admin.Legajo.ToString()));
+                claims.Add(new Claim(ClaimTypes.Role, "Admin"));
+
+            }
 
             var token = new JwtSecurityToken(
               issuer: _configuration["Authentication:Issuer"],
