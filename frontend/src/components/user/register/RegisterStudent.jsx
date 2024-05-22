@@ -17,10 +17,42 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import "./Register.css";
 import images from "../../../assets/constants/images";
+import registerNewStudent from "../../../Axios/registerNewStudent";
+
 
 const RegisterStudent = () => {
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
+  // const { showToast, renderToast } = useToast();
+
+  const loginHandler = async (values) => {
+    const newUser = {
+      Legajo: values.studentFileNumber,
+      Name: values.studentName,
+      Lastname: values.studentSurname,
+      email: values.studentEmail,
+      password: values.studentPassword,
+      DocumentNumber: values.studentDNI,
+      DocumentType: values.studentDocumentType,
+      Gender: values.studentGender,
+      Cuil: values.studentCuil,
+      State: "Pending",
+    };
+    setIsLoading(true);
+
+    try {
+      const response = await registerNewStudent(newUser);
+       navigate("/AccountAuth")
+      
+      console.log(response);
+      console.log("Register successful: ", response.data);
+    } catch (error) {
+      console.log("esto devuelve", error);
+      // showToast('Error', error.message, 'error');
+    }
+
+    setIsLoading(false);
+  };
 
   const validationSchema = Yup.object({
     studentName: Yup.string()
@@ -106,13 +138,7 @@ const RegisterStudent = () => {
               studentPasswordCheck: "",
             }}
             validationSchema={validationSchema}
-            onSubmit={() => {
-              setIsLoading(true);
-              setTimeout(() => {
-                navigate("/account-auth");
-                setIsLoading(false);
-              }, 10000);
-            }}
+            onSubmit={loginHandler}
           >
             <Form>
               <Container className="register-label-one">
