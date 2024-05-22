@@ -7,7 +7,7 @@ namespace WorkRepAPI.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    [Authorize]
+    
     public class RegisterController : Controller
     {
         private readonly IRegisterService _registerService;
@@ -18,15 +18,15 @@ namespace WorkRepAPI.Controllers
         }
 
         [HttpPost("RegisterStudent")]
-        [AllowAnonymous]
-        public ActionResult<bool>CreateStudent(CreateNewStudentDTO student)
-        {
-            bool  newStudent =  _registerService.CreateStudent(student);
         
-            if (newStudent == true) {
+        public ActionResult CreateStudent(CreateNewStudentDTO student)
+        {
+            bool  newStudent =   _registerService.CreateStudent(student);
+        
+            if (newStudent) {
                 return Ok("Usuario Registrado" );
             }
-            return BadRequest();
+            return BadRequest("Error al ingresar el user");
         }
     }
 }
