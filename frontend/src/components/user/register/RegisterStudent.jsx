@@ -17,14 +17,14 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import "./Register.css";
 import images from "../../../assets/constants/images";
-//import Registerendpoint from "../../../Axios/Registerendpoint";
-import axios from "axios";
+import registerNewStudent from "../../../Axios/registerNewStudent";
+
 
 const RegisterStudent = () => {
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
- // const { showToast, renderToast } = useToast();
-  
+  // const { showToast, renderToast } = useToast();
+
   const loginHandler = async (values) => {
     const newUser = {
       Legajo: values.studentFileNumber,
@@ -33,36 +33,26 @@ const RegisterStudent = () => {
       email: values.studentEmail,
       password: values.studentPassword,
       DocumentNumber: values.studentDNI,
-      DocumentType: values.studentDocumentType, // Asegúrate de que este valor sea del tipo correcto (enum)
+      DocumentType: values.studentDocumentType,
       Gender: values.studentGender,
       Cuil: values.studentCuil,
-      State: values.studentState || "Pending"
-            
-            
-            
-          //  studentAddress: values.studentAddress,
-          //  studentPhone: values.studentPhone,
-          //  studentBirth: values.studentBirth,
-    }
+      State: "Pending",
+    };
+    setIsLoading(true);
 
     try {
-        
-        const response = await axios.post('https://localhost:44307/api/Register/RegisterStudent', newUser, {
-          headers: {
-              'Content-Type': 'application/json',
-          }})
-        console.log(response)
-        console.log("Register successful: ", response.data);
-        
-       // showToast('Success', 'Login successful', 'success');
+      const response = await registerNewStudent(newUser);
+       navigate("/AccountAuth")
+      
+      console.log(response);
+      console.log("Register successful: ", response.data);
     } catch (error) {
-      console.log("esto devuelve" ,error)
-       // showToast('Error', error.message, 'error');
-        
+      console.log("esto devuelve", error);
+      // showToast('Error', error.message, 'error');
     }
-    
+
     setIsLoading(false);
-};
+  };
 
   const validationSchema = Yup.object({
     studentName: Yup.string()
@@ -110,7 +100,6 @@ const RegisterStudent = () => {
       .required("Repetir la contraseña es requerido"),
   });
 
-
   return (
     <Container>
       <Box>
@@ -149,13 +138,7 @@ const RegisterStudent = () => {
               studentPasswordCheck: "",
             }}
             validationSchema={validationSchema}
-            onSubmit={() => {
-              setIsLoading(true);
-              setTimeout(() => {
-                navigate("/account-auth");
-                setIsLoading(false);
-              }, 10000);
-            }}
+            onSubmit={loginHandler}
           >
             <Form>
               <Container className="register-label-one">
@@ -308,7 +291,6 @@ const RegisterStudent = () => {
               <Box display="flex" justifyContent="center" mt="1rem">
                 {isLoading && <Spinner size="md" color="teal" />}
                 <Button
-                  onClick={loginHandler}
                   type="submit"
                   colorScheme="teal"
                   isLoading={isLoading}
