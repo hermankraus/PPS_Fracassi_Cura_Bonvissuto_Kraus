@@ -6,6 +6,7 @@ using System.Text;
 using WorkRepAPI.Services.Interfaces;
 using WorkRepAPI.Entities;
 using WorkRepAPI.Models;
+using WorkRepAPI.Models.LoginDTO;
 
 namespace WorkRepAPI.Controllers
 {
@@ -22,23 +23,29 @@ namespace WorkRepAPI.Controllers
             _authenticationService = authenticationService;
         }
 
-        [HttpPost("Login")]
-        public IActionResult Login([FromBody] LoginModel model)
+        [HttpPost("login")]
+        public IActionResult Login([FromBody] LoginDTO loginDto)
         {
-            if (model == null || string.IsNullOrEmpty(model.Identifier) || string.IsNullOrEmpty(model.Password))
+            if (loginDto == null || string.IsNullOrEmpty(loginDto.Legajo) || string.IsNullOrEmpty(loginDto.Password))
             {
                 return BadRequest("Invalid credentials.");
             }
 
-            var user = _authenticationService.Authenticate(model.Identifier, model.Password);
+            var user = _authenticationService.Authenticate(loginDto.Legajo, loginDto.Password);
             if (user == null)
             {
                 return Unauthorized("Invalid credentials.");
             }
 
+            
             var token = GenerateJwtToken(user);
 
-            return Ok(new { token });
+
+            return Ok(new { 
+                Token = token, 
+                Role = user.GetType().Name,
+                State = user is Student student ? student.State.ToString() : null
+            });
         }
 
         private string GenerateJwtToken(object user)
@@ -51,6 +58,7 @@ namespace WorkRepAPI.Controllers
             {
                 claims.Add(new Claim("legajo", student.Legajo.ToString()));
                 claims.Add(new Claim(ClaimTypes.Role, "Student"));
+                claims.Add(new Claim("State", student.State.ToString()));
             }
             else if (user is Company company)
             {

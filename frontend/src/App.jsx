@@ -9,6 +9,7 @@ import { HomePage } from "./pages/home-page/homePage";
 import { StudentPage } from "./pages/student-page/studentPage";
 import { CompanyPage } from "./pages/company-page/companyPage";
 import { AdminPage } from "./pages/admin-page/adminPage";
+import AccountAuth from "./components/user/register/AccountAuth";
 import FooterPage from "./components/footer/footer";
 import Login from "./components/user/login/Login";
 import Register from "./components/user/register/Register";
@@ -35,6 +36,7 @@ function App() {
             <Route path="/student" element={<StudentPage />} />
             <Route path="/company" element={<CompanyPage />} />
             <Route path="/admin" element={<AdminPage />} />
+            <Route path="/AccountAuth" element={<AccountAuth/>} />
             <Route path="/login" element={<Navigate to={previousPath} />} />
           </Routes>
           <FooterPage />

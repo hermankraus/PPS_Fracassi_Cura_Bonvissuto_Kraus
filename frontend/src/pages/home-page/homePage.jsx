@@ -1,8 +1,7 @@
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { HStack, Button, Image, VStack, Box, Text } from "@chakra-ui/react";
 import { ThemeContext } from "../../components/context/themeContext/themeContext";
-import { gettest } from "../../Axios/test-service";
 import images from "../../assets/constants/images";
 import "./homePage.css";
 import ThemeButton from "../../components/context/themeButton/themeButton";
@@ -18,18 +17,6 @@ export const HomePage = () => {
     navigate("/login");
   };
 
-  useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        const response = await gettest();
-        console.log(response);
-      } catch (error) {
-        console.error("Error fetching products:", error);
-      }
-    };
-
-    fetchProducts();
-  }, []);
 
   return (
     <div className={isDarkMode ? "dark-mode" : "light-mode"}>
