@@ -110,10 +110,12 @@ const LoginCompany = () => {
                 borderRadius={6}
                 bg="#265171"
                 color="white"
+
                 onClick={() => navigate("/register")}
                 mr="1rem"
                 mb="1rem"
                 cursor="pointer"
+
               >
                 Registrate
               </Button>

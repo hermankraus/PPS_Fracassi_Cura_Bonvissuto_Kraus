@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
+using WorkRepAPI.Entities;
 
-namespace WorkRepAPI.Entities
+namespace WorkRepAPI.Context
 {
     public partial class pps_databaseContext : DbContext
     {
@@ -16,20 +17,30 @@ namespace WorkRepAPI.Entities
         {
         }
 
+        public virtual DbSet<Administrator> Administrators { get; set; } = null!;
         public virtual DbSet<Company> Companies { get; set; } = null!;
         public virtual DbSet<Student> Students { get; set; } = null!;
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            if (!optionsBuilder.IsConfigured)
-            {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseMySQL("server=localhost;port=3306;database=pps_database;user=root;password=azul;");
-            }
-        }
+     
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Administrator>(entity =>
+            {
+                entity.HasKey(e => e.Legajo)
+                    .HasName("PRIMARY");
+
+                entity.ToTable("administrators");
+
+                entity.Property(e => e.Email)
+                    .HasMaxLength(130)
+                    .HasColumnName("email");
+
+                entity.Property(e => e.Password)
+                    .HasMaxLength(45)
+                    .HasColumnName("password");
+            });
+
             modelBuilder.Entity<Company>(entity =>
             {
                 entity.HasKey(e => e.Cuit)
@@ -52,6 +63,8 @@ namespace WorkRepAPI.Entities
                 entity.Property(e => e.ContactPhone).HasMaxLength(45);
 
                 entity.Property(e => e.Password).HasMaxLength(45);
+
+                entity.Property(e => e.State).HasColumnType("enum('Pending','Accepted','Rejected')");
 
                 entity.Property(e => e.Type).HasMaxLength(45);
 
@@ -87,7 +100,7 @@ namespace WorkRepAPI.Entities
 
                 entity.Property(e => e.DocumentNumber).HasMaxLength(45);
 
-                entity.Property(e => e.DocumentType).HasMaxLength(45);
+                entity.Property(e => e.DocumentType).HasColumnType("enum('DNI','LC','LE','PS')");
 
                 entity.Property(e => e.Email).HasMaxLength(45);
 
@@ -112,6 +125,8 @@ namespace WorkRepAPI.Entities
                 entity.Property(e => e.Province).HasMaxLength(45);
 
                 entity.Property(e => e.SecondaryTitle).HasMaxLength(45);
+
+                entity.Property(e => e.State).HasColumnType("enum('Pending','Accepted','Rejected')");
 
                 entity.Property(e => e.Turn).HasMaxLength(45);
             });
