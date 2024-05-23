@@ -1,5 +1,6 @@
 ﻿using WorkRepAPI.Context;
 using WorkRepAPI.Data.Interfaces;
+using WorkRepAPI.Entities;
 using WorkRepAPI.Models.StudentsDTOs;
 
 namespace WorkRepAPI.Data.Implementations
@@ -18,5 +19,10 @@ namespace WorkRepAPI.Data.Implementations
             }
             _context.SaveChanges();
         }
+        public IQueryable<Student> GetStudents()
+        {
+            return _context.Students;
+        }
+     
     }
 }
