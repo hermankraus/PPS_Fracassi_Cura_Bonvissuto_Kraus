@@ -8,14 +8,16 @@ import {
   Text,
   VStack,
   HStack,
-  Heading,
 } from "@chakra-ui/react";
 import users from "../../../../base.json";
 import { useNavigate } from "react-router-dom";
 import "./login-company.css";
+import { ThemeContext } from "../../context/themeContext/themeContext";
+import { useContext } from "react";
 
 const LoginCompany = () => {
   const navigate = useNavigate();
+  const { isDarkMode } = useContext(ThemeContext);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -53,19 +55,20 @@ const LoginCompany = () => {
   return (
     <Container className="login-container-company">
       <Box className="login-container-card-company ">
-        <VStack spacing={4} align="flex-start" w="full">
+        <VStack spacing={4} align="flex-start">
           <form onSubmit={handleSubmit}>
             <VStack
               spacing={1}
               align="flex-start"
-              w="full"
-              mb={3}
+              minW="19rem"
+              minH="2rem"
               justifyContent="center"
               alignItems="center"
+              className={isDarkMode ? "dark-ls" : "light-ls"}
             >
-              <Heading>Sos empresa?</Heading>
-              <Heading>Iniciar sesión</Heading>
-              <Text>Ingresar con email y contraseña</Text>
+              <Text mb="1rem" fontSize={20}>
+                Iniciar sesión con email y contraseña
+              </Text>
               <FormControl>
                 <FormLabel>Email</FormLabel>
                 <Input className="custom-input" variant="filled" name="email" />
@@ -73,6 +76,7 @@ const LoginCompany = () => {
               <FormControl>
                 <FormLabel>Contraseña</FormLabel>
                 <Input
+                  mb="1rem"
                   className="custom-input"
                   variant="filled"
                   type="password"
@@ -84,25 +88,34 @@ const LoginCompany = () => {
               className="button-container"
               justify="space-between"
               w="full"
-              mt={10}
             >
               <Button
                 type="submit"
                 bg="#265171"
                 color="white"
-                w={["full", "auto"]}
-                alignSelf="end"
+                minW="8rem"
+                minH="2rem"
                 borderRadius={6}
+                fontSize={16}
+                ml="1rem"
+                mb="1rem"
+                cursor="pointer"
               >
-                Inicia sesión
+                Iniciar sesión
               </Button>
               <Button
+                fontSize={16}
+                minW="8rem"
+                minH="2rem"
                 borderRadius={6}
                 bg="#265171"
                 color="white"
-                w="auto"
-                alignSelf="center"
-                onClick={() => navigate("/register-company")}
+
+                onClick={() => navigate("/register")}
+                mr="1rem"
+                mb="1rem"
+                cursor="pointer"
+
               >
                 Registrate
               </Button>

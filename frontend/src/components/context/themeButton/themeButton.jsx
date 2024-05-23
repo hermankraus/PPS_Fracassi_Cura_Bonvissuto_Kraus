@@ -19,8 +19,11 @@ const ThemeButton = () => {
         variant="outline-dark"
         className="button-context"
         onClick={handleThemeToggle}
+        w={30}
+        h={30}
+        borderRadius="2rem"
+        cursor="pointer"
       >
-        {isDarkMode ? "Modo claro" : "Modo oscuro "}{" "}
         <FontAwesomeIcon icon={isDarkMode ? faSun : faMoon} />
       </Button>
     </div>

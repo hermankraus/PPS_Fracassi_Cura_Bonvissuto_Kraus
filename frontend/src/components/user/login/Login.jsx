@@ -1,63 +1,81 @@
+import { useState, useContext } from "react";
 import LoginCompany from "./login-company";
 import LoginStudent from "./login-student";
-import { Flex, Box, Image, VStack, HStack } from "@chakra-ui/react";
+import { Flex, Box, Image, HStack, Switch, Heading } from "@chakra-ui/react";
 import { ThemeContext } from "../../context/themeContext/themeContext";
-import { useContext } from "react";
 import images from "../../../assets/constants/images";
 import { useNavigate } from "react-router-dom";
+import ThemeButton from "../../context/themeButton/themeButton";
+import "./Login.css";
 
 export default function Login() {
-  const { isDarkMode } = useContext(ThemeContext);
   const navigate = useNavigate();
+  const { isDarkMode } = useContext(ThemeContext);
+  const [isCompany, setIsCompany] = useState(false);
+
+  const handleSwitch = () => {
+    setIsCompany(!isCompany);
+  };
+
   return (
     <>
-      <VStack>
-        <Image
-          src={images.logo}
-          alt="Logo"
-          w="14rem"
-          h="8.5rem"
-          onClick={() => navigate("/")}
-          cursor="pointer"
-        />
-      </VStack>
-      <Flex p="1rem" position="relative" mb="4rem">
+      <Flex position="relative" justifyContent="center">
         <Image
           src={images.bgImgLogin}
           position="absolute"
           width="100%"
           height="100%"
           zIndex="-1"
-          style={{ objectFit: "cover" }}
-          borderRadius="2rem"
-          opacity="0.8"
+          objectFit="cover"
+          borderBottomRadius="3rem"
         />
         <Box
-          minHeight="100vh"
+          minHeight="40vh"
           opacity="1"
           position="relative"
           zIndex="1"
-          backgroundColor="transparent"
+          justifyContent="center"
+          alignItems="center"
         >
-          <HStack mt="4.5rem">
-            <Box
-              className={isDarkMode ? "dark-mode" : "light-mode"}
-              borderRadius="1rem"
-              border="3px solid #71aef0"
+          <HStack p={4} justifyContent="center">
+            <Image
+              src={images.logo}
+              alt="Logo"
+              minW="20rem"
+              maxW="20rem"
+              onClick={() => navigate("/")}
+              cursor="pointer"
+              filter="drop-shadow(1px 1px 0px rgb(255, 255, 255))"
               mr="2rem"
-              zIndex="1"
-            >
-              <LoginStudent />
-            </Box>
+            />
             <Box
-              className={isDarkMode ? "dark-mode" : "light-mode"}
+              className={isDarkMode ? "dark-login" : "light-login"}
               borderRadius="1rem"
               border="3px solid #71aef0"
               zIndex="1"
+              p="2rem"
+              w="30rem"
             >
-              <LoginCompany />
+              <Flex justifyContent="center" alignItems="center" mt="1rem">
+                <Heading mr="1rem" h="3rem" className="switch">
+                  {isCompany ? "Estudiante" : "Estudiante"}
+                </Heading>
+                <Switch
+                  isChecked={isCompany}
+                  onChange={handleSwitch}
+                  size="lg"
+                  colorScheme="blue"
+                />
+                <Heading className="switch" ml={4} h="3rem">
+                  Empresa
+                </Heading>
+              </Flex>
+              {isCompany ? <LoginCompany /> : <LoginStudent />}
             </Box>
           </HStack>
+          <Box position="relate" mb={2} mr="20rem">
+            <ThemeButton />
+          </Box>
         </Box>
       </Flex>
     </>

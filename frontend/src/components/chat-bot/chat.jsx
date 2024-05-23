@@ -2,14 +2,13 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import ChatBot from "react-simple-chatbot";
 import { ThemeProvider } from "styled-components";
-import "./chat.css";
 
 const Chat = () => {
   const style = {
     background: "#f5f8fb",
     fontFamily: "Helvetica Neue",
     headerBgColor: "EF6C00",
-    headerFontColor: "rgba(38, 81, 113)",
+    headerFontColor: "blue",
     headerFontSize: "12px",
     botBubbleColor: "rgba(38, 81, 113)",
     botFontColor: "#fff",
@@ -152,12 +151,8 @@ const Chat = () => {
             handleEnd={handlerChat}
             steps={steps}
             floating={true}
-            userAvatar={
-              "https://cdn-icons-png.flaticon.com/512/6596/6596121.png"
-            }
-            botAvatar={
-              "https://cdn0.iconfinder.com/data/icons/artificial-intelligence-and-machine-learning-glyph/48/AI-Icon-17-512.png"
-            }
+            userAvatar="https://cdn-icons-png.flaticon.com/512/6596/6596121.png"
+            botAvatar="https://cdn0.iconfinder.com/data/icons/artificial-intelligence-and-machine-learning-glyph/48/AI-Icon-17-512.png"
           />
         )}
       </div>

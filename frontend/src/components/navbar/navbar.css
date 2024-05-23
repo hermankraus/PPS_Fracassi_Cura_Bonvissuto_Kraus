@@ -5,7 +5,19 @@
   position: fixed;
   width: 100%;
   background-color: rgb(255, 255, 255);
-  border-radius: 2px;
+  border: 20px;
+  box-shadow: 1px 1px 1px 1px rgb(121, 109, 233);
+  z-index: 1000;
+}
+
+/* .navbar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  width: 100%;
+  background-color: rgb(255, 255, 255);
+  border: 20px;
   box-shadow: 4px 2px 2px 1px rgb(121, 109, 233);
   z-index: 1000;
 }
@@ -53,4 +65,4 @@
     background: rgb(121, 109, 233);
     z-index: 140;
   }
-}
+} */
