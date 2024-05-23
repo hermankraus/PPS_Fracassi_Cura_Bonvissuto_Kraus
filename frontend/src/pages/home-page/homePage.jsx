@@ -1,22 +1,21 @@
-import images from "../../assets/constants/images";
-import { HStack, Image, Button, VStack, Container } from "@chakra-ui/react";
-import "./homePage.css";
-import { useNavigate } from "react-router-dom";
-import { ThemeContext } from "../../components/context/themeContext/themeContext";
 import { useContext, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { HStack, Button, Image, VStack, Box, Text } from "@chakra-ui/react";
+import { ThemeContext } from "../../components/context/themeContext/themeContext";
 import { gettest } from "../../Axios/test-service";
+import images from "../../assets/constants/images";
+import "./homePage.css";
+import ThemeButton from "../../components/context/themeButton/themeButton";
 
 export const HomePage = () => {
-  /*ACA RECIBIMOS A TODOS LOS USUARIOS -> hay que agregar el boton de log ig que viaje al form de azu y un boton de registrarse*/
   const { isDarkMode } = useContext(ThemeContext);
   const navigate = useNavigate();
 
-  const handlerLogin = () => {
-    navigate("/login");
-  };
-
   const handlerRegister = () => {
     navigate("/register");
+  };
+  const handlerLogin = () => {
+    navigate("/login");
   };
 
   useEffect(() => {
@@ -31,32 +30,92 @@ export const HomePage = () => {
 
     fetchProducts();
   }, []);
+
   return (
     <div className={isDarkMode ? "dark-mode" : "light-mode"}>
-      <Container className="home-page">
-        <Image src={images.logo} alt="Logo" w="14rem" h="4.5rem" p={0} mt={0} />
-        <Button onClick={handlerLogin} className="home-page-button">
-          Iniciar sesión
-        </Button>
-      </Container>
+      <Box
+        overflow-y="hidden"
+        p={50}
+        justifyContent="center"
+        alignItems="center"
+      >
+        <HStack alignItems="center">
+          <Box p={10}>
+            <Image
+              src={images.logo}
+              alt="Logo"
+              minW="20rem"
+              maxW="20rem"
+              ml="14rem"
+              className="img-logo"
+            />
+          </Box>
+          <VStack
+            className="text-content"
+            maxW={500}
+            position="relative"
+            zIndex="50"
+            overflow="hidden"
+            minHeight="400px"
+            height="auto"
+          >
+            <Image
+              className="img-home"
+              src={images.bgImgLogin}
+              alt="home-img"
+              position="absolute"
+              top="0"
+              left="0"
+              objectFit="cover"
+              zIndex="1"
+              minH="30rem"
+            />
+            <Box
+              position="relative"
+              zIndex="2"
+              color="white"
+              textAlign="center"
+              p={10}
+              w="24rem"
+              mt="1rem"
+              alignContent="center"
+              justifyContent="center"
+              sx={{
+                textShadow: "2px 2px 0 black", // Sombra sólida
+              }}
+            >
+              <Text fontSize={30} mb={10}>
+                Bienvenido!
+              </Text>
+              <Text as="h4" mb={10}>
+                Para poder facilitar el vínculo entre estudiantes universitarios
+                y el sector empresarial se creó el Sistema Virtual de búsqueda
+                de empleo para insertarse en el mundo laboral IT.
+              </Text>
+              <Text as="h4">
+                Si no estás registrado, puedes{" "}
+                <a onClick={handlerRegister}>registrarte aquí.</a>
+              </Text>
 
-      <Container>
-        <HStack>
-          <img className="img" src={images.HomeImg3} alt="home-img" />
-          <VStack className="home-page-body ">
-            <h1>Bienvenido!</h1>
-            <h4>
-              Para poder facilitar el vinculo entre estudiantes universitarios y
-              el sector empresarial se creó el Sistema Virtual de búsqueda de
-              empleo para insertarse en el mundo laboral IT.
-            </h4>
-            <h4>
-              Si no estás registrado, puedes{" "}
-              <a onClick={handlerRegister}>registrarte aquí</a>
-            </h4>
+              <Button
+                mt={30}
+                onClick={handlerLogin}
+                w={140}
+                h={10}
+                borderRadius={50}
+                cursor="pointer"
+                bg="white"
+                color="#265171"
+              >
+                Iniciar sesión
+              </Button>
+            </Box>
           </VStack>
         </HStack>
-      </Container>
+        <Box mr="50rem">
+          <ThemeButton />
+        </Box>
+      </Box>
     </div>
   );
 };
