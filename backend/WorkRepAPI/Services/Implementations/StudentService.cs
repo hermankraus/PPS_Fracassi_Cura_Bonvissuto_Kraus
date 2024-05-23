@@ -1,4 +1,5 @@
 ﻿using WorkRepAPI.Data.Interfaces;
+using WorkRepAPI.Entities;
 using WorkRepAPI.Models.StudentsDTOs;
 using WorkRepAPI.Services.Interfaces;
 
@@ -16,5 +17,24 @@ namespace WorkRepAPI.Services.Implementations
         {
             _studentRepository.SetStudentState(student);   
         }
+
+        public IEnumerable<getStudentsDTO> GetStudents()
+        {
+            var students = _studentRepository.GetStudents();
+            var studentDto = students.Select(s => new getStudentsDTO
+            {
+                Legajo = s.Legajo,
+                Name = s.Name,
+                Lastname = s.LastName,
+                email = s.Email,
+                State = s.State,
+            }).ToList();
+
+            return studentDto;
+        }
+           
+
+
+            
     }
 }

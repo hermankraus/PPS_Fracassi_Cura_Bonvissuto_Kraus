@@ -33,5 +33,13 @@ namespace WorkRepAPI.Controllers
                 return BadRequest("Error al actualizar");
             }
         }
+
+        [HttpGet("GetStudents")]
+        [Authorize(Roles = "Admin")]
+        public ActionResult<IEnumerable<getStudentsDTO>> GetStudents()
+        {
+            var studentDtos = _studentService.GetStudents();
+            return Ok(studentDtos);
+        }
     }
 }
