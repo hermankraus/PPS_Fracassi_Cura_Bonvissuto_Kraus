@@ -7,10 +7,11 @@ namespace WorkRepAPI.Services.Implementations
     public class AuthenticationService : IAuthService
     {
         private readonly IAuthenticationRepository _authenticationRepository;
-
-        public AuthenticationService(IAuthenticationRepository authenticationRepository)
+        private readonly IPasswordHasher _passwordHasher;
+        public AuthenticationService(IAuthenticationRepository authenticationRepository, IPasswordHasher passwordHasher)
         {
             _authenticationRepository = authenticationRepository;
+            _passwordHasher = passwordHasher;
         }
 
         public object Authenticate(string identifier, string password)
@@ -42,9 +43,11 @@ namespace WorkRepAPI.Services.Implementations
 
         public Student ValidateStudent(int legajo, string password)
         {
+             
+
             if (legajo <= 0 || string.IsNullOrEmpty(password))
                 return null;
-
+            
             return _authenticationRepository.ValidateStudent(legajo, password);
         }
 

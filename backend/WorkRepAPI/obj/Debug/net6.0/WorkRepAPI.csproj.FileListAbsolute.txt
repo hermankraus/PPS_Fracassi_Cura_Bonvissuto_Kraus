@@ -262,7 +262,6 @@ C:\Users\Usuario\OneDrive\Escritorio\PPS_Fracassi_Cura_Bonvissuto_Kraus\backend\
 C:\Users\Usuario\OneDrive\Escritorio\PPS_Fracassi_Cura_Bonvissuto_Kraus\backend\WorkRepAPI\obj\Debug\net6.0\staticwebassets.build.json
 C:\Users\Usuario\OneDrive\Escritorio\PPS_Fracassi_Cura_Bonvissuto_Kraus\backend\WorkRepAPI\obj\Debug\net6.0\staticwebassets.development.json
 C:\Users\Usuario\OneDrive\Escritorio\PPS_Fracassi_Cura_Bonvissuto_Kraus\backend\WorkRepAPI\obj\Debug\net6.0\scopedcss\bundle\WorkRepAPI.styles.css
-C:\Users\Usuario\OneDrive\Escritorio\PPS_Fracassi_Cura_Bonvissuto_Kraus\backend\WorkRepAPI\obj\Debug\net6.0\WorkRepAPI.csproj.CopyComplete
 C:\Users\Usuario\OneDrive\Escritorio\PPS_Fracassi_Cura_Bonvissuto_Kraus\backend\WorkRepAPI\obj\Debug\net6.0\WorkRepAPI.dll
 C:\Users\Usuario\OneDrive\Escritorio\PPS_Fracassi_Cura_Bonvissuto_Kraus\backend\WorkRepAPI\obj\Debug\net6.0\refint\WorkRepAPI.dll
 C:\Users\Usuario\OneDrive\Escritorio\PPS_Fracassi_Cura_Bonvissuto_Kraus\backend\WorkRepAPI\obj\Debug\net6.0\WorkRepAPI.pdb
@@ -284,3 +283,5 @@ C:\Users\Usuario\OneDrive\Escritorio\PPS_Fracassi_Cura_Bonvissuto_Kraus\backend\
 C:\Users\Usuario\OneDrive\Escritorio\PPS_Fracassi_Cura_Bonvissuto_Kraus\backend\WorkRepAPI\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 C:\Users\Usuario\OneDrive\Escritorio\PPS_Fracassi_Cura_Bonvissuto_Kraus\backend\WorkRepAPI\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
 C:\Users\Usuario\OneDrive\Escritorio\PPS_Fracassi_Cura_Bonvissuto_Kraus\backend\WorkRepAPI\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\Usuario\OneDrive\Escritorio\PPS_Fracassi_Cura_Bonvissuto_Kraus\backend\WorkRepAPI\obj\Debug\net6.0\WorkRepAPI.sourcelink.json
+C:\Users\Usuario\OneDrive\Escritorio\PPS_Fracassi_Cura_Bonvissuto_Kraus\backend\WorkRepAPI\obj\Debug\net6.0\WorkRepAPI.csproj.Up2Date

@@ -9,21 +9,24 @@ namespace WorkRepAPI.Services.Implementations
     public class RegisterService : IRegisterService
     {
         private readonly IRegisterRepository _registerRepository;
-
-        public RegisterService(IRegisterRepository registerRepository) {
+        private readonly IPasswordHasher _passwordHasher;
+        public RegisterService(IRegisterRepository registerRepository, IPasswordHasher passwordHasher = null)
+        {
 
             _registerRepository = registerRepository;
-            
+            _passwordHasher = passwordHasher;
         }
         public bool CreateStudent(CreateNewStudentDTO student)
         {
+            var passwordHashed = _passwordHasher.Hash(student.password);
+
             Student studentData = new Student
             {
                 Legajo = student.Legajo,
                 Name = student.Name,
                 LastName = student.Lastname,
                 Email = student.email,
-                Password = student.password,
+                Password = passwordHashed,
                 Cuil = student.Cuil,
                 Gender = student.Gender,
                 DocumentNumber = student.DocumentNumber,
