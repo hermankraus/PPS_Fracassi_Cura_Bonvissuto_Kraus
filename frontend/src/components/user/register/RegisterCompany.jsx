@@ -16,15 +16,42 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import "./Register.css";
 import images from "../../../assets/constants/images";
+import registerNewCompany from "../../../Axios/registerNewCompany";
 
 const RegisterCompany = () => {
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
 
+  const loginHandler = async (values) => {
+    const newUser = {
+      // aca cada nombre del objeto tiene que coincidir con la variable del back
+      companyName: values.companyName,
+      companyBusinessName: values.companyBusinessName,
+      companyEmail: values.companyEmail,
+      companyAddress: values.companyAddress,
+      companyCuit: values.companyCuit,
+      companyPassword: values.companyPassword,
+      State: "Pending",
+    };
+    setIsLoading(true);
+
+    try {
+      const response = await registerNewCompany(newUser);
+      navigate("/AccountAuth");
+
+      console.log(response);
+      console.log("Register successful: ", response.data);
+    } catch (error) {
+      console.log("esto devuelve", error);
+      // showToast('Error', error.message, 'error');
+    }
+
+    setIsLoading(false);
+  };
+
   const validationSchema = Yup.object({
     companyName: Yup.string().required("El nombre es requerido"),
     companyBusinessName: Yup.string().required("La razon social es requerida"),
-
     companyEmail: Yup.string()
       .email("Correo electrónico inválido")
       .required("El correo es requerido"),
@@ -78,13 +105,7 @@ const RegisterCompany = () => {
               companyPasswordCheck: "",
             }}
             validationSchema={validationSchema}
-            onSubmit={() => {
-              setIsLoading(true);
-              setTimeout(() => {
-                navigate("/account-auth");
-                setIsLoading(false);
-              }, 10000);
-            }}
+            onSubmit={loginHandler}
           >
             <Form>
               <Container className="register-label-one">

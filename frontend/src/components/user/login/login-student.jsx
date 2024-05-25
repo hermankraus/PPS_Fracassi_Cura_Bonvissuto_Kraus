@@ -1,5 +1,15 @@
-import  { useContext } from 'react';
-import { Box, Button, Container, FormControl, FormLabel, HStack, Text, Input, VStack } from "@chakra-ui/react";
+import { useContext } from "react";
+import {
+  Box,
+  Button,
+  Container,
+  FormControl,
+  FormLabel,
+  HStack,
+  Text,
+  Input,
+  VStack,
+} from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
@@ -16,7 +26,7 @@ const LoginStudent = () => {
   const loginHandler = async (values) => {
     const userData = {
       Legajo: values.studentFileNumber,
-      password: values.studentPassword
+      password: values.studentPassword,
     };
     try {
       const response = await LoginApi(userData);
@@ -28,18 +38,17 @@ const LoginStudent = () => {
         navigate("/admin");
       }
       if (Role === "Student") {
-        if (State === "Pending"){
-        successToast("Inicio Exitoso, Welcome")
-        navigate("/AccountAuth");
-      }else{
-        successToast("Inicio Exitoso, Welcome")
-        navigate("/student")
-      }
+        if (State === "Pending") {
+          successToast("Inicio Exitoso, Welcome");
+          navigate("/AccountAuth");
+        } else {
+          successToast("Inicio Exitoso, Welcome");
+          navigate("/student");
+        }
       } else {
         //navigate("/company");
-        
       }
-    }catch (error) {
+    } catch (error) {
       errorToast("Error al iniciar sesión: " + error.message);
       console.error("Error al iniciar sesión:", error);
     }
@@ -52,7 +61,7 @@ const LoginStudent = () => {
       .matches(
         /^(?=.*[A-Z])(?=.*\d).{6,}$/,
         "La contraseña debe tener al menos 6 caracteres, una letra mayúscula y un número"
-      )
+      ),
   });
 
   return (
@@ -89,7 +98,11 @@ const LoginStudent = () => {
                       variant="filled"
                       name="studentFileNumber"
                     />
-                    <ErrorMessage name="studentFileNumber" component="div" className="error" />
+                    <ErrorMessage
+                      name="studentFileNumber"
+                      component="div"
+                      className="error"
+                    />
                   </FormControl>
                   <FormControl>
                     <FormLabel>Contraseña</FormLabel>
@@ -100,7 +113,11 @@ const LoginStudent = () => {
                       type="password"
                       name="studentPassword"
                     />
-                    <ErrorMessage name="studentPassword" component="div" className="error" />
+                    <ErrorMessage
+                      name="studentPassword"
+                      component="div"
+                      className="error"
+                    />
                   </FormControl>
                 </VStack>
                 <HStack
@@ -129,7 +146,7 @@ const LoginStudent = () => {
                     borderRadius={6}
                     bg="#265171"
                     color="white"
-                    onClick={() => navigate("/register")}
+                    onClick={() => navigate("/register-student")}
                     mr="1rem"
                     mb="1rem"
                     cursor="pointer"

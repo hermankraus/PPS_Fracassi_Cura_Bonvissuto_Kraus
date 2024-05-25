@@ -11,12 +11,11 @@ export const HomePage = () => {
   const navigate = useNavigate();
 
   const handlerRegister = () => {
-    navigate("/register");
+    navigate("/register-student");
   };
   const handlerLogin = () => {
     navigate("/login");
   };
-
 
   return (
     <div className={isDarkMode ? "dark-mode" : "light-mode"}>
