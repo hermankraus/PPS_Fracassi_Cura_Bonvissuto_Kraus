@@ -17,6 +17,7 @@ namespace WorkRepAPI.Models.StudentsDTOs
         public string? email { get; set; }
 
         [Required]
+        [RegularExpression("^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{6,}$", ErrorMessage = "May Min y 6 caracteres")]
         public string? password { get; set; }
         [Required]
         public string DocumentNumber { get; set; }
