@@ -1,18 +1,40 @@
-/* companyPage.css */
-
-.JobOpportunitiesContainer {
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  padding: 10px;
+* {
+  color: rgb(77, 90, 98);
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
-.ApplicantsContainer {
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  padding: 10px;
+button {
+  border-radius: 2px;
+  color: white;
+  background-color: #265171;
+}
+button:hover {
+  background-color: #71aef0;
 }
 
-.ApplicantsList {
-  list-style: none;
-  padding: 0;
+.Navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.Navbar a {
+  margin-right: 50px;
+}
+
+/* Estilos para el contenedor principal */
+.Container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 50px;
+}
+
+.dark-mode * {
+  color: white;
+}
+.light-mode * {
+  color: rgb (77, 90, 98);
 }
