@@ -1,0 +1,168 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\PC\\Desktop\\PPS_Fracassi_Cura_Bonvissuto_Kraus\\backend\\WorkRepAPI\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{4765BE35-DFA5-4EC6-9FDE-31B1046DF783}|WorkRepAPI.csproj|c:\\users\\pc\\desktop\\pps_fracassi_cura_bonvissuto_kraus\\backend\\workrepapi\\data\\implementations\\studentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4765BE35-DFA5-4EC6-9FDE-31B1046DF783}|WorkRepAPI.csproj|solutionrelative:data\\implementations\\studentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4765BE35-DFA5-4EC6-9FDE-31B1046DF783}|WorkRepAPI.csproj|c:\\users\\pc\\desktop\\pps_fracassi_cura_bonvissuto_kraus\\backend\\workrepapi\\models\\studentsdtos\\updatestudentdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4765BE35-DFA5-4EC6-9FDE-31B1046DF783}|WorkRepAPI.csproj|solutionrelative:models\\studentsdtos\\updatestudentdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4765BE35-DFA5-4EC6-9FDE-31B1046DF783}|WorkRepAPI.csproj|c:\\users\\pc\\desktop\\pps_fracassi_cura_bonvissuto_kraus\\backend\\workrepapi\\controllers\\studentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4765BE35-DFA5-4EC6-9FDE-31B1046DF783}|WorkRepAPI.csproj|solutionrelative:controllers\\studentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4765BE35-DFA5-4EC6-9FDE-31B1046DF783}|WorkRepAPI.csproj|c:\\users\\pc\\desktop\\pps_fracassi_cura_bonvissuto_kraus\\backend\\workrepapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4765BE35-DFA5-4EC6-9FDE-31B1046DF783}|WorkRepAPI.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 21,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1297678868:0:{bf84ea66-d821-4dba-b1b1-2777d8574775}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{fabf9319-47eb-497e-b8f6-d9f73fba5f55}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:2:0:{fabf9319-47eb-497e-b8f6-d9f73fba5f55}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:3:0:{fabf9319-47eb-497e-b8f6-d9f73fba5f55}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1659806124:0:{bf84ea66-d821-4dba-b1b1-2777d8574775}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:527092600:0:{bf84ea66-d821-4dba-b1b1-2777d8574775}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:2140540282:0:{bf84ea66-d821-4dba-b1b1-2777d8574775}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1760812515:0:{bf84ea66-d821-4dba-b1b1-2777d8574775}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1978940429:0:{bf84ea66-d821-4dba-b1b1-2777d8574775}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1425962831:0:{bf84ea66-d821-4dba-b1b1-2777d8574775}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e506b91c-c606-466a-90a9-123d1d1e12b3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:2077936201:0:{bf84ea66-d821-4dba-b1b1-2777d8574775}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:131:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:950728053:0:{bf84ea66-d821-4dba-b1b1-2777d8574775}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "updateStudentDTO.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\PPS_Fracassi_Cura_Bonvissuto_Kraus\\backend\\WorkRepAPI\\Models\\StudentsDTOs\\updateStudentDTO.cs",
+              "RelativeDocumentMoniker": "Models\\StudentsDTOs\\updateStudentDTO.cs",
+              "ToolTip": "C:\\Users\\PC\\Desktop\\PPS_Fracassi_Cura_Bonvissuto_Kraus\\backend\\WorkRepAPI\\Models\\StudentsDTOs\\updateStudentDTO.cs",
+              "RelativeToolTip": "Models\\StudentsDTOs\\updateStudentDTO.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAZAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-26T19:52:37.243Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "StudentRepository.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\PPS_Fracassi_Cura_Bonvissuto_Kraus\\backend\\WorkRepAPI\\Data\\Implementations\\StudentRepository.cs",
+              "RelativeDocumentMoniker": "Data\\Implementations\\StudentRepository.cs",
+              "ToolTip": "C:\\Users\\PC\\Desktop\\PPS_Fracassi_Cura_Bonvissuto_Kraus\\backend\\WorkRepAPI\\Data\\Implementations\\StudentRepository.cs",
+              "RelativeToolTip": "Data\\Implementations\\StudentRepository.cs",
+              "ViewState": "AQIAAB0AAAAAAAAAAADgvysAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-26T19:51:13.363Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "StudentController.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\PPS_Fracassi_Cura_Bonvissuto_Kraus\\backend\\WorkRepAPI\\Controllers\\StudentController.cs",
+              "RelativeDocumentMoniker": "Controllers\\StudentController.cs",
+              "ToolTip": "C:\\Users\\PC\\Desktop\\PPS_Fracassi_Cura_Bonvissuto_Kraus\\backend\\WorkRepAPI\\Controllers\\StudentController.cs",
+              "RelativeToolTip": "Controllers\\StudentController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAADEAAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-26T19:50:56.52Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\PPS_Fracassi_Cura_Bonvissuto_Kraus\\backend\\WorkRepAPI\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\PC\\Desktop\\PPS_Fracassi_Cura_Bonvissuto_Kraus\\backend\\WorkRepAPI\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AQIAAEQAAAAAAAAAAAAiwGEAAAAYAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-26T19:45:18.076Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
