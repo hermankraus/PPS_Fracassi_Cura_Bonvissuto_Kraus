@@ -1,0 +1,14 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\bin",
+    "\\Controllers",
+    "\\Data",
+    "\\DbContext",
+    "\\Entities",
+    "\\Enums",
+    "\\Models"
+  ],
+  "SelectedNode": "\\Data",
+  "PreviewInSolutionExplorer": false
+}
