@@ -11,7 +11,7 @@ export const HomePage = () => {
   const navigate = useNavigate();
 
   const handlerRegister = () => {
-    navigate("/register-student");
+    navigate("/register");
   };
   const handlerLogin = () => {
     navigate("/login");

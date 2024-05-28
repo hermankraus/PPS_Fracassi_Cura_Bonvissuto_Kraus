@@ -1,5 +1,4 @@
 * {
-  color: rgb(77, 90, 98);
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
@@ -32,9 +31,9 @@ button:hover {
   margin-bottom: 50px;
 }
 
-.dark-mode * {
+/* .dark-mode * {
   color: white;
 }
 .light-mode * {
   color: rgb (77, 90, 98);
-}
+} */

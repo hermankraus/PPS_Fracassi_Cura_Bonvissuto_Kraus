@@ -1,18 +1,15 @@
-* {
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-}
 
 .register-label-one,
 .register-label-two,
-.register-label-three {
+.register-label-three,
+.register-label-four {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 2rem;
   border: 2px solid #71aef0;
   border-radius: 1rem;
   margin-bottom: 1rem;
+  padding: 2rem;
 }
 
 .custom-input {

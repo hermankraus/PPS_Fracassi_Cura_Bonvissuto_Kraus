@@ -100,6 +100,7 @@ const LoginCompany = () => {
                 ml="1rem"
                 mb="1rem"
                 cursor="pointer"
+                className="login-company"
               >
                 Iniciar sesión
               </Button>
@@ -114,6 +115,7 @@ const LoginCompany = () => {
                 mr="1rem"
                 mb="1rem"
                 cursor="pointer"
+                className="login-company"
               >
                 Registrate
               </Button>
