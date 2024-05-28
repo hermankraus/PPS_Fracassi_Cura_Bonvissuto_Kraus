@@ -1,6 +1,7 @@
 ﻿using System.Security.Cryptography.X509Certificates;
 using WorkRepAPI.Data.Interfaces;
 using WorkRepAPI.Entities;
+using WorkRepAPI.Models.CompanyDTOs;
 using WorkRepAPI.Models.StudentsDTOs;
 using WorkRepAPI.Services.Interfaces;
 
@@ -37,6 +38,26 @@ namespace WorkRepAPI.Services.Implementations
             bool newStudent = _registerRepository.CreateStudent(studentData);
          
             return newStudent;
+        }
+
+        public bool CreateCompany(CreateNewCompanyDTO company)
+        {
+            var passwordHashed = _passwordHasher.Hash(company.password);
+
+            Company companyData = new Company
+            {
+                Cuit = company.Cuit,
+                CompanyName=company.CompanyName,
+                BusinessName=company.BusinessName,
+                Address=company.Address,
+                ContactEmail=company.ContactEmail,
+                Password = passwordHashed, 
+                State = Enums.State.Pending,
+            };
+
+            bool newCompany = _registerRepository.CreateCompany(companyData);
+
+            return newCompany;
         }
     }
 }

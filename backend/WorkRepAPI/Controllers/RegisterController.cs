@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using WorkRepAPI.Models.CompanyDTOs;
 using WorkRepAPI.Models.StudentsDTOs;
 using WorkRepAPI.Services.Interfaces;
 
@@ -26,7 +27,18 @@ namespace WorkRepAPI.Controllers
             if (newStudent) {
                 return Ok("Usuario Registrado" );
             }
-            return BadRequest("Error al ingresar el user");
+            return BadRequest("Error al ingresar el usuario");
+        }
+        [HttpPost("RegisterCompany")]
+        public ActionResult CreateCompany(CreateNewCompanyDTO company)
+        {
+            bool newCompany=_registerService.CreateCompany(company);
+            if (newCompany)
+            {
+                return Ok("Usuario Registrado");
+
+            }
+            return BadRequest("Error al ingresar el usuario");
         }
     }
 }
