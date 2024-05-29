@@ -2,21 +2,18 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import {
   Container,
-  Stack,
-  Heading,
+  Flex,
   Box,
   FormControl,
   FormLabel,
   Input,
   Select,
-  Image,
   Button,
   Spinner,
 } from "@chakra-ui/react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import "./Register.css";
-import images from "../../../assets/constants/images";
 import registerNewStudent from "../../../Axios/registerNewStudent";
 
 
@@ -101,26 +98,7 @@ const RegisterStudent = () => {
   });
 
   return (
-    <Container>
-      <Box>
-        <Stack>
-          <Box
-            justifyContent="center"
-            alignItems="center"
-            display="flex"
-            flexDirection="column"
-            mt="1rem"
-          >
-            <Image
-              src={images.logo}
-              alt="Logo"
-              w="14rem"
-              h="4.5rem"
-              p={0}
-              mt={0}
-            />
-            <Heading>Registro de usuario bolsa de trabajo</Heading>
-          </Box>
+    <Container minW="75rem" w="10rem" zIndex={1} p={2} >
           <Formik
             initialValues={{
               studentName: "",
@@ -141,7 +119,7 @@ const RegisterStudent = () => {
             onSubmit={loginHandler}
           >
             <Form>
-              <Container className="register-label-one">
+              <Flex gap={4} minW="70rem" w="74rem" className="register-label-one" zIndex={5} justifyContent="center" alignItems="center" alignContent="center">
                 <FormControl>
                   <FormLabel>Nombre</FormLabel>
                   <Field
@@ -188,8 +166,8 @@ const RegisterStudent = () => {
                   />
                   <ErrorMessage name="studentDNI" component="div" />
                 </FormControl>
-              </Container>
-              <Container className="register-label-two">
+              </Flex>
+              <Flex gap={4} minW="70rem" w="74rem" className="register-label-two" zIndex={5} justifyContent="center" alignItems="center">
                 <FormControl>
                   <FormLabel>Legajo</FormLabel>
                   <Field
@@ -197,6 +175,7 @@ const RegisterStudent = () => {
                     as={Input}
                     className="custom-input"
                     variant="filled"
+                    gap="2rem"
                   />
                   <ErrorMessage name="studentFileNumber" component="div" />
                 </FormControl>
@@ -230,8 +209,9 @@ const RegisterStudent = () => {
                   />
                   <ErrorMessage name="studentCuil" component="div" />
                 </FormControl>
-              </Container>
-              <Container className="register-label-three">
+              </Flex>
+              <Flex gap={4} minW="70rem" w="74rem" className="register-label-three" zIndex={5} justifyContent="center" alignItems="center">
+
                 <FormControl>
                   <FormLabel>Número de teléfono</FormLabel>
                   <Field
@@ -267,6 +247,8 @@ const RegisterStudent = () => {
                   </Field>
                   <ErrorMessage name="studentGender" component="div" />
                 </FormControl>
+                </Flex>
+                <Flex gap={4} minW="70rem" w="74rem" className="register-label-four" zIndex={5} justifyContent="center" alignItems="center">
                 <FormControl>
                   <FormLabel>Contraseña</FormLabel>
                   <Field
@@ -275,6 +257,7 @@ const RegisterStudent = () => {
                     className="custom-input"
                     variant="filled"
                     type="password"
+                    w="30rem"
                   />
                   <ErrorMessage name="studentPassword" component="div" />
                   <FormLabel>Repetir contraseña</FormLabel>
@@ -284,25 +267,27 @@ const RegisterStudent = () => {
                     className="custom-input"
                     variant="filled"
                     type="password"
+                    w="30rem"
                   />
                   <ErrorMessage name="studentPasswordCheck" component="div" />
-                </FormControl>
-              </Container>
-              <Box display="flex" justifyContent="center" mt="1rem">
+
                 {isLoading && <Spinner size="md" color="teal" />}
                 <Button
                   type="submit"
                   colorScheme="teal"
                   isLoading={isLoading}
                   loadingText="Registrando..."
+                  bottom={9}
+                  ml="12rem"
+                  h="4rem"
+                  w="15rem"
                 >
                   Registrar
                 </Button>
-              </Box>
+                </FormControl>
+              </Flex>
             </Form>
           </Formik>
-        </Stack>
-      </Box>
     </Container>
   );
 };

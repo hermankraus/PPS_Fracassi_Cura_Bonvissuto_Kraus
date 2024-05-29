@@ -112,6 +112,7 @@ const LoginStudent = () => {
                       variant="filled"
                       type="password"
                       name="studentPassword"
+                      mb="1rem"
                     />
                     <ErrorMessage
                       name="studentPassword"
@@ -136,6 +137,7 @@ const LoginStudent = () => {
                     ml="1rem"
                     mb="1rem"
                     cursor="pointer"
+                    className="login-student"
                   >
                     Iniciar sesión
                   </Button>
@@ -150,6 +152,7 @@ const LoginStudent = () => {
                     mr="1rem"
                     mb="1rem"
                     cursor="pointer"
+                    className="login-student"
                   >
                     Registrate
                   </Button>

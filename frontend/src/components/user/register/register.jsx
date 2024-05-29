@@ -1,14 +1,13 @@
 import { useState, useContext } from "react";
-import LoginCompany from "./login-company";
-import LoginStudent from "./login-student";
+import RegisterCompany from "./RegisterCompany";
+import RegisterStudent from "./RegisterStudent";
 import { Flex, Box, Image, HStack, Switch, Heading } from "@chakra-ui/react";
 import { ThemeContext } from "../../context/themeContext/themeContext";
 import images from "../../../assets/constants/images";
 import { useNavigate } from "react-router-dom";
 import ThemeButton from "../../context/themeButton/themeButton";
-import "./Login.css";
 
-export default function Login() {
+export default function Register() {
   const navigate = useNavigate();
   const { isDarkMode } = useContext(ThemeContext);
   const [isCompany, setIsCompany] = useState(false);
@@ -38,23 +37,14 @@ export default function Login() {
           alignItems="center"
         >
           <HStack p={4} justifyContent="center">
-            <Image
-              src={images.logo}
-              alt="Logo"
-              minW="20rem"
-              maxW="20rem"
-              onClick={() => navigate("/")}
-              cursor="pointer"
-              filter="drop-shadow(2px 2px 0px rgb(255, 255, 255))"
-              mr="2rem"
-            />
             <Box
               className={isDarkMode ? "dark-login" : "light-login"}
               borderRadius="1rem"
               border="3px solid #71aef0"
               zIndex="1"
               p="2rem"
-              w="30rem"
+              w="80rem"
+              minW="40rem"
             >
               <Flex justifyContent="center" alignItems="center" mt="1rem">
                 <Heading mr="1rem" h="3rem" className="switch">
@@ -70,7 +60,8 @@ export default function Login() {
                   Empresa
                 </Heading>
               </Flex>
-              {isCompany ? <LoginCompany /> : <LoginStudent />}
+                <h1 justifyContent="center" alignItems="center">Registro de usuario bolsa de trabajo</h1>
+              {isCompany ? <RegisterCompany /> : <RegisterStudent />}
             </Box>
           </HStack>
           <Box position="relate" mb={2} mr="20rem">
