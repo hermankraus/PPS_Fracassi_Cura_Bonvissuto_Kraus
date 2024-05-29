@@ -13,9 +13,9 @@ import {
 import { useNavigate } from "react-router-dom";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
-import LoginApi from "../../../Axios/LoginService";
+import LoginApi from "../../../axios/login-service";
 import useToaster from "../../../hooks/useToaster";
-import { ThemeContext } from "../../context/themeContext/themeContext";
+import { ThemeContext } from "../../context/theme-context/theme-context";
 import "./login-student.css";
 
 const LoginStudent = () => {
@@ -148,7 +148,7 @@ const LoginStudent = () => {
                     borderRadius={6}
                     bg="#265171"
                     color="white"
-                    onClick={() => navigate("/register-student")}
+                    onClick={() => navigate("/register")}
                     mr="1rem"
                     mb="1rem"
                     cursor="pointer"

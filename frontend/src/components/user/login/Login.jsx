@@ -2,11 +2,11 @@ import { useState, useContext } from "react";
 import LoginCompany from "./login-company";
 import LoginStudent from "./login-student";
 import { Flex, Box, Image, HStack, Switch, Heading } from "@chakra-ui/react";
-import { ThemeContext } from "../../context/themeContext/themeContext";
+import { ThemeContext } from "../../context/theme-context/theme-context";
 import images from "../../../assets/constants/images";
 import { useNavigate } from "react-router-dom";
-import ThemeButton from "../../context/themeButton/themeButton";
-import "./Login.css";
+import ThemeButton from "../../context/theme-button/theme-button";
+import "./login.css";
 
 export default function Login() {
   const navigate = useNavigate();

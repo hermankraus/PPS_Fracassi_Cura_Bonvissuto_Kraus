@@ -1,14 +1,13 @@
+/* eslint-disable react/no-unknown-property */
 import { useState, useContext } from "react";
-import RegisterCompany from "./RegisterCompany";
-import RegisterStudent from "./RegisterStudent";
+import RegisterCompany from "./register-company";
+import RegisterStudent from "./register-student";
 import { Flex, Box, Image, HStack, Switch, Heading } from "@chakra-ui/react";
-import { ThemeContext } from "../../context/themeContext/themeContext";
+import { ThemeContext } from "../../context/theme-context/theme-context";
 import images from "../../../assets/constants/images";
-import { useNavigate } from "react-router-dom";
-import ThemeButton from "../../context/themeButton/themeButton";
+import ThemeButton from "../../context/theme-button/theme-button";
 
 export default function Register() {
-  const navigate = useNavigate();
   const { isDarkMode } = useContext(ThemeContext);
   const [isCompany, setIsCompany] = useState(false);
 
@@ -60,7 +59,9 @@ export default function Register() {
                   Empresa
                 </Heading>
               </Flex>
-                <h1 justifyContent="center" alignItems="center">Registro de usuario bolsa de trabajo</h1>
+              <h1 justifyContent="center" alignItems="center">
+                Registro de usuario bolsa de trabajo
+              </h1>
               {isCompany ? <RegisterCompany /> : <RegisterStudent />}
             </Box>
           </HStack>

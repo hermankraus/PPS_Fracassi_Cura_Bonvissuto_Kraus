@@ -1,10 +1,10 @@
 import { useState, useContext } from "react";
 import { Stack, Container, Image } from "@chakra-ui/react";
-import "./studentPage.css";
-import { ThemeContext } from "../../components/context/themeContext/themeContext";
-import { CVModifier } from "./CVmodifier";
-import { JobOpportunities } from "./JobOpportunities";
-import { JobPostulations } from "./JobPostulations";
+import "./student-page.css";
+import { ThemeContext } from "../../components/context/theme-context/theme-context";
+import { CVModifier } from "./cv-modifier";
+import { JobOpportunities } from "./job-opportunities";
+import { JobPostulations } from "./job-postulations";
 import images from "../../assets/constants/images";
 
 export const StudentPage = () => {

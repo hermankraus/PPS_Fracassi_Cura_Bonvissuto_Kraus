@@ -1,10 +1,10 @@
 import { useState, useContext } from "react";
 import { Stack, Container, Image } from "@chakra-ui/react";
-import { ThemeContext } from "../../components/context/themeContext/themeContext";
+import { ThemeContext } from "../../components/context/theme-context/theme-context";
 import images from "../../assets/constants/images";
-import { CompanyProfile } from "./CompanyProfile";
-import "./companyPage.css";
-import { JobOpportunitiesCompany } from "./JobOpportunitiesCompany";
+import { CompanyProfile } from "./company-profile";
+import "./company-page.css";
+import { JobOpportunitiesCompany } from "./job-opportunities-company";
 
 export const CompanyPage = () => {
   const { isDarkMode } = useContext(ThemeContext);

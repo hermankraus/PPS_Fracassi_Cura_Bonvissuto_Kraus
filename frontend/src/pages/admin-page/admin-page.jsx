@@ -9,7 +9,7 @@ import {
   ListItem,
   Button,
 } from "@chakra-ui/react";
-import "./adminPage.css";
+import "./admin-page.css";
 
 export const AdminPage = () => {
   const registeredUsers = [

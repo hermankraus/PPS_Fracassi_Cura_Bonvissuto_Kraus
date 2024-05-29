@@ -1,9 +1,9 @@
 import { Button } from "@chakra-ui/react";
 import { faMoon, faSun } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import "./themeButton.css";
+import "./theme-button.css";
 import { useContext } from "react";
-import { ThemeContext } from "../themeContext/themeContext";
+import { ThemeContext } from "../theme-context/theme-context";
 
 const ThemeButton = () => {
   const { isDarkMode, toggleTheme } = useContext(ThemeContext);
