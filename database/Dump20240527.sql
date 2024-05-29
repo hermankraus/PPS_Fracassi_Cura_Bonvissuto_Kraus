@@ -2,7 +2,7 @@
 --
 -- Host: localhost    Database: pps_database
 -- ------------------------------------------------------
--- Server version	8.3.0
+-- Server version	8.4.0
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -57,7 +57,7 @@ CREATE TABLE `company` (
   `Website` varchar(100) DEFAULT NULL,
   `Type` varchar(45) DEFAULT NULL,
   `NumberOfEmployees` int DEFAULT NULL,
-  `Password` varchar(45) NOT NULL,
+  `Password` varchar(256) NOT NULL,
   `State` enum('Pending','Accepted','Rejected') NOT NULL,
   PRIMARY KEY (`CUIT`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -69,6 +69,7 @@ CREATE TABLE `company` (
 
 LOCK TABLES `company` WRITE;
 /*!40000 ALTER TABLE `company` DISABLE KEYS */;
+INSERT INTO `company` VALUES ('12346789','Prueba','Prueba','Prueba123','prueba@gmail.com',NULL,NULL,NULL,NULL,'iqARBnZ2PkSMCrkiB02tXg==;guUawXI4jsdSTNTD0o3OlBZjnZ1jv3smRLvj5XHyDVo=','Pending');
 /*!40000 ALTER TABLE `company` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -135,4 +136,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-05-25 11:39:10
+-- Dump completed on 2024-05-27 22:50:15

@@ -24,12 +24,12 @@ const RegisterCompany = () => {
   const loginHandler = async (values) => {
     const newUser = {
       // aca cada nombre del objeto tiene que coincidir con la variable del back
-      companyName: values.companyName,
-      companyBusinessName: values.companyBusinessName,
-      companyEmail: values.companyEmail,
-      companyAddress: values.companyAddress,
-      companyCuit: values.companyCuit,
-      companyPassword: values.companyPassword,
+      CompanyName: values.CompanyName,
+      BusinessName: values.BusinessName,
+      ContactEmail: values.ContactEmail,
+      Address: values.Address,
+      Cuit: values.Cuit,
+      password: values.Password,
       State: "Pending",
     };
     setIsLoading(true);
@@ -49,16 +49,16 @@ const RegisterCompany = () => {
   };
 
   const validationSchema = Yup.object({
-    companyName: Yup.string().required("El nombre es requerido"),
-    companyBusinessName: Yup.string().required("La razon social es requerida"),
-    companyEmail: Yup.string()
+    CompanyName: Yup.string().required("El nombre es requerido"),
+    BusinessName: Yup.string().required("La razon social es requerida"),
+    ContactEmail: Yup.string()
       .email("Correo electrónico inválido")
       .required("El correo es requerido"),
-    companyAddress: Yup.string().required("El domicilio es requerido"),
-    companyCuit: Yup.string()
+    Address: Yup.string().required("El domicilio es requerido"),
+    Cuit: Yup.string()
       .matches(/^\d+$/, "El número de CUIL solo puede contener números")
       .required("El CUIL es requerido"),
-    companyPassword: Yup.string()
+    password: Yup.string()
       .required("La contraseña es requerida")
       .matches(
         /^(?=.*[A-Z])(?=.*\d).{6,}$/,
@@ -76,12 +76,12 @@ const RegisterCompany = () => {
     <Container minW="75rem" w="10rem" zIndex={1} p={2} >
           <Formik
             initialValues={{
-              companyName: "",
-              companyBusinessName: "",
-              companyEmail: "",
-              companyAddress: "",
-              companyCuit: "",
-              companyPassword: "",
+              CompanyName: "",
+              BusinessName: "",
+              ContactEmail: "",
+              Address: "",
+              Cuit: "",
+              password: "",
               companyPasswordCheck: "",
             }}
             validationSchema={validationSchema}
@@ -92,57 +92,57 @@ const RegisterCompany = () => {
                 <FormControl>
                   <FormLabel>Nombre</FormLabel>
                   <Field
-                    name="companyName"
+                    name="CompanyName"
                     as={Input}
                     className="custom-input"
                     variant="filled"
                   />
-                  <ErrorMessage name="companyName" component="div" />
+                  <ErrorMessage name="CompanyName" component="div" />
                 </FormControl>
 
                 <FormControl>
                   <FormLabel>Razon Social</FormLabel>
                   <Field
-                    name="companyBusinessName"
+                    name="BusinessName"
                     as={Input}
                     className="custom-input"
                     variant="filled"
                   />
-                  <ErrorMessage name="companyBusinessName" component="div" />
+                  <ErrorMessage name="BusinessName" component="div" />
                 </FormControl>
 
                 <FormControl>
                   <FormLabel>E-mail</FormLabel>
                   <Field
-                    name="companyEmail"
+                    name="ContactEmail"
                     as={Input}
                     className="custom-input"
                     variant="filled"
                   />
-                  <ErrorMessage name="companyEmail" component="div" />
+                  <ErrorMessage name="ContactEmail" component="div" />
                 </FormControl>
               </Flex>
               <Flex gap={4} minW="70rem" w="74rem" className="register-label-two" zIndex={5} justifyContent="center" alignItems="center">
                 <FormControl>
                   <FormLabel>Domicilio Legal</FormLabel>
                   <Field
-                    name="companyAddress"
+                    name="Address"
                     as={Input}
                     className="custom-input"
                     variant="filled"
                     gap="2rem"
                   />
-                  <ErrorMessage name="companyAddress" component="div" />
+                  <ErrorMessage name="Address" component="div" />
                 </FormControl>
                 <FormControl>
                   <FormLabel>CUIT</FormLabel>
                   <Field
-                    name="companyCuit"
+                    name="Cuit"
                     as={Input}
                     className="custom-input"
                     variant="filled"
                   />
-                  <ErrorMessage name="companyCuit" component="div" />
+                  <ErrorMessage name="Cuit" component="div" />
                 </FormControl>
                 </Flex>
 
@@ -150,14 +150,18 @@ const RegisterCompany = () => {
                 <FormControl>
                   <FormLabel>Contraseña</FormLabel>
                   <Field
-                    name="studentPassword"
+
+                    name="password"
+
                     as={Input}
                     className="custom-input"
                     variant="filled"
                     type="password"
                     w="30rem"
                   />
-                  <ErrorMessage name="studentPassword" component="div" />
+
+                  <ErrorMessage name="password" component="div" />
+
                   <FormLabel>Repetir contraseña</FormLabel>
                   <Field
                     name="studentPasswordCheck"
