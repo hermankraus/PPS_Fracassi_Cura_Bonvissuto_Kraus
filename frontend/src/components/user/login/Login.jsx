@@ -6,7 +6,7 @@ import { ThemeContext } from "../../context/theme-context/theme-context";
 import images from "../../../assets/constants/images";
 import { useNavigate } from "react-router-dom";
 import ThemeButton from "../../context/theme-button/theme-button";
-import "./login.css";
+import "./Login.css";
 
 export default function Login() {
   const navigate = useNavigate();

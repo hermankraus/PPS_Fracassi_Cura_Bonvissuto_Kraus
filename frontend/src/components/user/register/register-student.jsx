@@ -13,7 +13,7 @@ import {
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import "./register.css";
-import registerNewStudent from "../../../axios/register-new-student";
+import registerNewStudent from "../../../Axios/register-new-student";
 
 const RegisterStudent = () => {
   const navigate = useNavigate();

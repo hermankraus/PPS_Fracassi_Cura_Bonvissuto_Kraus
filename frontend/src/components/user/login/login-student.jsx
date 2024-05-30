@@ -13,7 +13,7 @@ import {
 import { useNavigate } from "react-router-dom";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
-import LoginApi from "../../../axios/login-service";
+import LoginApi from "../../../Axios/login-service";
 import useToaster from "../../../hooks/useToaster";
 import { ThemeContext } from "../../context/theme-context/theme-context";
 import "./login-student.css";

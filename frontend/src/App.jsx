@@ -11,7 +11,7 @@ import { CompanyPage } from "./pages/company-page/company-page";
 import { AdminPage } from "./pages/admin-page/admin-page";
 import AccountAuth from "./components/user/register/account-auth";
 import FooterPage from "./components/footer/footer";
-import Login from "./components/user/login/login";
+import Login from "./components/user/login/Login";
 import Register from "./components/user/register/register";
 import { ThemeProvider } from "./components/context/theme-context/theme-context";
 import { ChakraProvider } from "@chakra-ui/react";

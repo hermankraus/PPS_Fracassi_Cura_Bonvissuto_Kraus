@@ -12,7 +12,7 @@ import {
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import "./register.css";
-import registerNewCompany from "../../../axios/register-new-company";
+import registerNewCompany from "../../../Axios/register-new-company";
 
 const RegisterCompany = () => {
   const navigate = useNavigate();
