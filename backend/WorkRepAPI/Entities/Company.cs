@@ -16,6 +16,6 @@ namespace WorkRepAPI.Entities
         public string? Type { get; set; }
         public int? NumberOfEmployees { get; set; }
         public string Password { get; set; } = null!;
-        public State State { get; set; } 
+        public State? State { get; set; } 
     }
 }

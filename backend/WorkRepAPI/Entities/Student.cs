@@ -6,8 +6,15 @@ namespace WorkRepAPI.Entities
 {
     public partial class Student
     {
+        public Student()
+        {
+            Studentscareers = new HashSet<Studentscareer>();
+            Studentsexperiences = new HashSet<Studentsexperience>();
+            IdSkills = new HashSet<Skill>();
+        }
+
         public int Legajo { get; set; }
-        public DocumentType DocumentType { get; set; }
+        public DocumentType? DocumentType { get; set; } = null!;
         public string DocumentNumber { get; set; } = null!;
         public string Name { get; set; } = null!;
         public string LastName { get; set; } = null!;
@@ -38,6 +45,11 @@ namespace WorkRepAPI.Entities
         public string? LinkedUrl { get; set; }
         public string Email { get; set; } = null!;
         public string Password { get; set; } = null!;
-        public State State { get; set; }
+        public State? State { get; set; }
+
+        public virtual ICollection<Studentscareer> Studentscareers { get; set; }
+        public virtual ICollection<Studentsexperience> Studentsexperiences { get; set; }
+
+        public virtual ICollection<Skill> IdSkills { get; set; }
     }
 }

@@ -27,7 +27,7 @@ namespace WorkRepAPI.Services.Implementations
                 Name = s.Name,
                 Lastname = s.LastName,
                 email = s.Email,
-                State = s.State,
+                State = Enums.State.Pending,
             }).ToList();
 
             return studentDto;
