@@ -33,7 +33,7 @@ function App() {
             <Route path="/register" element={<Register />} />
             <Route path="/student" element={<StudentPage />} />
             <Route path="/company" element={<CompanyPage />} />
-            <Route path="/admin" element={<AdminPage />} />
+            <Route path="/admin-page" element={<AdminPage />} />
             <Route path="/AccountAuth" element={<AccountAuth />} />
             <Route path="/login" element={<Navigate to={previousPath} />} />
           </Routes>

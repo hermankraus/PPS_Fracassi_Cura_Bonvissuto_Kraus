@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import {
   Box,
   Button,
@@ -22,6 +22,7 @@ const LoginStudent = () => {
   const navigate = useNavigate();
   const { isDarkMode } = useContext(ThemeContext);
   const { successToast, errorToast } = useToaster();
+  const [isAdmin, setIsAdmin] = useState(false);
 
   const loginHandler = async (values) => {
     const userData = {
@@ -35,7 +36,8 @@ const LoginStudent = () => {
       const State = response.data.state;
       if (Role === "Administrator") {
         successToast("Inicio de sesión exitoso", "Bienvenido");
-        navigate("/admin");
+        setIsAdmin(true);
+        navigate("/admin-page");
       }
       if (Role === "Student") {
         if (State === "Pending") {

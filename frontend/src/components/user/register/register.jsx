@@ -1,8 +1,7 @@
-/* eslint-disable react/no-unknown-property */
 import { useState, useContext } from "react";
 import RegisterCompany from "./register-company";
 import RegisterStudent from "./register-student";
-import { Flex, Box, Image, HStack, Switch, Heading } from "@chakra-ui/react";
+import { Flex, Box, Image, HStack, Switch, Heading, VStack } from "@chakra-ui/react";
 import { ThemeContext } from "../../context/theme-context/theme-context";
 import images from "../../../assets/constants/images";
 import ThemeButton from "../../context/theme-button/theme-button";
@@ -59,9 +58,11 @@ export default function Register() {
                   Empresa
                 </Heading>
               </Flex>
+              <VStack>
               <h1 justifyContent="center" alignItems="center">
                 Registro de usuario bolsa de trabajo
               </h1>
+              </VStack>
               {isCompany ? <RegisterCompany /> : <RegisterStudent />}
             </Box>
           </HStack>

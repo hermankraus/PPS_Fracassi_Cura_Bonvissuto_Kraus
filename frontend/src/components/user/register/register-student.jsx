@@ -13,7 +13,7 @@ import {
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import "./register.css";
-import registerNewStudent from "../../../Axios/register-new-student";
+import { registerNewStudent } from "../../../Axios/axios-student";
 
 const RegisterStudent = () => {
   const navigate = useNavigate();
@@ -301,7 +301,7 @@ const RegisterStudent = () => {
               />
               <ErrorMessage name="studentPasswordCheck" component="div" />
 
-              {isLoading && <Spinner size="md" color="teal" />}
+              {isLoading && <Spinner size="md" color="blue" />}
               <Button
                 type="submit"
                 colorScheme="teal"
