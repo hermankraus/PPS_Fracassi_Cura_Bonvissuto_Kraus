@@ -12,7 +12,7 @@ import {
 import users from "../../../../base.json";
 import { useNavigate } from "react-router-dom";
 import "./login-company.css";
-import { ThemeContext } from "../../context/themeContext/themeContext";
+import { ThemeContext } from "../../context/theme-context/theme-context";
 import { useContext } from "react";
 
 const LoginCompany = () => {
@@ -100,6 +100,7 @@ const LoginCompany = () => {
                 ml="1rem"
                 mb="1rem"
                 cursor="pointer"
+                className="login-company"
               >
                 Iniciar sesión
               </Button>
@@ -110,10 +111,11 @@ const LoginCompany = () => {
                 borderRadius={6}
                 bg="#265171"
                 color="white"
-                onClick={() => navigate("/register-company")}
+                onClick={() => navigate("/register")}
                 mr="1rem"
                 mb="1rem"
                 cursor="pointer"
+                className="login-company"
               >
                 Registrate
               </Button>

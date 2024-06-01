@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { createContext, useState } from "react";
 // Crea el contexto
 export const ThemeContext = createContext();

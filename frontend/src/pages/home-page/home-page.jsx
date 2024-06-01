@@ -1,17 +1,17 @@
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { HStack, Button, Image, VStack, Box, Text } from "@chakra-ui/react";
-import { ThemeContext } from "../../components/context/themeContext/themeContext";
+import { ThemeContext } from "../../components/context/theme-context/theme-context";
 import images from "../../assets/constants/images";
-import "./homePage.css";
-import ThemeButton from "../../components/context/themeButton/themeButton";
+import "./home-page.css";
+import ThemeButton from "../../components/context/theme-button/theme-button";
 
 export const HomePage = () => {
   const { isDarkMode } = useContext(ThemeContext);
   const navigate = useNavigate();
 
   const handlerRegister = () => {
-    navigate("/register-student");
+    navigate("/register");
   };
   const handlerLogin = () => {
     navigate("/login");

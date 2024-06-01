@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import {
   Box,
   Button,
@@ -13,15 +13,16 @@ import {
 import { useNavigate } from "react-router-dom";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
-import LoginApi from "../../../Axios/LoginService";
+import LoginApi from "../../../Axios/login-service";
 import useToaster from "../../../hooks/useToaster";
-import { ThemeContext } from "../../context/themeContext/themeContext";
+import { ThemeContext } from "../../context/theme-context/theme-context";
 import "./login-student.css";
 
 const LoginStudent = () => {
   const navigate = useNavigate();
   const { isDarkMode } = useContext(ThemeContext);
   const { successToast, errorToast } = useToaster();
+  const [isAdmin, setIsAdmin] = useState(false);
 
   const loginHandler = async (values) => {
     const userData = {
@@ -35,7 +36,8 @@ const LoginStudent = () => {
       const State = response.data.state;
       if (Role === "Administrator") {
         successToast("Inicio de sesión exitoso", "Bienvenido");
-        navigate("/admin");
+        setIsAdmin(true);
+        navigate("/admin-page");
       }
       if (Role === "Student") {
         if (State === "Pending") {
@@ -112,6 +114,7 @@ const LoginStudent = () => {
                       variant="filled"
                       type="password"
                       name="studentPassword"
+                      mb="1rem"
                     />
                     <ErrorMessage
                       name="studentPassword"
@@ -136,6 +139,7 @@ const LoginStudent = () => {
                     ml="1rem"
                     mb="1rem"
                     cursor="pointer"
+                    className="login-student"
                   >
                     Iniciar sesión
                   </Button>
@@ -146,10 +150,11 @@ const LoginStudent = () => {
                     borderRadius={6}
                     bg="#265171"
                     color="white"
-                    onClick={() => navigate("/register-student")}
+                    onClick={() => navigate("/register")}
                     mr="1rem"
                     mb="1rem"
                     cursor="pointer"
+                    className="login-student"
                   >
                     Registrate
                   </Button>

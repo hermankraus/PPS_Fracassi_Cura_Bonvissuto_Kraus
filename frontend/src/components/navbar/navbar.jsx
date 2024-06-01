@@ -1,27 +1,15 @@
-import { HStack, Image, Container, Button } from "@chakra-ui/react";
+import { HStack, Image, Container, Link } from "@chakra-ui/react";
 import images from "../../assets/constants/images";
 import "./navbar.css";
-import { useNavigate } from "react-router-dom";
 
-export const NavHeader = () => {
-  const navigate = useNavigate();
-
-  const handlerLogin = () => {
-    navigate("/login");
-  };
+export const NavbarPage = ({ isAdmin }) => {
   return (
-    <HStack className="navbar" spacing="6rem" p={10} m={0} overflow-y="hidden">
+    <HStack className="navbar" spacing="6rem" p={10} m={0} overflowY="hidden">
       <Image src={images.logo} alt="Logo" w="12rem" h="6rem" maxW="full" />
       <Container>
-        <Button
-          onClick={handlerLogin}
-          w={140}
-          h={30}
-          borderRadius={50}
-          cursor="pointer"
-        >
-          Iniciar sesión
-        </Button>
+        <Link href="/student">Student Page</Link>
+        <Link href="/company">Company Page</Link>
+        {isAdmin && <Link href="/admin-page">Admin Page</Link>}
       </Container>
     </HStack>
   );

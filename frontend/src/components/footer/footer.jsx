@@ -1,7 +1,7 @@
 import "./footer.css";
 import Chat from "../chat-bot/chat";
 import { Container, Text, Box, Link } from "@chakra-ui/react";
-import { ThemeContext } from "../../components/context/themeContext/themeContext";
+import { ThemeContext } from "../context/theme-context/theme-context";
 import { useContext } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFacebook, faInstagram } from "@fortawesome/free-brands-svg-icons";

@@ -5,9 +5,9 @@ const useToaster = () => {
 
   const successToast = () => {
     toast({
-      title: "ACA TOASTER A EDITAR",
-      description: "ACA TOASTER A EDITAR",
-      status: "success",
+      title: "",
+      description: "",
+      status: "Success",
       duration: 5000,
       isClosable: true,
       position: "top-right",
@@ -16,9 +16,9 @@ const useToaster = () => {
 
   const errorToast = () => {
     toast({
-      title: "ACA TOASTER A EDITAR",
-      description: "ACA TOASTER A EDITAR",
-      status: "error",
+      title: "",
+      description: "",
+      status: "Error",
       duration: 5000,
       isClosable: true,
       position: "top-right",
