@@ -20,19 +20,13 @@ namespace WorkRepAPI.Context
         public virtual DbSet<Administrator> Administrators { get; set; } = null!;
         public virtual DbSet<Career> Careers { get; set; } = null!;
         public virtual DbSet<Company> Companies { get; set; } = null!;
+        public virtual DbSet<Joboffer> Joboffers { get; set; } = null!;
         public virtual DbSet<Skill> Skills { get; set; } = null!;
         public virtual DbSet<Student> Students { get; set; } = null!;
         public virtual DbSet<Studentscareer> Studentscareers { get; set; } = null!;
         public virtual DbSet<Studentsexperience> Studentsexperiences { get; set; } = null!;
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            if (!optionsBuilder.IsConfigured)
-            {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseMySQL("server=localhost;port=3306;database=pps_database;user=root;password=azul;");
-            }
-        }
+    
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -48,7 +42,7 @@ namespace WorkRepAPI.Context
                     .HasColumnName("email");
 
                 entity.Property(e => e.Password)
-                    .HasMaxLength(45)
+                    .HasMaxLength(256)
                     .HasColumnName("password");
             });
 
@@ -71,6 +65,21 @@ namespace WorkRepAPI.Context
                     .HasColumnName("nameCareers");
 
                 entity.Property(e => e.Type).HasColumnType("enum('Grado','Tecnicatura')");
+
+                entity.HasMany(d => d.IdOffers)
+                    .WithMany(p => p.IdCarreers)
+                    .UsingEntity<Dictionary<string, object>>(
+                        "Careerjoboffer",
+                        l => l.HasOne<Joboffer>().WithMany().HasForeignKey("IdOffer").OnDelete(DeleteBehavior.ClientSetNull).HasConstraintName("FK_Carreer_IdOffer"),
+                        r => r.HasOne<Career>().WithMany().HasForeignKey("IdCarreer").OnDelete(DeleteBehavior.ClientSetNull).HasConstraintName("FK_Carreer_IdCarreer"),
+                        j =>
+                        {
+                            j.HasKey("IdCarreer", "IdOffer").HasName("PRIMARY");
+
+                            j.ToTable("careerjoboffer");
+
+                            j.HasIndex(new[] { "IdOffer" }, "FK_Carreer_IdOffer_idx");
+                        });
             });
 
             modelBuilder.Entity<Company>(entity =>
@@ -101,6 +110,63 @@ namespace WorkRepAPI.Context
                 entity.Property(e => e.Type).HasMaxLength(45);
 
                 entity.Property(e => e.Website).HasMaxLength(100);
+            });
+
+            modelBuilder.Entity<Joboffer>(entity =>
+            {
+                entity.HasKey(e => e.IdJobOffer)
+                    .HasName("PRIMARY");
+
+                entity.ToTable("joboffer");
+
+                entity.HasIndex(e => e.Cuitcompania, "FK_JobOffer_Companies_idx");
+
+                entity.Property(e => e.IdJobOffer).HasColumnName("idJobOffer");
+
+                entity.Property(e => e.Cuitcompania)
+                    .HasMaxLength(45)
+                    .HasColumnName("cuitcompania");
+
+                entity.Property(e => e.Descripcion)
+                    .HasMaxLength(300)
+                    .HasColumnName("descripcion");
+
+                entity.Property(e => e.ModalidadTrabajo)
+                    .HasMaxLength(45)
+                    .HasColumnName("modalidadTrabajo");
+
+                entity.Property(e => e.TipoJornada)
+                    .HasMaxLength(45)
+                    .HasColumnName("tipoJornada");
+
+                entity.Property(e => e.Tipocontrato)
+                    .HasMaxLength(45)
+                    .HasColumnName("tipocontrato");
+
+                entity.HasOne(d => d.CuitcompaniaNavigation)
+                    .WithMany(p => p.Joboffers)
+                    .HasForeignKey(d => d.Cuitcompania)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_JobOffer_Companies");
+
+                entity.HasMany(d => d.IdSkills)
+                    .WithMany(p => p.IdJobOffers)
+                    .UsingEntity<Dictionary<string, object>>(
+                        "Offerskill",
+                        l => l.HasOne<Skill>().WithMany().HasForeignKey("IdSkills").OnDelete(DeleteBehavior.ClientSetNull).HasConstraintName("FK_Skills_idSkills"),
+                        r => r.HasOne<Joboffer>().WithMany().HasForeignKey("IdJobOffer").OnDelete(DeleteBehavior.ClientSetNull).HasConstraintName("FK_JobOffer_OfferSkill"),
+                        j =>
+                        {
+                            j.HasKey("IdJobOffer", "IdSkills").HasName("PRIMARY");
+
+                            j.ToTable("offerskills");
+
+                            j.HasIndex(new[] { "IdSkills" }, "FK_Skills_idSkills_idx");
+
+                            j.IndexerProperty<int>("IdJobOffer").HasColumnName("idJobOffer");
+
+                            j.IndexerProperty<int>("IdSkills").HasColumnName("idSkills");
+                        });
             });
 
             modelBuilder.Entity<Skill>(entity =>

@@ -6,6 +6,11 @@ namespace WorkRepAPI.Entities
 {
     public partial class Company
     {
+        public Company()
+        {
+            Joboffers = new HashSet<Joboffer>();
+        }
+
         public string Cuit { get; set; } = null!;
         public string CompanyName { get; set; } = null!;
         public string BusinessName { get; set; } = null!;
@@ -16,6 +21,8 @@ namespace WorkRepAPI.Entities
         public string? Type { get; set; }
         public int? NumberOfEmployees { get; set; }
         public string Password { get; set; } = null!;
-        public State? State { get; set; } 
+        public State State { get; set; } = 0;
+
+        public virtual ICollection<Joboffer> Joboffers { get; set; }
     }
 }

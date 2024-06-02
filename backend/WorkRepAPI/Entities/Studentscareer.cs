@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using WorkRepAPI.Enums;
 
 namespace WorkRepAPI.Entities
 {
@@ -10,7 +9,7 @@ namespace WorkRepAPI.Entities
         public int IdCareers { get; set; }
         public DateTime EnrollmentDate { get; set; }
         public DateTime? GraduationDate { get; set; }
-        public IsComplete? IsComplete { get; set; } = null!;
+        public string IsComplete { get; set; } = null!;
 
         public virtual Career IdCareersNavigation { get; set; } = null!;
         public virtual Student IdStudentsNavigation { get; set; } = null!;

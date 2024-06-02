@@ -45,7 +45,7 @@ namespace WorkRepAPI.Entities
         public string? LinkedUrl { get; set; }
         public string Email { get; set; } = null!;
         public string Password { get; set; } = null!;
-        public State? State { get; set; }
+        public State State { get; set; } = 0;
 
         public virtual ICollection<Studentscareer> Studentscareers { get; set; }
         public virtual ICollection<Studentsexperience> Studentsexperiences { get; set; }
