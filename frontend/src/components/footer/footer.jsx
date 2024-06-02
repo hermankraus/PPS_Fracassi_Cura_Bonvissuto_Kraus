@@ -49,6 +49,7 @@ const FooterPage = () => {
       </Container>
       <Container>
         <Chat />
+        <p>Prueba</p>
       </Container>
     </div>
   );
