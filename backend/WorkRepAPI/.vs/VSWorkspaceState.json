@@ -2,13 +2,15 @@
   "ExpandedNodes": [
     "",
     "\\bin",
+    "\\Context",
     "\\Controllers",
     "\\Data",
-    "\\DbContext",
     "\\Entities",
     "\\Enums",
-    "\\Models"
+    "\\Models",
+    "\\Services",
+    "\\Services\\Implementations"
   ],
-  "SelectedNode": "\\Data",
+  "SelectedNode": "\\WorkRepAPI.sln",
   "PreviewInSolutionExplorer": false
 }

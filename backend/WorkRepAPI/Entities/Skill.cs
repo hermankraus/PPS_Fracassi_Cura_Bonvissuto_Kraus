@@ -8,6 +8,7 @@ namespace WorkRepAPI.Entities
         public Skill()
         {
             Studentsexperiences = new HashSet<Studentsexperience>();
+            IdJobOffers = new HashSet<Joboffer>();
             IdStudents = new HashSet<Student>();
         }
 
@@ -16,6 +17,7 @@ namespace WorkRepAPI.Entities
 
         public virtual ICollection<Studentsexperience> Studentsexperiences { get; set; }
 
+        public virtual ICollection<Joboffer> IdJobOffers { get; set; }
         public virtual ICollection<Student> IdStudents { get; set; }
     }
 }
