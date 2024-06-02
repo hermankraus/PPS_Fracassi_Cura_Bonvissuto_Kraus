@@ -1,0 +1,12 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\backend",
+    "\\backend\\WorkRepAPI",
+    "\\backend\\WorkRepAPI\\Context",
+    "\\backend\\WorkRepAPI\\Services",
+    "\\backend\\WorkRepAPI\\Services\\Implementations"
+  ],
+  "SelectedNode": "\\backend\\WorkRepAPI\\Services\\Implementations\\RegisterService.cs",
+  "PreviewInSolutionExplorer": false
+}
