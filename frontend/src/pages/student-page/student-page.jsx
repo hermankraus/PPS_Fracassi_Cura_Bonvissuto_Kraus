@@ -1,11 +1,13 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { Stack, Container, Image } from "@chakra-ui/react";
 import "./student-page.css";
 import { ThemeContext } from "../../components/context/theme-context/theme-context";
 import { CVModifier } from "./cv-modifier";
 import { JobOpportunities } from "./job-opportunities";
 import { JobPostulations } from "./job-postulations";
-import images from "../../assets/constants/images";
+// import images from "../../assets/constants/images";
+// import { NavbarPage } from "../../components/navbar/navbar";
+import { dataUserStudent } from "../../components/user/data/data-user";
 
 export const StudentPage = () => {
   const { isDarkMode } = useContext(ThemeContext);
@@ -17,6 +19,11 @@ export const StudentPage = () => {
     { id: 3, title: "Diseñador UI/UX", company: "Empresa C" },
     { id: 4, title: "Diseñador UI/UX", company: "Empresa C" },
   ]);
+
+  const students = dataUserStudent(); 
+  useEffect(() => {
+    console.log(students); 
+  }, []);
 
   const handleApply = (job) => {
     setPostulatedJobs([...postulatedJobs, job]);
@@ -38,37 +45,7 @@ export const StudentPage = () => {
     <div className={isDarkMode ? "dark-mode" : "light-mode"}>
       <Container maxW="container.lg">
         <Stack spacing={8} align="center">
-          <nav className="Navbar">
-            <Image
-              src={images.logo}
-              alt="Logo"
-              w="14rem"
-              h="4.5rem"
-              p={0}
-              mt={0}
-            />
-            <a
-              href="#"
-              onClick={() => setSelectedTab("jobOpportunities")}
-              className={selectedTab === "jobOpportunities" ? "active" : ""}
-            >
-              Oportunidades Laborales
-            </a>
-            <a
-              href="#"
-              onClick={() => setSelectedTab("jobPostulations")}
-              className={selectedTab === "jobPostulations" ? "active" : ""}
-            >
-              Mis postulaciones
-            </a>
-            <a
-              href="#"
-              onClick={() => setSelectedTab("cvModifier")}
-              className={selectedTab === "cvModifier" ? "active" : ""}
-            >
-              Mi Perfil
-            </a>
-          </nav>
+          {/* <NavbarPage/> */}
           {selectedTab === "cvModifier" && <CVModifier />}
           {selectedTab === "jobOpportunities" && (
             <JobOpportunities

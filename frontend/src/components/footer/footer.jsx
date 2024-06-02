@@ -4,15 +4,20 @@ import { Container, Text, Box, Link } from "@chakra-ui/react";
 import { ThemeContext } from "../context/theme-context/theme-context";
 import { useContext } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faFacebook, faInstagram } from "@fortawesome/free-brands-svg-icons";
+import { faFacebook, faInstagram, faWhatsapp } from "@fortawesome/free-brands-svg-icons";
+
 
 const FooterPage = () => {
   const { isDarkMode } = useContext(ThemeContext);
 
   return (
     <div className={isDarkMode ? "light-mode-footer" : "footer-container"}>
-      <Container p={5}>
-        <Text>Derechos reservados &copy; PPS</Text>
+      <Container 
+      p={5}
+      maxW={{base: "30rem", lg: "40rem"}}
+      fontSize={{ base: "17px", lg:"20px"}}
+      >
+        <Text >Derechos reservados &copy; PPS</Text>
         <Text>
           <Link
             cursor="pointer"
@@ -44,6 +49,15 @@ const FooterPage = () => {
             className="instagram"
           >
             <FontAwesomeIcon icon={faInstagram} />
+          </Link>
+          <Link
+            cursor="pointer"
+            to=""
+            target="_blank"
+            className="whatsapp"
+            ml="1rem"
+          >
+            <FontAwesomeIcon icon={faWhatsapp}/>
           </Link>
         </Box>
       </Container>

@@ -1,6 +1,6 @@
 import api from "./api";
 
-export default getAllStudents = (students) => {
-  return api.get("/Student/GetStudents", JSON.stringify(students));
+export default getAdmin = (admin) => {
+  return api.get("/Student/GetStudents", JSON.stringify(admin));
 };
 

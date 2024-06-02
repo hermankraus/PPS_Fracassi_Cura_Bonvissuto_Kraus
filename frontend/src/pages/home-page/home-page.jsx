@@ -25,15 +25,15 @@ export const HomePage = () => {
         justifyContent="center"
         alignItems="center"
       >
-        <HStack alignItems="center">
+        <HStack alignItems="center" justifyContent="center">
           <Box p={10}>
             <Image
               src={images.logo}
               alt="Logo"
               minW="20rem"
               maxW="20rem"
-              ml="14rem"
               className="img-logo"
+              hideBelow="lg"
             />
           </Box>
           <VStack
@@ -44,7 +44,18 @@ export const HomePage = () => {
             overflow="hidden"
             minHeight="400px"
             height="auto"
+            justifyContent="center"
           >
+          <Image
+              src={images.logo}
+              alt="Logo2"
+              maxW={{ base: '5rem' }}
+              maxH={{ base: '5rem' }}
+              hideFrom="lg"
+              top="0"
+              zIndex={100}
+              filter=" drop-shadow(1px 2px 0px rgb(255, 255, 255))"
+              />
             <Image
               className="img-home"
               src={images.bgImgLogin}
@@ -54,7 +65,8 @@ export const HomePage = () => {
               left="0"
               objectFit="cover"
               zIndex="1"
-              minH="30rem"
+              minH={{ base: "50rem", lg: "30rem"}}
+              maxW={{ base: "70rem", lg: "30rem"}}
             />
             <Box
               position="relative"
@@ -62,15 +74,16 @@ export const HomePage = () => {
               color="white"
               textAlign="center"
               p={10}
-              w="24rem"
+              minW={{ base: "20rem", lg: "30rem"}}
               mt="1rem"
               alignContent="center"
               justifyContent="center"
               sx={{
-                textShadow: "2px 2px 0 black", // Sombra sólida
+                textShadow: "2px 2px 0 black",
               }}
+
             >
-              <Text fontSize={30} mb={10}>
+              <Text fontSize={30} mb={10} alignItems="center">
                 Bienvenido!
               </Text>
               <Text as="h4" mb={10}>
@@ -98,7 +111,7 @@ export const HomePage = () => {
             </Box>
           </VStack>
         </HStack>
-        <Box mr="50rem">
+        <Box mr={{base: "5rem", lg: "50rem"}}>
           <ThemeButton />
         </Box>
       </Box>

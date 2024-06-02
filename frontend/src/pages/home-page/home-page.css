@@ -25,37 +25,3 @@ h4 a:hover {
   cursor: pointer;
   color: #71aef0;
 }
-
-/* Responsive */
-
-@media screen and (max-width: 1200px) {
-  .home-page {
-    display: flex;
-    align-items: center;
-    padding: 1rem;
-    font-size: 0.8em;
-    justify-content: space-around;
-  }
-  .home-page-body {
-    font-size: 0.8em;
-  }
-  .buttons {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .buttons button {
-    margin-bottom: 0.5rem;
-  }
-
-  .registration {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .small-img {
-    width: 100px;
-  }
-}

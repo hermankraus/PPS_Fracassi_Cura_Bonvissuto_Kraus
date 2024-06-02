@@ -5,6 +5,7 @@ import HomeImg2 from "../images/trabajo-it2.jpg";
 import HomeImg3 from "../images/trabajo-it3.jpg";
 import HomeImg4 from "../images/trabajo-it2.jpg";
 import bgImgLogin from "../images/bg-login.svg";
+import emojiWs from "../images/emoji-whatsapp.png";
 
 export default {
   bgImgLogin,
@@ -14,4 +15,5 @@ export default {
   HomeImg3,
   HomeImg4,
   logo,
+  emojiWs,
 };
