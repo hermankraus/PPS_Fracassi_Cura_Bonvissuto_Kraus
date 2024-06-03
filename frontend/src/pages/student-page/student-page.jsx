@@ -6,8 +6,12 @@ import { CVModifier } from "./cv-modifier";
 import { JobOpportunities } from "./job-opportunities";
 import { JobPostulations } from "./job-postulations";
 import images from "../../assets/constants/images";
+import { useNavigate } from "react-router-dom";
+
 
 export const StudentPage = () => {
+  const navigate = useNavigate();
+
   const { isDarkMode } = useContext(ThemeContext);
   const [selectedTab, setSelectedTab] = useState("cvModifier");
   const [postulatedJobs, setPostulatedJobs] = useState([]);
@@ -38,6 +42,8 @@ export const StudentPage = () => {
     <div className={isDarkMode ? "dark-mode" : "light-mode"}>
       <Container maxW="container.lg">
         <Stack spacing={8} align="center">
+
+          {/* ESTE NAV ACA NO IRIA, HAY QUE HACER UN SOLO NAVBAR REUTILIZABLE EN TODAS LAS PAGES */}
           <nav className="Navbar">
             <Image
               src={images.logo}
@@ -45,7 +51,9 @@ export const StudentPage = () => {
               w="14rem"
               h="4.5rem"
               p={0}
-              mt={0}
+              mt={2}
+              cursor="pointer"
+              onClick={()=> navigate("/student")}
             />
             <a
               href="#"

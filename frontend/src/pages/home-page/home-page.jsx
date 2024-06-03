@@ -25,26 +25,36 @@ export const HomePage = () => {
         justifyContent="center"
         alignItems="center"
       >
-        <HStack alignItems="center">
-          <Box p={10}>
+        <HStack alignItems="center" justifyContent="center">
+          <Box p={1}>
             <Image
               src={images.logo}
               alt="Logo"
-              minW="20rem"
-              maxW="20rem"
-              ml="14rem"
+              minW={{ lg: "20rem" }}
+              maxH={{ lg: "20rem" }}
               className="img-logo"
+              hideBelow="lg"
             />
           </Box>
           <VStack
             className="text-content"
-            maxW={500}
+            maxW={{base: 400, lg: 500}}
             position="relative"
             zIndex="50"
             overflow="hidden"
             minHeight="400px"
             height="auto"
           >
+            <Image
+              src={images.logo}
+              alt="Logo"
+              minW={{ base: "10rem" }}
+              maxH={{ base: "10rem" }}
+              className="img-logo"
+              hideFrom="lg"
+              zIndex={10}
+              mt="1rem"
+            />
             <Image
               className="img-home"
               src={images.bgImgLogin}
@@ -54,7 +64,9 @@ export const HomePage = () => {
               left="0"
               objectFit="cover"
               zIndex="1"
-              minH="30rem"
+              minH= {{base: "50rem", lg: "30rem"}}
+              maxW={{base: "40rem"}}
+
             />
             <Box
               position="relative"
@@ -62,7 +74,7 @@ export const HomePage = () => {
               color="white"
               textAlign="center"
               p={10}
-              w="24rem"
+              minW="10rem"
               mt="1rem"
               alignContent="center"
               justifyContent="center"
@@ -98,7 +110,7 @@ export const HomePage = () => {
             </Box>
           </VStack>
         </HStack>
-        <Box mr="50rem">
+        <Box mr="10rem" mt="1rem" p={2}>
           <ThemeButton />
         </Box>
       </Box>

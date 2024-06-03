@@ -5,7 +5,7 @@ import {
   Container,
   FormControl,
   FormLabel,
-  HStack,
+  Stack,
   Text,
   Input,
   VStack,
@@ -34,7 +34,7 @@ const LoginStudent = () => {
 
       const Role = response.data.role;
       const State = response.data.state;
-      if (Role === "Administrator") {
+      if (Role === "Admin") {
         successToast("Inicio de sesión exitoso", "Bienvenido");
         setIsAdmin(true);
         navigate("/admin-page");
@@ -70,7 +70,7 @@ const LoginStudent = () => {
     <div>
       <Container>
         <Box className="login-container-card">
-          <VStack spacing={4} align="flex-start" w="full">
+          <VStack spacing={4} w="full">
             <Formik
               initialValues={{
                 studentFileNumber: "",
@@ -82,18 +82,19 @@ const LoginStudent = () => {
               <Form>
                 <VStack
                   spacing={1}
-                  align={["flex-start", "center"]}
-                  minW="19rem"
+                  maxW="19rem"
                   minH="2rem"
                   justifyContent="center"
-                  alignItems="center"
+                  textAlign={{base: "center"}}
                   className={isDarkMode ? "dark-ls" : "light-ls"}
                 >
-                  <Text mb="1rem" fontSize={20}>
+                  <Text mb="1rem" fontSize={{base: "15px", lg: "20px"}} >
                     Iniciar sesión con legajo y contraseña
                   </Text>
                   <FormControl>
-                    <FormLabel>Legajo</FormLabel>
+                    <FormLabel textAlign={{base: "center", lg: "left"}}>
+                      Legajo
+                    </FormLabel>
                     <Field
                       className="custom-input"
                       as={Input}
@@ -107,7 +108,7 @@ const LoginStudent = () => {
                     />
                   </FormControl>
                   <FormControl>
-                    <FormLabel>Contraseña</FormLabel>
+                    <FormLabel textAlign={{base: "center", lg: "left"}}>Contraseña</FormLabel>
                     <Field
                       className="custom-input"
                       as={Input}
@@ -123,16 +124,17 @@ const LoginStudent = () => {
                     />
                   </FormControl>
                 </VStack>
-                <HStack
+                <Stack
                   className="button-container"
                   justify="space-between"
-                  w="full"
-                >
+                  direction={{ base: "column", lg: "row" }}
+                  alignItems="center"
+                  >
                   <Button
                     type="submit"
                     bg="#265171"
                     color="white"
-                    minW="8rem"
+                    maxW="8rem"
                     minH="2rem"
                     borderRadius={6}
                     fontSize={16}
@@ -151,14 +153,15 @@ const LoginStudent = () => {
                     bg="#265171"
                     color="white"
                     onClick={() => navigate("/register")}
-                    mr="1rem"
+                    mr={{base: "-1rem", lg: "1rem"}}
                     mb="1rem"
                     cursor="pointer"
                     className="login-student"
+                    display={{base: "row"}}
                   >
                     Registrate
                   </Button>
-                </HStack>
+                </Stack>
               </Form>
             </Formik>
           </VStack>

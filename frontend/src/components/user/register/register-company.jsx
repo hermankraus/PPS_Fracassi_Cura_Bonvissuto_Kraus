@@ -13,11 +13,13 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import "./register.css";
 import { registerNewCompany } from "../../../Axios/axios-company";
+import useToaster from "../../../hooks/useToaster";
 
 
 const RegisterCompany = () => {
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
+  const { successToast, errorToast } = useToaster();
 
   const loginHandler1 = async (values) => {
     console.log("Form submitted");
@@ -33,15 +35,11 @@ const RegisterCompany = () => {
     setIsLoading(true);
     try {
       const response = await registerNewCompany(newUser);
+      successToast("Registro exitoso, aguerde confirmacion");
       navigate("/AccountAuth");
-
-      console.log(response);
-      console.log("Register successful: ", response.data);
     } catch (error) {
-      console.log("esto devuelve", error);
-      // showToast('Error', error.message, 'error');
+      errorToast("Registro incorrecto, corrobore datos.")
     }
-
     setIsLoading(false);
   };
 

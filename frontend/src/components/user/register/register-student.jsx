@@ -12,13 +12,15 @@ import {
 } from "@chakra-ui/react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
-import "./register.css";
+import "./register.css"
 import { registerNewStudent } from "../../../Axios/axios-student";
+import useToaster from "../../../hooks/useToaster";
+
 
 const RegisterStudent = () => {
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
-  // const { showToast, renderToast } = useToast();
+  const { successToast, errorToast } = useToaster();
 
   const loginHandler = async (values) => {
     const newUser = {
@@ -38,12 +40,9 @@ const RegisterStudent = () => {
     try {
       const response = await registerNewStudent(newUser);
       navigate("/AccountAuth");
-
-      console.log(response);
-      console.log("Register successful: ", response.data);
+      successToast("Registro exitoso, aguerde confirmacion");
     } catch (error) {
-      console.log("esto devuelve", error);
-      // showToast('Error', error.message, 'error');
+      errorToast("Registro incorrecto, corrobore datos.")
     }
 
     setIsLoading(false);

@@ -4,14 +4,15 @@ import { Container, Text, Box, Link } from "@chakra-ui/react";
 import { ThemeContext } from "../context/theme-context/theme-context";
 import { useContext } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faFacebook, faInstagram } from "@fortawesome/free-brands-svg-icons";
+import { faFacebook, faInstagram, faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 
 const FooterPage = () => {
   const { isDarkMode } = useContext(ThemeContext);
 
   return (
     <div className={isDarkMode ? "light-mode-footer" : "footer-container"}>
-      <Container p={5}>
+      <Container p={8}>
+        <Box textAlign={{base: "center", lg:"left"}}>
         <Text>Derechos reservados &copy; PPS</Text>
         <Text>
           <Link
@@ -29,7 +30,7 @@ const FooterPage = () => {
         <Text>Zeballos 1341, S2000 Rosario, Santa Fe</Text>
         <Box cursor="pointer" className="emojis-social-media">
           <Link
-            to="https://www.facebook.com"
+            href="https://www.facebook.com"
             target="_blank"
             rel="noopener noreferrer"
             mr="1rem"
@@ -38,18 +39,27 @@ const FooterPage = () => {
             <FontAwesomeIcon icon={faFacebook} />
           </Link>
           <Link
-            to="https://www.instagram.com"
+            href="https://www.instagram.com"
             target="_blank"
             rel="noopener noreferrer"
             className="instagram"
+            mr="1rem"
           >
             <FontAwesomeIcon icon={faInstagram} />
           </Link>
+          <Link
+            href="https://api.whatsapp.com/send?phone=5493416392036"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="whatsapp"
+          >
+            <FontAwesomeIcon icon={faWhatsapp} />
+          </Link>
+        </Box>
         </Box>
       </Container>
       <Container>
         <Chat />
-        <p>Prueba</p>
       </Container>
     </div>
   );

@@ -7,7 +7,7 @@ import {
   Input,
   Text,
   VStack,
-  HStack,
+  Stack,
 } from "@chakra-ui/react";
 import users from "../../../../base.json";
 import { useNavigate } from "react-router-dom";
@@ -55,26 +55,28 @@ const LoginCompany = () => {
   return (
     <Container className="login-container-company">
       <Box className="login-container-card-company ">
-        <VStack spacing={4} align="flex-start">
+        <VStack spacing={4}>
           <form onSubmit={handleSubmit}>
             <VStack
               spacing={1}
               align="flex-start"
-              minW="19rem"
+              maxW="19rem"
               minH="2rem"
               justifyContent="center"
-              alignItems="center"
+              textAlign={{base: "center"}}
               className={isDarkMode ? "dark-ls" : "light-ls"}
             >
-              <Text mb="1rem" fontSize={20}>
+              <Text mb="1rem" fontSize={{base: "15px", lg: "20px"}} >
                 Iniciar sesión con email y contraseña
               </Text>
               <FormControl>
-                <FormLabel>Email</FormLabel>
+              <FormLabel textAlign={{base: "center", lg: "left"}}>
+                Email
+                </FormLabel>
                 <Input className="custom-input" variant="filled" name="email" />
               </FormControl>
               <FormControl>
-                <FormLabel>Contraseña</FormLabel>
+              <FormLabel textAlign={{base: "center", lg: "left"}}>Contraseña</FormLabel>
                 <Input
                   mb="1rem"
                   className="custom-input"
@@ -84,16 +86,17 @@ const LoginCompany = () => {
                 />
               </FormControl>
             </VStack>
-            <HStack
+            <Stack
               className="button-container"
               justify="space-between"
-              w="full"
+              direction={{ base: "column", lg: "row" }}
+              alignItems="center"
             >
               <Button
                 type="submit"
                 bg="#265171"
                 color="white"
-                minW="8rem"
+                maxW="8rem"
                 minH="2rem"
                 borderRadius={6}
                 fontSize={16}
@@ -112,14 +115,15 @@ const LoginCompany = () => {
                 bg="#265171"
                 color="white"
                 onClick={() => navigate("/register")}
-                mr="1rem"
+                mr={{base: "-1rem", lg: "1rem"}}
                 mb="1rem"
                 cursor="pointer"
                 className="login-company"
+                display={{base: "row"}}
               >
                 Registrate
               </Button>
-            </HStack>
+            </Stack>
           </form>
         </VStack>
       </Box>
