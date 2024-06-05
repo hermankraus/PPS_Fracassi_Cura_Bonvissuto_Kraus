@@ -2,7 +2,7 @@
 --
 -- Host: localhost    Database: pps_database
 -- ------------------------------------------------------
--- Server version	8.3.0
+-- Server version	8.4.0
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -133,17 +133,17 @@ DROP TABLE IF EXISTS `joboffer`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `joboffer` (
-  `idJobOffer` int NOT NULL,
-  `tipocontrato` varchar(45) NOT NULL,
-  `tipoJornada` varchar(45) NOT NULL,
-  `modalidadTrabajo` varchar(45) NOT NULL,
-  `descripcion` varchar(300) NOT NULL,
-  `cuitcompania` varchar(45) NOT NULL,
+  `idJobOffer` int NOT NULL AUTO_INCREMENT,
+  `ContractType` varchar(45) NOT NULL,
+  `EmploymentType` varchar(45) NOT NULL,
+  `WorkLocation` varchar(45) NOT NULL,
+  `description` varchar(300) NOT NULL,
+  `cuitcompany` varchar(45) NOT NULL,
   `State` enum('inprogress','finalized') NOT NULL,
   `finallydate` date NOT NULL,
   PRIMARY KEY (`idJobOffer`),
-  KEY `FK_JobOffer_Companies_idx` (`cuitcompania`),
-  CONSTRAINT `FK_JobOffer_Companies` FOREIGN KEY (`cuitcompania`) REFERENCES `company` (`CUIT`)
+  KEY `FK_JobOffer_Companies_idx` (`cuitcompany`),
+  CONSTRAINT `FK_JobOffer_Companies` FOREIGN KEY (`cuitcompany`) REFERENCES `company` (`CUIT`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -273,7 +273,7 @@ CREATE TABLE `studentscareers` (
   `idCareers` int NOT NULL,
   `enrollmentDate` date NOT NULL,
   `graduationDate` date DEFAULT NULL,
-  `isComplete` enum('SI','NO') NOT NULL,
+  `isComplete` enum('YES','NO') NOT NULL,
   PRIMARY KEY (`idStudents`,`idCareers`),
   KEY `StudentsCareers_idCareers_idx` (`idCareers`),
   CONSTRAINT `StudentsCareers_idCareers` FOREIGN KEY (`idCareers`) REFERENCES `careers` (`idCareers`),
@@ -323,6 +323,32 @@ LOCK TABLES `studentsexperience` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `studentsjoboffers`
+--
+
+DROP TABLE IF EXISTS `studentsjoboffers`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `studentsjoboffers` (
+  `idJobOffers` int NOT NULL,
+  `idStudents` int NOT NULL,
+  PRIMARY KEY (`idJobOffers`,`idStudents`),
+  KEY `StudentsJobOffersIdStudents_idx` (`idStudents`),
+  CONSTRAINT `StudentsJobOffersIdJobOffers` FOREIGN KEY (`idJobOffers`) REFERENCES `joboffer` (`idJobOffer`),
+  CONSTRAINT `StudentsJobOffersIdStudents` FOREIGN KEY (`idStudents`) REFERENCES `student` (`Legajo`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `studentsjoboffers`
+--
+
+LOCK TABLES `studentsjoboffers` WRITE;
+/*!40000 ALTER TABLE `studentsjoboffers` DISABLE KEYS */;
+/*!40000 ALTER TABLE `studentsjoboffers` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `studentsskills`
 --
 
@@ -357,4 +383,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-06-04 19:20:15
+-- Dump completed on 2024-06-04 23:58:05
