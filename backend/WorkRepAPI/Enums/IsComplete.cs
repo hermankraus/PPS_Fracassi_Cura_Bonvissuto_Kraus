@@ -2,7 +2,7 @@
 {
     public enum IsComplete
     {
-        SI,
+        YES,
         NO
     }
 }

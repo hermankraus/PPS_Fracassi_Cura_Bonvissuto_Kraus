@@ -10,11 +10,12 @@ namespace WorkRepAPI.Entities
         {
             Studentscareers = new HashSet<Studentscareer>();
             Studentsexperiences = new HashSet<Studentsexperience>();
+            IdJobOffers = new HashSet<Joboffer>();
             IdSkills = new HashSet<Skill>();
         }
 
         public int Legajo { get; set; }
-        public DocumentType? DocumentType { get; set; } = null!;
+        public DocumentType DocumentType { get; set; }
         public string DocumentNumber { get; set; } = null!;
         public string Name { get; set; } = null!;
         public string LastName { get; set; } = null!;
@@ -45,11 +46,12 @@ namespace WorkRepAPI.Entities
         public string? LinkedUrl { get; set; }
         public string Email { get; set; } = null!;
         public string Password { get; set; } = null!;
-        public State State { get; set; } = 0;
+        public State State { get; set; } 
 
         public virtual ICollection<Studentscareer> Studentscareers { get; set; }
         public virtual ICollection<Studentsexperience> Studentsexperiences { get; set; }
 
+        public virtual ICollection<Joboffer> IdJobOffers { get; set; }
         public virtual ICollection<Skill> IdSkills { get; set; }
     }
 }

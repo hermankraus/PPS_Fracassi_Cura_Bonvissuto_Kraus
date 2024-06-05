@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using WorkRepAPI.Enums;
 
 namespace WorkRepAPI.Entities
 {
@@ -9,18 +10,22 @@ namespace WorkRepAPI.Entities
         {
             IdCarreers = new HashSet<Career>();
             IdSkills = new HashSet<Skill>();
+            IdStudents = new HashSet<Student>();
         }
 
         public int IdJobOffer { get; set; }
-        public string Tipocontrato { get; set; } = null!;
-        public string TipoJornada { get; set; } = null!;
-        public string ModalidadTrabajo { get; set; } = null!;
-        public string Descripcion { get; set; } = null!;
-        public string Cuitcompania { get; set; } = null!;
+        public string ContractType { get; set; } = null!;
+        public string EmploymentType { get; set; } = null!;
+        public string WorkLocation { get; set; } = null!;
+        public string Description { get; set; } = null!;
+        public string Cuitcompany { get; set; } = null!;
+        public OfferState State { get; set; }
+        public DateTime Finallydate { get; set; }
 
-        public virtual Company CuitcompaniaNavigation { get; set; } = null!;
+        public virtual Company CuitcompanyNavigation { get; set; } = null!;
 
         public virtual ICollection<Career> IdCarreers { get; set; }
         public virtual ICollection<Skill> IdSkills { get; set; }
+        public virtual ICollection<Student> IdStudents { get; set; }
     }
 }

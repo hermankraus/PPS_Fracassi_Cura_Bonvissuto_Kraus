@@ -26,7 +26,14 @@ namespace WorkRepAPI.Context
         public virtual DbSet<Studentscareer> Studentscareers { get; set; } = null!;
         public virtual DbSet<Studentsexperience> Studentsexperiences { get; set; } = null!;
 
-    
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            if (!optionsBuilder.IsConfigured)
+            {
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
+                optionsBuilder.UseMySQL("server=localhost;port=3306;database=pps_database;user=root;password=azul;");
+            }
+        }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -119,33 +126,33 @@ namespace WorkRepAPI.Context
 
                 entity.ToTable("joboffer");
 
-                entity.HasIndex(e => e.Cuitcompania, "FK_JobOffer_Companies_idx");
+                entity.HasIndex(e => e.Cuitcompany, "FK_JobOffer_Companies_idx");
 
                 entity.Property(e => e.IdJobOffer).HasColumnName("idJobOffer");
 
-                entity.Property(e => e.Cuitcompania)
-                    .HasMaxLength(45)
-                    .HasColumnName("cuitcompania");
+                entity.Property(e => e.ContractType).HasMaxLength(45);
 
-                entity.Property(e => e.Descripcion)
+                entity.Property(e => e.Cuitcompany)
+                    .HasMaxLength(45)
+                    .HasColumnName("cuitcompany");
+
+                entity.Property(e => e.Description)
                     .HasMaxLength(300)
-                    .HasColumnName("descripcion");
+                    .HasColumnName("description");
 
-                entity.Property(e => e.ModalidadTrabajo)
-                    .HasMaxLength(45)
-                    .HasColumnName("modalidadTrabajo");
+                entity.Property(e => e.EmploymentType).HasMaxLength(45);
 
-                entity.Property(e => e.TipoJornada)
-                    .HasMaxLength(45)
-                    .HasColumnName("tipoJornada");
+                entity.Property(e => e.Finallydate)
+                    .HasColumnType("date")
+                    .HasColumnName("finallydate");
 
-                entity.Property(e => e.Tipocontrato)
-                    .HasMaxLength(45)
-                    .HasColumnName("tipocontrato");
+                entity.Property(e => e.State).HasColumnType("enum('inprogress','finalized')");
 
-                entity.HasOne(d => d.CuitcompaniaNavigation)
+                entity.Property(e => e.WorkLocation).HasMaxLength(45);
+
+                entity.HasOne(d => d.CuitcompanyNavigation)
                     .WithMany(p => p.Joboffers)
-                    .HasForeignKey(d => d.Cuitcompania)
+                    .HasForeignKey(d => d.Cuitcompany)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_JobOffer_Companies");
 
@@ -166,6 +173,25 @@ namespace WorkRepAPI.Context
                             j.IndexerProperty<int>("IdJobOffer").HasColumnName("idJobOffer");
 
                             j.IndexerProperty<int>("IdSkills").HasColumnName("idSkills");
+                        });
+
+                entity.HasMany(d => d.IdStudents)
+                    .WithMany(p => p.IdJobOffers)
+                    .UsingEntity<Dictionary<string, object>>(
+                        "Studentsjoboffer",
+                        l => l.HasOne<Student>().WithMany().HasForeignKey("IdStudents").OnDelete(DeleteBehavior.ClientSetNull).HasConstraintName("StudentsJobOffersIdStudents"),
+                        r => r.HasOne<Joboffer>().WithMany().HasForeignKey("IdJobOffers").OnDelete(DeleteBehavior.ClientSetNull).HasConstraintName("StudentsJobOffersIdJobOffers"),
+                        j =>
+                        {
+                            j.HasKey("IdJobOffers", "IdStudents").HasName("PRIMARY");
+
+                            j.ToTable("studentsjoboffers");
+
+                            j.HasIndex(new[] { "IdStudents" }, "StudentsJobOffersIdStudents_idx");
+
+                            j.IndexerProperty<int>("IdJobOffers").HasColumnName("idJobOffers");
+
+                            j.IndexerProperty<int>("IdStudents").HasColumnName("idStudents");
                         });
             });
 
@@ -287,7 +313,7 @@ namespace WorkRepAPI.Context
                     .HasColumnName("graduationDate");
 
                 entity.Property(e => e.IsComplete)
-                    .HasColumnType("enum('SI','NO')")
+                    .HasColumnType("enum('YES','NO')")
                     .HasColumnName("isComplete");
 
                 entity.HasOne(d => d.IdCareersNavigation)

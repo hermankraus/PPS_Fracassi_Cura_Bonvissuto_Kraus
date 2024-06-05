@@ -1,17 +1,61 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Usuario\\OneDrive\\Escritorio\\PPS_Fracassi_Cura_Bonvissuto_Kraus\\backend\\WorkRepAPI\\",
+  "WorkspaceRootPath": "C:\\Users\\Usuario\\Documents\\PPS_Fracassi_Cura_Bonvissuto_Kraus\\backend\\WorkRepAPI\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{4765BE35-DFA5-4EC6-9FDE-31B1046DF783}|WorkRepAPI.csproj|c:\\users\\usuario\\onedrive\\escritorio\\pps_fracassi_cura_bonvissuto_kraus\\backend\\workrepapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{4765BE35-DFA5-4EC6-9FDE-31B1046DF783}|WorkRepAPI.csproj|c:\\users\\usuario\\documents\\pps_fracassi_cura_bonvissuto_kraus\\backend\\workrepapi\\entities\\student.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4765BE35-DFA5-4EC6-9FDE-31B1046DF783}|WorkRepAPI.csproj|solutionrelative:entities\\student.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4765BE35-DFA5-4EC6-9FDE-31B1046DF783}|WorkRepAPI.csproj|c:\\users\\usuario\\documents\\pps_fracassi_cura_bonvissuto_kraus\\backend\\workrepapi\\entities\\career.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4765BE35-DFA5-4EC6-9FDE-31B1046DF783}|WorkRepAPI.csproj|solutionrelative:entities\\career.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4765BE35-DFA5-4EC6-9FDE-31B1046DF783}|WorkRepAPI.csproj|c:\\users\\usuario\\documents\\pps_fracassi_cura_bonvissuto_kraus\\backend\\workrepapi\\entities\\administrator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4765BE35-DFA5-4EC6-9FDE-31B1046DF783}|WorkRepAPI.csproj|solutionrelative:entities\\administrator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4765BE35-DFA5-4EC6-9FDE-31B1046DF783}|WorkRepAPI.csproj|c:\\users\\usuario\\documents\\pps_fracassi_cura_bonvissuto_kraus\\backend\\workrepapi\\entities\\company.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4765BE35-DFA5-4EC6-9FDE-31B1046DF783}|WorkRepAPI.csproj|solutionrelative:entities\\company.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4765BE35-DFA5-4EC6-9FDE-31B1046DF783}|WorkRepAPI.csproj|c:\\users\\usuario\\documents\\pps_fracassi_cura_bonvissuto_kraus\\backend\\workrepapi\\entities\\joboffer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4765BE35-DFA5-4EC6-9FDE-31B1046DF783}|WorkRepAPI.csproj|solutionrelative:entities\\joboffer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4765BE35-DFA5-4EC6-9FDE-31B1046DF783}|WorkRepAPI.csproj|c:\\users\\usuario\\documents\\pps_fracassi_cura_bonvissuto_kraus\\backend\\workrepapi\\entities\\skill.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4765BE35-DFA5-4EC6-9FDE-31B1046DF783}|WorkRepAPI.csproj|solutionrelative:entities\\skill.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4765BE35-DFA5-4EC6-9FDE-31B1046DF783}|WorkRepAPI.csproj|c:\\users\\usuario\\documents\\pps_fracassi_cura_bonvissuto_kraus\\backend\\workrepapi\\entities\\studentscareer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4765BE35-DFA5-4EC6-9FDE-31B1046DF783}|WorkRepAPI.csproj|solutionrelative:entities\\studentscareer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4765BE35-DFA5-4EC6-9FDE-31B1046DF783}|WorkRepAPI.csproj|c:\\users\\usuario\\documents\\pps_fracassi_cura_bonvissuto_kraus\\backend\\workrepapi\\entities\\studentsexperience.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4765BE35-DFA5-4EC6-9FDE-31B1046DF783}|WorkRepAPI.csproj|solutionrelative:entities\\studentsexperience.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4765BE35-DFA5-4EC6-9FDE-31B1046DF783}|WorkRepAPI.csproj|c:\\users\\usuario\\documents\\pps_fracassi_cura_bonvissuto_kraus\\backend\\workrepapi\\context\\pps_databasecontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4765BE35-DFA5-4EC6-9FDE-31B1046DF783}|WorkRepAPI.csproj|solutionrelative:context\\pps_databasecontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4765BE35-DFA5-4EC6-9FDE-31B1046DF783}|WorkRepAPI.csproj|c:\\users\\usuario\\documents\\pps_fracassi_cura_bonvissuto_kraus\\backend\\workrepapi\\enums\\iscomplete.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4765BE35-DFA5-4EC6-9FDE-31B1046DF783}|WorkRepAPI.csproj|solutionrelative:enums\\iscomplete.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4765BE35-DFA5-4EC6-9FDE-31B1046DF783}|WorkRepAPI.csproj|c:\\users\\usuario\\documents\\pps_fracassi_cura_bonvissuto_kraus\\backend\\workrepapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{4765BE35-DFA5-4EC6-9FDE-31B1046DF783}|WorkRepAPI.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4765BE35-DFA5-4EC6-9FDE-31B1046DF783}|WorkRepAPI.csproj|c:\\users\\usuario\\documents\\pps_fracassi_cura_bonvissuto_kraus\\backend\\workrepapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4765BE35-DFA5-4EC6-9FDE-31B1046DF783}|WorkRepAPI.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4765BE35-DFA5-4EC6-9FDE-31B1046DF783}|WorkRepAPI.csproj|c:\\users\\usuario\\onedrive\\escritorio\\pps_fracassi_cura_bonvissuto_kraus\\backend\\workrepapi\\controllers\\companycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{4765BE35-DFA5-4EC6-9FDE-31B1046DF783}|WorkRepAPI.csproj|c:\\users\\usuario\\documents\\pps_fracassi_cura_bonvissuto_kraus\\backend\\workrepapi\\controllers\\companycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4765BE35-DFA5-4EC6-9FDE-31B1046DF783}|WorkRepAPI.csproj|solutionrelative:controllers\\companycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4765BE35-DFA5-4EC6-9FDE-31B1046DF783}|WorkRepAPI.csproj|c:\\users\\usuario\\onedrive\\escritorio\\pps_fracassi_cura_bonvissuto_kraus\\backend\\workrepapi\\services\\implementations\\companyservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{4765BE35-DFA5-4EC6-9FDE-31B1046DF783}|WorkRepAPI.csproj|c:\\users\\usuario\\documents\\pps_fracassi_cura_bonvissuto_kraus\\backend\\workrepapi\\services\\implementations\\companyservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4765BE35-DFA5-4EC6-9FDE-31B1046DF783}|WorkRepAPI.csproj|solutionrelative:services\\implementations\\companyservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -22,20 +66,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 17,
+          "SelectedChildIndex": 26,
           "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:1:0:{fabf9319-47eb-497e-b8f6-d9f73fba5f55}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:2:0:{fabf9319-47eb-497e-b8f6-d9f73fba5f55}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:3:0:{fabf9319-47eb-497e-b8f6-d9f73fba5f55}"
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:1659806124:0:{bf84ea66-d821-4dba-b1b1-2777d8574775}"
@@ -78,6 +110,10 @@
             },
             {
               "$type": "Bookmark",
+              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
               "Name": "ST:130:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
             },
             {
@@ -86,7 +122,23 @@
             },
             {
               "$type": "Bookmark",
+              "Name": "ST:3:0:{fabf9319-47eb-497e-b8f6-d9f73fba5f55}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{fabf9319-47eb-497e-b8f6-d9f73fba5f55}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:2:0:{fabf9319-47eb-497e-b8f6-d9f73fba5f55}"
+            },
+            {
+              "$type": "Bookmark",
               "Name": "ST:950728053:0:{bf84ea66-d821-4dba-b1b1-2777d8574775}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
             },
             {
               "$type": "Bookmark",
@@ -94,11 +146,154 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Administrator.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\Documents\\PPS_Fracassi_Cura_Bonvissuto_Kraus\\backend\\WorkRepAPI\\Entities\\Administrator.cs",
+              "RelativeDocumentMoniker": "Entities\\Administrator.cs",
+              "ToolTip": "C:\\Users\\Usuario\\Documents\\PPS_Fracassi_Cura_Bonvissuto_Kraus\\backend\\WorkRepAPI\\Entities\\Administrator.cs",
+              "RelativeToolTip": "Entities\\Administrator.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAA1AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-05T02:55:52.271Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Studentsexperience.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\Documents\\PPS_Fracassi_Cura_Bonvissuto_Kraus\\backend\\WorkRepAPI\\Entities\\Studentsexperience.cs",
+              "RelativeDocumentMoniker": "Entities\\Studentsexperience.cs",
+              "ToolTip": "C:\\Users\\Usuario\\Documents\\PPS_Fracassi_Cura_Bonvissuto_Kraus\\backend\\WorkRepAPI\\Entities\\Studentsexperience.cs",
+              "RelativeToolTip": "Entities\\Studentsexperience.cs",
+              "ViewState": "AQIAAAcAAAAAAAAAAAA1wA0AAAAqAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-05T02:54:56.798Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Studentscareer.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\Documents\\PPS_Fracassi_Cura_Bonvissuto_Kraus\\backend\\WorkRepAPI\\Entities\\Studentscareer.cs",
+              "RelativeDocumentMoniker": "Entities\\Studentscareer.cs",
+              "ToolTip": "C:\\Users\\Usuario\\Documents\\PPS_Fracassi_Cura_Bonvissuto_Kraus\\backend\\WorkRepAPI\\Entities\\Studentscareer.cs",
+              "RelativeToolTip": "Entities\\Studentscareer.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAABIAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-05T02:54:37.259Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "IsComplete.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\Documents\\PPS_Fracassi_Cura_Bonvissuto_Kraus\\backend\\WorkRepAPI\\Enums\\IsComplete.cs",
+              "RelativeDocumentMoniker": "Enums\\IsComplete.cs",
+              "ToolTip": "C:\\Users\\Usuario\\Documents\\PPS_Fracassi_Cura_Bonvissuto_Kraus\\backend\\WorkRepAPI\\Enums\\IsComplete.cs",
+              "RelativeToolTip": "Enums\\IsComplete.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAKAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-05T02:53:39.978Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Career.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\Documents\\PPS_Fracassi_Cura_Bonvissuto_Kraus\\backend\\WorkRepAPI\\Entities\\Career.cs",
+              "RelativeDocumentMoniker": "Entities\\Career.cs",
+              "ToolTip": "C:\\Users\\Usuario\\Documents\\PPS_Fracassi_Cura_Bonvissuto_Kraus\\backend\\WorkRepAPI\\Entities\\Career.cs",
+              "RelativeToolTip": "Entities\\Career.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAxwBEAAAAsAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-05T02:52:30.711Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Company.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\Documents\\PPS_Fracassi_Cura_Bonvissuto_Kraus\\backend\\WorkRepAPI\\Entities\\Company.cs",
+              "RelativeDocumentMoniker": "Entities\\Company.cs",
+              "ToolTip": "C:\\Users\\Usuario\\Documents\\PPS_Fracassi_Cura_Bonvissuto_Kraus\\backend\\WorkRepAPI\\Entities\\Company.cs",
+              "RelativeToolTip": "Entities\\Company.cs",
+              "ViewState": "AQIAABQAAAAAAAAAAAAzwBcAAAAoAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-05T02:50:24.351Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Skill.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\Documents\\PPS_Fracassi_Cura_Bonvissuto_Kraus\\backend\\WorkRepAPI\\Entities\\Skill.cs",
+              "RelativeDocumentMoniker": "Entities\\Skill.cs",
+              "ToolTip": "C:\\Users\\Usuario\\Documents\\PPS_Fracassi_Cura_Bonvissuto_Kraus\\backend\\WorkRepAPI\\Entities\\Skill.cs",
+              "RelativeToolTip": "Entities\\Skill.cs",
+              "ViewState": "AQIAAAUAAAAAAAAAAAAxwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-05T02:50:18.195Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "Student.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\Documents\\PPS_Fracassi_Cura_Bonvissuto_Kraus\\backend\\WorkRepAPI\\Entities\\Student.cs",
+              "RelativeDocumentMoniker": "Entities\\Student.cs",
+              "ToolTip": "C:\\Users\\Usuario\\Documents\\PPS_Fracassi_Cura_Bonvissuto_Kraus\\backend\\WorkRepAPI\\Entities\\Student.cs",
+              "RelativeToolTip": "Entities\\Student.cs",
+              "ViewState": "AQIAAA4AAAAAAAAAAAAQwBEAAAA2AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-05T02:49:33.967Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "JobOffer.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\Documents\\PPS_Fracassi_Cura_Bonvissuto_Kraus\\backend\\WorkRepAPI\\Entities\\JobOffer.cs",
+              "RelativeDocumentMoniker": "Entities\\JobOffer.cs",
+              "ToolTip": "C:\\Users\\Usuario\\Documents\\PPS_Fracassi_Cura_Bonvissuto_Kraus\\backend\\WorkRepAPI\\Entities\\JobOffer.cs",
+              "RelativeToolTip": "Entities\\JobOffer.cs",
+              "ViewState": "AQIAAA4AAAAAAAAAAAAgwBUAAAAtAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-05T02:45:44.417Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "pps_databaseContext.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\Documents\\PPS_Fracassi_Cura_Bonvissuto_Kraus\\backend\\WorkRepAPI\\Context\\pps_databaseContext.cs",
+              "RelativeDocumentMoniker": "Context\\pps_databaseContext.cs",
+              "ToolTip": "C:\\Users\\Usuario\\Documents\\PPS_Fracassi_Cura_Bonvissuto_Kraus\\backend\\WorkRepAPI\\Context\\pps_databaseContext.cs",
+              "RelativeToolTip": "Context\\pps_databaseContext.cs",
+              "ViewState": "AQIAADEBAAAAAAAAAAAAADwBAAAxAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-05T02:46:32.846Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\Usuario\\Documents\\PPS_Fracassi_Cura_Bonvissuto_Kraus\\backend\\WorkRepAPI\\appsettings.json",
+              "RelativeDocumentMoniker": "appsettings.json",
+              "ToolTip": "C:\\Users\\Usuario\\Documents\\PPS_Fracassi_Cura_Bonvissuto_Kraus\\backend\\WorkRepAPI\\appsettings.json",
+              "RelativeToolTip": "appsettings.json",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAAAcAAAAWAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-06-05T02:41:37.036Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\Usuario\\OneDrive\\Escritorio\\PPS_Fracassi_Cura_Bonvissuto_Kraus\\backend\\WorkRepAPI\\Program.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\Documents\\PPS_Fracassi_Cura_Bonvissuto_Kraus\\backend\\WorkRepAPI\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Users\\Usuario\\OneDrive\\Escritorio\\PPS_Fracassi_Cura_Bonvissuto_Kraus\\backend\\WorkRepAPI\\Program.cs",
+              "ToolTip": "C:\\Users\\Usuario\\Documents\\PPS_Fracassi_Cura_Bonvissuto_Kraus\\backend\\WorkRepAPI\\Program.cs",
               "RelativeToolTip": "Program.cs",
               "ViewState": "AQIAADAAAAAAAAAAAAAAAEUAAABEAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -107,29 +302,27 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 12,
               "Title": "CompanyController.cs",
-              "DocumentMoniker": "C:\\Users\\Usuario\\OneDrive\\Escritorio\\PPS_Fracassi_Cura_Bonvissuto_Kraus\\backend\\WorkRepAPI\\Controllers\\CompanyController.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\Documents\\PPS_Fracassi_Cura_Bonvissuto_Kraus\\backend\\WorkRepAPI\\Controllers\\CompanyController.cs",
               "RelativeDocumentMoniker": "Controllers\\CompanyController.cs",
-              "ToolTip": "C:\\Users\\Usuario\\OneDrive\\Escritorio\\PPS_Fracassi_Cura_Bonvissuto_Kraus\\backend\\WorkRepAPI\\Controllers\\CompanyController.cs",
+              "ToolTip": "C:\\Users\\Usuario\\Documents\\PPS_Fracassi_Cura_Bonvissuto_Kraus\\backend\\WorkRepAPI\\Controllers\\CompanyController.cs",
               "RelativeToolTip": "Controllers\\CompanyController.cs",
               "ViewState": "AQIAAAsAAAAAAAAAAAAQwB8AAAAuAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-02T17:55:34.766Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-02T17:55:34.766Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 13,
               "Title": "CompanyService.cs",
-              "DocumentMoniker": "C:\\Users\\Usuario\\OneDrive\\Escritorio\\PPS_Fracassi_Cura_Bonvissuto_Kraus\\backend\\WorkRepAPI\\Services\\Implementations\\CompanyService.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\Documents\\PPS_Fracassi_Cura_Bonvissuto_Kraus\\backend\\WorkRepAPI\\Services\\Implementations\\CompanyService.cs",
               "RelativeDocumentMoniker": "Services\\Implementations\\CompanyService.cs",
-              "ToolTip": "C:\\Users\\Usuario\\OneDrive\\Escritorio\\PPS_Fracassi_Cura_Bonvissuto_Kraus\\backend\\WorkRepAPI\\Services\\Implementations\\CompanyService.cs",
+              "ToolTip": "C:\\Users\\Usuario\\Documents\\PPS_Fracassi_Cura_Bonvissuto_Kraus\\backend\\WorkRepAPI\\Services\\Implementations\\CompanyService.cs",
               "RelativeToolTip": "Services\\Implementations\\CompanyService.cs",
               "ViewState": "AQIAAA4AAAAAAAAAAAA1wCcAAAAaAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-02T17:44:55.675Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-02T17:44:55.675Z"
             }
           ]
         }
