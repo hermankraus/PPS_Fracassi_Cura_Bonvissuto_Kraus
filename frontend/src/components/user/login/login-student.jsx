@@ -34,14 +34,12 @@ const LoginStudent = () => {
 
       const Role = response.data.role;
       const State = response.data.state;
-      if (Role === "Admin") {
-        successToast("Inicio de sesión exitoso", "Bienvenido");
+      if (Role === "Administrator") {
         setIsAdmin(true);
         navigate("/admin-page");
       }
       if (Role === "Student") {
         if (State === "Pending") {
-          successToast("Inicio Exitoso, Welcome");
           navigate("/AccountAuth");
         } else {
           successToast("Inicio Exitoso, Welcome");
@@ -85,14 +83,14 @@ const LoginStudent = () => {
                   maxW="19rem"
                   minH="2rem"
                   justifyContent="center"
-                  textAlign={{base: "center"}}
+                  textAlign={{ base: "center" }}
                   className={isDarkMode ? "dark-ls" : "light-ls"}
                 >
-                  <Text mb="1rem" fontSize={{base: "15px", lg: "20px"}} >
+                  <Text mb="1rem" fontSize={{ base: "15px", lg: "20px" }} >
                     Iniciar sesión con legajo y contraseña
                   </Text>
                   <FormControl>
-                    <FormLabel textAlign={{base: "center", lg: "left"}}>
+                    <FormLabel textAlign={{ base: "center", lg: "left" }}>
                       Legajo
                     </FormLabel>
                     <Field
@@ -108,7 +106,7 @@ const LoginStudent = () => {
                     />
                   </FormControl>
                   <FormControl>
-                    <FormLabel textAlign={{base: "center", lg: "left"}}>Contraseña</FormLabel>
+                    <FormLabel textAlign={{ base: "center", lg: "left" }}>Contraseña</FormLabel>
                     <Field
                       className="custom-input"
                       as={Input}
@@ -129,7 +127,7 @@ const LoginStudent = () => {
                   justify="space-between"
                   direction={{ base: "column", lg: "row" }}
                   alignItems="center"
-                  >
+                >
                   <Button
                     type="submit"
                     bg="#265171"
@@ -153,11 +151,11 @@ const LoginStudent = () => {
                     bg="#265171"
                     color="white"
                     onClick={() => navigate("/register")}
-                    mr={{base: "-1rem", lg: "1rem"}}
+                    mr={{ base: "-1rem", lg: "1rem" }}
                     mb="1rem"
                     cursor="pointer"
                     className="login-student"
-                    display={{base: "row"}}
+                    display={{ base: "row" }}
                   >
                     Registrate
                   </Button>

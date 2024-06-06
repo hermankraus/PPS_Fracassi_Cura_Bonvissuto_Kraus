@@ -195,7 +195,6 @@ const RegisterCompany = () => {
                 {isLoading && <Spinner size="md" color="teal" />}
                 <Button
                   type="submit"
-                  colorScheme="teal"
                   isLoading={isLoading}
                   loadingText="Registrando..."
                   bottom={9}

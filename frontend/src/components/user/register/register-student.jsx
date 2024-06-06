@@ -303,7 +303,6 @@ const RegisterStudent = () => {
               {isLoading && <Spinner size="md" color="blue" />}
               <Button
                 type="submit"
-                colorScheme="teal"
                 isLoading={isLoading}
                 loadingText="Registrando..."
                 bottom={9}

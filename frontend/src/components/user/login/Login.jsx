@@ -1,7 +1,7 @@
 import { useState, useContext } from "react";
 import LoginCompany from "./login-company";
 import LoginStudent from "./login-student";
-import { Flex, Box, Image, HStack, Switch, Heading, Text } from "@chakra-ui/react";
+import { Flex, Box, Image, HStack, Switch, Heading } from "@chakra-ui/react";
 import { ThemeContext } from "../../context/theme-context/theme-context";
 import images from "../../../assets/constants/images";
 import { useNavigate } from "react-router-dom";
@@ -57,27 +57,26 @@ export default function Login() {
               p="2rem"
               w="30rem"
             >
-                <Heading
-                cursor= "pointer"
+              <Heading
+                cursor="pointer"
                 fontWeight="bold"
                 hideFrom="lg"
-                fontSize={{base: "14px"}}
-                textAlign={{base:"center"}}
+                fontSize={{ base: "14px" }}
+                textAlign={{ base: "center" }}
                 onClick={() => navigate("/")}>
-                  Bolsa de trabajo UTN
-                </Heading>
+                Bolsa de trabajo UTN
+              </Heading>
               <Flex justifyContent="center" alignItems="center" mt="1rem">
-                <Heading mr="1rem" h="3rem" className="switch" fontSize={{base: "15px", lg: "30px"}}>
+                <Heading mr="1rem" h="3rem" className="switch" fontSize={{ base: "15px", lg: "30px" }}>
                   {isCompany ? "Estudiante" : "Estudiante"}
                 </Heading>
                 <Switch
                   isChecked={isCompany}
                   onChange={handleSwitch}
-                  size={{base:"md" , lg:"lg"}}
-                  colorScheme="blue"
-                  mb={{base: "2rem", lg: "2px"}}
+                  size={{ base: "md", lg: "lg" }}
+                  mb={{ base: "2rem", lg: "2px" }}
                 />
-                <Heading className="switch" ml={4} h="3rem" fontSize={{base: "15px", lg: "30px"}}>
+                <Heading className="switch" ml={4} h="3rem" fontSize={{ base: "15px", lg: "30px" }}>
                   Empresa
                 </Heading>
               </Flex>

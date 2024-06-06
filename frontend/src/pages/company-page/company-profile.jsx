@@ -174,7 +174,7 @@ export const CompanyProfile = () => {
               />
             </Box>
 
-            <Button type="submit" colorScheme="blue" style={{ margin: "10px" }}>
+            <Button type="submit" style={{ margin: "10px" }}>
               Guardar cambios
             </Button>
           </VStack>

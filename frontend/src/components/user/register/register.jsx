@@ -52,16 +52,15 @@ export default function Register() {
                   isChecked={isCompany}
                   onChange={handleSwitch}
                   size="lg"
-                  colorScheme="blue"
                 />
                 <Heading className="switch" ml={4} h="3rem">
                   Empresa
                 </Heading>
               </Flex>
               <VStack>
-              <h1 justifyContent="center" alignItems="center">
-                Registro de usuario bolsa de trabajo
-              </h1>
+                <h1 justifyContent="center" alignItems="center">
+                  Registro de usuario bolsa de trabajo
+                </h1>
               </VStack>
               {isCompany ? <RegisterCompany /> : <RegisterStudent />}
             </Box>

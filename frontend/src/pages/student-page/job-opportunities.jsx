@@ -61,7 +61,6 @@ export const JobOpportunities = ({ onApply, jobOpportunities }) => {
             <Text>{opportunity.company}</Text>
             <Button
               mt={4}
-              colorScheme="blue"
               onClick={() => onApply(opportunity)}
             >
               Postularme
@@ -69,7 +68,7 @@ export const JobOpportunities = ({ onApply, jobOpportunities }) => {
             <Button
               mt={4}
               ml={4}
-              colorScheme={isSaved(opportunity) ? "yellow" : "gray"}
+              // colorScheme={isSaved(opportunity) ? "yellow" : "gray"}
               onClick={() => toggleSaved(opportunity)}
             >
               {isSaved(opportunity) ? "Quitar de guardados" : "Guardar"}

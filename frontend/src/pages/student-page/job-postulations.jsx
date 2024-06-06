@@ -24,7 +24,7 @@ export const JobPostulations = ({ postulatedJobs, onDelete }) => {
               </Heading>
               <Text>{job.company}</Text>
             </Box>
-            <Button colorScheme="red" onClick={() => onDelete(job)}>
+            <Button onClick={() => onDelete(job)}>
               Eliminar
             </Button>
           </Box>

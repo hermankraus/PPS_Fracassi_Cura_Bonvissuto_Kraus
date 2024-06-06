@@ -1,15 +1,19 @@
-import { useState } from "react";
+import React from "react";
+import AdminStudent from "../../components/admin/admin-student";
+import AdminCompany from "../../components/admin/admin-company";
 import { NavbarPage } from "../../components/navbar/navbar";
+import { Box } from "@chakra-ui/react";
 
-export const AdminPage = () => {
-  const [isAdmin, setIsAdmin] = useState(false);
-
+const AdminPage = () => {
   return (
-    <div style={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}>
-      <NavbarPage isAdmin={isAdmin} />
-      <div style={{ paddingTop: "70px", flex: 1, padding: "20px" }}>
-        <h1>¡Hola mundo!</h1>
-      </div>
-    </div>
+    <Box>
+      <NavbarPage />
+      <Box mt={20} p={10}>
+        <AdminStudent />
+        <AdminCompany />
+      </Box>
+    </Box>
   );
 };
+
+export default AdminPage;
