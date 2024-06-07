@@ -3,7 +3,7 @@ using WorkRepAPI.Enums;
 
 namespace WorkRepAPI.Models.StudentsDTOs
 {
-    public class getStudentsDTO
+    public class GetStudentsDTO
     {
         
         public int Legajo { get; set; }
@@ -11,7 +11,7 @@ namespace WorkRepAPI.Models.StudentsDTOs
         
         public string? Lastname { get; set; }
         
-        public string? email { get; set; }
+        public string? Email { get; set; }
 
         public State State { get; set; }
     }

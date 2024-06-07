@@ -24,5 +24,10 @@ namespace WorkRepAPI.Data.Implementations
             return _context.Students;
         }
      
+        public Student GetStudentbyLegajo(int legajo)
+        {
+            return _context.Students.SingleOrDefault(s => s.Legajo == legajo);
+
+        }
     }
 }

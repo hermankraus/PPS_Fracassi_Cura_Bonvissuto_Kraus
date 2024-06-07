@@ -18,23 +18,41 @@ namespace WorkRepAPI.Services.Implementations
             _studentRepository.SetStudentState(student);   
         }
 
-        public IEnumerable<getStudentsDTO> GetStudents()
+        public IEnumerable<GetStudentsDTO> GetStudents()
         {
             var students = _studentRepository.GetStudents();
-            var studentDto = students.Select(s => new getStudentsDTO
+            var studentDto = students.Select(s => new GetStudentsDTO
             {
                 Legajo = s.Legajo,
                 Name = s.Name,
                 Lastname = s.LastName,
-                email = s.Email,
+                Email = s.Email,
                 State = Enums.State.Pending,
             }).ToList();
 
             return studentDto;
         }
-           
+
+        public GetStudentsDTO GetStudentbyLegajo(int legajo)
+        {
+            var student = _studentRepository.GetStudentbyLegajo(legajo);
+
+            if (student == null)
+            {
+                return null;
+            }
+            var studentDto = new GetStudentsDTO
+            {
+                Legajo = student.Legajo,
+                Name = student.Name,
+                Lastname = student.LastName,
+                Email = student.Email,
+                State = student.State,
+            };
+            return studentDto;
+        }
 
 
-            
+
     }
 }

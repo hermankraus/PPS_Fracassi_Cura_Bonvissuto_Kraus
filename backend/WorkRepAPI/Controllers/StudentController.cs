@@ -7,7 +7,7 @@ namespace WorkRepAPI.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    //[Authorize]
+    [Authorize]
     public class StudentController : Controller
     {
         private readonly IStudentService _studentService;
@@ -19,7 +19,7 @@ namespace WorkRepAPI.Controllers
 
 
         [HttpPut("UpdStudentState")]
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         public ActionResult SetStudentState(setStudentStateDTO student)
         {
             try
@@ -35,11 +35,23 @@ namespace WorkRepAPI.Controllers
         }
 
         [HttpGet("GetStudents")]
-        //[Autho    rize(Roles = "Admin")]
-        public ActionResult<IEnumerable<getStudentsDTO>> GetStudents()
+        [Authorize(Roles = "Admin")]
+        public ActionResult<IEnumerable<GetStudentsDTO>> GetStudents()
         {
             var studentDtos = _studentService.GetStudents();
             return Ok(studentDtos);
+        }
+
+        [HttpGet("{legajo}")]
+        [Authorize(Roles = "Admin")]
+        public ActionResult GetStudentByLegajo(int legajo)
+        {
+            var student = _studentService.GetStudentbyLegajo(legajo);
+            if (student == null)
+            {
+                return BadRequest("No existe el estudiante");
+            }
+            return Ok(student);
         }
     }
 }
