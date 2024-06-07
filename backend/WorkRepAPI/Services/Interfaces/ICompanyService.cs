@@ -7,5 +7,7 @@ namespace WorkRepAPI.Services.Interfaces
         public IEnumerable<ReadAllCompaniesDTO> GetAllCompanies();
 
         public ReadAllCompaniesDTO GetCompanyByCuit(string cuit);
+
+        void SetCompanyState(UpdCompanyDTO company);
     }
 }

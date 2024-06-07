@@ -32,6 +32,18 @@ namespace WorkRepAPI.Controllers
                 return BadRequest(ex.Message);
             }
         }
-        
+        [HttpPut("updstate")]
+        [Authorize(Roles = "Admin")]
+        public ActionResult SetCompanyState(UpdCompanyDTO company)
+        {
+            try
+            {
+                _companyService.SetCompanyState(company);
+                return Ok("actualizado con exito");
+            }catch
+            {
+                return BadRequest("No se pudo actualizar la compañia");
+            }
+        }
     }
 }

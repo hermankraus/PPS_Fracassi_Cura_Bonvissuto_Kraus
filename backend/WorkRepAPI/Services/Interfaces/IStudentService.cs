@@ -6,6 +6,8 @@ namespace WorkRepAPI.Services.Interfaces
     {
         void SetStudentState(setStudentStateDTO student);
 
-        public IEnumerable<getStudentsDTO> GetStudents();
+        public IEnumerable<GetStudentsDTO> GetStudents();
+
+        public GetStudentsDTO GetStudentbyLegajo(int legajo);
     }
 }

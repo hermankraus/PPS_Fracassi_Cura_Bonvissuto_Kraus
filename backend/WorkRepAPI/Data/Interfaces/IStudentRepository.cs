@@ -8,5 +8,7 @@ namespace WorkRepAPI.Data.Interfaces
         void SetStudentState(setStudentStateDTO student);
 
         public IQueryable<Student> GetStudents();
+
+        public Student GetStudentbyLegajo(int legajo);
     }
 }

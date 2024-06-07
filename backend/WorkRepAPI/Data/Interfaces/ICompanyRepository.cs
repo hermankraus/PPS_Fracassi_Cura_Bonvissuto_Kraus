@@ -1,4 +1,5 @@
 ﻿using WorkRepAPI.Entities;
+using WorkRepAPI.Models.CompanyDTOs;
 
 namespace WorkRepAPI.Data.Interfaces
 {
@@ -8,6 +9,6 @@ namespace WorkRepAPI.Data.Interfaces
 
         public Company GetCompanyByCuit(string cuit);
 
-
+        void SetCompanyState(UpdCompanyDTO company);
     }
 }

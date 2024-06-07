@@ -39,5 +39,11 @@ namespace WorkRepAPI.Services.Implementations
             
             return company;
         }
+
+
+        public void SetCompanyState(UpdCompanyDTO company)
+        {
+           _companyRepository.SetCompanyState(company);
+        }
     }
 }
