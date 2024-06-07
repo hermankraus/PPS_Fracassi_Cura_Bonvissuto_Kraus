@@ -20,7 +20,7 @@ namespace WorkRepAPI.Controllers
 
 
         [HttpGet("companies")]
-        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")]
         public ActionResult<ICollection<ReadAllCompaniesDTO>> GetCompanies()
         {
             try
@@ -33,7 +33,7 @@ namespace WorkRepAPI.Controllers
             }
         }
         [HttpPut("updstate")]
-        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")]
         public ActionResult SetCompanyState(UpdCompanyDTO company)
         {
             try

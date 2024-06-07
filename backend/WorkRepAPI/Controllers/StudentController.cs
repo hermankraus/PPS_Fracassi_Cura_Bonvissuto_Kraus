@@ -7,7 +7,7 @@ namespace WorkRepAPI.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    [Authorize]
+    //[Authorize]
     public class StudentController : Controller
     {
         private readonly IStudentService _studentService;
@@ -19,7 +19,7 @@ namespace WorkRepAPI.Controllers
 
 
         [HttpPut("UpdStudentState")]
-        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")]
         public ActionResult SetStudentState(setStudentStateDTO student)
         {
             try
@@ -35,7 +35,7 @@ namespace WorkRepAPI.Controllers
         }
 
         [HttpGet("GetStudents")]
-        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")]
         public ActionResult<IEnumerable<GetStudentsDTO>> GetStudents()
         {
             var studentDtos = _studentService.GetStudents();
@@ -43,7 +43,7 @@ namespace WorkRepAPI.Controllers
         }
 
         [HttpGet("{legajo}")]
-        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")]
         public ActionResult GetStudentByLegajo(int legajo)
         {
             var student = _studentService.GetStudentbyLegajo(legajo);

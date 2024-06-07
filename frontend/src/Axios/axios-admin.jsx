@@ -7,3 +7,7 @@ export const getAllStudents = (students) => {
 export const putStudentState = (student) => {
   return api.put("/Student/UpdStudentState", JSON.stringify(student));
 };
+
+export const putCompanyState = (company) => {
+  return api.put("/Company/updstate", JSON.stringify(company));
+};
