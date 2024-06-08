@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using WorkRepAPI.Enums;
 
 namespace WorkRepAPI.Entities
 {
@@ -14,6 +15,7 @@ namespace WorkRepAPI.Entities
 
         public int IdSkills { get; set; }
         public string DescriptionSkills { get; set; } = null!;
+        public State State { get; set; }
 
         public virtual ICollection<Studentsexperience> Studentsexperiences { get; set; }
 

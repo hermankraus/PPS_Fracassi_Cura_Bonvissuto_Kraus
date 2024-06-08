@@ -21,7 +21,7 @@ namespace WorkRepAPI.Entities
         public string? Type { get; set; }
         public int? NumberOfEmployees { get; set; }
         public string Password { get; set; } = null!;
-        public State State { get; set; } = 0;
+        public State State { get; set; }
 
         public virtual ICollection<Joboffer> Joboffers { get; set; }
     }

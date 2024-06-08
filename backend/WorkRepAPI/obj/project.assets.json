@@ -3465,24 +3465,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Usuario\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\Usuario\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Usuario\\OneDrive\\Escritorio\\ASDDDDD\\PPS_Fracassi_Cura_Bonvissuto_Kraus\\backend\\WorkRepAPI\\WorkRepAPI.csproj",
+      "projectUniqueName": "C:\\Users\\Usuario\\Documents\\PPS_Fracassi_Cura_Bonvissuto_Kraus\\backend\\WorkRepAPI\\WorkRepAPI.csproj",
       "projectName": "WorkRepAPI",
-      "projectPath": "C:\\Users\\Usuario\\OneDrive\\Escritorio\\ASDDDDD\\PPS_Fracassi_Cura_Bonvissuto_Kraus\\backend\\WorkRepAPI\\WorkRepAPI.csproj",
+      "projectPath": "C:\\Users\\Usuario\\Documents\\PPS_Fracassi_Cura_Bonvissuto_Kraus\\backend\\WorkRepAPI\\WorkRepAPI.csproj",
       "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Usuario\\OneDrive\\Escritorio\\ASDDDDD\\PPS_Fracassi_Cura_Bonvissuto_Kraus\\backend\\WorkRepAPI\\obj\\",
+      "outputPath": "C:\\Users\\Usuario\\Documents\\PPS_Fracassi_Cura_Bonvissuto_Kraus\\backend\\WorkRepAPI\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
         "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -3569,7 +3564,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.205\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202\\RuntimeIdentifierGraph.json"
       }
     }
   }
