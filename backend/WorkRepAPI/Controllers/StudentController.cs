@@ -11,10 +11,11 @@ namespace WorkRepAPI.Controllers
     public class StudentController : Controller
     {
         private readonly IStudentService _studentService;
-
-        public StudentController(IStudentService studentService)
+        private readonly IJobApplicationService _jobApplicationService;
+        public StudentController(IStudentService studentService, IJobApplicationService jobApplicationService)
         {
             _studentService = studentService;
+            _jobApplicationService = jobApplicationService;
         }
 
 
@@ -52,6 +53,21 @@ namespace WorkRepAPI.Controllers
                 return BadRequest("No existe el estudiante");
             }
             return Ok(student);
+        }
+
+        [HttpPost("apply")]
+        [Authorize(Roles = "Student")]
+        public async Task<IActionResult> Apply([FromBody] StudentApplicationDTO studentApplication)
+        {
+            try
+            {
+                await _jobApplicationService.Apply(studentApplication);
+                return Ok(new { message = "Has aplicado al empleo" });
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { message = ex.Message });
+            }
         }
     }
 }
