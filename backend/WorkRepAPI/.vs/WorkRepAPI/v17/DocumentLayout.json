@@ -3,32 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\Usuario\\OneDrive\\Escritorio\\PPS_Fracassi_Cura_Bonvissuto_Kraus\\backend\\WorkRepAPI\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{4765BE35-DFA5-4EC6-9FDE-31B1046DF783}|WorkRepAPI.csproj|c:\\users\\usuario\\onedrive\\escritorio\\pps_fracassi_cura_bonvissuto_kraus\\backend\\workrepapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4765BE35-DFA5-4EC6-9FDE-31B1046DF783}|WorkRepAPI.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4765BE35-DFA5-4EC6-9FDE-31B1046DF783}|WorkRepAPI.csproj|c:\\users\\usuario\\onedrive\\escritorio\\pps_fracassi_cura_bonvissuto_kraus\\backend\\workrepapi\\controllers\\studentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4765BE35-DFA5-4EC6-9FDE-31B1046DF783}|WorkRepAPI.csproj|solutionrelative:controllers\\studentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4765BE35-DFA5-4EC6-9FDE-31B1046DF783}|WorkRepAPI.csproj|c:\\users\\usuario\\onedrive\\escritorio\\pps_fracassi_cura_bonvissuto_kraus\\backend\\workrepapi\\services\\implementations\\jobapplicationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4765BE35-DFA5-4EC6-9FDE-31B1046DF783}|WorkRepAPI.csproj|solutionrelative:services\\implementations\\jobapplicationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4765BE35-DFA5-4EC6-9FDE-31B1046DF783}|WorkRepAPI.csproj|c:\\users\\usuario\\onedrive\\escritorio\\pps_fracassi_cura_bonvissuto_kraus\\backend\\workrepapi\\services\\interfaces\\ijobapplicationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4765BE35-DFA5-4EC6-9FDE-31B1046DF783}|WorkRepAPI.csproj|solutionrelative:services\\interfaces\\ijobapplicationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{4765BE35-DFA5-4EC6-9FDE-31B1046DF783}|WorkRepAPI.csproj|c:\\users\\usuario\\onedrive\\escritorio\\pps_fracassi_cura_bonvissuto_kraus\\backend\\workrepapi\\controllers\\companycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4765BE35-DFA5-4EC6-9FDE-31B1046DF783}|WorkRepAPI.csproj|solutionrelative:controllers\\companycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{4765BE35-DFA5-4EC6-9FDE-31B1046DF783}|WorkRepAPI.csproj|c:\\users\\usuario\\onedrive\\escritorio\\pps_fracassi_cura_bonvissuto_kraus\\backend\\workrepapi\\data\\implementations\\jobapplicationrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4765BE35-DFA5-4EC6-9FDE-31B1046DF783}|WorkRepAPI.csproj|solutionrelative:data\\implementations\\jobapplicationrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4765BE35-DFA5-4EC6-9FDE-31B1046DF783}|WorkRepAPI.csproj|c:\\users\\usuario\\onedrive\\escritorio\\pps_fracassi_cura_bonvissuto_kraus\\backend\\workrepapi\\data\\interfaces\\ijobapplicationrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4765BE35-DFA5-4EC6-9FDE-31B1046DF783}|WorkRepAPI.csproj|solutionrelative:data\\interfaces\\ijobapplicationrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{4765BE35-DFA5-4EC6-9FDE-31B1046DF783}|WorkRepAPI.csproj|c:\\users\\usuario\\onedrive\\escritorio\\pps_fracassi_cura_bonvissuto_kraus\\backend\\workrepapi\\data\\implementations\\jobofferrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4765BE35-DFA5-4EC6-9FDE-31B1046DF783}|WorkRepAPI.csproj|solutionrelative:data\\implementations\\jobofferrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4765BE35-DFA5-4EC6-9FDE-31B1046DF783}|WorkRepAPI.csproj|c:\\users\\usuario\\onedrive\\escritorio\\pps_fracassi_cura_bonvissuto_kraus\\backend\\workrepapi\\models\\studentsdtos\\studentapplicationdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4765BE35-DFA5-4EC6-9FDE-31B1046DF783}|WorkRepAPI.csproj|solutionrelative:models\\studentsdtos\\studentapplicationdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{4765BE35-DFA5-4EC6-9FDE-31B1046DF783}|WorkRepAPI.csproj|c:\\users\\usuario\\onedrive\\escritorio\\pps_fracassi_cura_bonvissuto_kraus\\backend\\workrepapi\\services\\implementations\\jobofferservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4765BE35-DFA5-4EC6-9FDE-31B1046DF783}|WorkRepAPI.csproj|solutionrelative:services\\implementations\\jobofferservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4765BE35-DFA5-4EC6-9FDE-31B1046DF783}|WorkRepAPI.csproj|c:\\users\\usuario\\onedrive\\escritorio\\pps_fracassi_cura_bonvissuto_kraus\\backend\\workrepapi\\models\\studentsdtos\\getstudentsdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4765BE35-DFA5-4EC6-9FDE-31B1046DF783}|WorkRepAPI.csproj|solutionrelative:models\\studentsdtos\\getstudentsdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -111,92 +103,66 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\Usuario\\OneDrive\\Escritorio\\PPS_Fracassi_Cura_Bonvissuto_Kraus\\backend\\WorkRepAPI\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Users\\Usuario\\OneDrive\\Escritorio\\PPS_Fracassi_Cura_Bonvissuto_Kraus\\backend\\WorkRepAPI\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AQIAAD8AAAAAAAAAAAAAAE4AAABMAAAA",
+              "Title": "CompanyController.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\OneDrive\\Escritorio\\PPS_Fracassi_Cura_Bonvissuto_Kraus\\backend\\WorkRepAPI\\Controllers\\CompanyController.cs",
+              "RelativeDocumentMoniker": "Controllers\\CompanyController.cs",
+              "ToolTip": "C:\\Users\\Usuario\\OneDrive\\Escritorio\\PPS_Fracassi_Cura_Bonvissuto_Kraus\\backend\\WorkRepAPI\\Controllers\\CompanyController.cs",
+              "RelativeToolTip": "Controllers\\CompanyController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAATAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-09T16:07:03.446Z",
+              "WhenOpened": "2024-06-09T23:06:13.203Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "StudentController.cs",
-              "DocumentMoniker": "C:\\Users\\Usuario\\OneDrive\\Escritorio\\PPS_Fracassi_Cura_Bonvissuto_Kraus\\backend\\WorkRepAPI\\Controllers\\StudentController.cs",
-              "RelativeDocumentMoniker": "Controllers\\StudentController.cs",
-              "ToolTip": "C:\\Users\\Usuario\\OneDrive\\Escritorio\\PPS_Fracassi_Cura_Bonvissuto_Kraus\\backend\\WorkRepAPI\\Controllers\\StudentController.cs",
-              "RelativeToolTip": "Controllers\\StudentController.cs",
-              "ViewState": "AQIAADIAAAAAAAAAAAAIwEcAAAAFAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-09T16:03:12.833Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "JobApplicationService.cs",
-              "DocumentMoniker": "C:\\Users\\Usuario\\OneDrive\\Escritorio\\PPS_Fracassi_Cura_Bonvissuto_Kraus\\backend\\WorkRepAPI\\Services\\Implementations\\JobApplicationService.cs",
-              "RelativeDocumentMoniker": "Services\\Implementations\\JobApplicationService.cs",
-              "ToolTip": "C:\\Users\\Usuario\\OneDrive\\Escritorio\\PPS_Fracassi_Cura_Bonvissuto_Kraus\\backend\\WorkRepAPI\\Services\\Implementations\\JobApplicationService.cs",
-              "RelativeToolTip": "Services\\Implementations\\JobApplicationService.cs",
-              "ViewState": "AQIAAAgAAAAAAAAAAAAQwB4AAABLAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-09T15:56:12.435Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "IJobApplicationService.cs",
-              "DocumentMoniker": "C:\\Users\\Usuario\\OneDrive\\Escritorio\\PPS_Fracassi_Cura_Bonvissuto_Kraus\\backend\\WorkRepAPI\\Services\\Interfaces\\IJobApplicationService.cs",
-              "RelativeDocumentMoniker": "Services\\Interfaces\\IJobApplicationService.cs",
-              "ToolTip": "C:\\Users\\Usuario\\OneDrive\\Escritorio\\PPS_Fracassi_Cura_Bonvissuto_Kraus\\backend\\WorkRepAPI\\Services\\Interfaces\\IJobApplicationService.cs",
-              "RelativeToolTip": "Services\\Interfaces\\IJobApplicationService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAArAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-09T15:54:40.234Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "StudentApplicationDTO.cs",
-              "DocumentMoniker": "C:\\Users\\Usuario\\OneDrive\\Escritorio\\PPS_Fracassi_Cura_Bonvissuto_Kraus\\backend\\WorkRepAPI\\Models\\StudentsDTOs\\StudentApplicationDTO.cs",
-              "RelativeDocumentMoniker": "Models\\StudentsDTOs\\StudentApplicationDTO.cs",
-              "ToolTip": "C:\\Users\\Usuario\\OneDrive\\Escritorio\\PPS_Fracassi_Cura_Bonvissuto_Kraus\\backend\\WorkRepAPI\\Models\\StudentsDTOs\\StudentApplicationDTO.cs",
-              "RelativeToolTip": "Models\\StudentsDTOs\\StudentApplicationDTO.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAdAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-09T15:49:02.831Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
               "Title": "JobApplicationRepository.cs",
               "DocumentMoniker": "C:\\Users\\Usuario\\OneDrive\\Escritorio\\PPS_Fracassi_Cura_Bonvissuto_Kraus\\backend\\WorkRepAPI\\Data\\Implementations\\JobApplicationRepository.cs",
               "RelativeDocumentMoniker": "Data\\Implementations\\JobApplicationRepository.cs",
               "ToolTip": "C:\\Users\\Usuario\\OneDrive\\Escritorio\\PPS_Fracassi_Cura_Bonvissuto_Kraus\\backend\\WorkRepAPI\\Data\\Implementations\\JobApplicationRepository.cs",
               "RelativeToolTip": "Data\\Implementations\\JobApplicationRepository.cs",
-              "ViewState": "AQIAAAsAAAAAAAAAAAAQwB0AAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABcAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-09T15:46:35.521Z",
+              "WhenOpened": "2024-06-09T22:59:33.722Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "IJobApplicationRepository.cs",
-              "DocumentMoniker": "C:\\Users\\Usuario\\OneDrive\\Escritorio\\PPS_Fracassi_Cura_Bonvissuto_Kraus\\backend\\WorkRepAPI\\Data\\Interfaces\\IJobApplicationRepository.cs",
-              "RelativeDocumentMoniker": "Data\\Interfaces\\IJobApplicationRepository.cs",
-              "ToolTip": "C:\\Users\\Usuario\\OneDrive\\Escritorio\\PPS_Fracassi_Cura_Bonvissuto_Kraus\\backend\\WorkRepAPI\\Data\\Interfaces\\IJobApplicationRepository.cs",
-              "RelativeToolTip": "Data\\Interfaces\\IJobApplicationRepository.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAlAAAA",
+              "DocumentIndex": 2,
+              "Title": "JobOfferRepository.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\OneDrive\\Escritorio\\PPS_Fracassi_Cura_Bonvissuto_Kraus\\backend\\WorkRepAPI\\Data\\Implementations\\JobOfferRepository.cs",
+              "RelativeDocumentMoniker": "Data\\Implementations\\JobOfferRepository.cs",
+              "ToolTip": "C:\\Users\\Usuario\\OneDrive\\Escritorio\\PPS_Fracassi_Cura_Bonvissuto_Kraus\\backend\\WorkRepAPI\\Data\\Implementations\\JobOfferRepository.cs",
+              "RelativeToolTip": "Data\\Implementations\\JobOfferRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABgAAAANAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-09T15:44:50.143Z",
+              "WhenOpened": "2024-06-09T22:59:03.111Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "getStudentsDTO.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\OneDrive\\Escritorio\\PPS_Fracassi_Cura_Bonvissuto_Kraus\\backend\\WorkRepAPI\\Models\\StudentsDTOs\\getStudentsDTO.cs",
+              "RelativeDocumentMoniker": "Models\\StudentsDTOs\\getStudentsDTO.cs",
+              "ToolTip": "C:\\Users\\Usuario\\OneDrive\\Escritorio\\PPS_Fracassi_Cura_Bonvissuto_Kraus\\backend\\WorkRepAPI\\Models\\StudentsDTOs\\getStudentsDTO.cs",
+              "RelativeToolTip": "Models\\StudentsDTOs\\getStudentsDTO.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-09T22:57:15.603Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "JobOfferService.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\OneDrive\\Escritorio\\PPS_Fracassi_Cura_Bonvissuto_Kraus\\backend\\WorkRepAPI\\Services\\Implementations\\JobOfferService.cs",
+              "RelativeDocumentMoniker": "Services\\Implementations\\JobOfferService.cs",
+              "ToolTip": "C:\\Users\\Usuario\\OneDrive\\Escritorio\\PPS_Fracassi_Cura_Bonvissuto_Kraus\\backend\\WorkRepAPI\\Services\\Implementations\\JobOfferService.cs",
+              "RelativeToolTip": "Services\\Implementations\\JobOfferService.cs",
+              "ViewState": "AQIAABMAAAAAAAAAAAAgwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-09T22:56:32.174Z",
               "EditorCaption": ""
             }
           ]

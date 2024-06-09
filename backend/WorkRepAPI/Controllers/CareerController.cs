@@ -1,9 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using WorkRepAPI.Entities;
 using WorkRepAPI.Services.Interfaces;
-using System.Collections.Generic;
-using WorkRepAPI.Enums;
-using WorkRepAPI.Models.StudentsDTOs;
 using WorkRepAPI.Models.CareerDTOs;
 using Microsoft.AspNetCore.Authorization;
 

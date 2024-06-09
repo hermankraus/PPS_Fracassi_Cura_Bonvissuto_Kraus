@@ -42,7 +42,7 @@ const LoginStudent = () => {
         if (State === "Pending") {
           navigate("/AccountAuth");
         } else {
-          successToast("Inicio Exitoso, Welcome");
+         // successToast("Inicio Exitoso, Welcome");
           navigate("/student");
         }
       } else {
