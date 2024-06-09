@@ -75,6 +75,8 @@ builder.Services.AddScoped<ISkillRepository, SkillRepository>();
 builder.Services.AddScoped<ISkillService,SkillService>();
 builder.Services.AddScoped<IJobOfferRepository, JobOfferRepository>();
 builder.Services.AddScoped<IJobOfferService, JobOfferService>();
+builder.Services.AddScoped<IJobApplicationRepository, JobApplicationRepository>();
+builder.Services.AddScoped<IJobApplicationService, JobApplicationService>();
 
 
 // Configurar JWT
