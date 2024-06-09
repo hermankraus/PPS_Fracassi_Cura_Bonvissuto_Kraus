@@ -17,34 +17,37 @@ import { ThemeProvider } from "./components/context/theme-context/theme-context"
 import { ChakraProvider } from "@chakra-ui/react";
 import AdminStudent from "./components/admin/admin-student";
 import AdminCompany from "./components/admin/admin-company";
+import { AuthProvider } from "./components/context/AuthProvider";
 
 function App() {
   const [previousPath, setPreviousPath] = useState("/");
 
   return (
-    <ThemeProvider>
-      <ChakraProvider>
-        <Router>
-          <Routes>
-            <Route
-              path="/"
-              element={<HomePage />}
-              onChange={(params) => setPreviousPath(params.location.pathname)}
-            />
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
-            <Route path="/student" element={<StudentPage />} />
-            <Route path="/company" element={<CompanyPage />} />
-            <Route path="/admin-page" element={<AdminPage />} />
-            <Route path="/admin/student" element={<AdminStudent />} />
-            <Route path="/admin/company" element={<AdminCompany />} />
-            <Route path="/AccountAuth" element={<AccountAuth />} />
-            <Route path="/login" element={<Navigate to={previousPath} />} />
-          </Routes>
-          <FooterPage />
-        </Router>
-      </ChakraProvider>
-    </ThemeProvider>
+    <AuthProvider>
+      <ThemeProvider>
+        <ChakraProvider>
+          <Router>
+            <Routes>
+              <Route
+                path="/"
+                element={<HomePage />}
+                onChange={(params) => setPreviousPath(params.location.pathname)}
+              />
+              <Route path="/login" element={<Login />} />
+              <Route path="/register" element={<Register />} />
+              <Route path="/student" element={<StudentPage />} />
+              <Route path="/company" element={<CompanyPage />} />
+              <Route path="/admin-page" element={<AdminPage />} />
+              <Route path="/admin/student" element={<AdminStudent />} />
+              <Route path="/admin/company" element={<AdminCompany />} />
+              <Route path="/AccountAuth" element={<AccountAuth />} />
+              <Route path="/login" element={<Navigate to={previousPath} />} />
+            </Routes>
+            <FooterPage />
+          </Router>
+        </ChakraProvider>
+      </ThemeProvider>
+    </AuthProvider>
   );
 }
 
