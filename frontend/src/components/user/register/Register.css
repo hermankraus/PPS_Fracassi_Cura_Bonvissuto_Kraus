@@ -1,0 +1,26 @@
+
+.register-label-one,
+.register-label-two,
+.register-label-three,
+.register-label-four {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 2px solid #71aef0;
+  border-radius: 1rem;
+  margin-bottom: 1rem;
+  padding: 2rem;
+}
+
+.custom-input {
+  border: 1px solid rgb(77, 90, 98);
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  transition: border-color 0.3s ease;
+
+  &:focus {
+    border-color: #71aef0;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(113, 174, 240, 0.3);
+  }
+}
