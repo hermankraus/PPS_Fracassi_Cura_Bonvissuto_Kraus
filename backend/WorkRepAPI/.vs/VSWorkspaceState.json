@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\bin",
+    "\\Context",
+    "\\Controllers",
+    "\\Data",
+    "\\Entities",
+    "\\Enums",
+    "\\Models",
+    "\\Services",
+    "\\Services\\Implementations"
+  ],
+  "SelectedNode": "\\WorkRepAPI.sln",
+  "PreviewInSolutionExplorer": false
+}
