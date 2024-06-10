@@ -26,8 +26,13 @@ namespace WorkRepAPI.Data.Implementations
 
         }
         public Company? ValidateCompany(string email, string password) {
-            return _context.Companies.FirstOrDefault(u => u.ContactEmail == email && u.Password == password);
 
+            var company = _context.Companies.FirstOrDefault(u => u.ContactEmail == email);
+            if (company != null &&  _passwordHasher.Verify(company.Password, password))
+            {
+                return company;
+            }
+            return null;
         }
         public Administrator? ValidateAdmin(int legajo, string password)
         {

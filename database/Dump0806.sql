@@ -25,7 +25,7 @@ DROP TABLE IF EXISTS `administrators`;
 CREATE TABLE `administrators` (
   `Legajo` int NOT NULL,
   `email` varchar(130) NOT NULL,
-  `password` varchar(45) NOT NULL,
+  `password` varchar(256) NOT NULL,
   PRIMARY KEY (`Legajo`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -41,6 +41,32 @@ INSERT INTO `administrators` VALUES (120120,'administrador@utn.com.ar','Admin123
 UNLOCK TABLES;
 
 --
+-- Table structure for table `careerjoboffer`
+--
+
+DROP TABLE IF EXISTS `careerjoboffer`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `careerjoboffer` (
+  `IdCarreer` int NOT NULL,
+  `IdOffer` int NOT NULL,
+  PRIMARY KEY (`IdCarreer`,`IdOffer`),
+  KEY `FK_Carreer_IdOffer_idx` (`IdOffer`),
+  CONSTRAINT `FK_Carreer_IdCarreer` FOREIGN KEY (`IdCarreer`) REFERENCES `careers` (`idCareers`),
+  CONSTRAINT `FK_Carreer_IdOffer` FOREIGN KEY (`IdOffer`) REFERENCES `joboffer` (`idJobOffer`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `careerjoboffer`
+--
+
+LOCK TABLES `careerjoboffer` WRITE;
+/*!40000 ALTER TABLE `careerjoboffer` DISABLE KEYS */;
+/*!40000 ALTER TABLE `careerjoboffer` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `careers`
 --
 
@@ -52,9 +78,10 @@ CREATE TABLE `careers` (
   `nameCareers` varchar(70) NOT NULL,
   `InstitutionCareers` varchar(45) NOT NULL,
   `Type` enum('Grado','Tecnicatura') NOT NULL,
+  `State` enum('Pending','Accepted','Rejected') NOT NULL,
   PRIMARY KEY (`idCareers`),
   UNIQUE KEY `UNIQUE` (`nameCareers`,`InstitutionCareers`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -63,6 +90,7 @@ CREATE TABLE `careers` (
 
 LOCK TABLES `careers` WRITE;
 /*!40000 ALTER TABLE `careers` DISABLE KEYS */;
+INSERT INTO `careers` VALUES (1,'prueba','prueba','Tecnicatura','Pending'),(2,'222','222','Grado','Pending'),(3,'111','1222','Tecnicatura','Pending'),(4,'444','444','Grado','Pending'),(5,'5','5','Grado','Pending'),(6,'6','6','Grado','Pending'),(7,'7','7','Grado','Accepted');
 /*!40000 ALTER TABLE `careers` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -95,8 +123,70 @@ CREATE TABLE `company` (
 
 LOCK TABLES `company` WRITE;
 /*!40000 ALTER TABLE `company` DISABLE KEYS */;
-INSERT INTO `company` VALUES ('12346789','Prueba','Prueba','Prueba123','prueba@gmail.com',NULL,NULL,NULL,NULL,'iqARBnZ2PkSMCrkiB02tXg==;guUawXI4jsdSTNTD0o3OlBZjnZ1jv3smRLvj5XHyDVo=','Pending');
+INSERT INTO `company` VALUES ('12346789','Prueba','Prueba','Prueba123','prueba@gmail.com',NULL,NULL,NULL,NULL,'iqARBnZ2PkSMCrkiB02tXg==;guUawXI4jsdSTNTD0o3OlBZjnZ1jv3smRLvj5XHyDVo=','Pending'),('30653813402','NCA Nuevo Central Argentino SA','Nuevo Central Argentino SA','Av. Alberdi 50 bis','info@nca.com.ar',NULL,NULL,NULL,NULL,'ORrBZ/vDwGixQmC67pNYfw==;MtHNxCDOQbJNBCjryZfavpU4m+i+dVmrEAzI55XIkQg=','Pending');
 /*!40000 ALTER TABLE `company` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `joboffer`
+--
+
+DROP TABLE IF EXISTS `joboffer`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `joboffer` (
+  `idJobOffer` int NOT NULL AUTO_INCREMENT,
+  `ContractType` enum('internship','work') NOT NULL,
+  `EmploymentType` enum('fulltime','parttime') NOT NULL,
+  `WorkLocation` enum('remote','onsite','hybrid') NOT NULL,
+  `Description` varchar(500) NOT NULL,
+  `cuitcompany` varchar(45) NOT NULL,
+  `State` enum('inprogress','finalized') NOT NULL,
+  `finallydate` date DEFAULT NULL,
+  `WorkPlace` varchar(45) NOT NULL,
+  `MinSubjects` int DEFAULT NULL,
+  `EstimatedDate` date DEFAULT NULL,
+  `InternshipDuration` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`idJobOffer`),
+  KEY `FK_JobOffer_Companies_idx` (`cuitcompany`),
+  CONSTRAINT `FK_JobOffer_Companies` FOREIGN KEY (`cuitcompany`) REFERENCES `company` (`CUIT`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `joboffer`
+--
+
+LOCK TABLES `joboffer` WRITE;
+/*!40000 ALTER TABLE `joboffer` DISABLE KEYS */;
+INSERT INTO `joboffer` VALUES (1,'internship','fulltime','remote','1','12346789','inprogress','2024-06-08','111',0,'2024-06-08','111');
+/*!40000 ALTER TABLE `joboffer` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `offerskills`
+--
+
+DROP TABLE IF EXISTS `offerskills`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `offerskills` (
+  `idJobOffer` int NOT NULL,
+  `idSkills` int NOT NULL,
+  PRIMARY KEY (`idJobOffer`,`idSkills`),
+  KEY `FK_Skills_idSkills_idx` (`idSkills`),
+  CONSTRAINT `FK_JobOffer_OfferSkill` FOREIGN KEY (`idJobOffer`) REFERENCES `joboffer` (`idJobOffer`),
+  CONSTRAINT `FK_Skills_idSkills` FOREIGN KEY (`idSkills`) REFERENCES `skills` (`idSkills`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `offerskills`
+--
+
+LOCK TABLES `offerskills` WRITE;
+/*!40000 ALTER TABLE `offerskills` DISABLE KEYS */;
+/*!40000 ALTER TABLE `offerskills` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -109,6 +199,7 @@ DROP TABLE IF EXISTS `skills`;
 CREATE TABLE `skills` (
   `idSkills` int NOT NULL AUTO_INCREMENT,
   `descriptionSkills` varchar(45) NOT NULL,
+  `State` enum('Pending','Accepted','Rejected') NOT NULL,
   PRIMARY KEY (`idSkills`),
   UNIQUE KEY `descriptionSkills_UNIQUE` (`descriptionSkills`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -174,6 +265,7 @@ CREATE TABLE `student` (
 
 LOCK TABLES `student` WRITE;
 /*!40000 ALTER TABLE `student` DISABLE KEYS */;
+INSERT INTO `student` VALUES (1762,'DNI','36490136','Agustin','Marotta',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'23364901366','Masculino',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'agumarota@gmail.com','Hy3hcG8mc3/F5GyD5ESXag==;U7MnDmx5+twi2D0V48jERY3G1lKDAhrsN+BBqL996u8=','Pending'),(49969,'DNI','40868149','Ezequias','Bonvissuto',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'23408681499','Masculino',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'ezequiasbonvissuto@gmail.com','dpKPsb3ZactCxWNL/J/ZVw==;81+bZy3jXsBoBxog3gbFvKhuPpCR5B09GQYNYMUZ6lk=','Pending'),(50001,'DNI','42123123','Azul','Cura',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'23421231233','Femenino',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'azututurrita@gmail.com','2odvF4i+tjje0FdXUPuFtA==;o0p/9YnEw4d279NyX2Cr3ha+2/277sGGhlMYXXmdFZU=','Pending'),(222222,'LC','408681492','test','test1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'234086814992','Masculino',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'test@gmail.com','mtkZx9ZHVi3D8gV53NbnQw==;HDtrUz48J2yowLW1Y5H1cAfIc+yXL5GFRgIuSii49po=','Pending');
 /*!40000 ALTER TABLE `student` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -189,7 +281,7 @@ CREATE TABLE `studentscareers` (
   `idCareers` int NOT NULL,
   `enrollmentDate` date NOT NULL,
   `graduationDate` date DEFAULT NULL,
-  `isComplete` enum('SI','NO') NOT NULL,
+  `isComplete` enum('YES','NO') NOT NULL,
   PRIMARY KEY (`idStudents`,`idCareers`),
   KEY `StudentsCareers_idCareers_idx` (`idCareers`),
   CONSTRAINT `StudentsCareers_idCareers` FOREIGN KEY (`idCareers`) REFERENCES `careers` (`idCareers`),
@@ -239,6 +331,32 @@ LOCK TABLES `studentsexperience` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `studentsjoboffers`
+--
+
+DROP TABLE IF EXISTS `studentsjoboffers`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `studentsjoboffers` (
+  `idJobOffers` int NOT NULL,
+  `idStudents` int NOT NULL,
+  PRIMARY KEY (`idJobOffers`,`idStudents`),
+  KEY `StudentsJobOffersIdStudents_idx` (`idStudents`),
+  CONSTRAINT `StudentsJobOffersIdJobOffers` FOREIGN KEY (`idJobOffers`) REFERENCES `joboffer` (`idJobOffer`),
+  CONSTRAINT `StudentsJobOffersIdStudents` FOREIGN KEY (`idStudents`) REFERENCES `student` (`Legajo`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `studentsjoboffers`
+--
+
+LOCK TABLES `studentsjoboffers` WRITE;
+/*!40000 ALTER TABLE `studentsjoboffers` DISABLE KEYS */;
+/*!40000 ALTER TABLE `studentsjoboffers` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `studentsskills`
 --
 
@@ -273,4 +391,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-06-01 14:12:50
+-- Dump completed on 2024-06-08 19:15:17

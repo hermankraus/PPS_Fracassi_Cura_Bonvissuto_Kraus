@@ -28,23 +28,32 @@ namespace WorkRepAPI.Controllers
         {
             if (loginDto == null || string.IsNullOrEmpty(loginDto.Legajo) || string.IsNullOrEmpty(loginDto.Password))
             {
-                return BadRequest("Invalid credentials.");
+
+                return BadRequest(new { message = "Credenciales incorrectas",
+                legajo = loginDto.Legajo,
+                password = loginDto.Password});
             }
 
             var user = _authenticationService.Authenticate(loginDto.Legajo, loginDto.Password);
             if (user == null)
             {
-                return Unauthorized("Invalid credentials.");
+                return Unauthorized(new
+                {
+                    message = "Credenciales incorrectas de autorizacion",
+                    legajo = loginDto.Legajo,
+                    password = loginDto.Password
+                });
             }
 
-            
-            var token = GenerateJwtToken(user);
 
+            var token = GenerateJwtToken(user);
+            var stateProperty = user.GetType().GetProperty("State");
+            var state = stateProperty?.GetValue(user)?.ToString();
 
             return Ok(new { 
                 Token = token, 
                 Role = user.GetType().Name,
-                State = user is Student student ? student.State.ToString() : null
+                State = state
             });
         }
 
@@ -62,8 +71,9 @@ namespace WorkRepAPI.Controllers
             }
             else if (user is Company company)
             {
-                claims.Add(new Claim("email", company.ContactEmail));
+                claims.Add(new Claim("email", company.ContactEmail.ToString()));
                 claims.Add(new Claim(ClaimTypes.Role, "Company"));
+                claims.Add(new Claim("State", company.State.ToString()));
             }
             else if (user is Administrator admin)
             {

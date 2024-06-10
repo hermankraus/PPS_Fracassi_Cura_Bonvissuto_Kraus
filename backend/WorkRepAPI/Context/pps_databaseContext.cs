@@ -64,6 +64,8 @@ namespace WorkRepAPI.Context
                     .HasMaxLength(70)
                     .HasColumnName("nameCareers");
 
+                entity.Property(e => e.State).HasColumnType("enum('Pending','Accepted','Rejected')");
+
                 entity.Property(e => e.Type).HasColumnType("enum('Grado','Tecnicatura')");
 
                 entity.HasMany(d => d.IdOffers)
@@ -119,33 +121,37 @@ namespace WorkRepAPI.Context
 
                 entity.ToTable("joboffer");
 
-                entity.HasIndex(e => e.Cuitcompania, "FK_JobOffer_Companies_idx");
+                entity.HasIndex(e => e.Cuitcompany, "FK_JobOffer_Companies_idx");
 
                 entity.Property(e => e.IdJobOffer).HasColumnName("idJobOffer");
 
-                entity.Property(e => e.Cuitcompania)
+                entity.Property(e => e.ContractType).HasColumnType("enum('internship','work')");
+
+                entity.Property(e => e.Cuitcompany)
                     .HasMaxLength(45)
-                    .HasColumnName("cuitcompania");
+                    .HasColumnName("cuitcompany");
 
-                entity.Property(e => e.Descripcion)
-                    .HasMaxLength(300)
-                    .HasColumnName("descripcion");
+                entity.Property(e => e.Description).HasMaxLength(500);
 
-                entity.Property(e => e.ModalidadTrabajo)
-                    .HasMaxLength(45)
-                    .HasColumnName("modalidadTrabajo");
+                entity.Property(e => e.EmploymentType).HasColumnType("enum('fulltime','parttime')");
 
-                entity.Property(e => e.TipoJornada)
-                    .HasMaxLength(45)
-                    .HasColumnName("tipoJornada");
+                entity.Property(e => e.EstimatedDate).HasColumnType("date");
 
-                entity.Property(e => e.Tipocontrato)
-                    .HasMaxLength(45)
-                    .HasColumnName("tipocontrato");
+                entity.Property(e => e.Finallydate)
+                    .HasColumnType("date")
+                    .HasColumnName("finallydate");
 
-                entity.HasOne(d => d.CuitcompaniaNavigation)
+                entity.Property(e => e.InternshipDuration).HasMaxLength(45);
+
+                entity.Property(e => e.State).HasColumnType("enum('inprogress','finalized')");
+
+                entity.Property(e => e.WorkLocation).HasColumnType("enum('remote','onsite','hybrid')");
+
+                entity.Property(e => e.WorkPlace).HasMaxLength(45);
+
+                entity.HasOne(d => d.CuitcompanyNavigation)
                     .WithMany(p => p.Joboffers)
-                    .HasForeignKey(d => d.Cuitcompania)
+                    .HasForeignKey(d => d.Cuitcompany)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_JobOffer_Companies");
 
@@ -167,6 +173,25 @@ namespace WorkRepAPI.Context
 
                             j.IndexerProperty<int>("IdSkills").HasColumnName("idSkills");
                         });
+
+                entity.HasMany(d => d.IdStudents)
+                    .WithMany(p => p.IdJobOffers)
+                    .UsingEntity<Dictionary<string, object>>(
+                        "Studentsjoboffer",
+                        l => l.HasOne<Student>().WithMany().HasForeignKey("IdStudents").OnDelete(DeleteBehavior.ClientSetNull).HasConstraintName("StudentsJobOffersIdStudents"),
+                        r => r.HasOne<Joboffer>().WithMany().HasForeignKey("IdJobOffers").OnDelete(DeleteBehavior.ClientSetNull).HasConstraintName("StudentsJobOffersIdJobOffers"),
+                        j =>
+                        {
+                            j.HasKey("IdJobOffers", "IdStudents").HasName("PRIMARY");
+
+                            j.ToTable("studentsjoboffers");
+
+                            j.HasIndex(new[] { "IdStudents" }, "StudentsJobOffersIdStudents_idx");
+
+                            j.IndexerProperty<int>("IdJobOffers").HasColumnName("idJobOffers");
+
+                            j.IndexerProperty<int>("IdStudents").HasColumnName("idStudents");
+                        });
             });
 
             modelBuilder.Entity<Skill>(entity =>
@@ -184,6 +209,8 @@ namespace WorkRepAPI.Context
                 entity.Property(e => e.DescriptionSkills)
                     .HasMaxLength(45)
                     .HasColumnName("descriptionSkills");
+
+                entity.Property(e => e.State).HasColumnType("enum('Pending','Accepted','Rejected')");
             });
 
             modelBuilder.Entity<Student>(entity =>
@@ -287,7 +314,7 @@ namespace WorkRepAPI.Context
                     .HasColumnName("graduationDate");
 
                 entity.Property(e => e.IsComplete)
-                    .HasColumnType("enum('SI','NO')")
+                    .HasColumnType("enum('YES','NO')")
                     .HasColumnName("isComplete");
 
                 entity.HasOne(d => d.IdCareersNavigation)
