@@ -2,6 +2,7 @@
 using WorkRepAPI.Services.Interfaces;
 using WorkRepAPI.Models.CareerDTOs;
 using Microsoft.AspNetCore.Authorization;
+using WorkRepAPI.Models.SkillDTOs;
 
 namespace WorkRepAPI.Controllers
 {
@@ -10,13 +11,15 @@ namespace WorkRepAPI.Controllers
     public class CareerController : ControllerBase
     {
         private readonly ICareerService _careerService;
+        private readonly IJobApplicationService _jobApplicationService;
 
-        public CareerController(ICareerService careerService)
+        public CareerController(ICareerService careerService, IJobApplicationService jobApplicationService)
         {
             _careerService = careerService;
+            _jobApplicationService = jobApplicationService;
         }
 
-        [HttpPost]
+        [HttpPost("create")]
         [Authorize(Roles = "Admin")]
 
         public ActionResult CreateCareer(CareerDTO career)
@@ -28,6 +31,21 @@ namespace WorkRepAPI.Controllers
                 return Ok("Carrera Registrada");
             }
             return BadRequest("Error al ingresar la carrera");
+        }
+        [HttpPost("apply")]
+        [Authorize(Roles = "Company")]
+
+        public async Task<IActionResult> Apply([FromBody] CareerApplicationDTO careerApplication)
+        {
+            try
+            {
+                await _jobApplicationService.Apply(careerApplication);
+                return Ok(new { message = "Has aplicado la carrera al empleo" });
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { message = ex.Message });
+            }
         }
     }
 }
