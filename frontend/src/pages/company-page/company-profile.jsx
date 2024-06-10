@@ -1,22 +1,19 @@
-import { Box, Heading, Button, VStack } from "@chakra-ui/react";
+import React from "react";
+import { Heading, Button, VStack, Container, FormLabel, Flex, FormControl, Input } from "@chakra-ui/react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 
 export const CompanyProfile = () => {
   const validationSchema = Yup.object().shape({
-    numeroCuit: Yup.string().required("El número de CUIT es requerido"),
-    nombreEmpresa: Yup.string().required(
-      "El nombre de la empresa es requerido"
-    ),
-    razonSocial: Yup.string().required("La razón social es requerida"),
-    domicilioEmpresa: Yup.string().required("El domicilio es requerido"),
-    email: Yup.string().required("El correo de contacto es requerido"),
-    telefono: Yup.string().required("El número de teléfono es requerido"),
-    webPage: Yup.string().required("La página web es requerida"),
-    tipoEmpresa: Yup.string().required("El tipo de empresa es requerido"),
-    cantidadEmpleados: Yup.string().required(
-      "El número de empleados es requerido"
-    ),
+    companyCuit: Yup.string().required("El número de CUIT es requerido"),
+    companyName: Yup.string().required("El nombre de la empresa es requerido"),
+    companyBusinessName: Yup.string().required("La razón social es requerida"),
+    companyAddress: Yup.string().required("El domicilio es requerido"),
+    companyEmail: Yup.string().email("Correo electrónico inválido").required("El correo de contacto es requerido"),
+    companyPhone: Yup.string().required("El número de teléfono es requerido"),
+    companySite: Yup.string().required("La página web es requerida"),
+    companyType: Yup.string().required("El tipo de empresa es requerido"),
+    companyNumberEmployee: Yup.string().required("El número de empleados es requerido"),
   });
 
   const onSubmit = (values) => {
@@ -24,162 +21,184 @@ export const CompanyProfile = () => {
   };
 
   return (
-    <VStack spacing={4}>
-      <Heading as="h3" size="lg" mb={6}>
-        Modificar Perfil
-      </Heading>
-
-      <Formik
-        initialValues={{
-          numeroCuit: "",
-          nombreEmpresa: "",
-          razonSocial: "",
-          domicilioEmpresa: "",
-          email: "",
-          telefono: "",
-          webPage: "",
-          tipoEmpresa: "",
-          cantidadEmpleados: "",
-        }}
-        validationSchema={validationSchema}
-        onSubmit={onSubmit}
-      >
-        <Form>
-          <VStack
-            spacing={8}
-            align="center"
-            border="1px solid rgba(0, 0, 0, 0.4)"
-            borderColor="gray.200"
-            borderRadius="md"
-            p={50}
-          >
-            <Box>
-              <label htmlFor="numeroCuit" style={{ margin: "10px" }}>
-                CUIT
-              </label>
-              <Field
-                type="text"
-                id="numeroCuit"
-                name="numeroCuit"
-                style={{ margin: "10px" }}
-              />
-              <ErrorMessage name="numeroCuit" component="div" align="center" />
-            </Box>
-            <Box>
-              <label htmlFor="nombreEmpresa" style={{ margin: "10px" }}>
-                Nombre
-              </label>
-              <Field
-                type="text"
-                id="nombreEmpresa"
-                name="nombreEmpresa"
-                style={{ margin: "10px" }}
-              />
-              <ErrorMessage
-                name="nombreEmpresa"
-                component="div"
-                align="center"
-              />
-            </Box>
-            <Box>
-              <label htmlFor="razonSocial" style={{ margin: "10px" }}>
-                Razón Social
-              </label>
-              <Field
-                type="text"
-                id="razonSocial"
-                name="razonSocial"
-                style={{ margin: "10px" }}
-              />
-              <ErrorMessage name="razonSocial" component="div" align="center" />
-            </Box>
-            <Box>
-              <label htmlFor="domicilioEmpresa" style={{ margin: "10px" }}>
-                Domicilio
-              </label>
-              <Field
-                type="text"
-                id="domicilioEmpresa"
-                name="domicilioEmpresa"
-                style={{ margin: "10px" }}
-              />
-              <ErrorMessage
-                name="domicilioEmpresa"
-                component="div"
-                align="center"
-              />
-            </Box>
-            <Box>
-              <label htmlFor="email" style={{ margin: "10px" }}>
-                E-mail
-              </label>
-              <Field
-                type="email"
-                id="email"
-                name="email"
-                style={{ margin: "10px" }}
-              />
-              <ErrorMessage name="email" component="div" align="center" />
-            </Box>
-            <Box>
-              <label htmlFor="telefono" style={{ margin: "10px" }}>
-                Telefono
-              </label>
-              <Field
-                type="number"
-                id="telefono"
-                name="telefono"
-                style={{ margin: "10px" }}
-              />
-              <ErrorMessage name="telefono" component="div" align="center" />
-            </Box>
-            <Box>
-              <label htmlFor="webPage" style={{ margin: "10px" }}>
-                Página Web
-              </label>
-              <Field
-                type="text"
-                id="webPage"
-                name="webPage"
-                style={{ margin: "10px" }}
-              />
-              <ErrorMessage name="webPage" component="div" align="center" />
-            </Box>
-            <Box>
-              <label htmlFor="tipoEmpresa" style={{ margin: "10px" }}>
-                Tipo de empresa
-              </label>
-              <Field
-                type="text"
-                id="tipoEmpresa"
-                name="tipoEmpresa"
-                style={{ margin: "10px" }}
-              />
-              <ErrorMessage name="tipoEmpresa" component="div" align="center" />
-            </Box>
-            <Box>
-              <label htmlFor="cantidadEmpleados" style={{ margin: "10px" }}>
-                Cantidad de empleados
-              </label>
-              <Field
-                type="number"
-                id="cantidadEmpleados"
-                name="cantidadEmpleados"
-                style={{ margin: "10px" }}
-              />
-              <ErrorMessage
-                name="cantidadEmpleados"
-                component="div"
-                align="center"
-              />
-            </Box>
-
-            <Button type="submit" style={{ margin: "10px" }}>
-              Guardar cambios
-            </Button>
-          </VStack>
-        </Form>
-      </Formik>
-    </VStack>
+    <VStack spacing={0}>
+      <Container mt="8rem" textAlign="center" minW="63rem">
+        <Heading overflow="hidden" mb="1rem">
+          Modificar Perfil
+        </Heading>
+        <Formik
+          initialValues={{
+            companyCuit: "",
+            companyName: "",
+            companyBusinessName: "",
+            companyAddress: "",
+            companyEmail: "",
+            companyPhone: "",
+            companySite: "",
+            companyType: "",
+            companyNumberEmployee: "",
+          }}
+          validationSchema={validationSchema}
+          onSubmit={onSubmit}
+        >
+          <Form>
+            <Flex
+              gap={4}
+              maxW="80rem"
+              className="register-label-one"
+              zIndex={5}
+              justifyContent="center"
+              alignItems="center"
+            >
+              <FormControl key="companyCuit">
+                <FormLabel>
+                  CUIT
+                </FormLabel>
+                <Field
+                  name="companyCuit"
+                  type="text"
+                  variant="filled"
+                  as={Input}
+                />
+                <ErrorMessage name="companyCuit" component="div" />
+              </FormControl>
+              <FormControl key="companyName">
+                <FormLabel>
+                  Nombre
+                </FormLabel>
+                <Field
+                  name="companyName"
+                  type="text"
+                  as={Input}
+                  className="custom-input"
+                  variant="filled"
+                />
+                <ErrorMessage name="companyName" component="div" />
+              </FormControl>
+              <FormControl key="companyBusinessName">
+                <FormLabel>
+                  Razón Social
+                </FormLabel>
+                <Field
+                  name="companyBusinessName"
+                  type="text"
+                  as={Input}
+                  className="custom-input"
+                  variant="filled"
+                />
+                <ErrorMessage name="companyBusinessName" component="div" />
+              </FormControl>
+              <FormControl key="companyAddress">
+                <FormLabel>
+                  Domicilio
+                </FormLabel>
+                <Field
+                  name="companyAddress"
+                  type="text"
+                  as={Input}
+                  className="custom-input"
+                  variant="filled"
+                />
+                <ErrorMessage name="companyAddress" component="div" />
+              </FormControl>
+            </Flex>
+            <Flex
+              gap={4}
+              maxW="80rem"
+              className="register-label-one"
+              zIndex={5}
+              justifyContent="center"
+              alignItems="center">
+              <FormControl key="companyEmail">
+                <FormLabel>
+                  Correo electrónico
+                </FormLabel>
+                <Field
+                  name="companyEmail"
+                  type="email"
+                  as={Input}
+                  className="custom-input"
+                  variant="filled"
+                />
+                <ErrorMessage name="companyEmail" component="div" />
+              </FormControl>
+              <FormControl key="companyPhone">
+                <FormLabel>
+                  Teléfono
+                </FormLabel>
+                <Field
+                  name="companyPhone"
+                  type="text"
+                  as={Input}
+                  className="custom-input"
+                  variant="filled"
+                />
+                <ErrorMessage name="companyPhone" component="div" />
+              </FormControl>
+              <FormControl key="companySite">
+                <FormLabel>
+                  Sitio web
+                </FormLabel>
+                <Field
+                  name="companySite"
+                  type="text"
+                  as={Input}
+                  className="custom-input"
+                  variant="filled"
+                />
+                <ErrorMessage name="companySite" component="div" />
+              </FormControl>
+            </Flex>
+            <Flex
+              gap={4}
+              maxW="80rem"
+              className="register-label-one"
+              zIndex={5}
+              justifyContent="center"
+              alignItems="center">
+              <FormControl key="companyType">
+                <FormLabel>
+                  Tipo de empresa
+                </FormLabel>
+                <Field
+                  name="companyType"
+                  type="text"
+                  as={Input}
+                  className="custom-input"
+                  variant="filled"
+                />
+                <ErrorMessage name="companyType" component="div" />
+              </FormControl>
+              <FormControl key="companyNumberEmployee">
+                <FormLabel>
+                  Número de empleados
+                </FormLabel>
+                <Field
+                  name="companyNumberEmployee"
+                  type="text"
+                  as={Input}
+                  className="custom-input"
+                  variant="filled"
+                />
+                <ErrorMessage name="companyNumberEmployee" component="div" />
+              </FormControl>
+            </Flex>
+            <Flex
+              gap={4}
+              maxW="80rem"
+              className="register-label-one"
+              zIndex={5}
+              justifyContent="center"
+              alignItems="center">
+              <Button type="submit" mt="1rem">
+                Guardar cambios
+              </Button>
+            </Flex>
+          </Form>
+        </Formik>
+      </Container>
+    </VStack >
   );
 };
+
+export default CompanyProfile;
