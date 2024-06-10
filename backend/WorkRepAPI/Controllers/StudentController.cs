@@ -69,5 +69,23 @@ namespace WorkRepAPI.Controllers
                 return BadRequest(new { message = ex.Message });
             }
         }
+
+        [HttpPost("skill")]
+        [Authorize(Roles = "Student")]
+
+        public async Task<IActionResult> Apply([FromBody] StudentSkillApplicationDTO studentskillApplication)
+        {
+            try
+            {
+                await _jobApplicationService.Apply(studentskillApplication);
+                return Ok(new { message = "Habilidad agregada" });
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { message = ex.Message });
+            }
+        }
+
+
     }
 }
