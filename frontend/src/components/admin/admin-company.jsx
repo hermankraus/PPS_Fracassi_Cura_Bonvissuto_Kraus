@@ -15,7 +15,7 @@ import {
   Text,
   Heading
 } from '@chakra-ui/react';
-import { NavbarPage } from "../navbar/navbar";
+import { NavbarAdmin } from "../navbar/navbar";
 
 const AdminCompany = () => {
   const [companies, setCompanies] = useState([]);
@@ -74,7 +74,7 @@ const AdminCompany = () => {
 
   return (
     <div>
-      <NavbarPage />
+      <NavbarAdmin />
       <div>
         <HStack p="2rem" mt={20}>
           <Text fontSize="17px">Buscador por CUIT</Text>

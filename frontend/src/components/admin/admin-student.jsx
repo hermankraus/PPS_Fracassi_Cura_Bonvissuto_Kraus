@@ -15,7 +15,7 @@ import {
   HStack,
   Text
 } from '@chakra-ui/react';
-import { NavbarPage } from "../navbar/navbar";
+import { NavbarAdmin } from "../navbar/navbar";
 
 const AdminStudent = () => {
   const [students, setStudents] = useState([]);
@@ -57,6 +57,7 @@ const AdminStudent = () => {
       await putStudentState(studentToUpdate);
       updatedStudents[studentIndex] = studentToUpdate;
       setStudents(updatedStudents);
+
       console.log("Estudiante rechazado con éxito");
     } catch (error) {
       console.error("Error al rechazar al estudiante:", error);
@@ -76,7 +77,7 @@ const AdminStudent = () => {
   return (
     <>
       <div>
-        <NavbarPage />
+        <NavbarAdmin />
         <div>
           <HStack p="2rem" mt={20}>
             <Text fontSize="17px">Buscador por legajo</Text>
