@@ -33,9 +33,10 @@ const LoginCompany = () => {
       console.log(response)
         const Role =  response.data.role;
         const State = response.data.state;
+        console.log(State)
         if (Role === "Company" && State === "Pending")
           {
-            console.log(Role);
+            
             navigate("/AccountAuth");
           }
         if (State == "Accepted"){
