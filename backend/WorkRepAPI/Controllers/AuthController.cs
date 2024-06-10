@@ -45,14 +45,15 @@ namespace WorkRepAPI.Controllers
                 });
             }
 
-            
-            var token = GenerateJwtToken(user);
 
+            var token = GenerateJwtToken(user);
+            var stateProperty = user.GetType().GetProperty("State");
+            var state = stateProperty?.GetValue(user)?.ToString();
 
             return Ok(new { 
                 Token = token, 
                 Role = user.GetType().Name,
-                State = user is Student student ? student.State.ToString() : null
+                State = state
             });
         }
 
@@ -72,6 +73,7 @@ namespace WorkRepAPI.Controllers
             {
                 claims.Add(new Claim("email", company.ContactEmail.ToString()));
                 claims.Add(new Claim(ClaimTypes.Role, "Company"));
+                claims.Add(new Claim("State", company.State.ToString()));
             }
             else if (user is Administrator admin)
             {
