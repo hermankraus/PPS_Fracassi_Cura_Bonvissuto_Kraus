@@ -45,7 +45,7 @@ namespace WorkRepAPI.Controllers
                 });
             }
 
-            
+
             var token = GenerateJwtToken(user);
             var stateProperty = user.GetType().GetProperty("State");
             var state = stateProperty?.GetValue(user)?.ToString();
