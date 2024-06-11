@@ -8,9 +8,7 @@ namespace WorkRepAPI.Models.JobOfferDTOs
 {
     public class JobOfferDTO
     {
-        [Required]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int IdJobOffer { get; set; }
+       
         public ContractType ContractType { get; set; }
         public EmploymentType EmploymentType { get; set; }
         public WorkLocation WorkLocation { get; set; }

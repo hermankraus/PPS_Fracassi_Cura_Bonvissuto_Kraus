@@ -26,7 +26,7 @@ namespace WorkRepAPI.Services.Implementations
 
             Joboffer jobofferData = new Joboffer
             {
-                IdJobOffer = joboffer.IdJobOffer,
+               
                 ContractType= joboffer.ContractType,
                 EmploymentType= joboffer.EmploymentType,
                 WorkLocation = joboffer.WorkLocation,

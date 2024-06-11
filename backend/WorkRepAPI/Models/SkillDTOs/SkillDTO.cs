@@ -7,9 +7,7 @@ namespace WorkRepAPI.Models.SkillDTOs
 {
     public class SkillDTO
     {
-        [Required]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int IdSkills { get; set; }
+   
         [Required]
         public string DescriptionSkills { get; set; } = null!;
         [Required]

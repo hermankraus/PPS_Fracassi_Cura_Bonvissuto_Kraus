@@ -20,7 +20,7 @@ namespace WorkRepAPI.Services.Implementations
 
             Skill skillData = new Skill
             {
-                IdSkills= skill.IdSkills,
+             
                 DescriptionSkills = skill.DescriptionSkills,
                 State = Enums.State.Accepted,
             };

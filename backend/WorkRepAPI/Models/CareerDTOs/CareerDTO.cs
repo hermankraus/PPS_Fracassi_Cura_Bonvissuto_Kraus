@@ -7,9 +7,7 @@ namespace WorkRepAPI.Models.CareerDTOs
 {
     public class CareerDTO
     {
-        [Required]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int IdCareers { get; set; }
+
         [Required]
         public string NameCareers { get; set; } 
         [Required]

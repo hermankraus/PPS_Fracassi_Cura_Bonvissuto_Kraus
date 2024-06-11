@@ -22,7 +22,7 @@ namespace WorkRepAPI.Services.Implementations
 
             Career careerData = new Career
             {
-                IdCareers = career.IdCareers,
+           
                 NameCareers = career.NameCareers,
                 InstitutionCareers = career.InstitutionCareers,
                 Type = career.Type,
