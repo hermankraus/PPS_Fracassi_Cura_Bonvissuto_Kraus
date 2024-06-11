@@ -1,6 +1,6 @@
 import { NavbarUser } from "../../components/navbar/navbar";
 import { Container } from '@chakra-ui/react'
-export const JobPostulations = () => {
+export const StudentJobPostulations = () => {
   return (
     <>
       <NavbarUser />
