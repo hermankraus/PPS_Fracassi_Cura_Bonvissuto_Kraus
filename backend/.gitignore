@@ -1,0 +1,11 @@
+#User Specific Files.
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+.vs/
+bin/
+obj/
+
+appsettings.json
+launchSettings.json
