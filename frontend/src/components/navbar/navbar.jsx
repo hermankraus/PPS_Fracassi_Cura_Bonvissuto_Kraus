@@ -6,7 +6,6 @@ import "./navbar.css";
 export const NavbarAdmin = () => {
   const navigate = useNavigate();
   return (
-
     <HStack className="navbar" p={2} overflowY="hidden" minW="full">
       <Image src={images.logo} alt="Logo" w="8rem" h="4rem" maxW="full" ml="20rem" />
       <Link onClick={() => navigate("/admin/student")} ml="2rem" >Student Page</Link>
