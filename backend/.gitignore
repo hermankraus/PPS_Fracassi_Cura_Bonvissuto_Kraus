@@ -4,8 +4,8 @@
 *.userosscache
 *.sln.docstates
 .vs/
-bin/
-obj/
+WorkRepAPI/bin/
+WorkRepAPI/obj/
 
 appsettings.json
 launchSettings.json
