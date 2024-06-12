@@ -1,7 +1,9 @@
-﻿using WorkRepAPI.Data.Interfaces;
+﻿using Mysqlx;
+using WorkRepAPI.Data.Interfaces;
 using WorkRepAPI.Entities;
 using WorkRepAPI.Models.StudentsDTOs;
 using WorkRepAPI.Services.Interfaces;
+
 
 namespace WorkRepAPI.Services.Implementations
 {
@@ -52,7 +54,21 @@ namespace WorkRepAPI.Services.Implementations
             return studentDto;
         }
 
-
-
+        
+        public IEnumerable<GetStudentsDTO> GetPendingStudents()
+        {
+            var students = _studentRepository.GetStudents();
+            var pendingStudents = students.Where(ps=>ps.State == 0).Select(ps=> 
+            new GetStudentsDTO{
+                 Legajo = ps.Legajo,
+                Name = ps.Name,
+                Lastname = ps.LastName,
+                Email = ps.Email,
+                State = ps.State,
+            }
+            ).ToList();
+            return pendingStudents;
+            
+        }
     }
 }

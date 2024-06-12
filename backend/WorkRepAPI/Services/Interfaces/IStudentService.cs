@@ -9,5 +9,9 @@ namespace WorkRepAPI.Services.Interfaces
         public IEnumerable<GetStudentsDTO> GetStudents();
 
         public GetStudentsDTO GetStudentbyLegajo(int legajo);
+    
+        public IEnumerable<GetStudentsDTO> GetPendingStudents();
     }
+
+
 }

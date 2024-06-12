@@ -42,6 +42,13 @@ namespace WorkRepAPI.Controllers
             var studentDtos = _studentService.GetStudents();
             return Ok(studentDtos);
         }
+        [HttpGet("pendingstudents")]
+        //[Authorize(Roles = "Admin")]
+        public ActionResult<IEnumerable<GetStudentsDTO>> GetPendingStudents()
+        {
+                var pendingStudents = _studentService.GetPendingStudents();
+                return Ok(pendingStudents);
+        }
 
         [HttpGet("{legajo}")]
         //[Authorize(Roles = "Admin")]
