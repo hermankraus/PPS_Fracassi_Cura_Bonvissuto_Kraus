@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useContext } from "react";
 import { Stack, Container, Image } from "@chakra-ui/react";
 import "./student-page.css";
 import { ThemeContext } from "../../components/context/theme-context/theme-context";
