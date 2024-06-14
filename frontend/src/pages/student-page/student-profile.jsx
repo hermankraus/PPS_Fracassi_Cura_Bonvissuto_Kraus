@@ -1,4 +1,14 @@
-import { Container, Heading, Button, VStack, Flex, FormControl, Select, Input, FormLabel } from "@chakra-ui/react";
+import {
+  Container,
+  Heading,
+  Button,
+  VStack,
+  Flex,
+  FormControl,
+  Select,
+  Input,
+  FormLabel,
+} from "@chakra-ui/react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { NavbarUser } from "../../components/navbar/navbar";
@@ -17,8 +27,7 @@ export const StudentProfile = () => {
         "El apellido solo puede contener letras y no números"
       )
       .required("El apellido es requerido"),
-    studentDocumentType: Yup.string().required(
-      "Dato requerido"),
+    studentDocumentType: Yup.string().required("Dato requerido"),
     studentDNI: Yup.string()
       .matches(/^\d+$/, "El número de documento solo puede contener números")
       .required("Dato requerido"),
@@ -210,6 +219,7 @@ export const StudentProfile = () => {
                   >
                     <option value="Masculino">Masculino</option>
                     <option value="Femenino">Femenino</option>
+                    <option value="Otros">Otros</option>
                   </Field>
                   <ErrorMessage name="studentGender" component="div" />
                 </FormControl>
