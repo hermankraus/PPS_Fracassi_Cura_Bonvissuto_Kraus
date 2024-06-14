@@ -17,6 +17,12 @@ import {
 } from '@chakra-ui/react';
 import { NavbarAdmin } from "../navbar/navbar";
 
+const stateMap = {
+  0: 'En proceso',
+  1: 'Habilitado',
+  2: 'Deshabilitado',
+};
+
 const AdminStudent = () => {
   const [students, setStudents] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
@@ -68,11 +74,11 @@ const AdminStudent = () => {
     const filteredStudents = students.filter(student => student.legajo === parseInt(searchTerm));
     setStudents(filteredStudents);
     setSearched(true);
-  }
+  };
 
   const reloadPage = () => {
     window.location.reload();
-  }
+  };
 
   return (
     <>
@@ -112,12 +118,26 @@ const AdminStudent = () => {
                   <Td>{student.name}</Td>
                   <Td>{student.lastname}</Td>
                   <Td>{student.email}</Td>
-                  <Td>{student.state}</Td>
+                  <Td>{stateMap[student.state]}</Td>
                   <Td>
-                    <Button bg="green" color="white" onClick={() => acceptStudentHandler(index)}>Aceptar</Button>
+                    <Button
+                      bg="green"
+                      color="white"
+                      onClick={() => acceptStudentHandler(index)}
+                      isDisabled={student.state === 1}
+                    >
+                      Habilitar
+                    </Button>
                   </Td>
                   <Td>
-                    <Button bg="red" color="white" onClick={() => declineStudentHandler(index)}>Rechazar</Button>
+                    <Button
+                      bg="red"
+                      color="white"
+                      onClick={() => declineStudentHandler(index)}
+                      isDisabled={student.state === 2}
+                    >
+                      Deshabilitar
+                    </Button>
                   </Td>
                 </Tr>
               ))}

@@ -16,7 +16,7 @@ const CompanyJobOpportunities = () => {
 
   const convertToNumber = (value) => {
     const number = Number(value);
-    return isNaN(number) ? 0 : number; // Retorna 0 si la conversión falla
+    return isNaN(number) ? 0 : number;
   };
 
   const handleSubmitU = async (values) => {

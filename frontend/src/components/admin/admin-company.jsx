@@ -43,9 +43,9 @@ const AdminCompany = () => {
       updatedCompanies[companyIndex] = companyToUpdate;
       setCompanies(updatedCompanies);
 
-      console.log("Empresa aceptada con éxito");
+      console.log("Empresa habilitada con éxito");
     } catch (error) {
-      console.error("Error al aceptar la empresa:", error);
+      console.error("Error al habilitar la empresa:", error);
     }
   };
 
@@ -57,9 +57,9 @@ const AdminCompany = () => {
       await putCompanyState(companyToUpdate);
       updatedCompanies[companyIndex] = companyToUpdate;
       setCompanies(updatedCompanies);
-      console.log("Empresa rechazada con éxito");
+      console.log("Empresa deshabilitada con éxito");
     } catch (error) {
-      console.error("Error al rechazar la empresa:", error);
+      console.error("Error al deshabilitar la empresa:", error);
     }
   };
 
@@ -68,6 +68,7 @@ const AdminCompany = () => {
     setCompanies(filteredCompanies);
     setSearched(true);
   }
+
   const reloadPage = () => {
     window.location.reload();
   }
@@ -76,7 +77,7 @@ const AdminCompany = () => {
     <div>
       <NavbarAdmin />
       <div>
-        <HStack p="2rem" mt={20}>
+        <HStack p="5rem" mt={3}>
           <Text fontSize="17px">Buscador por CUIT</Text>
           <Input
             placeholder="Inserte un número."
@@ -89,7 +90,7 @@ const AdminCompany = () => {
           {searched && <Button color="black" onClick={reloadPage}>Recargar</Button>}
         </HStack>
       </div>
-      <TableContainer p="2rem">
+      <TableContainer p="1rem" maxWidth="80rem">
         <Heading fontSize="25px" mb="1rem" minH="2rem" textAlign="center">Lista de Empresas</Heading>
         <Table variant='striped' color="primary">
           <Thead>
@@ -110,8 +111,26 @@ const AdminCompany = () => {
                 <Td>{company.businessName}</Td>
                 <Td>{company.contactEmail}</Td>
                 <Td>{company.state}</Td>
-                <Td><Button bg="green" color="white" onClick={() => acceptCompanyHandler(index)}>Aceptar</Button></Td>
-                <Td><Button bg="red" color="white" onClick={() => declineCompanyHandler(index)}>Rechazar</Button></Td>
+                <Td>
+                  <Button
+                    bg="green"
+                    color="white"
+                    onClick={() => acceptCompanyHandler(index)}
+                    isDisabled={company.state === 1}
+                  >
+                    Habilitar
+                  </Button>
+                </Td>
+                <Td>
+                  <Button
+                    bg="red"
+                    color="white"
+                    onClick={() => declineCompanyHandler(index)}
+                    isDisabled={company.state === 2}
+                  >
+                    Deshabilitar
+                  </Button>
+                </Td>
               </Tr>
             ))}
           </Tbody>

@@ -35,10 +35,10 @@ const RegisterCompany = () => {
     setIsLoading(true);
     try {
       const response = await registerNewCompany(newUser);
-      successToast("Registro exitoso, aguerde confirmacion");
+      //successToast("Registro exitoso, aguerde confirmacion");
       navigate("/AccountAuth");
     } catch (error) {
-      errorToast("Registro incorrecto, corrobore datos.")
+      //errorToast("Registro incorrecto, corrobore datos.")
     }
     setIsLoading(false);
   };

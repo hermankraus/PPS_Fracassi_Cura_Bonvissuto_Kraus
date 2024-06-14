@@ -21,7 +21,7 @@ import { StudentPage } from "./pages/student-page/student-page";
 import { StudentProfile } from "./pages/student-page/student-profile";;
 import { AuthProvider } from "./components/context/AuthProvider";
 import StudentJobOpportunities from "./pages/student-page/student-job-opportunities";
-import { StudentJobPostulations } from "./pages/student-page/student-job-postulations";
+import StudentJobPostulations from "./pages/student-page/student-job-postulations";
 import CompanyJobOpportunities from "./pages/company-page/company-job-opportunities";
 
 function App() {
