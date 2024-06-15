@@ -26,8 +26,6 @@ namespace WorkRepAPI.Models.JobOfferDTOs
         public string? InternshipDuration { get; set; }
 
 
-       /* public List<JobOfferCareerDTO> jobOfferCareer { get; set; } = new List<JobOfferCareerDTO>();
-
-        public List<JobOfferSkillDTO> jobOfferSkill { get; set; } = new List<JobOfferSkillDTO>();*/
+      
     }
 }

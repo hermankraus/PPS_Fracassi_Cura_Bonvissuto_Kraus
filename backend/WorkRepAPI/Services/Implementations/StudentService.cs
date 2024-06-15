@@ -1,5 +1,6 @@
 ﻿using WorkRepAPI.Data.Interfaces;
 using WorkRepAPI.Entities;
+using WorkRepAPI.Models.JobOfferDTOs;
 using WorkRepAPI.Models.StudentsDTOs;
 using WorkRepAPI.Services.Interfaces;
 
@@ -50,6 +51,26 @@ namespace WorkRepAPI.Services.Implementations
                 State = student.State,
             };
             return studentDto;
+        }
+
+        public async Task<IEnumerable<JobOfferDTO>> GetJobOffersByLegajoAsync(int legajo)
+        {
+            var jobOffers = await _studentRepository.GetJobOffersByLegajoAsync(legajo);
+
+            return jobOffers.Select(jo => new JobOfferDTO
+            {
+                ContractType = jo.ContractType,
+                EmploymentType = jo.EmploymentType,
+                WorkLocation = jo.WorkLocation,
+                Description = jo.Description,
+                Cuitcompany = jo.Cuitcompany,
+                State = jo.State,
+                Finallydate = jo.Finallydate,
+                WorkPlace = jo.WorkPlace,
+                MinSubjects = jo.MinSubjects,
+                EstimatedDate = jo.EstimatedDate,
+                InternshipDuration = jo.InternshipDuration
+            });
         }
 
 
