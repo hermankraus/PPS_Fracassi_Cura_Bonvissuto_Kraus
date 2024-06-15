@@ -10,5 +10,6 @@ namespace WorkRepAPI.Data.Interfaces
         public Company GetCompanyByCuit(string cuit);
 
         void SetCompanyState(UpdCompanyDTO company);
+        void SetCompanyState(Company companyEntity);
     }
 }

@@ -1,4 +1,5 @@
-﻿using WorkRepAPI.Context;
+﻿using Microsoft.EntityFrameworkCore;
+using WorkRepAPI.Context;
 using WorkRepAPI.Data.Interfaces;
 using WorkRepAPI.Entities;
 
@@ -26,6 +27,13 @@ namespace WorkRepAPI.Data.Implementations
         public Student GetStudentbyLegajo(int legajo)
         {
             return _context.Students.SingleOrDefault(s => s.Legajo == legajo);
+        }
+
+        public async Task<IEnumerable<Joboffer>> GetJobOffersByLegajoAsync(int legajo)
+        {
+            return await _context.Joboffers
+                .Where(jo => jo.IdStudents.Any(s => s.Legajo == legajo))
+                .ToListAsync();
         }
     }
 }

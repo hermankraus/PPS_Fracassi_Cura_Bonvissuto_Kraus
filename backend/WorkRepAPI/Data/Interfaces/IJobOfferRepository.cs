@@ -7,5 +7,6 @@ namespace WorkRepAPI.Data.Interfaces
     {
         bool CreateJobOffer(Joboffer newJobOffer);
         List<Joboffer> GetAllJobOffers();
+
     }
 }

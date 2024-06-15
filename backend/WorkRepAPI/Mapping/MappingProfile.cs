@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using WorkRepAPI.Entities;
+using WorkRepAPI.Models.CompanyDTOs;
 using WorkRepAPI.Models.StudentsDTOs;
 
 namespace WorkRepAPI.Mappings
@@ -8,8 +9,13 @@ namespace WorkRepAPI.Mappings
     {
         public MappingProfile()
         {
+            //Student
             CreateMap<Student, GetStudentsDTO>();
             CreateMap<setStudentStateDTO, Student>();
+
+            //Company
+            CreateMap<Company, ReadAllCompaniesDTO>();
+            CreateMap<UpdCompanyDTO, Company>();
         }
     }
 }

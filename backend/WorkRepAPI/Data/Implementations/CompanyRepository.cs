@@ -1,4 +1,6 @@
-﻿using WorkRepAPI.Context;
+﻿using System.Collections.Generic;
+using System.Linq;
+using WorkRepAPI.Context;
 using WorkRepAPI.Data.Interfaces;
 using WorkRepAPI.Entities;
 using WorkRepAPI.Models.CompanyDTOs;
@@ -7,13 +9,19 @@ namespace WorkRepAPI.Data.Implementations
 {
     public class CompanyRepository : Repository, ICompanyRepository
     {
-        public CompanyRepository(pps_databaseContext context) : base(context) { }
+        private readonly pps_databaseContext _context;
 
-        public IEnumerable<Company> GetAllCompanies() {
+        public CompanyRepository(pps_databaseContext context) : base(context)
+        {
+            _context = context;
+        }
+
+        public IEnumerable<Company> GetAllCompanies()
+        {
             return _context.Companies.ToList();
         }
 
-        public Company? GetCompanyByCuit(string cuit)
+        public Company GetCompanyByCuit(string cuit)
         {
             return _context.Companies.FirstOrDefault(c => c.Cuit == cuit);
         }
@@ -28,5 +36,12 @@ namespace WorkRepAPI.Data.Implementations
             }
             _context.SaveChanges();
         }
+
+        public void SetCompanyState(Company companyEntity)
+        {
+            _context.Companies.Update(companyEntity);
+            _context.SaveChanges();
+        }
+
     }
 }

@@ -7,5 +7,8 @@ namespace WorkRepAPI.Data.Interfaces
         void SetStudentState(Student student);
         IQueryable<Student> GetStudents();
         Student GetStudentbyLegajo(int legajo);
+
+        Task<IEnumerable<Joboffer>> GetJobOffersByLegajoAsync(int legajo);
+
     }
 }
