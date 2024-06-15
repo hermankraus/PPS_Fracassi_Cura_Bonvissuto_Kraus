@@ -1,6 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using WorkRepAPI.Data.Interfaces;
+﻿using Microsoft.AspNetCore.Mvc;
+using System;
 using WorkRepAPI.Models.JobOfferDTOs;
 using WorkRepAPI.Services.Interfaces;
 
@@ -12,7 +11,7 @@ namespace WorkRepAPI.Controllers
     {
         private readonly IJobOfferService _jobofferService;
 
-        public JobOfferController (IJobOfferService jobofferService)
+        public JobOfferController(IJobOfferService jobofferService)
         {
             _jobofferService = jobofferService;
         }
@@ -27,5 +26,20 @@ namespace WorkRepAPI.Controllers
             }
             return BadRequest("Error al ingresar la oferta");
         }
+
+        [HttpGet]
+        public ActionResult GetJobOffer()
+        {
+            try
+            {
+                var jobOffers = _jobofferService.GetAllJobOffers();
+                return Ok(jobOffers);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
     }
 }
+

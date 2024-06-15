@@ -8,3 +8,6 @@ export const getAllCompanies = (companies) => {
   return api.get("/Company/companies", JSON.stringify(companies));
 };
 
+export const postJobOffer = (companies) => {
+  return api.post("/JobOffer", JSON.stringify(companies));
+}
