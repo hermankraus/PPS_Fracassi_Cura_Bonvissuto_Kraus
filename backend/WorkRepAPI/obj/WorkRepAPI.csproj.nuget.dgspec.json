@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Malef\\OneDrive\\Escritorio\\pps\\PPS_Fracassi_Cura_Bonvissuto_Kraus\\backend\\WorkRepAPI\\WorkRepAPI.csproj": {}
+    "C:\\Users\\Usuario\\Documents\\PPS_Fracassi_Cura_Bonvissuto_Kraus\\backend\\WorkRepAPI\\WorkRepAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Malef\\OneDrive\\Escritorio\\pps\\PPS_Fracassi_Cura_Bonvissuto_Kraus\\backend\\WorkRepAPI\\WorkRepAPI.csproj": {
+    "C:\\Users\\Usuario\\Documents\\PPS_Fracassi_Cura_Bonvissuto_Kraus\\backend\\WorkRepAPI\\WorkRepAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Malef\\OneDrive\\Escritorio\\pps\\PPS_Fracassi_Cura_Bonvissuto_Kraus\\backend\\WorkRepAPI\\WorkRepAPI.csproj",
+        "projectUniqueName": "C:\\Users\\Usuario\\Documents\\PPS_Fracassi_Cura_Bonvissuto_Kraus\\backend\\WorkRepAPI\\WorkRepAPI.csproj",
         "projectName": "WorkRepAPI",
-        "projectPath": "C:\\Users\\Malef\\OneDrive\\Escritorio\\pps\\PPS_Fracassi_Cura_Bonvissuto_Kraus\\backend\\WorkRepAPI\\WorkRepAPI.csproj",
-        "packagesPath": "C:\\Users\\Malef\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Malef\\OneDrive\\Escritorio\\pps\\PPS_Fracassi_Cura_Bonvissuto_Kraus\\backend\\WorkRepAPI\\obj\\",
+        "projectPath": "C:\\Users\\Usuario\\Documents\\PPS_Fracassi_Cura_Bonvissuto_Kraus\\backend\\WorkRepAPI\\WorkRepAPI.csproj",
+        "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Usuario\\Documents\\PPS_Fracassi_Cura_Bonvissuto_Kraus\\backend\\WorkRepAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Malef\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -34,6 +34,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -96,7 +101,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     }

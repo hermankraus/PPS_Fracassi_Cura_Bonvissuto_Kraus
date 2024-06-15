@@ -10,5 +10,7 @@ namespace WorkRepAPI.Data.Interfaces
         public IQueryable<Student> GetStudents();
 
         public Student GetStudentbyLegajo(int legajo);
+
+        Task<IEnumerable<Joboffer>> GetJobOffersByLegajoAsync(int legajo);
     }
 }
