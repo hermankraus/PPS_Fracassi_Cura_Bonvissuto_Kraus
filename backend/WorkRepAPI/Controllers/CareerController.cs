@@ -20,7 +20,7 @@ namespace WorkRepAPI.Controllers
         }
 
         [HttpPost("create")]
-        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")]
 
         public ActionResult CreateCareer(CareerDTO career)
         {

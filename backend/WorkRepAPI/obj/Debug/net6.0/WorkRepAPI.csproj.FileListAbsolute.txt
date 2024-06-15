@@ -440,3 +440,5 @@ C:\Users\Usuario\OneDrive\Escritorio\ASDDDDD\PPS_Fracassi_Cura_Bonvissuto_Kraus\
 C:\Users\Usuario\OneDrive\Escritorio\ASDDDDD\PPS_Fracassi_Cura_Bonvissuto_Kraus\backend\WorkRepAPI\obj\Debug\net6.0\ref\WorkRepAPI.dll
 C:\Users\Malef\OneDrive\Escritorio\pps\PPS_Fracassi_Cura_Bonvissuto_Kraus\backend\WorkRepAPI\bin\Debug\net6.0\AutoMapper.dll
 C:\Users\Malef\OneDrive\Escritorio\pps\PPS_Fracassi_Cura_Bonvissuto_Kraus\backend\WorkRepAPI\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\Usuario\Documents\PPS_Fracassi_Cura_Bonvissuto_Kraus\backend\WorkRepAPI\bin\Debug\net6.0\AutoMapper.dll
+C:\Users\Usuario\Documents\PPS_Fracassi_Cura_Bonvissuto_Kraus\backend\WorkRepAPI\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
