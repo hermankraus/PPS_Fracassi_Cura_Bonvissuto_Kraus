@@ -36,7 +36,7 @@ namespace WorkRepAPI.Services.Implementations
 
         public void SetCompanyState(UpdCompanyDTO company)
         {
-            var companyEntity = _mapper.Map<Company>(company);
+            var companyEntity = _mapper.Map<UpdCompanyDTO>(company);
             _companyRepository.SetCompanyState(companyEntity);
         }
 
