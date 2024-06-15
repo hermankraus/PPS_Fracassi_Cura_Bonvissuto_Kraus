@@ -23,6 +23,7 @@ import { AuthProvider } from "./components/context/AuthProvider";
 import StudentJobOpportunities from "./pages/student-page/student-job-opportunities";
 import StudentJobPostulations from "./pages/student-page/student-job-postulations";
 import CompanyJobOpportunities from "./pages/company-page/company-job-opportunities";
+import AdminCareer from "./components/admin/admin-career";
 
 function App() {
   const [previousPath, setPreviousPath] = useState("/");
@@ -43,6 +44,7 @@ function App() {
               <Route path="/admin-page" element={<AdminPage />} />
               <Route path="/admin/student" element={<AdminStudent />} />
               <Route path="/admin/company" element={<AdminCompany />} />
+              <Route path="/admin/career" element={<AdminCareer />} />
               <Route path="/student" element={<StudentPage />} />
               <Route path="/student/oportunities" element={<StudentJobOpportunities />} />
               <Route path="/student/postulations" element={<StudentJobPostulations />} />

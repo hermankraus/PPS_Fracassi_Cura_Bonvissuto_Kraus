@@ -1,11 +1,24 @@
- .navbar {
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   position: fixed;
-   width: 100%;
-   background-color: rgb(255, 255, 255);
-   border: 20px;
-   box-shadow: 4px 2px 2px 1px #265171;
-   z-index: 1000;
- }
+.navbar {
+  display: flex;
+  align-items: center;
+  position: fixed;
+  width: 100%;
+  background-color: rgb(255, 255, 255);
+  border: 20px;
+  box-shadow: 4px 2px 2px 1px #265171;
+  z-index: 1000;
+  overflow-x: auto; 
+}
+
+.navbar > * {
+  white-space: nowrap; 
+  margin-left: 1rem; 
+}
+
+.navbar > :first-child {
+  margin-left: 2rem; 
+}
+
+.navbar > :last-child {
+  margin-right: 2rem; 
+}

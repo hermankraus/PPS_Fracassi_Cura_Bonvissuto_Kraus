@@ -11,3 +11,8 @@ export const putStudentState = (student) => {
 export const putCompanyState = (company) => {
   return api.put("/Company/updstate", JSON.stringify(company));
 };
+
+export const AddCareer= (NewCareer) => {
+  return api.post("/Career/create", JSON.stringify(NewCareer));
+}
+

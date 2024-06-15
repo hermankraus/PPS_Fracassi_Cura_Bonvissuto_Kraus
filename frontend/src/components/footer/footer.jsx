@@ -58,7 +58,7 @@ const FooterPage = () => {
           </Box>
         </Box>
       </Container>
-      {/* <Container>
+      {/*z <Container>
         <Chat />
       </Container> */}
     </div>
