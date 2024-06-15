@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "LJME+8dDigkP21W/vPiRlt8iLXJSdwjckNPbjNdiD9DJT04LqMlDfTHrlmQr/ySq1yMmPqKQYbFQbAriE0va8A==",
+  "dgSpecHash": "nqaraE8fqwc8tEsMrxydbkyf+75MBwDnyaxTuMf+3baj1QgUqfZoNQdyE3MJ8wddxUL3QzGloEyql/nhNIwsEg==",
   "success": true,
   "projectFilePath": "C:\\Users\\Malef\\OneDrive\\Escritorio\\pps\\PPS_Fracassi_Cura_Bonvissuto_Kraus\\backend\\WorkRepAPI\\WorkRepAPI.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Malef\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
+    "C:\\Users\\Malef\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
     "C:\\Users\\Malef\\.nuget\\packages\\bouncycastle.cryptography\\2.2.1\\bouncycastle.cryptography.2.2.1.nupkg.sha512",
     "C:\\Users\\Malef\\.nuget\\packages\\google.protobuf\\3.25.1\\google.protobuf.3.25.1.nupkg.sha512",
     "C:\\Users\\Malef\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
@@ -11,7 +13,7 @@
     "C:\\Users\\Malef\\.nuget\\packages\\k4os.compression.lz4.streams\\1.3.5\\k4os.compression.lz4.streams.1.3.5.nupkg.sha512",
     "C:\\Users\\Malef\\.nuget\\packages\\k4os.hash.xxhash\\1.0.8\\k4os.hash.xxhash.1.0.8.nupkg.sha512",
     "C:\\Users\\Malef\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\6.0.30\\microsoft.aspnetcore.authentication.jwtbearer.6.0.30.nupkg.sha512",
-    "C:\\Users\\Malef\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
+    "C:\\Users\\Malef\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\Malef\\.nuget\\packages\\microsoft.entityframeworkcore\\6.0.29\\microsoft.entityframeworkcore.6.0.29.nupkg.sha512",
     "C:\\Users\\Malef\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\6.0.29\\microsoft.entityframeworkcore.abstractions.6.0.29.nupkg.sha512",
     "C:\\Users\\Malef\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\6.0.29\\microsoft.entityframeworkcore.analyzers.6.0.29.nupkg.sha512",
