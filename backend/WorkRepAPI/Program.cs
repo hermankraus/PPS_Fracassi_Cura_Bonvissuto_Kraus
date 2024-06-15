@@ -8,12 +8,16 @@ using WorkRepAPI.Data.Implementations;
 using WorkRepAPI.Data.Interfaces;
 using WorkRepAPI.Services.Implementations;
 using WorkRepAPI.Services.Interfaces;
+using WorkRepAPI.Mappings; 
+using AutoMapper; 
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
 builder.Services.AddControllers();
+
+// Configurar AutoMapper
+builder.Services.AddAutoMapper(typeof(MappingProfile));
 
 // Configurar Swagger para usar JWT
 builder.Services.AddSwaggerGen(setupAction =>
@@ -72,12 +76,11 @@ builder.Services.AddScoped<ICareerRepository, CareerRepository>();
 builder.Services.AddScoped<ICareerService, CareerService>();
 
 builder.Services.AddScoped<ISkillRepository, SkillRepository>();
-builder.Services.AddScoped<ISkillService,SkillService>();
+builder.Services.AddScoped<ISkillService, SkillService>();
 builder.Services.AddScoped<IJobOfferRepository, JobOfferRepository>();
 builder.Services.AddScoped<IJobOfferService, JobOfferService>();
 builder.Services.AddScoped<IJobApplicationRepository, JobApplicationRepository>();
 builder.Services.AddScoped<IJobApplicationService, JobApplicationService>();
-
 
 // Configurar JWT
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)

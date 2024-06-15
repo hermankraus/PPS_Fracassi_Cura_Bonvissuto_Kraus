@@ -1,49 +1,44 @@
-﻿using Mysqlx;
-using WorkRepAPI.Data.Interfaces;
+﻿using AutoMapper;
 using WorkRepAPI.Entities;
 using WorkRepAPI.Models.CompanyDTOs;
-using WorkRepAPI.Models.StudentsDTOs;
 using WorkRepAPI.Services.Interfaces;
+using System.Collections.Generic;
+using WorkRepAPI.Data.Interfaces;
+using WorkRepAPI.Data.Implementations;
+using WorkRepAPI.Models.StudentsDTOs;
 
 namespace WorkRepAPI.Services.Implementations
 {
     public class CompanyService : ICompanyService
     {
-
         private readonly ICompanyRepository _companyRepository;
+        private readonly IMapper _mapper;
 
-        public CompanyService ( ICompanyRepository companyRepository)
+        public CompanyService(ICompanyRepository companyRepository, IMapper mapper)
         {
             _companyRepository = companyRepository;
+            _mapper = mapper;
         }
 
         public IEnumerable<ReadAllCompaniesDTO> GetAllCompanies()
         {
             var companies = _companyRepository.GetAllCompanies();
-
-            var companyDto = companies.Select(c => new ReadAllCompaniesDTO
-            {
-                Cuit = c.Cuit,
-                CompanyName = c.CompanyName,
-                BusinessName = c.BusinessName,
-                ContactEmail = c.ContactEmail,
-                State = c.State,
-            }).ToList();
-
+            var companyDto = _mapper.Map<List<ReadAllCompaniesDTO>>(companies);
             return companyDto;
         }
 
-        public ReadAllCompaniesDTO GetCompanyByCuit(string cuit) {
-            
-            var company  = new ReadAllCompaniesDTO { Cuit = cuit };
-            
-            return company;
+        public ReadAllCompaniesDTO GetCompanyByCuit(string cuit)
+        {
+            var company = _companyRepository.GetCompanyByCuit(cuit);
+            var companyDto = _mapper.Map<ReadAllCompaniesDTO>(company);
+            return companyDto;
         }
-
 
         public void SetCompanyState(UpdCompanyDTO company)
         {
-           _companyRepository.SetCompanyState(company);
+            var companyEntity = _mapper.Map<Company>(company);
+            _companyRepository.SetCompanyState(companyEntity);
         }
+
     }
 }
