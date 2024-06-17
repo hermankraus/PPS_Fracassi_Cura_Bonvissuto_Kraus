@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using WorkRepAPI.Enums;
 
-namespace WorkRepAPI.Models.StudentsDTOs
+namespace WorkRepAPI.Models.CompanyDTOs
 {
     public class GetStudentsDTO
     {

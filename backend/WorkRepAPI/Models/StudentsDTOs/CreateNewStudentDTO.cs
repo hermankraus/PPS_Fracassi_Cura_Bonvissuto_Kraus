@@ -2,7 +2,7 @@
 using System.Text.Json.Serialization;
 using WorkRepAPI.Enums;
 
-namespace WorkRepAPI.Models.StudentsDTOs
+namespace WorkRepAPI.Models.CompanyDTOs
 {
     public class CreateNewStudentDTO
     {

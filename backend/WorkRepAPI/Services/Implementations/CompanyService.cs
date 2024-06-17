@@ -5,7 +5,7 @@ using WorkRepAPI.Services.Interfaces;
 using System.Collections.Generic;
 using WorkRepAPI.Data.Interfaces;
 using WorkRepAPI.Data.Implementations;
-using WorkRepAPI.Models.StudentsDTOs;
+using WorkRepAPI.Models.CompanyDTOs;
 
 namespace WorkRepAPI.Services.Implementations
 {

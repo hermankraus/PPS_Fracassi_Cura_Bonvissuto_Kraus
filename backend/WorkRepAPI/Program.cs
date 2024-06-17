@@ -26,7 +26,7 @@ builder.Services.AddSwaggerGen(setupAction =>
     {
         Type = SecuritySchemeType.Http,
         Scheme = "Bearer",
-        Description = "Ingrese 'Bearer' [espacio] y luego su token en el cuadro de texto a continuación.\n\nEjemplo: \"Bearer 12345abcdef\"",
+        Description = "Ingrese 'Bearer' [espacio] y luego su token en el cuadro de texto a continuaciï¿½n.\n\nEjemplo: \"Bearer 12345abcdef\"",
         Name = "Authorization",
         In = ParameterLocation.Header
     });

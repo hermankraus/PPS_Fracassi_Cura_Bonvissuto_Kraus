@@ -1,7 +1,7 @@
 ﻿using WorkRepAPI.Data.Interfaces;
 using WorkRepAPI.Models.CareerDTOs;
 using WorkRepAPI.Models.SkillDTOs;
-using WorkRepAPI.Models.StudentsDTOs;
+using WorkRepAPI.Models.CompanyDTOs;
 using WorkRepAPI.Services.Interfaces;
 
 namespace WorkRepAPI.Services.Implementations
