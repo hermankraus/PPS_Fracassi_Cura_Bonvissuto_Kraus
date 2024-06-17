@@ -1,5 +1,5 @@
 ﻿using WorkRepAPI.Models.JobOfferDTOs;
-using WorkRepAPI.Models.StudentsDTOs;
+using WorkRepAPI.Models.CompanyDTOs;
 
 namespace WorkRepAPI.Services.Interfaces
 {

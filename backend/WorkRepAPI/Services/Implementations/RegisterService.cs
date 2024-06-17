@@ -2,7 +2,7 @@
 using WorkRepAPI.Data.Interfaces;
 using WorkRepAPI.Entities;
 using WorkRepAPI.Models.CompanyDTOs;
-using WorkRepAPI.Models.StudentsDTOs;
+using WorkRepAPI.Models.CompanyDTOs;
 using WorkRepAPI.Services.Interfaces;
 
 namespace WorkRepAPI.Services.Implementations

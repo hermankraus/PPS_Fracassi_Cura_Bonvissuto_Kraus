@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using WorkRepAPI.Models.CompanyDTOs;
-using WorkRepAPI.Models.StudentsDTOs;
+using WorkRepAPI.Models.CompanyDTOs;
 using WorkRepAPI.Services.Interfaces;
 
 namespace WorkRepAPI.Controllers

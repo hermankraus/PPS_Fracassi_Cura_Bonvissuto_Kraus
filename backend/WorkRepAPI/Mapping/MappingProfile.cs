@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using WorkRepAPI.Entities;
 using WorkRepAPI.Models.CompanyDTOs;
-using WorkRepAPI.Models.StudentsDTOs;
+using WorkRepAPI.Models.CompanyDTOs;
 
 namespace WorkRepAPI.Mappings
 {

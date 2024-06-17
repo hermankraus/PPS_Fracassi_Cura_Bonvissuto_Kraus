@@ -1,6 +1,6 @@
 ﻿using WorkRepAPI.Enums;
 
-namespace WorkRepAPI.Models.StudentsDTOs
+namespace WorkRepAPI.Models.CompanyDTOs
 {
     public class setStudentStateDTO
     {
