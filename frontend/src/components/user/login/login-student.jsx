@@ -42,7 +42,7 @@ const LoginStudent = () => {
         if (State === "Pending") {
           navigate("/AccountAuth");
         } else {
-         // successToast("Inicio Exitoso, Welcome");
+          successToast("Inicio Exitoso");
           navigate("/student");
         }
       } else {
@@ -86,7 +86,7 @@ const LoginStudent = () => {
                   textAlign={{ base: "center" }}
                   className={isDarkMode ? "dark-ls" : "light-ls"}
                 >
-                  <Text mb="1rem" fontSize={{ base: "15px", lg: "20px" }} >
+                  <Text mb="1rem" fontSize={{ base: "15px", lg: "20px" }}>
                     Iniciar sesión con legajo y contraseña
                   </Text>
                   <FormControl>
@@ -106,7 +106,9 @@ const LoginStudent = () => {
                     />
                   </FormControl>
                   <FormControl>
-                    <FormLabel textAlign={{ base: "center", lg: "left" }}>Contraseña</FormLabel>
+                    <FormLabel textAlign={{ base: "center", lg: "left" }}>
+                      Contraseña
+                    </FormLabel>
                     <Field
                       className="custom-input"
                       as={Input}

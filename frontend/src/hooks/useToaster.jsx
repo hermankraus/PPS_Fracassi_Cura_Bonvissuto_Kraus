@@ -3,22 +3,22 @@ import { useToast } from "@chakra-ui/react";
 const useToaster = () => {
   const toast = useToast();
 
-  const successToast = () => {
+  const successToast = (message) => {
     toast({
-      title: "",
-      description: "",
-      status: "Success",
+      title: "Success",
+      description: message,
+      status: "success",
       duration: 5000,
       isClosable: true,
       position: "top-right",
     });
   };
 
-  const errorToast = () => {
+  const errorToast = (message) => {
     toast({
-      title: "",
-      description: "",
-      status: "Error",
+      title: "Error",
+      description: message,
+      status: "error",
       duration: 5000,
       isClosable: true,
       position: "top-right",
