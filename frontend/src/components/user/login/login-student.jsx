@@ -16,6 +16,8 @@ import * as Yup from "yup";
 import LoginApi from "../../../Axios/login-service";
 import useToaster from "../../../hooks/useToaster";
 import { ThemeContext } from "../../context/theme-context/theme-context";
+import Cookies from "js-cookie";
+
 import "./login-student.css";
 
 const LoginStudent = () => {
@@ -31,9 +33,12 @@ const LoginStudent = () => {
     };
     try {
       const response = await LoginApi(userData);
+      const token = response.data.token;
 
       const Role = response.data.role;
       const State = response.data.state;
+
+      Cookies.set("token", token, { expires: 7 });
       if (Role === "Administrator") {
         setIsAdmin(true);
         navigate("/admin-page");
