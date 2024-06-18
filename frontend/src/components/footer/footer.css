@@ -1,12 +1,19 @@
 .footer-container {
-  z-index: 3000;
   background-color: rgba(38, 81, 113);
   border-top-left-radius: 3rem;
   border-top-right-radius: 3rem;
   color: white;
+  position: relative;
+  bottom: 0;
+  left: 0;
+  width: 100%;
 }
 
 .light-mode-footer {
+  position: relative;
+  bottom: 0;
+  left: 0;
+  width: 100%;
   color: black;
   background-color: white;
   z-index: 3000;
@@ -41,6 +48,5 @@
 }
 
 .whatsapp:hover {
-  color: green
+  color: green;
 }
-
