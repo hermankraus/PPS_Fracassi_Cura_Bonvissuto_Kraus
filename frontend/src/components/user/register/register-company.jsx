@@ -15,7 +15,6 @@ import "./register.css";
 import { registerNewCompany } from "../../../Axios/axios-company";
 import useToaster from "../../../hooks/useToaster";
 
-
 const RegisterCompany = () => {
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
@@ -34,11 +33,11 @@ const RegisterCompany = () => {
     };
     setIsLoading(true);
     try {
-      const response = await registerNewCompany(newUser);
-      //successToast("Registro exitoso, aguerde confirmacion");
+      await registerNewCompany(newUser);
       navigate("/AccountAuth");
+      successToast("Registro exitoso, aguerde confirmacion");
     } catch (error) {
-      //errorToast("Registro incorrecto, corrobore datos.")
+      errorToast("Registro incorrecto, corrobore datos.");
     }
     setIsLoading(false);
   };

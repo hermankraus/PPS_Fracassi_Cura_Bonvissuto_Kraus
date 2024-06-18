@@ -11,17 +11,14 @@ export const StudentPage = () => {
 
   const { isDarkMode } = useContext(ThemeContext);
 
-
   return (
     <div className={isDarkMode ? "dark-mode" : "light-mode"}>
       <NavbarUser />
       <Container maxW="container.lg">
         <Stack spacing={8} align="center" mt="1rem">
           <StudentProfile />
-
         </Stack>
       </Container>
     </div>
   );
 };
-

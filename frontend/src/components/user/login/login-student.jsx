@@ -16,6 +16,8 @@ import * as Yup from "yup";
 import LoginApi from "../../../Axios/login-service";
 import useToaster from "../../../hooks/useToaster";
 import { ThemeContext } from "../../context/theme-context/theme-context";
+import Cookies from "js-cookie";
+
 import "./login-student.css";
 
 const LoginStudent = () => {
@@ -31,9 +33,12 @@ const LoginStudent = () => {
     };
     try {
       const response = await LoginApi(userData);
+      const token = response.data.token;
 
       const Role = response.data.role;
       const State = response.data.state;
+
+      Cookies.set("token", token, { expires: 7 });
       if (Role === "Administrator") {
         setIsAdmin(true);
         navigate("/admin-page");
@@ -42,7 +47,7 @@ const LoginStudent = () => {
         if (State === "Pending") {
           navigate("/AccountAuth");
         } else {
-         // successToast("Inicio Exitoso, Welcome");
+          successToast("Inicio Exitoso");
           navigate("/student");
         }
       } else {
@@ -86,7 +91,7 @@ const LoginStudent = () => {
                   textAlign={{ base: "center" }}
                   className={isDarkMode ? "dark-ls" : "light-ls"}
                 >
-                  <Text mb="1rem" fontSize={{ base: "15px", lg: "20px" }} >
+                  <Text mb="1rem" fontSize={{ base: "15px", lg: "20px" }}>
                     Iniciar sesión con legajo y contraseña
                   </Text>
                   <FormControl>
@@ -106,7 +111,9 @@ const LoginStudent = () => {
                     />
                   </FormControl>
                   <FormControl>
-                    <FormLabel textAlign={{ base: "center", lg: "left" }}>Contraseña</FormLabel>
+                    <FormLabel textAlign={{ base: "center", lg: "left" }}>
+                      Contraseña
+                    </FormLabel>
                     <Field
                       className="custom-input"
                       as={Input}

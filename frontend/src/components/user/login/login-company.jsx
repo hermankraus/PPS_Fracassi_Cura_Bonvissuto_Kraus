@@ -9,53 +9,53 @@ import {
   VStack,
   Stack,
 } from "@chakra-ui/react";
-import users from "../../../../base.json";
 import { useNavigate } from "react-router-dom";
 import "./login-company.css";
 import { ThemeContext } from "../../context/theme-context/theme-context";
 import { useContext } from "react";
-import { Formik,ErrorMessage,Field, Form } from "formik";
+import { Formik, ErrorMessage, Field, Form } from "formik";
 import * as Yup from "yup";
 import LoginApi from "../../../Axios/login-service";
+import Cookies from "js-cookie";
 
 const LoginCompany = () => {
   const navigate = useNavigate();
   const { isDarkMode } = useContext(ThemeContext);
 
-  const loginHandler = async(values) => {
+  const loginHandler = async (values) => {
     const userData = {
       Legajo: values.companyEmail,
-      password:values.companyPassword,
+      password: values.companyPassword,
     };
 
     try {
-        const response = await LoginApi(userData);
-      console.log(response)
-        const Role =  response.data.role;
-        const State = response.data.state;
-        console.log(State)
-        if (Role === "Company" && State === "Pending")
-          {
-            
-            navigate("/AccountAuth");
-          }
-        if (State == "Accepted"){
-          navigate("/company")
-        }
-    }catch(error){
-      console.log("Error al iniciar sesion",error);
+      const response = await LoginApi(userData);
+      console.log(response);
+      const token = response.data.token;
+
+      const Role = response.data.role;
+      const State = response.data.state;
+
+      Cookies.set("token", token, { expires: 7 });
+      if (Role === "Company" && State === "Pending") {
+        navigate("/AccountAuth");
+      }
+      if (State == "Accepted") {
+        navigate("/company");
+      }
+    } catch (error) {
+      console.log("Error al iniciar sesion", error);
     }
-
-
   };
   const validationSchema = Yup.object({
     companyEmail: Yup.string().required("El email es requerido"),
-    companyPassword: Yup.string().required("La contraseña es requerida")
-    .matches(
-      /^(?=.*[A-Z])(?=.*\d).{6,}$/,
-      "La contraseña debe tener al menos 6 caracteres, una mayúscula y un número"
-    )
-  })
+    companyPassword: Yup.string()
+      .required("La contraseña es requerida")
+      .matches(
+        /^(?=.*[A-Z])(?=.*\d).{6,}$/,
+        "La contraseña debe tener al menos 6 caracteres, una mayúscula y un número"
+      ),
+  });
 
   return (
     <Container className="login-container-company">
@@ -83,37 +83,39 @@ const LoginCompany = () => {
                   Iniciar sesión con email y contraseña
                 </Text>
                 <FormControl>
-                    <FormLabel textAlign={{ base: "center", lg: "left" }}>
-                      Email
-                    </FormLabel>
-                    <Field
-                      className="custom-input"
-                      as={Input}
-                      variant="filled"
-                      name="companyEmail"
-                    />
-                    <ErrorMessage
-                      name="companyEmail"
-                      component="div"
-                      className="error"
-                    />
-                  </FormControl>
-                  <FormControl>
-                    <FormLabel textAlign={{ base: "center", lg: "left" }}>Contraseña</FormLabel>
-                    <Field
-                      className="custom-input"
-                      as={Input}
-                      variant="filled"
-                      type="password"
-                      name="companyPassword"
-                      mb="1rem"
-                    />
-                    <ErrorMessage
-                      name="companyPassword"
-                      component="div"
-                      className="error"
-                    />
-                  </FormControl>
+                  <FormLabel textAlign={{ base: "center", lg: "left" }}>
+                    Email
+                  </FormLabel>
+                  <Field
+                    className="custom-input"
+                    as={Input}
+                    variant="filled"
+                    name="companyEmail"
+                  />
+                  <ErrorMessage
+                    name="companyEmail"
+                    component="div"
+                    className="error"
+                  />
+                </FormControl>
+                <FormControl>
+                  <FormLabel textAlign={{ base: "center", lg: "left" }}>
+                    Contraseña
+                  </FormLabel>
+                  <Field
+                    className="custom-input"
+                    as={Input}
+                    variant="filled"
+                    type="password"
+                    name="companyPassword"
+                    mb="1rem"
+                  />
+                  <ErrorMessage
+                    name="companyPassword"
+                    component="div"
+                    className="error"
+                  />
+                </FormControl>
               </VStack>
               <Stack
                 className="button-container"

@@ -37,11 +37,11 @@ const RegisterStudent = () => {
     setIsLoading(true);
 
     try {
-      const response = await registerNewStudent(newUser);
-      // successToast("Registro exitoso, aguerde confirmacion");
+      await registerNewStudent(newUser);
+      successToast("Registro exitoso, aguarde confirmacion");
       navigate("/AccountAuth");
     } catch (error) {
-      // errorToast("Registro incorrecto, corrobore datos.");
+      errorToast("Registro incorrecto, corrobore datos.");
     }
 
     setIsLoading(false);
