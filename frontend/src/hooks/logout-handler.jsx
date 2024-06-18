@@ -56,5 +56,5 @@ export const useLogout = () => {
     </AlertDialog>
   );
 
-  return { confirmLogout, LogoutDialog };
+  return { confirmLogout, handleLogout, LogoutDialog };
 };
