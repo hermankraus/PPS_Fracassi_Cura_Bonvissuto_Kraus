@@ -4,6 +4,7 @@ import {
   Route,
   Navigate,
 } from "react-router-dom";
+import "./App.css";
 import { useState } from "react";
 import { HomePage } from "./pages/home-page/home-page";
 import AdminPage from "./pages/admin-page/admin-page";
@@ -30,39 +31,44 @@ function App() {
   return (
     <AuthProvider>
       <Router>
-        <Routes>
-          <Route
-            path="/"
-            element={<HomePage />}
-            onChange={(params) => setPreviousPath(params.location.pathname)}
-          />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/admin-page" element={<AdminPage />} />
-          <Route path="/admin/student" element={<AdminStudent />} />
-          <Route path="/admin/company" element={<AdminCompany />} />
-          <Route path="/admin/career" element={<AdminCareer />} />
-          <Route path="/student" element={<StudentPage />} />
-          <Route
-            path="/student/oportunities"
-            element={<StudentJobOpportunities />}
-          />
-          <Route
-            path="/student/postulations"
-            element={<StudentJobPostulations />}
-          />
-          <Route path="/student/my-profile" element={<StudentProfile />} />
-          <Route path="/company" element={<CompanyPage />} />
-          <Route
-            path="/company/oportunities"
-            element={<CompanyJobOpportunities />}
-          />
-          {/* <Route path="/company/postulations" element={<JobPostulationsCompany />} /> */}
-          <Route path="/company/my-profile" element={<CompanyProfile />} />
-          <Route path="/AccountAuth" element={<AccountAuth />} />
-          <Route path="/login" element={<Navigate to={previousPath} />} />
-        </Routes>
-        <FooterPage />
+        <div className="app-container">
+          <div className="content">
+            <Routes>
+              <Route
+                path="/"
+                element={<HomePage />}
+                onChange={(params) => setPreviousPath(params.location.pathname)}
+              />
+              <Route path="/login" element={<Login />} />
+              <Route path="/register" element={<Register />} />
+              <Route path="/admin-page" element={<AdminPage />} />
+              <Route path="/admin/student" element={<AdminStudent />} />
+              <Route path="/admin/company" element={<AdminCompany />} />
+              <Route path="/admin/career" element={<AdminCareer />} />
+              <Route path="/student" element={<StudentPage />} />
+              <Route
+                path="/student/oportunities"
+                element={<StudentJobOpportunities />}
+              />
+              <Route
+                path="/student/postulations"
+                element={<StudentJobPostulations />}
+              />
+              <Route path="/student/my-profile" element={<StudentProfile />} />
+              <Route path="/company" element={<CompanyPage />} />
+              <Route
+                path="/company/oportunities"
+                element={<CompanyJobOpportunities />}
+              />
+              {/* <Route path="/company/postulations" element={<JobPostulationsCompany />} /> */}
+              <Route path="/company/my-profile" element={<CompanyProfile />} />
+              <Route path="/AccountAuth" element={<AccountAuth />} />
+              <Route path="/login" element={<Navigate to={previousPath} />} />
+            </Routes>
+          </div>
+          <div className="spacer"></div>
+          <FooterPage className="footer-container" />
+        </div>
       </Router>
     </AuthProvider>
   );

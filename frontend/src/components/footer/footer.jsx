@@ -4,7 +4,11 @@ import { Container, Text, Box, Link } from "@chakra-ui/react";
 import { ThemeContext } from "../context/theme-context/theme-context";
 import { useContext } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faFacebook, faInstagram, faWhatsapp } from "@fortawesome/free-brands-svg-icons";
+import {
+  faFacebook,
+  faInstagram,
+  faWhatsapp,
+} from "@fortawesome/free-brands-svg-icons";
 
 const FooterPage = () => {
   const { isDarkMode } = useContext(ThemeContext);
