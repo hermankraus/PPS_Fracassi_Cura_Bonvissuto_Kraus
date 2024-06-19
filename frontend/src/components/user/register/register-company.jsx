@@ -8,6 +8,8 @@ import {
   Input,
   Button,
   Spinner,
+  Box,
+  useBreakpointValue,
 } from "@chakra-ui/react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
@@ -35,7 +37,7 @@ const RegisterCompany = () => {
     try {
       await registerNewCompany(newUser);
       navigate("/AccountAuth");
-      successToast("Registro exitoso, aguerde confirmacion");
+      successToast("Registro exitoso, aguarde confirmación");
     } catch (error) {
       errorToast("Registro incorrecto, corrobore datos.");
     }
@@ -44,10 +46,10 @@ const RegisterCompany = () => {
 
   const validationSchema = Yup.object({
     CompanyCuit: Yup.string()
-      .matches(/^\d+$/, "El número de CUIL solo puede contener números")
-      .required("El CUIL es requerido"),
+      .matches(/^\d+$/, "El número de CUIT solo puede contener números")
+      .required("El CUIT es requerido"),
     CompanyCompanyName: Yup.string().required("El nombre es requerido"),
-    CompanyBusinessName: Yup.string().required("La razon social es requerida"),
+    CompanyBusinessName: Yup.string().required("La razón social es requerida"),
     CompanyAddress: Yup.string().required("El domicilio es requerido"),
     CompanyContactEmail: Yup.string()
       .email("Correo electrónico inválido")
@@ -66,8 +68,10 @@ const RegisterCompany = () => {
       .required("Repetir la contraseña es requerido"),
   });
 
+  const formWidth = useBreakpointValue({ base: "100%", md: "80%", lg: "70%" });
+
   return (
-    <Container minW="75rem" w="10rem" zIndex={1} p={2}>
+    <Container maxW="container.lg" p={4}>
       <Formik
         initialValues={{
           CompanyCuit: "",
@@ -83,128 +87,124 @@ const RegisterCompany = () => {
       >
         {({ handleSubmit }) => (
           <Form onSubmit={handleSubmit}>
-            <Flex
-              gap={4}
-              minW="70rem"
-              w="74rem"
-              className="register-label-one"
-              zIndex={5}
-              justifyContent="center"
-              alignItems="center"
-              alignContent="center"
-            >
-              <FormControl>
-                <FormLabel>Nombre</FormLabel>
-                <Field
-                  name="CompanyCompanyName"
-                  as={Input}
-                  className="custom-input"
-                  variant="filled"
-                />
-                <ErrorMessage name="CompanyCompanyName" component="div" />
-              </FormControl>
+            <Box width={formWidth} mx="auto">
+              <Flex
+                direction={{ base: "column", md: "row" }}
+                gap={4}
+                flexWrap="wrap"
+                justifyContent="center"
+                alignItems="center"
+                mb={4}
+                className="register-label-one"
+              >
+                <FormControl>
+                  <FormLabel>Nombre</FormLabel>
+                  <Field
+                    name="CompanyCompanyName"
+                    as={Input}
+                    className="custom-input"
+                    variant="filled"
+                  />
+                  <ErrorMessage name="CompanyCompanyName" component="div" />
+                </FormControl>
 
-              <FormControl>
-                <FormLabel>Razon Social</FormLabel>
-                <Field
-                  name="CompanyBusinessName"
-                  as={Input}
-                  className="custom-input"
-                  variant="filled"
-                />
-                <ErrorMessage name="CompanyBusinessName" component="div" />
-              </FormControl>
+                <FormControl>
+                  <FormLabel>Razón Social</FormLabel>
+                  <Field
+                    name="CompanyBusinessName"
+                    as={Input}
+                    className="custom-input"
+                    variant="filled"
+                  />
+                  <ErrorMessage name="CompanyBusinessName" component="div" />
+                </FormControl>
 
-              <FormControl>
-                <FormLabel>E-mail</FormLabel>
-                <Field
-                  name="CompanyContactEmail"
-                  as={Input}
-                  className="custom-input"
-                  variant="filled"
-                />
-                <ErrorMessage name="CompanyContactEmail" component="div" />
-              </FormControl>
-            </Flex>
-            <Flex
-              gap={4}
-              minW="70rem"
-              w="74rem"
-              className="register-label-two"
-              zIndex={5}
-              justifyContent="center"
-              alignItems="center"
-            >
-              <FormControl>
-                <FormLabel>Domicilio Legal</FormLabel>
-                <Field
-                  name="CompanyAddress"
-                  as={Input}
-                  className="custom-input"
-                  variant="filled"
-                  gap="2rem"
-                />
-                <ErrorMessage name="CompanyAddress" component="div" />
-              </FormControl>
-              <FormControl>
-                <FormLabel>CUIT</FormLabel>
-                <Field
-                  name="CompanyCuit"
-                  as={Input}
-                  className="custom-input"
-                  variant="filled"
-                />
-                <ErrorMessage name="CompanyCuit" component="div" />
-              </FormControl>
-            </Flex>
+                <FormControl>
+                  <FormLabel>E-mail</FormLabel>
+                  <Field
+                    name="CompanyContactEmail"
+                    as={Input}
+                    className="custom-input"
+                    variant="filled"
+                  />
+                  <ErrorMessage name="CompanyContactEmail" component="div" />
+                </FormControl>
+              </Flex>
 
-            <Flex
-              gap={4}
-              minW="70rem"
-              w="74rem"
-              className="register-label-four"
-              zIndex={5}
-              justifyContent="center"
-              alignItems="center"
-            >
-              <FormControl>
-                <FormLabel>Contraseña</FormLabel>
-                <Field
-                  name="CompanyPassword"
-                  as={Input}
-                  className="custom-input"
-                  variant="filled"
-                  type="password"
-                  w="30rem"
-                />
+              <Flex
+                direction={{ base: "column", md: "row" }}
+                gap={4}
+                flexWrap="wrap"
+                justifyContent="center"
+                alignItems="center"
+                mb={4}
+                className="register-label-two"
+              >
+                <FormControl>
+                  <FormLabel>Domicilio Legal</FormLabel>
+                  <Field
+                    name="CompanyAddress"
+                    as={Input}
+                    className="custom-input"
+                    variant="filled"
+                  />
+                  <ErrorMessage name="CompanyAddress" component="div" />
+                </FormControl>
 
-                <ErrorMessage name="CompanyPassword" component="div" />
+                <FormControl>
+                  <FormLabel>CUIT</FormLabel>
+                  <Field
+                    name="CompanyCuit"
+                    as={Input}
+                    className="custom-input"
+                    variant="filled"
+                  />
+                  <ErrorMessage name="CompanyCuit" component="div" />
+                </FormControl>
+              </Flex>
 
-                <FormLabel>Repetir contraseña</FormLabel>
-                <Field
-                  name="companyPasswordCheck"
-                  as={Input}
-                  className="custom-input"
-                  variant="filled"
-                  type="password"
-                  w="30rem"
-                />
-                <ErrorMessage name="companyPasswordCheck" component="div" />
+              <Flex
+                direction={{ base: "column", md: "row" }}
+                gap={4}
+                flexWrap="wrap"
+                justifyContent="center"
+                alignItems="center"
+                className="register-label-four"
+              >
+                <FormControl>
+                  <FormLabel>Contraseña</FormLabel>
+                  <Field
+                    name="CompanyPassword"
+                    as={Input}
+                    className="custom-input"
+                    variant="filled"
+                    type="password"
+                  />
+                  <ErrorMessage name="CompanyPassword" component="div" />
 
-                {isLoading && <Spinner size="md" color="teal" />}
-                <Button
-                  type="submit"
-                  isLoading={isLoading}
-                  loadingText="Registrando..."
-                  bottom={9}
-                  ml="12rem"
-                  h="4rem"
-                  w="15rem"
-                >
-                  Registrar
-                </Button>
-              </FormControl>
-            </Flex>
+                  <FormLabel>Repetir contraseña</FormLabel>
+                  <Field
+                    name="companyPasswordCheck"
+                    as={Input}
+                    className="custom-input"
+                    variant="filled"
+                    type="password"
+                  />
+                  <ErrorMessage name="companyPasswordCheck" component="div" />
+
+                  {isLoading && <Spinner size="md" color="teal" />}
+                  <Button
+                    type="submit"
+                    isLoading={isLoading}
+                    loadingText="Registrando..."
+                    mt={4}
+                    w="full"
+                  >
+                    Registrar
+                  </Button>
+                </FormControl>
+              </Flex>
+            </Box>
           </Form>
         )}
       </Formik>

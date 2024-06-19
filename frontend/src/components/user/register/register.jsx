@@ -1,7 +1,15 @@
 import { useState, useContext } from "react";
 import RegisterCompany from "./register-company";
 import RegisterStudent from "./register-student";
-import { Flex, Box, Image, HStack, Switch, Heading, VStack } from "@chakra-ui/react";
+import {
+  Flex,
+  Box,
+  Image,
+  HStack,
+  Switch,
+  Heading,
+  VStack,
+} from "@chakra-ui/react";
 import { ThemeContext } from "../../context/theme-context/theme-context";
 import images from "../../../assets/constants/images";
 import ThemeButton from "../../context/theme-button/theme-button";
@@ -33,19 +41,31 @@ export default function Register() {
           zIndex="1"
           justifyContent="center"
           alignItems="center"
+          display="flex"
+          flexDirection="column"
         >
-          <HStack p={4} justifyContent="center">
+          <HStack p={4} justifyContent="center" w="full">
             <Box
               className={isDarkMode ? "dark-login" : "light-login"}
               borderRadius="1rem"
               border="3px solid #71aef0"
               zIndex="1"
-              p="2rem"
-              w="80rem"
-              minW="40rem"
+              p={{ base: "1rem", md: "2rem" }}
+              w={{ base: "90%", md: "60rem", lg: "80rem" }}
+              minW={{ base: "90%", md: "40rem" }}
             >
-              <Flex justifyContent="center" alignItems="center" mt="1rem">
-                <Heading mr="1rem" h="3rem" className="switch">
+              <Flex
+                justifyContent="center"
+                alignItems="center"
+                mt="1rem"
+                flexDirection={{ base: "column", md: "row" }}
+              >
+                <Heading
+                  mr={{ base: "0", md: "1rem" }}
+                  mb={{ base: "1rem", md: "0" }}
+                  h="3rem"
+                  className="switch"
+                >
                   {isCompany ? "Estudiante" : "Estudiante"}
                 </Heading>
                 <Switch
@@ -53,19 +73,24 @@ export default function Register() {
                   onChange={handleSwitch}
                   size="lg"
                 />
-                <Heading className="switch" ml={4} h="3rem">
+                <Heading
+                  ml={{ base: "0", md: 4 }}
+                  mt={{ base: "1rem", md: "0" }}
+                  h="3rem"
+                  className="switch"
+                >
                   Empresa
                 </Heading>
               </Flex>
               <VStack>
-                <h1 justifyContent="center" alignItems="center">
+                <h1 style={{ textAlign: "center" }}>
                   Registro de usuario bolsa de trabajo
                 </h1>
               </VStack>
               {isCompany ? <RegisterCompany /> : <RegisterStudent />}
             </Box>
           </HStack>
-          <Box position="relate" mb={2} mr="20rem">
+          <Box position="relative" mb={2} mr={{ base: "0", md: "20rem" }}>
             <ThemeButton />
           </Box>
         </Box>

@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { Stack, Container, Image } from "@chakra-ui/react";
+import { Stack, Container } from "@chakra-ui/react";
 import "./student-page.css";
 import { ThemeContext } from "../../components/context/theme-context/theme-context";
 import { StudentProfile } from "./student-profile";
