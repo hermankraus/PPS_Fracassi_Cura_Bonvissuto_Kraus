@@ -27,7 +27,6 @@ const CompanyJobOpportunities = () => {
   const navigate = useNavigate();
   const { successToast, errorToast } = useToaster();
   const [isLoading, setIsLoading] = useState(false);
-  const [isAlertOpen, setIsAlertOpen] = useState(false);
   const cancelRef = React.useRef();
 
   const convertToNumber = (value) => {
@@ -35,7 +34,7 @@ const CompanyJobOpportunities = () => {
     return isNaN(number) ? 0 : number;
   };
 
-  const handleSubmitU = async (values) => {
+  const handleSubmitU = async (values, { resetForm }) => {
     const Values = {
       ContractType: convertToNumber(values.contractType),
       EmploymentType: convertToNumber(values.employmentType),
@@ -53,17 +52,12 @@ const CompanyJobOpportunities = () => {
 
     try {
       const response = await postJobOffer(Values);
-      console.log(response.data);
-      setIsAlertOpen(true); // Muestra el AlertDialog
+      successToast(response.data);
+      resetForm();
     } catch (error) {
       errorToast("Error al agregar la oferta laboral");
     }
     setIsLoading(false);
-  };
-
-  const handleAlertClose = () => {
-    setIsAlertOpen(false);
-    navigate("/company"); // Navega a /company cuando se cierra el AlertDialog
   };
 
   const validationSchema = Yup.object({
@@ -71,7 +65,7 @@ const CompanyJobOpportunities = () => {
     employmentType: Yup.string().required("El tipo de empleo es requerido"),
     workLocation: Yup.string().required("La ubicación de trabajo es requerida"),
     description: Yup.string().required("La descripción es requerida"),
-    //cuitCompany: Yup.string().required('El CUIT de la compañía es requerido').matches(/^\d{11}$/, 'El CUIT debe tener 11 dígitos'),
+    cuitCompany: Yup.string().required('El CUIT de la compañía es requerido').matches(/^\d{11}$/, 'El CUIT debe tener 11 dígitos'),
     finallyDate: Yup.date().required("La fecha límite es requerida"),
     workPlace: Yup.string().required("El lugar de trabajo es requerido"),
     minSubjects: Yup.string().required(
@@ -239,30 +233,6 @@ const CompanyJobOpportunities = () => {
             </Form>
           )}
         </Formik>
-
-        <AlertDialog
-          isOpen={isAlertOpen}
-          leastDestructiveRef={cancelRef}
-          onClose={handleAlertClose}
-        >
-          <AlertDialogOverlay>
-            <AlertDialogContent>
-              <AlertDialogHeader fontSize="lg" fontWeight="bold">
-                Oferta Agregada
-              </AlertDialogHeader>
-
-              <AlertDialogBody>
-                La oferta laboral ha sido agregada exitosamente.
-              </AlertDialogBody>
-
-              <AlertDialogFooter>
-                <Button ref={cancelRef} onClick={handleAlertClose}>
-                  OK
-                </Button>
-              </AlertDialogFooter>
-            </AlertDialogContent>
-          </AlertDialogOverlay>
-        </AlertDialog>
       </Box>
     </>
   );
