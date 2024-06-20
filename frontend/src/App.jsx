@@ -21,6 +21,7 @@ import StudentJobOpportunities from "./pages/student-page/student-job-opportunit
 import StudentJobPostulations from "./pages/student-page/student-job-postulations";
 import CompanyJobOpportunities from "./pages/company-page/company-job-opportunities";
 import AdminCareer from "./components/admin/admin-career";
+import AdminSkill from "./components/admin/admin-skill";
 
 function App() {
   const [previousPath, setPreviousPath] = useState("/");
@@ -42,6 +43,7 @@ function App() {
               <Route path="/admin/student" element={<AdminStudent />} />
               <Route path="/admin/company" element={<AdminCompany />} />
               <Route path="/admin/career" element={<AdminCareer />} />
+              <Route path="/admin/skill" element={<AdminSkill />} />
               <Route
                 path="/student/oportunities"
                 element={<StudentJobOpportunities />}

@@ -16,3 +16,6 @@ export const AddCareer= (NewCareer) => {
   return api.post("/Career/create", JSON.stringify(NewCareer));
 }
 
+export const AddSkill=(NewSkill) => {
+  return api.post("/Skill/create", JSON.stringify(NewSkill));
+}
