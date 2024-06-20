@@ -41,7 +41,7 @@ const LoginCompany = () => {
         navigate("/AccountAuth");
       }
       if (State == "Accepted") {
-        navigate("/company");
+        navigate("/company/my-profile");
       }
     } catch (error) {
       console.log("Error al iniciar sesion", error);

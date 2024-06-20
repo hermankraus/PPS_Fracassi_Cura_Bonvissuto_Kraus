@@ -47,7 +47,7 @@ export const NavbarUser = () => {
           h="4.5rem"
           p={0}
           cursor="pointer"
-          onClick={() => navigate("/student")}
+          onClick={() => navigate("/student/my-profile")}
         />
         <Link onClick={() => navigate("/student/oportunities")} ml="2rem">
           Oportunidades Laborales
@@ -82,7 +82,7 @@ export const NavbarCompany = () => {
           h="4.5rem"
           p={0}
           cursor="pointer"
-          onClick={() => navigate("/student")}
+          onClick={() => navigate("/company/my-profile")}
         />
         <Link onClick={() => navigate("/company/oportunities")} ml="2rem">
           Oportunidades Laborales

@@ -24,7 +24,7 @@ const LoginStudent = () => {
   const navigate = useNavigate();
   const { isDarkMode } = useContext(ThemeContext);
   const { successToast, errorToast } = useToaster();
-  const [isAdmin, setIsAdmin] = useState(false);
+  const [, setIsAdmin] = useState(false);
 
   const loginHandler = async (values) => {
     const userData = {
@@ -48,7 +48,7 @@ const LoginStudent = () => {
           navigate("/AccountAuth");
         } else {
           successToast("Inicio Exitoso");
-          navigate("/student");
+          navigate("/student/my-profile");
         }
       } else {
         //navigate("/company");

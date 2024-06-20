@@ -1,5 +1,5 @@
 import "./footer.css";
-// import Chat from "../chat-bot/chat";
+import Chat from "../chat-bot/chat";
 import { Container, Text, Box, Link } from "@chakra-ui/react";
 import { ThemeContext } from "../context/theme-context/theme-context";
 import { useContext } from "react";
@@ -62,9 +62,9 @@ const FooterPage = () => {
           </Box>
         </Box>
       </Container>
-      {/*z <Container>
+      <Container>
         <Chat />
-      </Container> */}
+      </Container>
     </div>
   );
 };

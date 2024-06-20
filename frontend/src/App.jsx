@@ -12,12 +12,9 @@ import AccountAuth from "./components/user/register/account-auth";
 import FooterPage from "./components/footer/footer";
 import Login from "./components/user/login/Login";
 import Register from "./components/user/register/register";
-//import { ChakraProvider } from "@chakra-ui/react";
 import AdminStudent from "./components/admin/admin-student";
 import AdminCompany from "./components/admin/admin-company";
-import CompanyPage from "./pages/company-page/company-page";
 import { CompanyProfile } from "./pages/company-page/company-profile";
-import { StudentPage } from "./pages/student-page/student-page";
 import { StudentProfile } from "./pages/student-page/student-profile";
 import { AuthProvider } from "./components/context/AuthProvider";
 import StudentJobOpportunities from "./pages/student-page/student-job-opportunities";
@@ -45,7 +42,6 @@ function App() {
               <Route path="/admin/student" element={<AdminStudent />} />
               <Route path="/admin/company" element={<AdminCompany />} />
               <Route path="/admin/career" element={<AdminCareer />} />
-              <Route path="/student" element={<StudentPage />} />
               <Route
                 path="/student/oportunities"
                 element={<StudentJobOpportunities />}
@@ -55,7 +51,6 @@ function App() {
                 element={<StudentJobPostulations />}
               />
               <Route path="/student/my-profile" element={<StudentProfile />} />
-              <Route path="/company" element={<CompanyPage />} />
               <Route
                 path="/company/oportunities"
                 element={<CompanyJobOpportunities />}
