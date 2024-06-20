@@ -32,11 +32,11 @@ const AdminCareer = () => {
   
     try {
       const response = await AddCareer(newCareer);
-      //successToast('Carrera añadida exitosamente');
-      resetForm(); // Esto reseteará el formulario
+      successToast('Carrera añadida exitosamente');
+      resetForm();
       navigate('/admin/career');
     } catch (error) {
-      //errorToast('Error al añadir la carrera');
+      errorToast('Error al añadir la carrera');
     }
   
     setIsLoading(false);
