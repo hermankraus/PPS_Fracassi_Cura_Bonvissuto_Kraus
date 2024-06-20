@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("WorkRepAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3c0fb93329a0d259c861066fa785d5732b483787")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f6ca8173404b23ba9c36d3c6ce9883a77732599a")]
 [assembly: System.Reflection.AssemblyProductAttribute("WorkRepAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("WorkRepAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

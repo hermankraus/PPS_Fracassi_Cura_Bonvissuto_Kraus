@@ -86,7 +86,7 @@ namespace WorkRepAPI.Controllers
             }
         }
 
-        [HttpGet("{legajo}/joboffers")]
+        [HttpGet("joboffers/{legajo}")]
         public async Task<IActionResult> GetJobOffersByLegajo(int legajo)
         {
             var jobOffers = await _studentService.GetJobOffersByLegajoAsync(legajo);

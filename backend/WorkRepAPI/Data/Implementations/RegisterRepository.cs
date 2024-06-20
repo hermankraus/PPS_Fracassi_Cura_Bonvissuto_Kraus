@@ -32,7 +32,7 @@ namespace WorkRepAPI.Data.Implementations
 
         public bool CreateCompany(Company companyData)
         {
-            Company company= _context.Companies.FirstOrDefault(c => c.ContactEmail == companyData.ContactEmail);
+            Company company = _context.Companies.FirstOrDefault(c => c.Cuit == companyData.Cuit && c.ContactEmail == companyData.ContactEmail);
 
             if (company == null)
             {
