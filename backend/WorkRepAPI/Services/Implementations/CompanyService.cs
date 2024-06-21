@@ -20,6 +20,12 @@ namespace WorkRepAPI.Services.Implementations
             _mapper = mapper;
         }
 
+        public void CompleteProfile(CompleteCompanyProfileDTO completeProfile)
+        {
+             var company = _mapper.Map<Company>(completeProfile);
+             _companyRepository.CompleteProfile(company);
+        }
+
         public IEnumerable<ReadAllCompaniesDTO> GetAllCompanies()
         {
             var companies = _companyRepository.GetAllCompanies();

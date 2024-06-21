@@ -50,5 +50,18 @@ namespace WorkRepAPI.Controllers
                 return BadRequest("No se pudo actualizar la compañia");
             }
         }
+
+        [HttpPut("completeprofile")]
+
+        public ActionResult CompleteProfile(CompleteCompanyProfileDTO company){
+
+            try{
+                    _companyService.CompleteProfile(company);
+                    return Ok("Perfil Actualizado con Éxito");
+                }
+            catch{
+                    return BadRequest("No pudimos actualizar tu perfil.");
+                }
+        } 
     }
 }
