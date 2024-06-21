@@ -12,5 +12,9 @@ namespace WorkRepAPI.Services.Interfaces
         public GetStudentsDTO GetStudentbyLegajo(int legajo);
 
         Task<IEnumerable<JobOfferDTO>> GetJobOffersByLegajoAsync(int legajo);
+
+        void CompleteProfile(CompleteProfileDTO completeProfile);
     }
+
+
 }
