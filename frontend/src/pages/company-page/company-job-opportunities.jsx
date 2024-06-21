@@ -1,4 +1,3 @@
-import React from "react";
 import { useState } from "react";
 import {
   Box,
@@ -8,32 +7,23 @@ import {
   Input,
   Select,
   Textarea,
-  VStack,
-  AlertDialog,
-  AlertDialogBody,
-  AlertDialogFooter,
-  AlertDialogHeader,
-  AlertDialogContent,
-  AlertDialogOverlay,
+  VStack
 } from "@chakra-ui/react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
-import { useNavigate } from "react-router-dom";
 import { postJobOffer } from "../../Axios/axios-company";
 import useToaster from "../../hooks/useToaster";
 import { NavbarCompany } from "../../components/navbar/navbar";
 
 const CompanyJobOpportunities = () => {
-  const navigate = useNavigate();
   const { successToast, errorToast } = useToaster();
   const [isLoading, setIsLoading] = useState(false);
-  const cancelRef = React.useRef();
-
+  
   const convertToNumber = (value) => {
     const number = Number(value);
     return isNaN(number) ? 0 : number;
   };
-
+  
   const handleSubmitU = async (values, { resetForm }) => {
     const Values = {
       ContractType: convertToNumber(values.contractType),
@@ -49,7 +39,7 @@ const CompanyJobOpportunities = () => {
       InternshipDuration: values.internshipDuration,
     };
     setIsLoading(true);
-
+    
     try {
       const response = await postJobOffer(Values);
       successToast(response.data);
@@ -59,6 +49,9 @@ const CompanyJobOpportunities = () => {
     }
     setIsLoading(false);
   };
+  
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
 
   const validationSchema = Yup.object({
     contractType: Yup.string().required("El tipo de contrato es requerido"),
@@ -66,12 +59,16 @@ const CompanyJobOpportunities = () => {
     workLocation: Yup.string().required("La ubicación de trabajo es requerida"),
     description: Yup.string().required("La descripción es requerida"),
     cuitCompany: Yup.string().required('El CUIT de la compañía es requerido').matches(/^\d{11}$/, 'El CUIT debe tener 11 dígitos'),
-    finallyDate: Yup.date().required("La fecha límite es requerida"),
+    finallyDate: Yup.date()
+    .min(today, "La fecha debe ser posterior a la de hoy")
+    .required("La fecha límite es requerida"),    
     workPlace: Yup.string().required("El lugar de trabajo es requerido"),
     minSubjects: Yup.string().required(
       "Las asignaturas mínimas son requeridas"
     ),
-    estimatedDate: Yup.date().required("La fecha estimada es requerida"),
+    estimatedDate: Yup.date().required("La fecha estimada es requerida")
+    .min(today, "La fecha debe ser posterior a la de hoy")
+    ,
     internshipDuration: Yup.string().required(
       "La duración de la pasantía es requerida"
     ),
@@ -112,8 +109,8 @@ const CompanyJobOpportunities = () => {
                   <FormLabel>Tipo de Contrato</FormLabel>
                   <Field as={Select} name="contractType">
                     <option value="">Seleccione...</option>
-                    <option value="0">Inter</option>
-                    <option value="1">Work</option>
+                    <option value="0">Pasantía</option>
+                    <option value="1">Full Time</option>
                   </Field>
                   <ErrorMessage
                     name="contractType"

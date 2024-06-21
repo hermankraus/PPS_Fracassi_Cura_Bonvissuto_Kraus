@@ -7,3 +7,15 @@ export const registerNewStudent = (newUser) => {
 export const getAllJobOffer = (JobOffer) => {
   return api.get("/JobOffer", JSON.stringify(JobOffer));
 };
+
+export const getStudentByLegajo = async (legajo) => {
+  return api.get(`/Student/${legajo}`);
+};
+
+export const completeprofile = (userData) => {
+  return api.put("/Student/completeprofile", JSON.stringify(userData));
+};
+
+export const studentApplyToJobOffer = (offer) => {
+  return api.post("/Student/apply", JSON.stringify(offer));
+};
