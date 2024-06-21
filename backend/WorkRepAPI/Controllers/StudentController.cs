@@ -97,6 +97,19 @@ namespace WorkRepAPI.Controllers
             return Ok(jobOffers);
         }
 
+        [HttpPut("completeprofile")]
+
+        public ActionResult CompleteProfile(CompleteProfileDTO student){
+
+            try{
+                    _studentService.CompleteProfile(student);
+                    return Ok("Perfil Actualizado con Éxito");
+                }
+            catch{
+                    return BadRequest("No pudimos actualizar tu perfil.");
+                }
+        } 
+
 
     }
 }
