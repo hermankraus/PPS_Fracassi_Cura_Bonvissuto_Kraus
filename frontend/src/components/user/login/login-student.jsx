@@ -17,6 +17,7 @@ import LoginApi from "../../../Axios/login-service";
 import useToaster from "../../../hooks/useToaster";
 import { ThemeContext } from "../../context/theme-context/theme-context";
 import Cookies from "js-cookie";
+import "../../context/theme-context/theme-context.css"
 
 import "./login-student.css";
 
@@ -89,7 +90,7 @@ const LoginStudent = () => {
                   minH="2rem"
                   justifyContent="center"
                   textAlign={{ base: "center" }}
-                  className={isDarkMode ? "dark-ls" : "light-ls"}
+                  className={isDarkMode ? "dark" : "light"}
                 >
                   <Text mb="1rem" fontSize={{ base: "15px", lg: "20px" }}>
                     Iniciar sesión con legajo y contraseña
@@ -146,7 +147,7 @@ const LoginStudent = () => {
                     ml="1rem"
                     mb="1rem"
                     cursor="pointer"
-                    className="login-student"
+                    className="login"
                   >
                     Iniciar sesión
                   </Button>
@@ -161,7 +162,7 @@ const LoginStudent = () => {
                     mr={{ base: "-1rem", lg: "1rem" }}
                     mb="1rem"
                     cursor="pointer"
-                    className="login-student"
+                    className="login"
                     display={{ base: "row" }}
                   >
                     Registrate

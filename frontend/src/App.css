@@ -1,14 +1,14 @@
 .app-container {
   display: flex;
   flex-direction: column;
-  min-height: 100vh; /* Establece el alto mínimo para ocupar toda la pantalla */
+  min-height: 100vh; 
   position: relative;
 }
 
 .content {
-  flex: 1; /* Hace que el contenido ocupe el espacio restante */
+  flex: 1; 
 }
 
 .spacer {
-  height: 20px; /* Ajusta la altura del separador según tus necesidades */
+  height: 20px; 
 }

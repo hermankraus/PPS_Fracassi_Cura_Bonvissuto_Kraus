@@ -1,0 +1,109 @@
+.dark {
+    background-color: rgba(38, 81, 113);
+    color: rgb(247, 252, 255);
+    
+  }
+
+
+  .light{
+    background-color: white;
+  }
+    
+  .dark .custom-input {
+    background-color: #f3f5f8; 
+    color: rgba(38, 81, 113); 
+    border: 1px solid white;
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease; 
+  }
+  
+  .dark .custom-input:focus {
+    background-color: #f3f5f8; 
+    color: rgba(38, 81, 113);
+     
+  }
+  .dark .error-message {
+    color: #ffffff; 
+  }
+
+  .dark .custom-select {
+    color: rgba(38, 81, 113);
+  }
+
+  .light-mode-footer {
+    position: relative;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    color: black;
+    background-color: white;
+    z-index: 3000;
+    border-top-left-radius: 3rem;
+    border-top-right-radius: 3rem;
+  }
+  
+  .light-mode-footer::before {
+    content: "";
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    right: -4px;
+    bottom: 0;
+    background-color: rgb(249, 249, 255);
+    z-index: -1;
+  }
+  .light-mode-footer .utn {
+    color: black;
+  }
+ 
+  .dark .table {
+    color: white; 
+  }
+  
+  .dark .table th {
+    background-color: #265171; 
+    color: white; 
+  }
+  
+  .dark .table {
+    th,
+    td {
+      background-color: #265171 !important;
+      color: #f3f5f8 !important;
+    }
+  }
+
+  .light .light-gray-row {
+    background-color: #f0f0f0; 
+    color: black; 
+  }
+  
+  .dark .dark-gray-row {
+    background-color: #265171;
+    color: white; 
+  }
+
+  .dark .accordion-label {
+    color: white; 
+  }
+  
+  .dark .accordion-panel {
+    background-color:  #265171;
+    color: white; 
+  }
+  .dark .login-form {
+    border-color: white;
+  }
+  .dark .login,
+.dark .register-button {
+  background-color: #ffffff; 
+  color: #265171; 
+}
+
+.dark .login:hover,
+.dark .register-button:hover {
+  background-color: #f0f0f0; 
+  color: #265171; 
+}
+.dark .form {
+  border-color: white; 
+}

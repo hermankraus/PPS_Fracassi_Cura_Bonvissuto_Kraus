@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { ThemeContext } from "../../context/theme-context/theme-context";
 import {
   Container,
   Flex,
@@ -18,6 +19,7 @@ import { registerNewCompany } from "../../../Axios/axios-company";
 import useToaster from "../../../hooks/useToaster";
 
 const RegisterCompany = () => {
+  const { isDarkMode } = useContext(ThemeContext);
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
   const { successToast, errorToast } = useToaster();
@@ -71,7 +73,7 @@ const RegisterCompany = () => {
   const formWidth = useBreakpointValue({ base: "100%", md: "80%", lg: "70%" });
 
   return (
-    <Container maxW="container.lg" p={4}>
+    <Container maxW="container.lg" p={4} className={isDarkMode ? "dark" : "light"}>
       <Formik
         initialValues={{
           CompanyCuit: "",

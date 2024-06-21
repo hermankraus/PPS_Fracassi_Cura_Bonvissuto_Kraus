@@ -1,8 +1,11 @@
-.light-mode {
-  background-color: white;
-}
-.dark-mode {
+.dark .button-context{
   background-color: #265171;
+  color: white;
+}
+
+.light .button-context{
+  background-color: white;
+  color: #265171;
 }
 
 .button-context {
@@ -12,4 +15,28 @@
   border-radius: 2px;
   height: 1.5rem;
   display: flex;
+}
+
+.theme-button-container {
+  position: absolute;
+  top: 50%; 
+  left: 30%; 
+  transform: translate(-50%, -50%); 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .theme-button-container {
+    position: relative; 
+    top: auto; 
+    left: auto; 
+    transform: none; 
+    margin-top: 1rem; 
+  }
+
+  .button-context {
+    margin-left: 0; 
+  }
 }

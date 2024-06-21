@@ -1,7 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { Box, Button, Heading, Text, Accordion, AccordionItem, AccordionButton, AccordionPanel, AccordionIcon } from '@chakra-ui/react';
 import { getAllJobOffer } from "../../Axios/axios-student";
 import { NavbarUser } from '../../components/navbar/navbar';
+import { ThemeContext } from "../../components/context/theme-context/theme-context";
+import '../../components/context/theme-context/theme-context.css'; // Asegúrate de importar correctamente el archivo CSS del tema
 
 const contractTypeMap = {
   0: 'Contrato Temporal',
@@ -20,6 +22,8 @@ const workLocationMap = {
 };
 
 const StudentJobOpportunities = () => {
+  const { isDarkMode } = useContext(ThemeContext);
+
   const [jobOffers, setJobOffers] = useState([]);
   const [postulatedOffers, setPostulatedOffers] = useState([]);
 
@@ -55,7 +59,7 @@ const StudentJobOpportunities = () => {
   return (
     <>
       <NavbarUser />
-      <Box mt="6rem" p={10}>
+      <Box mt="6rem" p={10} className={`${isDarkMode ? 'dark' : 'light'}`}>
         <Heading as="h1" overflow="hidden" size="xl" mb={4} textAlign="center">Ofertas Laborales</Heading>
         <Accordion allowMultiple>
           {jobOffers.length === 0 ? (
@@ -64,7 +68,7 @@ const StudentJobOpportunities = () => {
             jobOffers.map((offer, index) => (
               <AccordionItem key={index}>
                 <AccordionButton>
-                  <Box flex="1" textAlign="left" color="black">
+                  <Box flex="1" textAlign="left" >
                     {offer.description} - {contractTypeMap[offer.contractType]}
                   </Box>
                   <AccordionIcon />

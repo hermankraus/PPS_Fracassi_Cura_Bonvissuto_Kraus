@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import {
   Box,
   Button,
@@ -12,6 +12,8 @@ import {
   Container,
 } from "@chakra-ui/react";
 import { NavbarUser } from "../../components/navbar/navbar";
+import { ThemeContext } from "../../components/context/theme-context/theme-context";
+
 
 const contractTypeMap = {
   0: "Contrato Temporal",
@@ -31,6 +33,7 @@ const workLocationMap = {
 
 const StudentJobPostulations = () => {
   const [postulatedOffers, setPostulatedOffers] = useState([]);
+  const { isDarkMode } = useContext(ThemeContext);
 
   useEffect(() => {
     const savedPostulations =
@@ -52,23 +55,27 @@ const StudentJobPostulations = () => {
   return (
     <>
       <NavbarUser />
-      <Container mt="6rem" p={10}>
+      <Container
+        mt="6rem"
+        p={10}
+        className={`${isDarkMode ? "dark" : "light"}`}
+      >
         <Heading as="h1" overflow="hidden" size="xl" mb={4} textAlign="center">
           Mis Postulaciones
         </Heading>
-        <Accordion allowMultiple>
+        <Accordion allowMultiple textAlign="center">
           {postulatedOffers.length === 0 ? (
             <Text>No te has postulado a ninguna oferta laboral</Text>
           ) : (
             postulatedOffers.map((offer, index) => (
               <AccordionItem key={index}>
-                <AccordionButton>
-                  <Box flex="1" textAlign="left" color="black">
+                <AccordionButton >
+                <Box flex="1" textAlign="left" className={`${isDarkMode ? "accordion-label" : ""}`}>
                     {offer.description} - {contractTypeMap[offer.contractType]}
                   </Box>
                   <AccordionIcon />
                 </AccordionButton>
-                <AccordionPanel pb={4}>
+                <AccordionPanel pb={4} className={`${isDarkMode ? "accordion-panel" : ""}`}>
                   <Text>
                     <strong>Tipo de Contrato:</strong>{" "}
                     {contractTypeMap[offer.contractType]}

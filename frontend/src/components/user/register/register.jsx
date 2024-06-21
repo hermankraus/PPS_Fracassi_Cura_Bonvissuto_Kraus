@@ -46,7 +46,7 @@ export default function Register() {
         >
           <HStack p={4} justifyContent="center" w="full">
             <Box
-              className={isDarkMode ? "dark-login" : "light-login"}
+              className={isDarkMode ? "dark" : "light"}
               borderRadius="1rem"
               border="3px solid #71aef0"
               zIndex="1"
@@ -90,9 +90,6 @@ export default function Register() {
               {isCompany ? <RegisterCompany /> : <RegisterStudent />}
             </Box>
           </HStack>
-          <Box position="relative" mb={2} mr={{ base: "0", md: "20rem" }}>
-            <ThemeButton />
-          </Box>
         </Box>
       </Flex>
     </>
