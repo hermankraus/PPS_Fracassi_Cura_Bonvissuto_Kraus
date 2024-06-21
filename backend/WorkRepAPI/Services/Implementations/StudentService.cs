@@ -42,12 +42,13 @@ namespace WorkRepAPI.Services.Implementations
             return studentDto;
         }
 
-        public async Task<IEnumerable<JobOfferDTO>> GetJobOffersByLegajoAsync(int legajo)
+        public async Task<IEnumerable<JobOfferGetAllDTO>> GetJobOffersByLegajoAsync(int legajo)
         {
             var jobOffers = await _studentRepository.GetJobOffersByLegajoAsync(legajo);
 
-            return jobOffers.Select(jo => new JobOfferDTO
+            return jobOffers.Select(jo => new JobOfferGetAllDTO
             {
+                IdJobOffer = jo.IdJobOffer,
                 ContractType = jo.ContractType,
                 EmploymentType = jo.EmploymentType,
                 WorkLocation = jo.WorkLocation,
