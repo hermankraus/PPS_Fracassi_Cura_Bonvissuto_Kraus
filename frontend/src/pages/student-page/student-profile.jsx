@@ -13,13 +13,17 @@ import {
   Select,
 } from "@chakra-ui/react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
+import { useContext } from 'react';
 import * as Yup from "yup";
 import { NavbarUser } from "../../components/navbar/navbar";
+
 import Cookies from "js-cookie";
 import { getStudentByLegajo, completeprofile } from "../../Axios/axios-student";
 import useToaster from "../../hooks/useToaster";
+import { ThemeContext } from "../../components/context/theme-context/theme-context";
 
 export const StudentProfile = () => {
+  const { isDarkMode } = useContext(ThemeContext);
   const { successToast, errorToast } = useToaster();
 
   const [studentData, setStudentData] = useState({
@@ -39,6 +43,7 @@ export const StudentProfile = () => {
     today.getMonth(),
     today.getDate()
   );
+
 
   const validationSchema = Yup.object().shape({
     phoneNumber: Yup.string()
@@ -161,7 +166,7 @@ export const StudentProfile = () => {
     <>
       <NavbarUser />
       <VStack spacing={0}>
-        <Container mt="8rem" textAlign="center" minW="63rem">
+      <Container mt="8rem" textAlign="center" minW="63rem" className={`${isDarkMode ? 'dark' : 'light'}`}>
           <Heading overflow="hidden" mb="1rem">
             Modificar Perfil
           </Heading>
@@ -237,9 +242,11 @@ export const StudentProfile = () => {
                     <FormControl>
                       <FormLabel>Domicilio</FormLabel>
                       <Field
+
                         name="address"
                         as={Input}
-                        className="custom-input"
+                        className={`custom-input ${isDarkMode ? "custom-input" : ""}`}
+
                         variant="filled"
                       />
                       <ErrorMessage name="address" component="div" />
@@ -309,7 +316,7 @@ export const StudentProfile = () => {
                       <Field
                         name="dateOfBirth"
                         as={Input}
-                        className="custom-input"
+                        className={`custom-input ${isDarkMode ? "custom-select" : ""}`}
                         variant="filled"
                         type="date"
                       />
@@ -338,7 +345,7 @@ export const StudentProfile = () => {
                         name="gender"
                         as={Select}
                         placeholder="Seleccione una opción"
-                        className="custom-input"
+                        className={`custom-input ${isDarkMode ? "custom-select" : ""}`}
                         variant="filled"
                       >
                         <option value="Masculino">Masculino</option>
@@ -483,7 +490,8 @@ export const StudentProfile = () => {
                       ml="1rem"
                       mb="1rem"
                       cursor="pointer"
-                      className="login-student"
+                      className="login"
+                    display={{ base: "row" }}
                       isLoading={isSubmitting}
                     >
                       Cargar mis datos

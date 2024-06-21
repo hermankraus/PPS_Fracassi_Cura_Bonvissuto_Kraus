@@ -1,19 +1,22 @@
-/* adminPage.css */
-
 /* Estilos para el contenedor principal */
 .Container {
   display: flex;
   justify-content: center;
+  margin-top: 2rem; /* Espacio superior */
 }
 
 /* Estilos para el título principal */
 h1 {
   text-align: center;
+  margin-bottom: 1.5rem; /* Espacio inferior */
+  color: inherit; /* Color de texto heredado */
 }
 
 /* Estilos para los títulos de sección */
 h2 {
   font-size: 1.5rem;
+  margin-bottom: 1rem; /* Espacio inferior */
+  color: inherit; /* Color de texto heredado */
 }
 
 /* Estilos para la lista de usuarios registrados */
@@ -25,9 +28,22 @@ h2 {
 /* Estilos para los elementos de la lista de usuarios */
 .ListItem {
   margin-bottom: 10px;
+  color: inherit; /* Color de texto heredado */
 }
 
 /* Estilos para los botones "Ver vacantes" */
 .Button {
   font-size: 0.8rem;
+  color: white;
+  background-color: #265171;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
+
+.Button:hover {
+  background-color: #71aef0;
+}
+

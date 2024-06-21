@@ -1,17 +1,25 @@
-/* eslint-disable react/prop-types */
-import { createContext, useState } from "react";
-// Crea el contexto
+
+import { createContext, useState, useEffect } from "react";
+
+
 export const ThemeContext = createContext();
 
-// Proveedor
+
 export const ThemeProvider = ({ children }) => {
-  const [isDarkMode, setIsDarkMode] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(() => {
+    const savedTheme = localStorage.getItem("theme");
+    return savedTheme ? JSON.parse(savedTheme) : false;
+  });
 
   const toggleTheme = () => {
-    setIsDarkMode(!isDarkMode);
+    setIsDarkMode((prevMode) => !prevMode);
   };
 
-  // Pasa el estado y la función de cambio al valor del contexto
+  useEffect(() => {
+    localStorage.setItem("theme", JSON.stringify(isDarkMode));
+  }, [isDarkMode]);
+
+  
   return (
     <ThemeContext.Provider value={{ isDarkMode, toggleTheme }}>
       {children}

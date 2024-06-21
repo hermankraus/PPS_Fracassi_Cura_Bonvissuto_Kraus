@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useState, useContext} from "react";
 import {
   Container,
   Flex,
@@ -17,8 +17,10 @@ import * as Yup from "yup";
 import { registerNewStudent } from "../../../Axios/axios-student";
 import "./register.css";
 import useToaster from "../../../hooks/useToaster";
+import { ThemeContext } from "../../context/theme-context/theme-context";
 
 const RegisterStudent = () => {
+  const { isDarkMode } = useContext(ThemeContext);
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
   const { successToast, errorToast } = useToaster();
@@ -110,7 +112,7 @@ const RegisterStudent = () => {
   const formWidth = useBreakpointValue({ base: "100%", md: "80%" });
 
   return (
-    <Container maxW="container.lg" p={4}>
+    <Container maxW="container.lg" p={4} className={isDarkMode ? "dark" : "light"}>
       <Formik
         initialValues={{
           studentName: "",
@@ -167,7 +169,7 @@ const RegisterStudent = () => {
                   name="studentDocumentType"
                   as={Select}
                   placeholder="Seleccione una opción"
-                  className="custom-input"
+                  className={`custom-input ${isDarkMode ? "custom-select" : ""}`}
                   variant="filled"
                 >
                   <option value="DNI">DNI</option>
@@ -264,7 +266,7 @@ const RegisterStudent = () => {
                 <Field
                   name="studentBirth"
                   as={Input}
-                  className="custom-input"
+                  className={`custom-input ${isDarkMode ? "custom-select" : ""}`}
                   variant="filled"
                   type="date"
                 />
@@ -276,7 +278,7 @@ const RegisterStudent = () => {
                   name="studentGender"
                   as={Select}
                   placeholder="Seleccione una opción"
-                  className="custom-input"
+                  className={`custom-input ${isDarkMode ? "custom-select" : ""}`}
                   variant="filled"
                 >
                   <option value="Masculino">Masculino</option>

@@ -5,8 +5,9 @@ import { Flex, Box, Image, HStack, Switch, Heading } from "@chakra-ui/react";
 import { ThemeContext } from "../../context/theme-context/theme-context";
 import images from "../../../assets/constants/images";
 import { useNavigate } from "react-router-dom";
-import ThemeButton from "../../context/theme-button/theme-button";
-import "./Login.css";
+
+
+import "../login/Login.css";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -50,7 +51,7 @@ export default function Login() {
               hideBelow="lg"
             />
             <Box
-              className={isDarkMode ? "dark-login" : "light-login"}
+              className={`form ${isDarkMode ? "dark" : "light"}`}
               borderRadius="1rem"
               border="3px solid #71aef0"
               zIndex="1"
@@ -83,9 +84,7 @@ export default function Login() {
               {isCompany ? <LoginCompany /> : <LoginStudent />}
             </Box>
           </HStack>
-          <Box position="relate" mb={2} mr="20rem">
-            <ThemeButton />
-          </Box>
+          
         </Box>
       </Flex>
     </>

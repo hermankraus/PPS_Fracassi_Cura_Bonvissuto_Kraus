@@ -5,7 +5,7 @@ import {
   Navigate,
 } from "react-router-dom";
 import "./App.css";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { HomePage } from "./pages/home-page/home-page";
 import AdminPage from "./pages/admin-page/admin-page";
 import AccountAuth from "./components/user/register/account-auth";
@@ -22,14 +22,17 @@ import StudentJobPostulations from "./pages/student-page/student-job-postulation
 import CompanyJobOpportunities from "./pages/company-page/company-job-opportunities";
 import AdminCareer from "./components/admin/admin-career";
 import AdminSkill from "./components/admin/admin-skill";
+import { ThemeContext } from "./components/context/theme-context/theme-context";
 
 function App() {
+
+  const { isDarkMode } = useContext(ThemeContext);
   const [previousPath, setPreviousPath] = useState("/");
 
   return (
     <AuthProvider>
       <Router>
-        <div className="app-container">
+      <div className={`app-container ${isDarkMode ? "dark" : "light"}`}>
           <div className="content">
             <Routes>
               <Route

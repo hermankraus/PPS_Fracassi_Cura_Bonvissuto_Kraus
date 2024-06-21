@@ -9,6 +9,8 @@
   z-index: 1000;
   overflow-x: auto; 
 }
+.dark .navbar{
+box-shadow: 4px 2px 2px 1px white;}
 
 .navbar > * {
   white-space: nowrap; 

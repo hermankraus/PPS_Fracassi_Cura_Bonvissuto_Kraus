@@ -18,6 +18,7 @@ import * as Yup from "yup";
 import LoginApi from "../../../Axios/login-service";
 import Cookies from "js-cookie";
 
+
 const LoginCompany = () => {
   const navigate = useNavigate();
   const { isDarkMode } = useContext(ThemeContext);
@@ -77,7 +78,7 @@ const LoginCompany = () => {
                 minH="2rem"
                 justifyContent="center"
                 textAlign={{ base: "center" }}
-                className={isDarkMode ? "dark-ls" : "light-ls"}
+                className={isDarkMode ? "dark" : "light"}
               >
                 <Text mb="1rem" fontSize={{ base: "15px", lg: "20px" }}>
                   Iniciar sesión con email y contraseña
@@ -134,7 +135,7 @@ const LoginCompany = () => {
                   ml="1rem"
                   mb="1rem"
                   cursor="pointer"
-                  className="login-company"
+                  className="login"
                 >
                   Iniciar sesión
                 </Button>
@@ -149,7 +150,7 @@ const LoginCompany = () => {
                   mr={{ base: "-1rem", lg: "1rem" }}
                   mb="1rem"
                   cursor="pointer"
-                  className="login-company"
+                  className="login"
                   display={{ base: "row" }}
                 >
                   Registrate

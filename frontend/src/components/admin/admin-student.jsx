@@ -1,6 +1,8 @@
-import { useState, useEffect } from "react";
+
+import { useState, useEffect, useContext } from "react";
 import { StudentsData } from "../user/data/user-data";
 import { putStudentState } from "../../Axios/axios-admin";
+import { ThemeContext } from '../../components/context/theme-context/theme-context';
 import {
   Table,
   Thead,
@@ -24,6 +26,7 @@ const stateMap = {
 };
 
 const AdminStudent = () => {
+  const { isDarkMode } = useContext(ThemeContext);
   const [students, setStudents] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [searched, setSearched] = useState(false);
@@ -82,7 +85,7 @@ const AdminStudent = () => {
 
   return (
     <>
-      <div>
+      <div className={isDarkMode ? "dark" : "light"}>
         <NavbarAdmin />
         <div>
           <HStack p="2rem" mt={20}>
@@ -100,7 +103,7 @@ const AdminStudent = () => {
         </div>
         <TableContainer p="2rem">
           <Heading fontSize="25px" mb="1rem" minH="2rem" textAlign="center">Lista de Estudiantes</Heading>
-          <Table variant='striped' color="primary">
+          <Table variant='striped' color="primary" className="table">
             <Thead>
               <Tr>
                 <Th>Legajo</Th>
@@ -113,7 +116,7 @@ const AdminStudent = () => {
             </Thead>
             <Tbody>
               {students.map((student, index) => (
-                <Tr key={index}>
+                <Tr key={index} className={`${isDarkMode && index % 2 == 0 ? "dark-gray-row" : ""}`}>
                   <Td>{student.legajo}</Td>
                   <Td>{student.name}</Td>
                   <Td>{student.lastname}</Td>
