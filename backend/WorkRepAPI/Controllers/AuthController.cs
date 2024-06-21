@@ -7,6 +7,7 @@ using WorkRepAPI.Services.Interfaces;
 using WorkRepAPI.Entities;
 using WorkRepAPI.Models;
 using WorkRepAPI.Models.LoginDTO;
+using WorkRepAPI.Enums;
 
 namespace WorkRepAPI.Controllers
 {
@@ -44,12 +45,18 @@ namespace WorkRepAPI.Controllers
                     password = loginDto.Password
                 });
             }
-
+            
 
             var token = GenerateJwtToken(user);
             var stateProperty = user.GetType().GetProperty("State");
             var state = stateProperty?.GetValue(user)?.ToString();
-
+            if (state == "Rejected")
+            {
+                return Unauthorized(new 
+                {
+                    message = "Su cuenta ha sido suspendida",
+                });
+            }
             return Ok(new { 
                 Token = token, 
                 Role = user.GetType().Name,
