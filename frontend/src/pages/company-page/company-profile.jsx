@@ -73,6 +73,7 @@ export const CompanyProfile = () => {
                     type="text"
                     variant="filled"
                     as={Input}
+                    
                   />
                   <ErrorMessage name="companyCuit" component="div" />
                 </FormControl>

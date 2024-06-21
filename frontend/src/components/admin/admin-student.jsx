@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { StudentsData } from "../user/data/user-data";
 import { putStudentState } from "../../Axios/axios-admin";
 import {

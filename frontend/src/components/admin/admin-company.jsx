@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { CompaniesData } from "../user/data/user-data";
 import { putCompanyState } from "../../Axios/axios-admin";
 import {
@@ -16,6 +16,12 @@ import {
   Heading
 } from '@chakra-ui/react';
 import { NavbarAdmin } from "../navbar/navbar";
+
+const stateMap = {
+  0: 'En proceso',
+  1: 'Habilitado',
+  2: 'Deshabilitado',
+};
 
 const AdminCompany = () => {
   const [companies, setCompanies] = useState([]);
@@ -110,7 +116,7 @@ const AdminCompany = () => {
                 <Td maxW="6rem">{company.companyName}</Td>
                 <Td maxW="6rem">{company.businessName}</Td>
                 <Td>{company.contactEmail}</Td>
-                <Td>{company.state}</Td>
+                <Td>{stateMap[company.state]}</Td>
                 <Td>
                   <Button
                     bg="green"
