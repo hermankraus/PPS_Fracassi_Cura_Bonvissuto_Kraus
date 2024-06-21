@@ -62,5 +62,11 @@ namespace WorkRepAPI.Services.Implementations
             });
         }
 
+        public void CompleteProfile(CompleteProfileDTO completeProfile)
+        {
+            var student = _mapper.Map<Student>(completeProfile);
+            _studentRepository.CompleteProfile(student);
+            
+        }
     }
 }

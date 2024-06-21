@@ -9,7 +9,8 @@ using WorkRepAPI.Data.Interfaces;
 using WorkRepAPI.Services.Implementations;
 using WorkRepAPI.Services.Interfaces;
 using WorkRepAPI.Mappings; 
-using AutoMapper; 
+using AutoMapper;
+using WorkRepAPI;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -81,7 +82,7 @@ builder.Services.AddScoped<IJobOfferRepository, JobOfferRepository>();
 builder.Services.AddScoped<IJobOfferService, JobOfferService>();
 builder.Services.AddScoped<IJobApplicationRepository, JobApplicationRepository>();
 builder.Services.AddScoped<IJobApplicationService, JobApplicationService>();
-
+builder.Services.AddScoped<IEmailService, EmailService>();
 // Configurar JWT
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
