@@ -16,6 +16,20 @@ namespace WorkRepAPI.Data.Implementations
             _context = context;
         }
 
+        public void CompleteProfile(Company company)
+        {
+            var companyToUpd = _context.Companies.FirstOrDefault(c => c.Cuit == company.Cuit);
+            if(companyToUpd != null)
+            {
+              companyToUpd.ContactPhone = company.ContactPhone;
+              companyToUpd.Website = company.Website;
+              companyToUpd.Type = company.Type;
+              companyToUpd.NumberOfEmployees = company.NumberOfEmployees;
+            }
+            _context.SaveChanges();
+
+        }
+
         public IEnumerable<Company> GetAllCompanies()
         {
             return _context.Companies.ToList();

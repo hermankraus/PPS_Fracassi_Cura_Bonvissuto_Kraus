@@ -16,6 +16,8 @@ namespace WorkRepAPI.Mappings
             //Company
             CreateMap<Company, ReadAllCompaniesDTO>();
             CreateMap<UpdCompanyDTO, Company>();
+            CreateMap<Company,Company>();
+            CreateMap<CompleteCompanyProfileDTO, Company>();
         }
     }
 }

@@ -1,5 +1,4 @@
 ﻿using WorkRepAPI.Models.CompanyDTOs;
-using WorkRepAPI.Models.CompanyDTOs;
 
 namespace WorkRepAPI.Services.Interfaces
 {
