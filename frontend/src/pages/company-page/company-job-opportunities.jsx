@@ -1,4 +1,5 @@
-import React, { useState, useContext } from "react";
+
+import { useState, useContext } from "react";
 import {
   Box,
   Button,
@@ -7,17 +8,10 @@ import {
   Input,
   Select,
   Textarea,
-  VStack,
-  AlertDialog,
-  AlertDialogBody,
-  AlertDialogFooter,
-  AlertDialogHeader,
-  AlertDialogContent,
-  AlertDialogOverlay,
+  VStack
 } from "@chakra-ui/react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
-import { useNavigate } from "react-router-dom";
 import { postJobOffer } from "../../Axios/axios-company";
 import useToaster from "../../hooks/useToaster";
 import { NavbarCompany } from "../../components/navbar/navbar";
@@ -25,19 +19,18 @@ import { ThemeContext } from "../../components/context/theme-context/theme-conte
 import "./company-job-opportunities.css";
 
 const CompanyJobOpportunities = () => {
+
   const { isDarkMode } = useContext(ThemeContext);
   const navigate = useNavigate();
   const { successToast, errorToast } = useToaster();
   const [isLoading, setIsLoading] = useState(false);
-  const [isAlertOpen, setIsAlertOpen] = useState(false);
-  const cancelRef = React.useRef();
-
+ 
   const convertToNumber = (value) => {
     const number = Number(value);
     return isNaN(number) ? 0 : number;
   };
-
-  const handleSubmitU = async (values) => {
+  
+  const handleSubmitU = async (values, { resetForm }) => {
     const Values = {
       ContractType: convertToNumber(values.contractType),
       EmploymentType: convertToNumber(values.employmentType),
@@ -52,33 +45,43 @@ const CompanyJobOpportunities = () => {
       InternshipDuration: values.internshipDuration,
     };
     setIsLoading(true);
-
+    
     try {
       const response = await postJobOffer(Values);
-      console.log(response.data);
-      setIsAlertOpen(true); 
+
+      successToast(response.data);
+      resetForm();
+
     } catch (error) {
       errorToast("Error al agregar la oferta laboral");
     }
     setIsLoading(false);
   };
-
-  const handleAlertClose = () => {
-    setIsAlertOpen(false);
-    navigate("/company"); 
-  };
+  
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
 
   const validationSchema = Yup.object({
     contractType: Yup.string().required("El tipo de contrato es requerido"),
     employmentType: Yup.string().required("El tipo de empleo es requerido"),
     workLocation: Yup.string().required("La ubicación de trabajo es requerida"),
     description: Yup.string().required("La descripción es requerida"),
-    cuitCompany: Yup.string(),
-    finallyDate: Yup.date().required("La fecha límite es requerida"),
+
+    cuitCompany: Yup.string().required('El CUIT de la compañía es requerido').matches(/^\d{11}$/, 'El CUIT debe tener 11 dígitos'),
+    finallyDate: Yup.date()
+    .min(today, "La fecha debe ser posterior a la de hoy")
+    .required("La fecha límite es requerida"),    
     workPlace: Yup.string().required("El lugar de trabajo es requerido"),
-    minSubjects: Yup.string().required("Las asignaturas mínimas son requeridas"),
-    estimatedDate: Yup.date().required("La fecha estimada es requerida"),
-    internshipDuration: Yup.string().required("La duración de la pasantía es requerida"),
+    minSubjects: Yup.string().required(
+      "Las asignaturas mínimas son requeridas"
+    ),
+    estimatedDate: Yup.date().required("La fecha estimada es requerida")
+    .min(today, "La fecha debe ser posterior a la de hoy")
+    ,
+    internshipDuration: Yup.string().required(
+      "La duración de la pasantía es requerida"
+    ),
+
   });
 
   return (
@@ -93,38 +96,23 @@ const CompanyJobOpportunities = () => {
           mx="auto"
           mt={105}
         >
-          <Formik
-            initialValues={{
-              contractType: "",
-              employmentType: "",
-              workLocation: "",
-              description: "",
-              cuitCompany: "",
-              finallyDate: "",
-              workPlace: "",
-              minSubjects: "",
-              estimatedDate: "",
-              internshipDuration: "",
-            }}
-            validationSchema={validationSchema}
-            onSubmit={handleSubmitU}
-          >
-            {({ handleSubmit }) => (
-              <Form onSubmit={handleSubmit}>
-                <VStack spacing={4} align="stretch">
-                  <FormControl>
-                    <FormLabel>Tipo de Contrato</FormLabel>
-                    <Field as={Select} name="contractType" className={`custom-input ${isDarkMode ? "custom-select" : ""}`}>
-                      <option value="">Seleccione...</option>
-                      <option value="0">Inter</option>
-                      <option value="1">Work</option>
-                    </Field>
-                    <ErrorMessage
-                      name="contractType"
-                      component="div"
-                      className="error"
-                    />
-                  </FormControl>
+
+          {({ handleSubmit }) => (
+            <Form onSubmit={handleSubmit}>
+              <VStack spacing={4} align="stretch">
+                <FormControl>
+                  <FormLabel>Tipo de Contrato</FormLabel>
+                  <Field as={Select} name="contractType">
+                    <option value="">Seleccione...</option>
+                    <option value="0">Pasantía</option>
+                    <option value="1">Full Time</option>
+                  </Field>
+                  <ErrorMessage
+                    name="contractType"
+                    component="div"
+                    className="error"
+                  />
+                </FormControl>
 
                   <FormControl>
                     <FormLabel>Tipo de Empleo</FormLabel>
@@ -142,7 +130,7 @@ const CompanyJobOpportunities = () => {
 
                   <FormControl>
                     <FormLabel>Ubicación de Trabajo</FormLabel>
-                    <Field as={Select} name="workLocation" className={`custom-input ${isDarkMode ? "custom-select" : ""}`}>
+                    <Field as={Select} name="contractType" className={`custom-input ${isDarkMode ? "custom-select" : ""}`}>
                       <option value="">Seleccione...</option>
                       <option value="0">Remoto</option>
                       <option value="1">Presencial</option>
@@ -225,44 +213,19 @@ const CompanyJobOpportunities = () => {
                     />
                   </FormControl>
 
-                  <Button
-                    color="teal"
-                    type="submit"
-                    isLoading={isLoading}
-                    loadingText="Registrando..."
-                  >
-                    Agregar Oferta Laboral
-                  </Button>
-                </VStack>
-              </Form>
-            )}
-          </Formik>
-
-          <AlertDialog
-            isOpen={isAlertOpen}
-            leastDestructiveRef={cancelRef}
-            onClose={handleAlertClose}
-          >
-            <AlertDialogOverlay>
-              <AlertDialogContent>
-                <AlertDialogHeader fontSize="lg" fontWeight="bold">
-                  Oferta Agregada
-                </AlertDialogHeader>
-
-                <AlertDialogBody>
-                  La oferta laboral ha sido agregada exitosamente.
-                </AlertDialogBody>
-
-                <AlertDialogFooter>
-                  <Button ref={cancelRef} onClick={handleAlertClose}>
-                    OK
-                  </Button>
-                </AlertDialogFooter>
-              </AlertDialogContent>
-            </AlertDialogOverlay>
-          </AlertDialog>
-        </Box>
-      </div>
+                <Button
+                  color="teal"
+                  type="submit"
+                  isLoading={isLoading}
+                  loadingText="Registrando..."
+                >
+                  Agregar Oferta Laboral
+                </Button>
+              </VStack>
+            </Form>
+          )}
+        </Formik>
+      </Box>
     </>
   );
 };

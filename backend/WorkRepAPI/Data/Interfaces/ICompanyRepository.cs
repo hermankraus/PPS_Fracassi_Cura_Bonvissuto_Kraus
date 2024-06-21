@@ -11,5 +11,7 @@ namespace WorkRepAPI.Data.Interfaces
 
         void SetCompanyState(UpdCompanyDTO company);
         void SetCompanyState(Company companyEntity);
+
+        void CompleteProfile(Company company);
     }
 }

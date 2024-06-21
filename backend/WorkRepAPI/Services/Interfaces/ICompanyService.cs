@@ -9,5 +9,7 @@ namespace WorkRepAPI.Services.Interfaces
         public ReadAllCompaniesDTO GetCompanyByCuit(string cuit);
 
         void SetCompanyState(UpdCompanyDTO company);
+
+        void CompleteProfile(CompleteCompanyProfileDTO completeProfile);
     }
 }

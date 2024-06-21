@@ -51,6 +51,15 @@ const RegisterStudent = () => {
     setIsLoading(false);
   };
 
+  const today = new Date();
+  const legalAge = new Date(
+    today.getFullYear() - 18,
+    today.getMonth(),
+    today.getDate()
+  );
+  const hundredYearsAgo = new Date(today.getFullYear() - 100, today.getMonth(), today.getDate());
+
+
   const validationSchema = Yup.object({
     studentName: Yup.string()
       .matches(
@@ -76,12 +85,15 @@ const RegisterStudent = () => {
       .required("El correo es requerido"),
     studentAddress: Yup.string().required("El domicilio es requerido"),
     studentCuil: Yup.string()
-      .matches(/^\d+$/, "El número de CUIL solo puede contener números")
+      .matches(/^\d{11}$/, "El CUIL debe tener exactamente 11 dígitos")
       .required("El CUIL es requerido"),
     studentPhone: Yup.string()
       .matches(/^\d+$/, "El número de teléfono solo puede contener números")
       .required("El número de teléfono es requerido"),
-    studentBirth: Yup.date().required("La fecha de nacimiento es requerida"),
+    studentBirth: Yup.date()
+      .max(legalAge, "Debe ser mayor de edad")
+      .min(hundredYearsAgo, "La fecha de nacimiento no puede ser hace más de 100 años")
+      .required("La fecha de nacimiento es requerida"),
     studentGender: Yup.string().required("El sexo es requerido"),
     studentPassword: Yup.string()
       .required("La contraseña es requerida")

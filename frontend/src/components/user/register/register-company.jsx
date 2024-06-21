@@ -48,7 +48,7 @@ const RegisterCompany = () => {
 
   const validationSchema = Yup.object({
     CompanyCuit: Yup.string()
-      .matches(/^\d+$/, "El número de CUIT solo puede contener números")
+      .matches(/^\d{11}$/, "El CUIT debe tener exactamente 11 dígitos")
       .required("El CUIT es requerido"),
     CompanyCompanyName: Yup.string().required("El nombre es requerido"),
     CompanyBusinessName: Yup.string().required("La razón social es requerida"),

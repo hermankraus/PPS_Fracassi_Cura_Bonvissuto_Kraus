@@ -49,7 +49,9 @@ export const CompanyProfile = () => {
               <Flex gap={4} maxW="80rem" className="register-label-one" zIndex={5} justifyContent="center" alignItems="center">
                 <FormControl key="companyCuit">
                   <FormLabel>CUIT</FormLabel>
+
                   <Field name="companyCuit" type="text" variant="filled" as={Input}  className="custom-input" />
+
                   <ErrorMessage name="companyCuit" component="div" />
                 </FormControl>
                 <FormControl key="companyName">

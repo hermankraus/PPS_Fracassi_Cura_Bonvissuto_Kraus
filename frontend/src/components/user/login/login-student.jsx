@@ -38,8 +38,11 @@ const LoginStudent = () => {
 
       const Role = response.data.role;
       const State = response.data.state;
+      const legajo = userData.Legajo;
 
-      Cookies.set("token", token, { expires: 7 });
+      Cookies.set("token", token, { expires: 100 });
+      Cookies.set("legajo", legajo);
+
       if (Role === "Administrator") {
         setIsAdmin(true);
         navigate("/admin-page");
@@ -51,8 +54,6 @@ const LoginStudent = () => {
           successToast("Inicio Exitoso");
           navigate("/student/my-profile");
         }
-      } else {
-        //navigate("/company");
       }
     } catch (error) {
       errorToast("Error al iniciar sesión: " + error.message);

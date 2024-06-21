@@ -1,4 +1,5 @@
-import React, { useState, useEffect,useContext } from "react";
+
+import { useState, useEffect, useContext } from "react";
 import { CompaniesData } from "../user/data/user-data";
 import { putCompanyState } from "../../Axios/axios-admin";
 import {
@@ -17,6 +18,12 @@ import {
 } from '@chakra-ui/react';
 import { NavbarAdmin } from "../navbar/navbar";
 import { ThemeContext } from '../../components/context/theme-context/theme-context';
+
+const stateMap = {
+  0: 'En proceso',
+  1: 'Habilitado',
+  2: 'Deshabilitado',
+};
 
 const AdminCompany = () => {
   const { isDarkMode } = useContext(ThemeContext);
@@ -79,7 +86,7 @@ const AdminCompany = () => {
     <div className={isDarkMode ? "dark" : "light"}>
       <NavbarAdmin />
       <div>
-        <HStack p="5rem" mt={3}>
+        <HStack p="5rem" mt={5}>
           <Text fontSize="17px">Buscador por CUIT</Text>
           <Input
             placeholder="Inserte un número."
@@ -92,7 +99,7 @@ const AdminCompany = () => {
           {searched && <Button color="black" onClick={reloadPage}>Recargar</Button>}
         </HStack>
       </div>
-      <TableContainer p="1rem" maxWidth="80rem">
+      <TableContainer p="1rem" maxWidth="90rem" overflow-x="auto">
         <Heading fontSize="25px" mb="1rem" minH="2rem" textAlign="center">Lista de Empresas</Heading>
         <Table variant='striped' color="primary" className="table">
           <Thead>
@@ -109,10 +116,10 @@ const AdminCompany = () => {
             {companies.map((company, index) => (
               <Tr key={index}>
                 <Td>{company.cuit}</Td>
-                <Td>{company.companyName}</Td>
-                <Td>{company.businessName}</Td>
+                <Td maxW="6rem">{company.companyName}</Td>
+                <Td maxW="6rem">{company.businessName}</Td>
                 <Td>{company.contactEmail}</Td>
-                <Td>{company.state}</Td>
+                <Td>{stateMap[company.state]}</Td>
                 <Td>
                   <Button
                     bg="green"
