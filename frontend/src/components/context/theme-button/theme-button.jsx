@@ -13,20 +13,17 @@ const ThemeButton = () => {
   };
 
   return (
-    <div>
-      <div className={isDarkMode ? "dark" : "light"}></div>
-      <Button
-        variant="outline-dark"
-        className="button-context"
-        onClick={handleThemeToggle}
-        w={30}
-        h={30}
-        borderRadius="2rem"
-        cursor="pointer"
-      >
-        <FontAwesomeIcon icon={isDarkMode ? faSun : faMoon} />
-      </Button>
-    </div>
+    <Button
+      variant="outline-dark"
+      className={isDarkMode ? "dark button-context" : "light button-context"}
+      onClick={handleThemeToggle}
+      w={30}
+      h={30}
+      borderRadius="2rem"
+      cursor="pointer"
+    >
+      <FontAwesomeIcon icon={isDarkMode ? faSun : faMoon} />
+    </Button>
   );
 };
 

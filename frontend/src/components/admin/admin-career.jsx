@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import {
   Container,
   Flex,
@@ -15,8 +15,10 @@ import { AddCareer } from '../../Axios/axios-admin';
 import useToaster from '../../hooks/useToaster';
 import { useNavigate } from 'react-router-dom';
 import { NavbarAdmin } from '../navbar/navbar';
+import { ThemeContext } from '../../components/context/theme-context/theme-context';
 
 const AdminCareer = () => {
+  const { isDarkMode } = useContext(ThemeContext);
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
   const { successToast, errorToast } = useToaster();
@@ -53,7 +55,7 @@ const AdminCareer = () => {
         <div>
         <NavbarAdmin />
         </div>
-        <Container maxW="xl" centerContent mt={120}>
+        <Container maxW="xl" centerContent mt={120} className={isDarkMode ? "dark" : "light"}>
         <Formik
         initialValues={{
           careerName: '',
@@ -64,20 +66,20 @@ const AdminCareer = () => {
         onSubmit={registerCareer}
       >
         <Form>
-          <Flex direction="column" alignItems="center" spacing={4}>
-            <FormControl>
+          <Flex direction="column" alignItems="center" spacing={4} >
+            <FormControl >
               <FormLabel>Nombre de la carrera</FormLabel>
-              <Field name="careerName" as={Input} variant="filled" />
+              <Field name="careerName" as={Input} variant="filled" className={`custom-input ${isDarkMode ? "dark" : "light"}`} />
               <ErrorMessage name="careerName" component="div" className="error-message" />
             </FormControl>
             <FormControl>
               <FormLabel>Institución</FormLabel>
-              <Field name="careerInstitution" as={Input} variant="filled" />
+              <Field name="careerInstitution" as={Input} variant="filled" className={`custom-input ${isDarkMode ? "dark" : "light"}`} />
               <ErrorMessage name="careerInstitution" component="div" className="error-message" />
             </FormControl>
             <FormControl>
               <FormLabel>Tipo de carrera</FormLabel>
-              <Field name="careerType" as={Select} placeholder="Seleccione una opción" variant="filled">
+              <Field name="careerType" as={Select} placeholder="Seleccione una opción" variant="filled" className={`custom-input ${isDarkMode ? "dark" : "light"}`}>
 
                   <option value='0'>Grado</option>
                   <option value='1'>Tecnicatura</option>

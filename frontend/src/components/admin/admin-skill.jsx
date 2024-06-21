@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import {
   Container,
   Flex,
@@ -14,8 +14,10 @@ import { AddSkill } from '../../Axios/axios-admin';
 import useToaster from '../../hooks/useToaster';
 import { useNavigate } from 'react-router-dom';
 import { NavbarAdmin } from '../navbar/navbar';
+import { ThemeContext } from '../../components/context/theme-context/theme-context';
 
 const AdminSkill = () => {
+  const { isDarkMode } = useContext(ThemeContext);
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
   const { successToast, errorToast } = useToaster();
@@ -48,7 +50,7 @@ const AdminSkill = () => {
         <div>
         <NavbarAdmin />
         </div>
-        <Container maxW="xl" centerContent mt={120}>
+        <Container maxW="xl" centerContent mt={120} className={isDarkMode ? "dark" : "light"}>
         <Formik
         initialValues={{
             descriptionSkills: '',
@@ -60,7 +62,7 @@ const AdminSkill = () => {
           <Flex direction="column" alignItems="center" spacing={4}>
             <FormControl>
               <FormLabel>Descripcion de la habilidad</FormLabel>
-              <Field name="descriptionSkills" as={Input} variant="filled" />
+              <Field name="descriptionSkills" as={Input} variant="filled" className={`custom-input ${isDarkMode ? "dark" : "light"}`}/>
               <ErrorMessage name="descriptionSkills" component="div" className="error-message" />
             </FormControl>
             {isLoading ? (

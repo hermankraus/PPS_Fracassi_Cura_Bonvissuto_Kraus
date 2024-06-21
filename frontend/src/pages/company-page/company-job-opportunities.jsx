@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useContext} from "react";
 import {
   Box,
   Button,
@@ -14,8 +14,10 @@ import * as Yup from "yup";
 import { postJobOffer } from "../../Axios/axios-company";
 import useToaster from "../../hooks/useToaster";
 import { NavbarCompany } from "../../components/navbar/navbar";
+import { ThemeContext } from "../../components/context/theme-context/theme-context";
 
 const CompanyJobOpportunities = () => {
+  const { isDarkMode } = useContext(ThemeContext);
   const { successToast, errorToast } = useToaster();
   const [isLoading, setIsLoading] = useState(false);
   
@@ -77,7 +79,7 @@ const CompanyJobOpportunities = () => {
   return (
     <>
       <NavbarCompany />
-
+      <div className={isDarkMode ? "dark" : "light"}>
       <Box
         p={4}
         borderWidth="1px"
@@ -107,8 +109,8 @@ const CompanyJobOpportunities = () => {
               <VStack spacing={4} align="stretch">
                 <FormControl>
                   <FormLabel>Tipo de Contrato</FormLabel>
-                  <Field as={Select} name="contractType">
-                    <option value="">Seleccione...</option>
+                  <Field as={Select} name="contractType" className={`custom-input ${isDarkMode ? "custom-select" : ""}`}>
+                  <option value="">Seleccione...</option>
                     <option value="0">Pasantía</option>
                     <option value="1">Full Time</option>
                   </Field>
@@ -121,8 +123,8 @@ const CompanyJobOpportunities = () => {
 
                 <FormControl>
                   <FormLabel>Tipo de Empleo</FormLabel>
-                  <Field as={Select} name="employmentType">
-                    <option value="">Seleccione...</option>
+                  <Field as={Select} name="employmentType" className={`custom-input ${isDarkMode ? "custom-select" : ""}`}>
+                  <option value="">Seleccione...</option>
                     <option value="0">Tiempo Completo</option>
                     <option value="1">Medio Tiempo</option>
                   </Field>
@@ -135,8 +137,8 @@ const CompanyJobOpportunities = () => {
 
                 <FormControl>
                   <FormLabel>Ubicación de Trabajo</FormLabel>
-                  <Field as={Select} name="workLocation">
-                    <option value="">Seleccione...</option>
+                  <Field as={Select} name="workLocation" className={`custom-input ${isDarkMode ? "custom-select" : ""}`}>
+                  <option value="">Seleccione...</option>
                     <option value="0">Remoto</option>
                     <option value="1">Presencial</option>
                     <option value="2">Híbrido</option>
@@ -150,7 +152,7 @@ const CompanyJobOpportunities = () => {
 
                 <FormControl>
                   <FormLabel>Descripción</FormLabel>
-                  <Field as={Textarea} name="description" />
+                  <Field as={Textarea} name="description" className={`custom-input ${isDarkMode ? "custom-select" : ""}`}/>
                   <ErrorMessage
                     name="description"
                     component="div"
@@ -160,7 +162,7 @@ const CompanyJobOpportunities = () => {
 
                 <FormControl>
                   <FormLabel>CUIT de la Compañía</FormLabel>
-                  <Field as={Input} name="cuitCompany" />
+                  <Field as={Input} name="cuitCompany" className={`custom-input ${isDarkMode ? "custom-select" : ""}`}/>
                   <ErrorMessage
                     name="cuitCompany"
                     component="div"
@@ -170,7 +172,7 @@ const CompanyJobOpportunities = () => {
 
                 <FormControl>
                   <FormLabel>Fecha Límite</FormLabel>
-                  <Field type="date" as={Input} name="finallyDate" />
+                  <Field type="date" as={Input} name="finallyDate" className={`custom-input ${isDarkMode ? "custom-select" : ""}`}/>
                   <ErrorMessage
                     name="finallyDate"
                     component="div"
@@ -180,7 +182,7 @@ const CompanyJobOpportunities = () => {
 
                 <FormControl>
                   <FormLabel>Lugar de Trabajo</FormLabel>
-                  <Field type="text" as={Input} name="workPlace" />
+                  <Field type="text" as={Input} name="workPlace" className={`custom-input ${isDarkMode ? "custom-select" : ""}`}/>
                   <ErrorMessage
                     name="workPlace"
                     component="div"
@@ -190,7 +192,7 @@ const CompanyJobOpportunities = () => {
 
                 <FormControl>
                   <FormLabel>Asignaturas Mínimas</FormLabel>
-                  <Field as={Input} type="number" name="minSubjects" />
+                  <Field as={Input} type="number" name="minSubjects" className={`custom-input ${isDarkMode ? "custom-select" : ""}`}/>
                   <ErrorMessage
                     name="minSubjects"
                     component="div"
@@ -200,7 +202,7 @@ const CompanyJobOpportunities = () => {
 
                 <FormControl>
                   <FormLabel>Fecha Estimada</FormLabel>
-                  <Field type="date" as={Input} name="estimatedDate" />
+                  <Field type="date" as={Input} name="estimatedDate" className={`custom-input ${isDarkMode ? "custom-select" : ""}`} />
                   <ErrorMessage
                     name="estimatedDate"
                     component="div"
@@ -210,7 +212,7 @@ const CompanyJobOpportunities = () => {
 
                 <FormControl>
                   <FormLabel>Duración de la Pasantía</FormLabel>
-                  <Field as={Input} name="internshipDuration" />
+                  <Field as={Input} name="internshipDuration" className={`custom-input ${isDarkMode ? "custom-select" : ""}`} />
                   <ErrorMessage
                     name="internshipDuration"
                     component="div"
@@ -231,6 +233,7 @@ const CompanyJobOpportunities = () => {
           )}
         </Formik>
       </Box>
+    </div>
     </>
   );
 };

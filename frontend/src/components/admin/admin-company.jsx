@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+
+import { useState, useEffect, useContext } from "react";
 import { CompaniesData } from "../user/data/user-data";
 import { putCompanyState } from "../../Axios/axios-admin";
 import {
@@ -16,6 +17,7 @@ import {
   Heading
 } from '@chakra-ui/react';
 import { NavbarAdmin } from "../navbar/navbar";
+import { ThemeContext } from '../../components/context/theme-context/theme-context';
 
 const stateMap = {
   0: 'En proceso',
@@ -24,6 +26,7 @@ const stateMap = {
 };
 
 const AdminCompany = () => {
+  const { isDarkMode } = useContext(ThemeContext);
   const [companies, setCompanies] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [searched, setSearched] = useState(false);
@@ -80,7 +83,7 @@ const AdminCompany = () => {
   }
 
   return (
-    <div>
+    <div className={isDarkMode ? "dark" : "light"}>
       <NavbarAdmin />
       <div>
         <HStack p="5rem" mt={5}>
@@ -98,7 +101,7 @@ const AdminCompany = () => {
       </div>
       <TableContainer p="1rem" maxWidth="90rem" overflow-x="auto">
         <Heading fontSize="25px" mb="1rem" minH="2rem" textAlign="center">Lista de Empresas</Heading>
-        <Table variant='striped' color="primary">
+        <Table variant='striped' color="primary" className="table">
           <Thead>
             <Tr>
               <Th>CUIT</Th>

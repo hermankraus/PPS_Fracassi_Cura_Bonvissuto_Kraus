@@ -1,11 +1,5 @@
-.dark-login {
-  background-color: rgb(158, 158, 161);
-  color: rgba(38, 81, 113);
-}
 
-.light-login {
-  background-color: white;
-}
+
 
 .switch::before {
   content: "";

@@ -4,7 +4,7 @@ import { HStack, Button, Image, VStack, Box, Text } from "@chakra-ui/react";
 import { ThemeContext } from "../../components/context/theme-context/theme-context";
 import images from "../../assets/constants/images";
 import "./home-page.css";
-import ThemeButton from "../../components/context/theme-button/theme-button";
+
 
 export const HomePage = () => {
   const { isDarkMode } = useContext(ThemeContext);
@@ -13,14 +13,15 @@ export const HomePage = () => {
   const handlerRegister = () => {
     navigate("/register");
   };
+
   const handlerLogin = () => {
     navigate("/login");
   };
 
   return (
-    <div className={isDarkMode ? "dark-mode" : "light-mode"}>
+    <div className={isDarkMode ? "dark" : "light"}>
       <Box
-        overflow-y="hidden"
+        overflowY="hidden"
         p={50}
         justifyContent="center"
         alignItems="center"
@@ -38,7 +39,7 @@ export const HomePage = () => {
           </Box>
           <VStack
             className="text-content"
-            maxW={{base: 400, lg: 500}}
+            maxW={{ base: 400, lg: 500 }}
             position="relative"
             zIndex="50"
             overflow="hidden"
@@ -64,9 +65,8 @@ export const HomePage = () => {
               left="0"
               objectFit="cover"
               zIndex="1"
-              minH= {{base: "50rem", lg: "30rem"}}
-              maxW={{base: "40rem"}}
-
+              minH={{ base: "50rem", lg: "30rem" }}
+              maxW={{ base: "40rem" }}
             />
             <Box
               position="relative"
@@ -110,9 +110,6 @@ export const HomePage = () => {
             </Box>
           </VStack>
         </HStack>
-        <Box mr="10rem" mt="1rem" p={2}>
-          <ThemeButton />
-        </Box>
       </Box>
     </div>
   );

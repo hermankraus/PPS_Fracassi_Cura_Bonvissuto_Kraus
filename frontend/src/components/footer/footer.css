@@ -9,31 +9,7 @@
   width: 100%;
 }
 
-.light-mode-footer {
-  position: relative;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  color: black;
-  background-color: white;
-  z-index: 3000;
-  border-top-left-radius: 3rem;
-  border-top-right-radius: 3rem;
-}
 
-.light-mode-footer::before {
-  content: "";
-  position: absolute;
-  top: -4px;
-  left: -4px;
-  right: -4px;
-  bottom: 0;
-  background-color: rgb(158, 158, 161);
-  z-index: -1;
-}
-.light-mode-footer .utn {
-  color: black;
-}
 .utn:hover {
   color: rgb(176, 174, 174);
 }
@@ -49,3 +25,4 @@
 .whatsapp:hover {
   color: green;
 }
+

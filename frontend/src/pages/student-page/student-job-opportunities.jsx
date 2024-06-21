@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+
+import { useEffect, useState, useContext } from "react";
 import {
   Box,
   Button,
@@ -10,12 +11,10 @@ import {
   AccordionPanel,
   AccordionIcon,
 } from "@chakra-ui/react";
-import {
-  getAllJobOffer,
-  studentApplyToJobOffer,
-} from "../../Axios/axios-student";
+import { getAllJobOffer } from "../../Axios/axios-student";
 import { NavbarUser } from "../../components/navbar/navbar";
-import Cookies from "js-cookie";
+import { ThemeContext } from "../../components/context/theme-context/theme-context";
+
 
 const contractTypeMap = {
   0: "Contrato Temporal",
@@ -34,7 +33,8 @@ const workLocationMap = {
 };
 
 const StudentJobOpportunities = () => {
-  const legajo = Cookies.get("legajo");
+  const { isDarkMode } = useContext(ThemeContext);
+
   const [jobOffers, setJobOffers] = useState([]);
   const [postulatedOffers, setPostulatedOffers] = useState([]);
 
@@ -42,7 +42,7 @@ const StudentJobOpportunities = () => {
     const fetchJobOffers = async () => {
       try {
         const response = await getAllJobOffer();
-        console.log("Job Offers:", response.data);
+        console.log(response.data);
         setJobOffers(response.data);
       } catch (error) {
         console.error("Error fetching job offers:", error);
@@ -56,51 +56,13 @@ const StudentJobOpportunities = () => {
     fetchJobOffers();
   }, []);
 
-  const fetchJobOffers = async () => {
-    try {
-      const response = await getAllJobOffer();
-      setJobOffers(response.data);
-    } catch (error) {
-      console.error("Error fetching job offers:", error);
-    }
-  };
-
-  const handlePostulate = async (offer) => {
-    try {
-      if (!legajo) {
-        throw new Error("Legajo no está definido");
-      }
-
-      if (!offer.id) {
-        throw new Error("Offer ID no está definido");
-      }
-
-      const payload = {
-        jobofferId: offer.jobofferId,
-        legajo: Number(legajo),
-      };
-
-      console.log("Payload for applying to job offer:", payload);
-
-      const response = await studentApplyToJobOffer(payload);
-
-      if (response.status === 200) {
-        const updatedPostulations = [...postulatedOffers, offer];
-        setPostulatedOffers(updatedPostulations);
-        localStorage.setItem(
-          "postulatedOffers",
-          JSON.stringify(updatedPostulations)
-        );
-        await fetchJobOffers();
-      } else {
-        console.error("Error in response status:", response);
-      }
-    } catch (error) {
-      console.error(
-        "Error applying to job offer:",
-        error.response ? error.response.data : error.message
-      );
-    }
+  const handlePostulate = (offer) => {
+    const updatedPostulations = [...postulatedOffers, offer];
+    setPostulatedOffers(updatedPostulations);
+    localStorage.setItem(
+      "postulatedOffers",
+      JSON.stringify(updatedPostulations)
+    );
   };
 
   const handleWithdrawPostulation = (offerId) => {
@@ -117,10 +79,10 @@ const StudentJobOpportunities = () => {
   return (
     <>
       <NavbarUser />
-      <Box mt="6rem" p={10}>
-        <Heading as="h1" overflow="hidden" size="xl" mb={4} textAlign="center">
-          Ofertas Laborales
-        </Heading>
+
+      <Box mt="6rem" p={10} className={`${isDarkMode ? 'dark' : 'light'}`}>
+        <Heading as="h1" overflow="hidden" size="xl" mb={4} textAlign="center">Ofertas Laborales</Heading>
+
         <Accordion allowMultiple>
           {jobOffers.length === 0 ? (
             <Text>No hay ofertas laborales disponibles</Text>
@@ -128,7 +90,7 @@ const StudentJobOpportunities = () => {
             jobOffers.map((offer, index) => (
               <AccordionItem key={index}>
                 <AccordionButton>
-                  <Box flex="1" textAlign="left" color="black">
+                  <Box flex="1" textAlign="left" >
                     {offer.description} - {contractTypeMap[offer.contractType]}
                   </Box>
                   <AccordionIcon />
