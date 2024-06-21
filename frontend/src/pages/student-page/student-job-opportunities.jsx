@@ -10,8 +10,12 @@ import {
   AccordionPanel,
   AccordionIcon,
 } from "@chakra-ui/react";
-import { getAllJobOffer } from "../../Axios/axios-student";
+import {
+  getAllJobOffer,
+  studentApplyToJobOffer,
+} from "../../Axios/axios-student";
 import { NavbarUser } from "../../components/navbar/navbar";
+import Cookies from "js-cookie";
 
 const contractTypeMap = {
   0: "Contrato Temporal",
@@ -30,6 +34,7 @@ const workLocationMap = {
 };
 
 const StudentJobOpportunities = () => {
+  const legajo = Cookies.get("legajo");
   const [jobOffers, setJobOffers] = useState([]);
   const [postulatedOffers, setPostulatedOffers] = useState([]);
 
@@ -37,7 +42,7 @@ const StudentJobOpportunities = () => {
     const fetchJobOffers = async () => {
       try {
         const response = await getAllJobOffer();
-        console.log(response.data);
+        console.log("Job Offers:", response.data);
         setJobOffers(response.data);
       } catch (error) {
         console.error("Error fetching job offers:", error);
@@ -51,13 +56,51 @@ const StudentJobOpportunities = () => {
     fetchJobOffers();
   }, []);
 
-  const handlePostulate = (offer) => {
-    const updatedPostulations = [...postulatedOffers, offer];
-    setPostulatedOffers(updatedPostulations);
-    localStorage.setItem(
-      "postulatedOffers",
-      JSON.stringify(updatedPostulations)
-    );
+  const fetchJobOffers = async () => {
+    try {
+      const response = await getAllJobOffer();
+      setJobOffers(response.data);
+    } catch (error) {
+      console.error("Error fetching job offers:", error);
+    }
+  };
+
+  const handlePostulate = async (offer) => {
+    try {
+      if (!legajo) {
+        throw new Error("Legajo no está definido");
+      }
+
+      if (!offer.id) {
+        throw new Error("Offer ID no está definido");
+      }
+
+      const payload = {
+        jobofferId: offer.jobofferId,
+        legajo: Number(legajo),
+      };
+
+      console.log("Payload for applying to job offer:", payload);
+
+      const response = await studentApplyToJobOffer(payload);
+
+      if (response.status === 200) {
+        const updatedPostulations = [...postulatedOffers, offer];
+        setPostulatedOffers(updatedPostulations);
+        localStorage.setItem(
+          "postulatedOffers",
+          JSON.stringify(updatedPostulations)
+        );
+        await fetchJobOffers();
+      } else {
+        console.error("Error in response status:", response);
+      }
+    } catch (error) {
+      console.error(
+        "Error applying to job offer:",
+        error.response ? error.response.data : error.message
+      );
+    }
   };
 
   const handleWithdrawPostulation = (offerId) => {
