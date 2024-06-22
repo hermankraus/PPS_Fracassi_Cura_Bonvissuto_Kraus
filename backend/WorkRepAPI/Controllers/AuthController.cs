@@ -59,7 +59,11 @@ namespace WorkRepAPI.Controllers
             return Ok(new { 
                 Token = token, 
                 Role = user.GetType().Name,
-                State = state
+                State = state,
+                Cuit = user is Company company ? company.Cuit.ToString() : null
+
+
+
             });
         }
 
