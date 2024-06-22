@@ -37,7 +37,7 @@ const LoginCompany = () => {
       const Role = response.data.role;
       const State = response.data.state;
 
-      Cookies.set("token", token, { expires: 7 });
+      Cookies.set("token", token, { expires: 100});
       if (Role === "Company" && State === "Pending") {
         navigate("/AccountAuth");
       }

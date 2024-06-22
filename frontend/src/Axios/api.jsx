@@ -2,7 +2,7 @@ import axios from "axios";
 import Cookies from "js-cookie";
 
 const api = axios.create({
-  baseURL: "https://localhost:7138/api", // aca va donde levanta el back en su local. (en un futuro ira el link del deploy)
+  baseURL: "https://localhost:7138/api",
   headers: {
     "Content-Type": "application/json",
   },
@@ -10,7 +10,7 @@ const api = axios.create({
 
 api.interceptors.request.use(
   (config) => {
-    const token = Cookies.get("token"); // Obtener el token desde las cookies
+    const token = Cookies.get("token"); 
     if (token) {
       config.headers.Authorization = `Bearer ${token}`;
     }
