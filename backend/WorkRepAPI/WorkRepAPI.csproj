@@ -11,9 +11,13 @@
 
   <ItemGroup>
     <Compile Remove="DbContext\**" />
+    <Compile Remove="NewFolder\**" />
     <Content Remove="DbContext\**" />
+    <Content Remove="NewFolder\**" />
     <EmbeddedResource Remove="DbContext\**" />
+    <EmbeddedResource Remove="NewFolder\**" />
     <None Remove="DbContext\**" />
+    <None Remove="NewFolder\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -33,10 +37,6 @@
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.19.4" />
     <PackageReference Include="MySql.EntityFrameworkCore" Version="6.0.27" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="NewFolder\" />
   </ItemGroup>
 
 </Project>

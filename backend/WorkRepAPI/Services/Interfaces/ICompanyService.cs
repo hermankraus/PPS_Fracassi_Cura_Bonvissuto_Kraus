@@ -1,4 +1,6 @@
 ﻿using WorkRepAPI.Models.CompanyDTOs;
+using WorkRepAPI.Models.StudentsDTOs;
+
 
 namespace WorkRepAPI.Services.Interfaces
 {
@@ -11,5 +13,7 @@ namespace WorkRepAPI.Services.Interfaces
         void SetCompanyState(UpdCompanyDTO company);
 
         void CompleteProfile(CompleteCompanyProfileDTO completeProfile);
+
+        Task<IEnumerable<StudentProfileDTO>> Postulations(string cuit);
     }
 }

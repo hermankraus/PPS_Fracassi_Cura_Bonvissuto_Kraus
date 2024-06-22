@@ -5,9 +5,8 @@ using System.Security.Claims;
 using System.Text;
 using WorkRepAPI.Services.Interfaces;
 using WorkRepAPI.Entities;
-using WorkRepAPI.Models;
 using WorkRepAPI.Models.LoginDTO;
-using WorkRepAPI.Enums;
+
 
 namespace WorkRepAPI.Controllers
 {

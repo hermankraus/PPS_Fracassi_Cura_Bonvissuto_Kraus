@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using Microsoft.EntityFrameworkCore;
 using WorkRepAPI.Context;
 using WorkRepAPI.Data.Interfaces;
 using WorkRepAPI.Entities;
@@ -38,6 +37,21 @@ namespace WorkRepAPI.Data.Implementations
         public Company GetCompanyByCuit(string cuit)
         {
             return _context.Companies.FirstOrDefault(c => c.Cuit == cuit);
+        }
+
+        public IEnumerable<Student> Postulations(string cuit)
+        {
+            var students = _context.Joboffers
+            .Where(jo => jo.Cuitcompany == cuit)
+            .SelectMany(jo => jo.IdStudents)
+            .ToList();
+
+            if (!students.Any())
+            {
+                return null;
+            }
+
+            return students;
         }
 
         public void SetCompanyState(UpdCompanyDTO company)
