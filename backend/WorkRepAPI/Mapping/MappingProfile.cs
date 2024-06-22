@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using WorkRepAPI.Entities;
 using WorkRepAPI.Models.CompanyDTOs;
+using WorkRepAPI.Models.StudentsDTOs;
 namespace WorkRepAPI.Mappings
 {
     public class MappingProfile : Profile
@@ -12,6 +13,7 @@ namespace WorkRepAPI.Mappings
             CreateMap<setStudentStateDTO, Student>();
             CreateMap<Student, Student>();
             CreateMap<CompleteProfileDTO, Student>();
+            CreateMap<Student, StudentProfileDTO>();
 
             //Company
             CreateMap<Company, ReadAllCompaniesDTO>();

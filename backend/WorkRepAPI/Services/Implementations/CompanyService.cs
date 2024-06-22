@@ -2,10 +2,8 @@
 using WorkRepAPI.Entities;
 using WorkRepAPI.Models.CompanyDTOs;
 using WorkRepAPI.Services.Interfaces;
-using System.Collections.Generic;
 using WorkRepAPI.Data.Interfaces;
-using WorkRepAPI.Data.Implementations;
-using WorkRepAPI.Models.CompanyDTOs;
+using WorkRepAPI.Models.StudentsDTOs;
 
 namespace WorkRepAPI.Services.Implementations
 {
@@ -38,6 +36,15 @@ namespace WorkRepAPI.Services.Implementations
             var company = _companyRepository.GetCompanyByCuit(cuit);
             var companyDto = _mapper.Map<ReadAllCompaniesDTO>(company);
             return companyDto;
+        }
+
+        public async Task<IEnumerable<StudentProfileDTO>> Postulations(string cuit)
+        {
+            var students = _companyRepository.Postulations(cuit);
+            var studentsDto = _mapper.Map<IEnumerable<StudentProfileDTO>>(students);
+
+            return studentsDto;
+
         }
 
         public void SetCompanyState(UpdCompanyDTO company)

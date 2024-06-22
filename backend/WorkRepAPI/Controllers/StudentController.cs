@@ -56,7 +56,7 @@ namespace WorkRepAPI.Controllers
         }
 
         [HttpPost("apply")]
-        [Authorize(Roles = "Student")]
+       // [Authorize(Roles = "Student")]
         public async Task<IActionResult> Apply([FromBody] StudentApplicationDTO studentApplication)
         {
             try

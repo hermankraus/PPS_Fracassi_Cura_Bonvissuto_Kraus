@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using Microsoft.EntityFrameworkCore;
-using Mysqlx;
 using WorkRepAPI.Context;
 using WorkRepAPI.Data.Interfaces;
 using WorkRepAPI.Entities;
