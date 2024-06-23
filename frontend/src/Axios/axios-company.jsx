@@ -15,7 +15,7 @@ export const postJobOffer = (companies) => {
 export const GetCompanyByCuit = async (cuit) => {
   const response = await api.get(`/Company/getCompany`, {
     params: {
-      Cuit: cuit.toString(), // Asegúrate de convertir cuit a string si no lo es
+      Cuit: cuit.toString(),
     },
   });
   return response.data;
