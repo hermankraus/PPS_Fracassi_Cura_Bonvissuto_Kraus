@@ -49,7 +49,6 @@ export const CompanyProfile = () => {
         try {
           const data = await GetCompanyByCuit(cuit);
           setCompanyData(data);
-          console.log(data);
         } catch (error) {
           if (error.response && error.response.status === 404) {
             errorToast("Empresa no encontrada. Verifica el CUIT.");
@@ -68,7 +67,6 @@ export const CompanyProfile = () => {
       type: values.type,
       numberOfEmployees: values.numberOfEmployees,
     };
-    console.log(values);
 
     try {
       setSubmitting(true);
