@@ -68,5 +68,15 @@ namespace WorkRepAPI.Controllers
             var students = _companyService.Postulations(cuit);
             return Ok(students); 
         }
+
+        [HttpGet("getCompany")]
+
+        public ReadAllCompaniesDTO GetCompanyByCuit(string Cuit)
+        {
+            var company= _companyService.GetCompanyByCuit(Cuit);
+
+            return (company);
+
+        }
     }
 }

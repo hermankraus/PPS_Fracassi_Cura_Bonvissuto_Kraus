@@ -10,4 +10,17 @@ export const getAllCompanies = (companies) => {
 
 export const postJobOffer = (companies) => {
   return api.post("/JobOffer", JSON.stringify(companies));
-}
+};
+
+export const GetCompanyByCuit = async (cuit) => {
+  const response = await api.get(`/Company/getCompany`, {
+    params: {
+      Cuit: cuit.toString(),
+    },
+  });
+  return response.data;
+};
+
+export const completeprofile = (company) => {
+  return api.put("/Company/completeprofile", JSON.stringify(company));
+};
