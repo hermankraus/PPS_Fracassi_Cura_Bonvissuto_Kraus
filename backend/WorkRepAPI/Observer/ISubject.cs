@@ -2,7 +2,7 @@ namespace WorkRepAPI;
 
 public interface ISubject
 {
-    void Register(IObserver observer);
-    void Remove(IObserver observer);
-    void Notify();
+    void Attach(IObserver observer);
+    void Detach(IObserver observer);
+    void Notify(string message);
 }

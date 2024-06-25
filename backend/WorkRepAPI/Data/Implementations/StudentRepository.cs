@@ -18,8 +18,10 @@ namespace WorkRepAPI.Data.Implementations
         public void SetStudentState(Student student)
         {
             var studentToUpd = _context.Students.FirstOrDefault(s => s.Legajo == student.Legajo);
+            
             if (studentToUpd != null)
             {
+                _context.Attach(studentToUpd);
                 studentToUpd.State = student.State;
                 _context.SaveChanges();
             }
