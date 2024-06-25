@@ -13,7 +13,8 @@ import {
 } from "@chakra-ui/react";
 import { NavbarUser } from "../../components/navbar/navbar";
 import { ThemeContext } from "../../components/context/theme-context/theme-context";
-
+import { myPostulationByLegajo } from "../../components/user/data/user-data";
+import Cookies from "js-cookie";
 
 const contractTypeMap = {
   0: "Contrato Temporal",
@@ -36,30 +37,28 @@ const StudentJobPostulations = () => {
   const { isDarkMode } = useContext(ThemeContext);
 
   useEffect(() => {
-    const savedPostulations =
-      JSON.parse(localStorage.getItem("postulatedOffers")) || [];
-    setPostulatedOffers(savedPostulations);
-  }, []);
+    const fetchPostulations = async () => {
+      const legajo = Cookies.get("legajo");
+      try {
+        if (!legajo) {
+          throw new Error("No se encontró el legajo del usuario en las cookies.");
+        }
+        console.log(legajo);
+        const response = await myPostulationByLegajo(legajo);
+        console.log(response);
+        setPostulatedOffers(response.data);
+      } catch (error) {
+        console.error("Error fetching postulations:", error);
+      }
+    };
 
-  const handleWithdrawPostulation = (offerId) => {
-    const updatedPostulations = postulatedOffers.filter(
-      (offer) => offer.id !== offerId
-    );
-    setPostulatedOffers(updatedPostulations);
-    localStorage.setItem(
-      "postulatedOffers",
-      JSON.stringify(updatedPostulations)
-    );
-  };
+    fetchPostulations();
+  }, []);
 
   return (
     <>
       <NavbarUser />
-      <Container
-        mt="6rem"
-        p={10}
-        className={`${isDarkMode ? "dark" : "light"}`}
-      >
+      <Container mt="6rem" p={10} className={`${isDarkMode ? "dark" : "light"}`}>
         <Heading as="h1" overflow="hidden" size="xl" mb={4} textAlign="center">
           Mis Postulaciones
         </Heading>
@@ -69,8 +68,8 @@ const StudentJobPostulations = () => {
           ) : (
             postulatedOffers.map((offer, index) => (
               <AccordionItem key={index}>
-                <AccordionButton >
-                <Box flex="1" textAlign="left" className={`${isDarkMode ? "accordion-label" : ""}`}>
+                <AccordionButton>
+                  <Box flex="1" textAlign="left" className={`${isDarkMode ? "accordion-label" : ""}`}>
                     {offer.description} - {contractTypeMap[offer.contractType]}
                   </Box>
                   <AccordionIcon />
@@ -110,9 +109,6 @@ const StudentJobPostulations = () => {
                     <strong>Duración de la Pasantía:</strong>{" "}
                     {offer.internshipDuration}
                   </Text>
-                  <Button onClick={() => handleWithdrawPostulation(offer.id)}>
-                    Sacar Postulación
-                  </Button>
                 </AccordionPanel>
               </AccordionItem>
             ))

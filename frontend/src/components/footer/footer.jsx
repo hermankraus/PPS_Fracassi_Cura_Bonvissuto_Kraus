@@ -18,7 +18,7 @@ const FooterPage = () => {
     <div className={isDarkMode ? "light-mode-footer" : "footer-container"}>
       <Container p={8}>
         <Box textAlign={{ base: "center", lg: "left" }}>
-          
+
           <Text>Derechos reservados &copy; PPS</Text>
           <Text>
             <Link
@@ -61,18 +61,18 @@ const FooterPage = () => {
             >
               <FontAwesomeIcon icon={faWhatsapp} />
             </Link>
-            <div  className="theme-button-container">
-              <ThemeButton className="theme-button" />
-            </div>
           </Box>
+          <div className="theme-button-container">
+            <ThemeButton />
+          </div>
         </Box>
-        
+
       </Container>
       <Container>
         <Chat />
-        
+
       </Container>
-    
+
     </div>
   );
 };

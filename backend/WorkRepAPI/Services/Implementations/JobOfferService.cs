@@ -43,6 +43,7 @@ namespace WorkRepAPI.Services.Implementations
             var jobOffers = _jobofferRepository.GetAllJobOffers();
             return jobOffers.Select(joboffer => new JobOfferGetAllDTO
             {
+                IdJobOffer = joboffer.IdJobOffer,
                 ContractType = joboffer.ContractType,
                 EmploymentType = joboffer.EmploymentType,
                 WorkLocation = joboffer.WorkLocation,

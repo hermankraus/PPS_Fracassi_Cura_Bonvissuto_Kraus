@@ -5,9 +5,8 @@ using System.Security.Claims;
 using System.Text;
 using WorkRepAPI.Services.Interfaces;
 using WorkRepAPI.Entities;
-using WorkRepAPI.Models;
 using WorkRepAPI.Models.LoginDTO;
-using WorkRepAPI.Enums;
+
 
 namespace WorkRepAPI.Controllers
 {
@@ -60,7 +59,11 @@ namespace WorkRepAPI.Controllers
             return Ok(new { 
                 Token = token, 
                 Role = user.GetType().Name,
-                State = state
+                State = state,
+                Cuit = user is Company company ? company.Cuit.ToString() : null
+
+
+
             });
         }
 
@@ -81,6 +84,7 @@ namespace WorkRepAPI.Controllers
                 claims.Add(new Claim("email", company.ContactEmail.ToString()));
                 claims.Add(new Claim(ClaimTypes.Role, "Company"));
                 claims.Add(new Claim("State", company.State.ToString()));
+                claims.Add(new Claim("cuit", company.Cuit.ToString()));
             }
             else if (user is Administrator admin)
             {

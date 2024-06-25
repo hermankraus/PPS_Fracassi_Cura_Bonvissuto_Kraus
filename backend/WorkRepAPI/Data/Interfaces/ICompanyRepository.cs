@@ -8,10 +8,10 @@ namespace WorkRepAPI.Data.Interfaces
         public IEnumerable<Company> GetAllCompanies();
 
         public Company GetCompanyByCuit(string cuit);
-
         void SetCompanyState(UpdCompanyDTO company);
         void SetCompanyState(Company companyEntity);
-
         void CompleteProfile(Company company);
+        public IEnumerable<Student> Postulations(string cuit);
+
     }
 }

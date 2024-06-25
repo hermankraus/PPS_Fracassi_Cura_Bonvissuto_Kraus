@@ -1,4 +1,3 @@
-
 import { useEffect, useState, useContext } from "react";
 import {
   Box,
@@ -11,10 +10,10 @@ import {
   AccordionPanel,
   AccordionIcon,
 } from "@chakra-ui/react";
-import { getAllJobOffer } from "../../Axios/axios-student";
 import { NavbarUser } from "../../components/navbar/navbar";
 import { ThemeContext } from "../../components/context/theme-context/theme-context";
-
+import { getAllJobOffer, studentApplyToJobOffer } from "../../Axios/axios-student";
+import Cookies from "js-cookie";
 
 const contractTypeMap = {
   0: "Contrato Temporal",
@@ -34,9 +33,7 @@ const workLocationMap = {
 
 const StudentJobOpportunities = () => {
   const { isDarkMode } = useContext(ThemeContext);
-
   const [jobOffers, setJobOffers] = useState([]);
-  const [postulatedOffers, setPostulatedOffers] = useState([]);
 
   useEffect(() => {
     const fetchJobOffers = async () => {
@@ -49,31 +46,30 @@ const StudentJobOpportunities = () => {
       }
     };
 
-    const savedPostulations =
-      JSON.parse(localStorage.getItem("postulatedOffers")) || [];
-    setPostulatedOffers(savedPostulations);
-
     fetchJobOffers();
   }, []);
 
-  const handlePostulate = (offer) => {
-    const updatedPostulations = [...postulatedOffers, offer];
-    setPostulatedOffers(updatedPostulations);
-    localStorage.setItem(
-      "postulatedOffers",
-      JSON.stringify(updatedPostulations)
-    );
-  };
+  const handlePostulate = async (offer) => {
+    try {
+      const legajo = Cookies.get("legajo");
+      if (!legajo) {
+        throw new Error("No se encontró el legajo del usuario en las cookies.");
+      }
+      console.log(legajo)
 
-  const handleWithdrawPostulation = (offerId) => {
-    const updatedPostulations = postulatedOffers.filter(
-      (offer) => offer.id !== offerId
-    );
-    setPostulatedOffers(updatedPostulations);
-    localStorage.setItem(
-      "postulatedOffers",
-      JSON.stringify(updatedPostulations)
-    );
+      const studentPost = {
+        jobofferId: 5,   //FALTA AGARRAR EL ID DEL BACK
+        legajo: legajo,
+      }
+
+      const response = await studentApplyToJobOffer(studentPost);
+      console.log(response)
+      // successToast(response.data);
+
+
+    } catch (error) {
+      console.error("Error al postularse a la oferta:", error);
+    }
   };
 
   return (
@@ -96,6 +92,10 @@ const StudentJobOpportunities = () => {
                   <AccordionIcon />
                 </AccordionButton>
                 <AccordionPanel pb={4}>
+                  <Text>
+                    <strong>ID:</strong>
+                    {[offer.idJobOffer]}
+                  </Text>
                   <Text>
                     <strong>Tipo de Contrato:</strong>{" "}
                     {contractTypeMap[offer.contractType]}
@@ -130,17 +130,9 @@ const StudentJobOpportunities = () => {
                     <strong>Duración de la Pasantía:</strong>{" "}
                     {offer.internshipDuration}
                   </Text>
-                  {postulatedOffers.some(
-                    (postulatedOffer) => postulatedOffer.id === offer.id
-                  ) ? (
-                    <Button onClick={() => handleWithdrawPostulation(offer.id)}>
-                      Sacar Postulación
-                    </Button>
-                  ) : (
-                    <Button onClick={() => handlePostulate(offer)}>
-                      Postularse
-                    </Button>
-                  )}
+                  <Button onClick={() => handlePostulate(offer)}>
+                    Postularse
+                  </Button>
                 </AccordionPanel>
               </AccordionItem>
             ))

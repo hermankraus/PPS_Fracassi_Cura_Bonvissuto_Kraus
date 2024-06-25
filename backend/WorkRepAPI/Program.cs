@@ -9,7 +9,6 @@ using WorkRepAPI.Data.Interfaces;
 using WorkRepAPI.Services.Implementations;
 using WorkRepAPI.Services.Interfaces;
 using WorkRepAPI.Mappings; 
-using AutoMapper;
 using WorkRepAPI;
 
 var builder = WebApplication.CreateBuilder(args);

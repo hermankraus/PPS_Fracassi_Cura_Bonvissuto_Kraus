@@ -19,3 +19,8 @@ export const completeprofile = (userData) => {
 export const studentApplyToJobOffer = (offer) => {
   return api.post("/Student/apply", JSON.stringify(offer));
 };
+
+export const myPostulationsByLegajo = (legajo) => {
+  return api.get(`/Student/joboffers/${legajo}`)
+}
+

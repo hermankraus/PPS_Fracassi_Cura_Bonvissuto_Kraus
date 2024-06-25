@@ -17,11 +17,12 @@ import { Formik, ErrorMessage, Field, Form } from "formik";
 import * as Yup from "yup";
 import LoginApi from "../../../Axios/login-service";
 import Cookies from "js-cookie";
-
+import useToaster from "../../../hooks/useToaster";
 
 const LoginCompany = () => {
   const navigate = useNavigate();
   const { isDarkMode } = useContext(ThemeContext);
+  const { successToast, errorToast } = useToaster();
 
   const loginHandler = async (values) => {
     const userData = {
@@ -36,15 +37,20 @@ const LoginCompany = () => {
 
       const Role = response.data.role;
       const State = response.data.state;
+      const cuit = response.data.cuit;
 
       Cookies.set("token", token, { expires: 100});
+      Cookies.set("cuit", cuit);
+
       if (Role === "Company" && State === "Pending") {
         navigate("/AccountAuth");
       }
       if (State == "Accepted") {
+        successToast("Inicio Exitoso");
         navigate("/company/my-profile");
       }
     } catch (error) {
+      errorToast("Error al iniciar sesión: " + error.message);
       console.log("Error al iniciar sesion", error);
     }
   };

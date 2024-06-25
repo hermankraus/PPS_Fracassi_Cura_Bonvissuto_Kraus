@@ -31,5 +31,7 @@ namespace WorkRepAPI.Entities
         public virtual ICollection<Career> IdCarreers { get; set; }
         public virtual ICollection<Skill> IdSkills { get; set; }
         public virtual ICollection<Student> IdStudents { get; set; }
+        
+
     }
 }

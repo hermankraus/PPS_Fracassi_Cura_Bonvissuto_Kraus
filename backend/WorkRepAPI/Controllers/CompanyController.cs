@@ -1,8 +1,5 @@
 ﻿using AutoMapper;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
 using WorkRepAPI.Models.CompanyDTOs;
 using WorkRepAPI.Services.Interfaces;
 
@@ -62,6 +59,24 @@ namespace WorkRepAPI.Controllers
             catch{
                     return BadRequest("No pudimos actualizar tu perfil.");
                 }
-        } 
+        }
+
+        [HttpGet("postulations")]
+
+        public ActionResult Postulations(string cuit)
+        {
+            var students = _companyService.Postulations(cuit);
+            return Ok(students); 
+        }
+
+        [HttpGet("getCompany")]
+
+        public ReadAllCompaniesDTO GetCompanyByCuit(string Cuit)
+        {
+            var company= _companyService.GetCompanyByCuit(Cuit);
+
+            return (company);
+
+        }
     }
 }
