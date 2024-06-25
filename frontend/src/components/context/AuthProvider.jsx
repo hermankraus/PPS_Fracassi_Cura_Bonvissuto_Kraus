@@ -1,15 +1,20 @@
 import { createContext, useState, useEffect } from "react";
 import api from "../../Axios/api";
+import Cookies from "js-cookie";
 
 const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
+  //const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+ // const [isLoggedIn, setIsLoggedIn] = useState(!!Cookies.get("token"));
 
   useEffect(() => {
-    const token = localStorage.getItem("token");
+    const token = Cookies.get("token");
     if (token) {
       setIsLoggedIn(true);
+    } else {
+      setIsLoggedIn(false);
     }
   }, []);
 
@@ -21,7 +26,7 @@ const AuthProvider = ({ children }) => {
       });
       const token = response.data.token;
       if (token) {
-        localStorage.setItem("token", token);
+        Cookies.set("token", token);
         setIsLoggedIn(true);
       }
       return { success: true, data: response.data };
@@ -31,7 +36,7 @@ const AuthProvider = ({ children }) => {
   };
 
   const logout = () => {
-    localStorage.removeItem("token");
+    Cookies.remove("token");
     setIsLoggedIn(false);
   };
 
