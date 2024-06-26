@@ -35,8 +35,4 @@ public class Compañia : EmailObserver
         : base(emailAddress, emailService) { }
 }
 
-public class Admin : EmailObserver
-{
-    public Admin(string emailAddress, EmailService emailService)
-        : base(emailAddress, emailService) { }
-}
+

@@ -14,7 +14,7 @@
             _observers.Remove(observer);
         }
 
-        public void Notify(string message)
+        public void Notify(string message, int legajo)
         {
             foreach (var observer in _observers)
             {
