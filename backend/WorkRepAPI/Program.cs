@@ -8,8 +8,11 @@ using WorkRepAPI.Data.Implementations;
 using WorkRepAPI.Data.Interfaces;
 using WorkRepAPI.Services.Implementations;
 using WorkRepAPI.Services.Interfaces;
-using WorkRepAPI.Mappings; 
+using WorkRepAPI.Mappings;
 using WorkRepAPI;
+using WorkRepAPI.Observer;
+using WorkRepAPI.Entities;
+using WorkRepAPI.Models.StudentsDTOs;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -26,7 +29,7 @@ builder.Services.AddSwaggerGen(setupAction =>
     {
         Type = SecuritySchemeType.Http,
         Scheme = "Bearer",
-        Description = "Ingrese 'Bearer' [espacio] y luego su token en el cuadro de texto a continuaci�n.\n\nEjemplo: \"Bearer 12345abcdef\"",
+        Description = "Ingrese 'Bearer' [espacio] y luego su token en el cuadro de texto a continuaci n.\n\nEjemplo: \"Bearer 12345abcdef\"",
         Name = "Authorization",
         In = ParameterLocation.Header
     });
@@ -82,6 +85,10 @@ builder.Services.AddScoped<IJobOfferService, JobOfferService>();
 builder.Services.AddScoped<IJobApplicationRepository, JobApplicationRepository>();
 builder.Services.AddScoped<IJobApplicationService, JobApplicationService>();
 builder.Services.AddScoped<IEmailService, EmailService>();
+
+// Registrar Notifier como singleton
+builder.Services.AddSingleton<ISubject, Notifier>();
+
 // Configurar JWT
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
@@ -97,7 +104,9 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         };
     });
 
+
 var app = builder.Build();
+
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -115,5 +124,17 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
+using (var scope = app.Services.CreateScope())
+{
+    var context = scope.ServiceProvider.GetRequiredService<pps_databaseContext>();
+    var notifier = scope.ServiceProvider.GetRequiredService<ISubject>();
+    var emailService = scope.ServiceProvider.GetRequiredService<IEmailService>();
 
+    var estudiantes = context.Students.ToList();
+
+    foreach (var student in estudiantes)
+    {
+        notifier.Attach(new StudentNotifierDto(student.Email, emailService));
+    }
+}
 app.Run();

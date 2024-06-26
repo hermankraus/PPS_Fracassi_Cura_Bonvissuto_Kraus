@@ -11,17 +11,22 @@ namespace WorkRepAPI.Services.Implementations
     {
         private readonly IStudentRepository _studentRepository;
         private readonly IMapper _mapper;
+        private readonly ISubject _notifier;
 
-        public StudentService(IStudentRepository studentRepository, IMapper mapper)
+        public StudentService(IStudentRepository studentRepository, IMapper mapper, ISubject notifier)
         {
             _studentRepository = studentRepository;
             _mapper = mapper;
+            _notifier = notifier;
         }
 
         public void SetStudentState(setStudentStateDTO studentDto)
         {
             var student = _mapper.Map<Student>(studentDto);
             _studentRepository.SetStudentState(student);
+            var message = "Estudiante modificado";
+            _notifier.Notify(message);
+
         }
 
         public IEnumerable<GetStudentsDTO> GetStudents()

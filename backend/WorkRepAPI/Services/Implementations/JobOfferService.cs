@@ -2,8 +2,6 @@
 using WorkRepAPI.Entities;
 using WorkRepAPI.Models.JobOfferDTOs;
 using WorkRepAPI.Services.Interfaces;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace WorkRepAPI.Services.Implementations
 {
