@@ -62,8 +62,8 @@ const FooterPage = () => {
               <FontAwesomeIcon icon={faWhatsapp} />
             </Link>
           </Box>
-          <div className="theme-button-container" >
-            <ThemeButton className="theme-button" />
+          <div className="theme-button-container">
+            <ThemeButton />
           </div>
         </Box>
 

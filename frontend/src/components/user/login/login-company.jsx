@@ -39,7 +39,7 @@ const LoginCompany = () => {
       const State = response.data.state;
       const cuit = response.data.cuit;
 
-      Cookies.set("token", token, { expires: 7 });
+      Cookies.set("token", token, { expires: 100});
       Cookies.set("cuit", cuit);
 
       if (Role === "Company" && State === "Pending") {

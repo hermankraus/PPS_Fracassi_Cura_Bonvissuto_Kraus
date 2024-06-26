@@ -166,7 +166,7 @@ export const StudentProfile = () => {
     <>
       <NavbarUser />
       <VStack spacing={0}>
-        <Container mt="8rem" textAlign="center" minW="63rem" className={`${isDarkMode ? 'dark' : 'light'}`}>
+        <Container mt={{ base: "12rem", lg: "8rem" }} textAlign="center" minW={{ base: "10rem", lg: "63rem" }} className={`${isDarkMode ? 'dark' : 'light'}`}>
           <Heading overflow="hidden" mb="1rem">
             Modificar Perfil
           </Heading>
