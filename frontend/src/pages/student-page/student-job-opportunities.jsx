@@ -13,6 +13,7 @@ import {
 import { NavbarUser } from "../../components/navbar/navbar";
 import { ThemeContext } from "../../components/context/theme-context/theme-context";
 import { getAllJobOffer, studentApplyToJobOffer } from "../../Axios/axios-student";
+import useToaster from "../../hooks/useToaster";
 import Cookies from "js-cookie";
 
 const contractTypeMap = {
@@ -34,12 +35,15 @@ const workLocationMap = {
 const StudentJobOpportunities = () => {
   const { isDarkMode } = useContext(ThemeContext);
   const [jobOffers, setJobOffers] = useState([]);
+  const { successToast, errorToast } = useToaster();
+
 
   useEffect(() => {
     const fetchJobOffers = async () => {
       try {
         const response = await getAllJobOffer();
         console.log(response.data);
+
         setJobOffers(response.data);
       } catch (error) {
         console.error("Error fetching job offers:", error);
@@ -56,19 +60,19 @@ const StudentJobOpportunities = () => {
         throw new Error("No se encontró el legajo del usuario en las cookies.");
       }
       console.log(legajo)
+      console.log(offer.idJobOffer)
 
       const studentPost = {
-        jobofferId: 5,   //FALTA AGARRAR EL ID DEL BACK
+        jobofferId: offer,
         legajo: legajo,
       }
 
       const response = await studentApplyToJobOffer(studentPost);
       console.log(response)
-      // successToast(response.data);
-
+      successToast('Postulacion exitosa.');
 
     } catch (error) {
-      console.error("Error al postularse a la oferta:", error);
+      errorToast('Postulacion no aceptada.');
     }
   };
 
@@ -83,8 +87,8 @@ const StudentJobOpportunities = () => {
           {jobOffers.length === 0 ? (
             <Text>No hay ofertas laborales disponibles</Text>
           ) : (
-            jobOffers.map((offer, index) => (
-              <AccordionItem key={index}>
+            jobOffers.map((offer) => (
+              <AccordionItem key={offer.idJobOffer}>
                 <AccordionButton>
                   <Box flex="1" textAlign="left" >
                     {offer.description} - {contractTypeMap[offer.contractType]}
@@ -130,7 +134,7 @@ const StudentJobOpportunities = () => {
                     <strong>Duración de la Pasantía:</strong>{" "}
                     {offer.internshipDuration}
                   </Text>
-                  <Button onClick={() => handlePostulate(offer)}>
+                  <Button onClick={() => handlePostulate(offer.idJobOffer)}>
                     Postularse
                   </Button>
                 </AccordionPanel>

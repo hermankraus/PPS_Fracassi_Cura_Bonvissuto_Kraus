@@ -20,6 +20,7 @@ import { AuthProvider } from "./components/context/AuthProvider";
 import StudentJobOpportunities from "./pages/student-page/student-job-opportunities";
 import StudentJobPostulations from "./pages/student-page/student-job-postulations";
 import CompanyJobOpportunities from "./pages/company-page/company-job-opportunities";
+import JobPostulationsCompany from "./pages/company-page/company-job-postulations";
 import AdminCareer from "./components/admin/admin-career";
 import AdminSkill from "./components/admin/admin-skill";
 import { ThemeContext } from "./components/context/theme-context/theme-context";
@@ -32,7 +33,7 @@ function App() {
   return (
     <AuthProvider>
       <Router>
-      <div className={`app-container ${isDarkMode ? "dark" : "light"}`}>
+        <div className={`app-container ${isDarkMode ? "dark" : "light"}`}>
           <div className="content">
             <Routes>
               <Route
@@ -60,7 +61,7 @@ function App() {
                 path="/company/oportunities"
                 element={<CompanyJobOpportunities />}
               />
-              {/* <Route path="/company/postulations" element={<JobPostulationsCompany />} /> */}
+              <Route path="/company/postulations" element={<JobPostulationsCompany />} />
               <Route path="/company/my-profile" element={<CompanyProfile />} />
               <Route path="/AccountAuth" element={<AccountAuth />} />
               <Route path="/login" element={<Navigate to={previousPath} />} />
