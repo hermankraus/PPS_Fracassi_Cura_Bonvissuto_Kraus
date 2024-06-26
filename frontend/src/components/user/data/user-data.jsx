@@ -1,6 +1,7 @@
 import { getAllStudents } from "../../../Axios/axios-admin";
 import { getAllCompanies } from "../../../Axios/axios-company";
-import { myPostulationsByLegajo } from "../../../Axios/axios-student"
+import { myPostulationsByLegajo } from "../../../Axios/axios-student";
+
 
 export const StudentsData = async () => {
   try {

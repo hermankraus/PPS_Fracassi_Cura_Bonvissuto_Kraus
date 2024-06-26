@@ -20,6 +20,7 @@ import { AuthProvider } from "./components/context/AuthProvider";
 import StudentJobOpportunities from "./pages/student-page/student-job-opportunities";
 import StudentJobPostulations from "./pages/student-page/student-job-postulations";
 import CompanyJobOpportunities from "./pages/company-page/company-job-opportunities";
+import JobPostulationsCompany from "./pages/company-page/company-job-postulations";
 import AdminCareer from "./components/admin/admin-career";
 import AdminSkill from "./components/admin/admin-skill";
 import { ThemeContext } from "./components/context/theme-context/theme-context";
@@ -38,6 +39,7 @@ function App() {
               <Route path="/" element={<HomePage />} onChange={(params) => setPreviousPath(params.location.pathname)}/>
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
+              <Route path="/company/postulations" element={<ProtectedRoute><JobPostulationsCompany /></ProtectedRoute>} />
               <Route path="/admin-page" element={ <ProtectedRoute><AdminPage /></ProtectedRoute>}/>
               <Route path="/admin/student" element={<ProtectedRoute><AdminStudent /></ProtectedRoute>}/>
               <Route path="/admin/company" element={<ProtectedRoute><AdminCompany /></ProtectedRoute>}/>
@@ -48,6 +50,7 @@ function App() {
               <Route path="/student/my-profile" element={<ProtectedRoute><StudentProfile /></ProtectedRoute>}/>
               <Route path="/company/oportunities" element={<ProtectedRoute><CompanyJobOpportunities /> </ProtectedRoute>}/>
               <Route path="/company/my-profile" element={<ProtectedRoute><CompanyProfile /></ProtectedRoute>}/>
+
               <Route path="/AccountAuth" element={<AccountAuth />} />
               <Route path="/login" element={<Navigate to={previousPath} />} />
             </Routes>
