@@ -24,9 +24,9 @@ import JobPostulationsCompany from "./pages/company-page/company-job-postulation
 import AdminCareer from "./components/admin/admin-career";
 import AdminSkill from "./components/admin/admin-skill";
 import { ThemeContext } from "./components/context/theme-context/theme-context";
+import ProtectedRoute from "./components/context/protected-route";
 
 function App() {
-
   const { isDarkMode } = useContext(ThemeContext);
   const [previousPath, setPreviousPath] = useState("/");
 
@@ -36,33 +36,21 @@ function App() {
         <div className={`app-container ${isDarkMode ? "dark" : "light"}`}>
           <div className="content">
             <Routes>
-              <Route
-                path="/"
-                element={<HomePage />}
-                onChange={(params) => setPreviousPath(params.location.pathname)}
-              />
+              <Route path="/" element={<HomePage />} onChange={(params) => setPreviousPath(params.location.pathname)}/>
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
-              <Route path="/admin-page" element={<AdminPage />} />
-              <Route path="/admin/student" element={<AdminStudent />} />
-              <Route path="/admin/company" element={<AdminCompany />} />
-              <Route path="/admin/career" element={<AdminCareer />} />
-              <Route path="/admin/skill" element={<AdminSkill />} />
-              <Route
-                path="/student/oportunities"
-                element={<StudentJobOpportunities />}
-              />
-              <Route
-                path="/student/postulations"
-                element={<StudentJobPostulations />}
-              />
-              <Route path="/student/my-profile" element={<StudentProfile />} />
-              <Route
-                path="/company/oportunities"
-                element={<CompanyJobOpportunities />}
-              />
-              <Route path="/company/postulations" element={<JobPostulationsCompany />} />
-              <Route path="/company/my-profile" element={<CompanyProfile />} />
+              <Route path="/company/postulations" element={<ProtectedRoute><JobPostulationsCompany /></ProtectedRoute>} />
+              <Route path="/admin-page" element={ <ProtectedRoute><AdminPage /></ProtectedRoute>}/>
+              <Route path="/admin/student" element={<ProtectedRoute><AdminStudent /></ProtectedRoute>}/>
+              <Route path="/admin/company" element={<ProtectedRoute><AdminCompany /></ProtectedRoute>}/>
+              <Route path="/admin/career" element={<ProtectedRoute><AdminCareer /></ProtectedRoute>}/>
+              <Route path="/admin/skill" element={ <ProtectedRoute><AdminSkill /></ProtectedRoute>}/>
+              <Route path="/student/oportunities" element={<ProtectedRoute><StudentJobOpportunities /></ProtectedRoute>}/>
+              <Route path="/student/postulations" element={<ProtectedRoute><StudentJobPostulations /></ProtectedRoute>}/>
+              <Route path="/student/my-profile" element={<ProtectedRoute><StudentProfile /></ProtectedRoute>}/>
+              <Route path="/company/oportunities" element={<ProtectedRoute><CompanyJobOpportunities /> </ProtectedRoute>}/>
+              <Route path="/company/my-profile" element={<ProtectedRoute><CompanyProfile /></ProtectedRoute>}/>
+
               <Route path="/AccountAuth" element={<AccountAuth />} />
               <Route path="/login" element={<Navigate to={previousPath} />} />
             </Routes>
