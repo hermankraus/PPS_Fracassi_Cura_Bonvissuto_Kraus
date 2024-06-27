@@ -15,5 +15,9 @@ namespace WorkRepAPI.Services.Interfaces
         void CompleteProfile(CompleteCompanyProfileDTO completeProfile);
 
         Task<IEnumerable<StudentProfileDTO>> Postulations(string cuit);
+
+        Task<IEnumerable<companyOffersbyCuitDTO>> getPostulationsbyCompany(string cuit);
+
+        Task<IEnumerable<StudentProfileDTO>> getPostulatedStudents(int idJobOffer);
     }
 }

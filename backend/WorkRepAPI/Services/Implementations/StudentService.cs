@@ -64,7 +64,8 @@ namespace WorkRepAPI.Services.Implementations
                 WorkPlace = jo.WorkPlace,
                 MinSubjects = jo.MinSubjects,
                 EstimatedDate = jo.EstimatedDate,
-                InternshipDuration = jo.InternshipDuration
+                InternshipDuration = jo.InternshipDuration,
+                Title = jo.Title
             });
         }
 

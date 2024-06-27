@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Mysqlx;
 using WorkRepAPI.Context;
 using WorkRepAPI.Data.Interfaces;
 using WorkRepAPI.Entities;
@@ -37,6 +38,19 @@ namespace WorkRepAPI.Data.Implementations
         public Company GetCompanyByCuit(string cuit)
         {
             return _context.Companies.FirstOrDefault(c => c.Cuit == cuit);
+        }
+
+        public IEnumerable<Joboffer> getPostulationsbyCompany(string cuit)
+        {
+            return _context.Joboffers.Where(c => c.Cuitcompany == cuit).ToList();
+                    
+        }
+
+        public async Task<IEnumerable<Student>> getPostulationsbyId(int jobofferId)
+        {
+            return await _context.Students
+                .Where(st => st.IdJobOffers.Any(jo => jo.IdJobOffer == jobofferId))
+                .ToListAsync();
         }
 
         public IEnumerable<Student> Postulations(string cuit)

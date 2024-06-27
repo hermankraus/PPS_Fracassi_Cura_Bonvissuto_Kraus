@@ -50,15 +50,18 @@ namespace WorkRepAPI.Controllers
 
         [HttpPut("completeprofile")]
 
-        public ActionResult CompleteProfile(CompleteCompanyProfileDTO company){
+        public ActionResult CompleteProfile(CompleteCompanyProfileDTO company)
+        {
 
-            try{
-                    _companyService.CompleteProfile(company);
-                    return Ok("Perfil Actualizado con Éxito");
-                }
-            catch{
-                    return BadRequest("No pudimos actualizar tu perfil.");
-                }
+            try
+            {
+                _companyService.CompleteProfile(company);
+                return Ok("Perfil Actualizado con Éxito");
+            }
+            catch
+            {
+                return BadRequest("No pudimos actualizar tu perfil.");
+            }
         }
 
         [HttpGet("postulations")]
@@ -66,17 +69,32 @@ namespace WorkRepAPI.Controllers
         public ActionResult Postulations(string cuit)
         {
             var students = _companyService.Postulations(cuit);
-            return Ok(students); 
+            return Ok(students);
         }
 
         [HttpGet("getCompany")]
 
         public ReadAllCompaniesDTO GetCompanyByCuit(string Cuit)
         {
-            var company= _companyService.GetCompanyByCuit(Cuit);
+            var company = _companyService.GetCompanyByCuit(Cuit);
 
             return (company);
 
+        }
+
+        [HttpGet("postulationsbycuit")]
+        public ActionResult GetPostulationsbyCuit(string cuit)
+        {
+            var offers = _companyService.getPostulationsbyCompany(cuit);
+
+            return Ok(offers);
+        }
+        [HttpGet("postulatedstudents/{idJobOffer}")]
+        public async Task<IActionResult>GetPostulatedStudents(int idJobOffer)
+        {
+            var students = await _companyService.getPostulatedStudents(idJobOffer);
+           
+            return Ok(students);
         }
     }
 }

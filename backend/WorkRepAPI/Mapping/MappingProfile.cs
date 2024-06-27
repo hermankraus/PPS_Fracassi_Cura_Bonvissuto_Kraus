@@ -20,6 +20,10 @@ namespace WorkRepAPI.Mappings
             CreateMap<UpdCompanyDTO, Company>();
             CreateMap<Company,Company>();
             CreateMap<CompleteCompanyProfileDTO, Company>();
+
+            //OFFERS
+            CreateMap<Joboffer, companyOffersbyCuitDTO>();
+            CreateMap<CompleteProfileDTO, Joboffer>();
         }
     }
 }

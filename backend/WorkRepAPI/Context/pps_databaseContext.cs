@@ -149,6 +149,8 @@ namespace WorkRepAPI.Context
 
                 entity.Property(e => e.WorkPlace).HasMaxLength(45);
 
+                entity.Property(e => e.Title).HasMaxLength(45);
+
                 entity.HasOne(d => d.CuitcompanyNavigation)
                     .WithMany(p => p.Joboffers)
                     .HasForeignKey(d => d.Cuitcompany)

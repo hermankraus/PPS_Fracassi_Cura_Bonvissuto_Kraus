@@ -28,7 +28,8 @@ namespace WorkRepAPI.Services.Implementations
                 WorkPlace = joboffer.WorkPlace,
                 MinSubjects = joboffer.MinSubjects,
                 EstimatedDate = joboffer.EstimatedDate,
-                InternshipDuration = joboffer.InternshipDuration
+                InternshipDuration = joboffer.InternshipDuration,
+                Title = joboffer.Title
             };
 
             bool newJobOffer = _jobofferRepository.CreateJobOffer(jobofferData);
@@ -51,7 +52,8 @@ namespace WorkRepAPI.Services.Implementations
                 WorkPlace = joboffer.WorkPlace,
                 MinSubjects = joboffer.MinSubjects,
                 EstimatedDate = joboffer.EstimatedDate,
-                InternshipDuration = joboffer.InternshipDuration
+                InternshipDuration = joboffer.InternshipDuration,
+                Title = joboffer.Title
             }).ToList();
         }
     }

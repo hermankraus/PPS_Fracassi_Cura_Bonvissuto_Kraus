@@ -7,6 +7,7 @@ namespace WorkRepAPI.Models.JobOfferDTOs
     public class JobOfferGetAllDTO
     {
         public int IdJobOffer { get; set; }
+        public string Title { get; set; } = null!;
         public ContractType ContractType { get; set; }
         public EmploymentType EmploymentType { get; set; }
         public WorkLocation WorkLocation { get; set; }

@@ -26,6 +26,8 @@ namespace WorkRepAPI.Entities
         public DateTime? EstimatedDate { get; set; }
         public string? InternshipDuration { get; set; }
 
+        public string Title { get; set; } = null!;
+
         public virtual Company CuitcompanyNavigation { get; set; } = null!;
 
         public virtual ICollection<Career> IdCarreers { get; set; }
