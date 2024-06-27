@@ -38,6 +38,25 @@ namespace WorkRepAPI.Services.Implementations
             return companyDto;
         }
 
+        public async Task<IEnumerable<StudentProfileDTO>> getPostulatedStudents(int idJobOffer)
+        {
+            var students = await _companyRepository.getPostulationsbyId(idJobOffer);
+            var studentsDto = _mapper.Map<IEnumerable<StudentProfileDTO>>(students);
+
+            return studentsDto;
+        }
+
+        public async Task<IEnumerable<companyOffersbyCuitDTO>> getPostulationsbyCompany(string cuit)
+        {
+            var jobOffers = _companyRepository.getPostulationsbyCompany(cuit);
+
+            var offerDto = _mapper.Map<IEnumerable<companyOffersbyCuitDTO>>(jobOffers);
+
+            return offerDto;
+           
+            
+        }
+
         public async Task<IEnumerable<StudentProfileDTO>> Postulations(string cuit)
         {
             var students = _companyRepository.Postulations(cuit);

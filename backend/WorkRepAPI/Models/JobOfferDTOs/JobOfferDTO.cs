@@ -24,8 +24,9 @@ namespace WorkRepAPI.Models.JobOfferDTOs
         public int? MinSubjects { get; set; }
         public DateTime? EstimatedDate { get; set; }
         public string? InternshipDuration { get; set; }
+        public string Title { get; set; } = null!;
 
 
-      
+
     }
 }
