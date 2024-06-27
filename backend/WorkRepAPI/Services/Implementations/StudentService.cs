@@ -25,7 +25,7 @@ namespace WorkRepAPI.Services.Implementations
             var student = _mapper.Map<Student>(studentDto);
             _studentRepository.SetStudentState(student);
             var message = "Estudiante modificado";
-            _notifier.Notify(message);
+            _notifier.Notify(message, studentDto.Legajo);
 
         }
 

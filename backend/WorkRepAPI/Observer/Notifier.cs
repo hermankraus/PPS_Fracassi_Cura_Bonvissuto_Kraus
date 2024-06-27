@@ -16,9 +16,14 @@
 
         public void Notify(string message, int legajo)
         {
+          //  var obser = _observers;
             foreach (var observer in _observers)
             {
-                observer.Update(message);
+                if (observer.getLegajo() == legajo)
+                {
+                    observer.Update(message);
+                }
+                
             }
         }
     }

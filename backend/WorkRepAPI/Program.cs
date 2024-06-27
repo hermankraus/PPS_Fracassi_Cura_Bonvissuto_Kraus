@@ -11,8 +11,7 @@ using WorkRepAPI.Services.Interfaces;
 using WorkRepAPI.Mappings;
 using WorkRepAPI;
 using WorkRepAPI.Observer;
-using WorkRepAPI.Entities;
-using WorkRepAPI.Models.StudentsDTOs;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -134,7 +133,7 @@ using (var scope = app.Services.CreateScope())
 
     foreach (var student in estudiantes)
     {
-        notifier.Attach(new StudentNotifierDto(student.Email, emailService));
+        notifier.Attach(new EmailObserver(student.Email, emailService, student.Legajo));
     }
 }
 app.Run();
