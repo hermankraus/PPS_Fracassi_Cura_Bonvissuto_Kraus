@@ -66,11 +66,9 @@ const FooterPage = () => {
             <ThemeButton />
           </div>
         </Box>
-
       </Container>
       <Container>
         <Chat />
-
       </Container>
 
     </div>

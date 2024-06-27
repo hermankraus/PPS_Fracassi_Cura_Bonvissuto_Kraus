@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { NavbarCompany } from '../../components/navbar/navbar';
-import { PostulationsStudentsCompany } from '../../components/user/data/user-data';
-import { Container, Box, Text } from '@chakra-ui/react';
+import { GetPostulationsByCuit, GetPostulationsStudentToCompany } from '../../Axios/axios-company';
+import { Box, Text, Accordion, AccordionItem, AccordionButton, AccordionPanel, AccordionIcon, Heading } from '@chakra-ui/react';
 import Cookies from "js-cookie";
 
 const JobPostulationsCompany = () => {
@@ -9,7 +9,8 @@ const JobPostulationsCompany = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const cuit = Cookies.get("cuit");
+  // const cuit = Cookies.get("cuit");
+  const cuit = "30653813402";
 
   useEffect(() => {
     const fetchPostulations = async () => {
@@ -17,13 +18,25 @@ const JobPostulationsCompany = () => {
         if (!cuit) {
           throw new Error("No se encontró el cuit del usuario en las cookies.");
         }
-        console.log(cuit);
 
-        const responsePostulationStudentCompany = await PostulationsStudentsCompany(cuit);
-        setPostulations(responsePostulationStudentCompany.data);
-        console.log(postulations)
+        const response = await GetPostulationsByCuit(cuit);
+        const responsePostulationsByCuit = response.result;
+        console.log('Respuesta 1:', responsePostulationsByCuit);
+
+        const postulationPromises = responsePostulationsByCuit.map(async (postulation) => {
+          const responsePostulationsStudentCompany = await GetPostulationsStudentToCompany(postulation.idJoboffer);
+          console.log('Respuesta 2:', responsePostulationsStudentCompany);
+          return {
+            jobOffer: postulation,
+            students: responsePostulationsStudentCompany
+          };
+        });
+
+        const postulationsData = await Promise.all(postulationPromises);
+        setPostulations(postulationsData);
         setLoading(false);
       } catch (error) {
+        console.error('Error fetching postulations:', error);
         setError(error);
         setLoading(false);
       }
@@ -32,10 +45,6 @@ const JobPostulationsCompany = () => {
     fetchPostulations();
   }, [cuit]);
 
-  if (loading) {
-    return <div>Cargando...</div>;
-  }
-
   if (error) {
     return <div>Error: {error.message}</div>;
   }
@@ -43,21 +52,45 @@ const JobPostulationsCompany = () => {
   return (
     <>
       <NavbarCompany />
-      <Box mt={{ lg: "10rem" }}>
+      <Box mt={{ base: "2rem", lg: "20rem" }}>
         <div>
-
-          {/* ACCORDION DE GET OFFER BY CUIT */}
-          {Array.isArray(postulations) && postulations.length === 0 ? (
-            <Text>No te has postulado a ninguna oferta laboral</Text>
-          ) : (
-            Array.isArray(postulations) && postulations.map((postulation) => (
-              <div key={postulation.id}>
-                <h3>{postulation.studentName}</h3>
-                <p>{postulation.position}</p>
-                <p>{postulation.status}</p>
-              </div>
-            ))
-          )}
+          {loading ? (
+            <Text>Loading...</Text>
+          ) :
+            postulations.length === 0 ? (
+              <Text>No tenes personas postuladas a tus ofertas</Text>
+            ) : (
+              <Accordion allowMultiple textAlign="center">
+                {postulations.map(({ jobOffer, students }) => (
+                  <AccordionItem key={jobOffer.idJoboffer}>
+                    <AccordionButton>
+                      <Box flex="1" textAlign="left">
+                        {jobOffer.title}
+                      </Box>
+                      <AccordionIcon />
+                    </AccordionButton>
+                    <AccordionPanel pb={4}>
+                      <Text>
+                        <strong>Descripción:</strong> {jobOffer.description}
+                      </Text>
+                      <Text>
+                        <strong>Postulaciones:</strong>
+                      </Text>
+                      {students.map((student) => (
+                        <Box key={student.id} ml={4}>
+                          <Text>
+                            <strong>Nombre:</strong> {student.name} {student.lastName}
+                          </Text>
+                          <Text>
+                            <strong>Email:</strong> {student.email}
+                          </Text>
+                        </Box>
+                      ))}
+                    </AccordionPanel>
+                  </AccordionItem>
+                ))}
+              </Accordion>
+            )}
         </div>
       </Box>
     </>

@@ -80,7 +80,7 @@ const StudentJobOpportunities = () => {
     <>
       <NavbarUser />
 
-      <Box mt="6rem" p={10} className={`${isDarkMode ? 'dark' : 'light'}`}>
+      <Box mt={{ base: "1rem", lg: "6rem" }} p={10} className={`${isDarkMode ? 'dark' : 'light'}`}>
         <Heading as="h1" overflow="hidden" size="xl" mb={4} textAlign="center">Ofertas Laborales</Heading>
 
         <Accordion allowMultiple>

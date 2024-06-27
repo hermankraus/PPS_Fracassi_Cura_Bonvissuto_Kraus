@@ -14,15 +14,6 @@
   box-shadow: 4px 2px 2px 1px white;
 }
 
-.navbar>* {
-  white-space: nowrap;
-  margin-left: 1rem;
-}
-
-.navbar> :first-child {
-  margin-left: 2rem;
-}
-
-.navbar> :last-child {
-  margin-right: 2rem;
+.dark .image {
+  filter: drop-shadow(1px 1px 0px rgb(255, 255, 255));
 }

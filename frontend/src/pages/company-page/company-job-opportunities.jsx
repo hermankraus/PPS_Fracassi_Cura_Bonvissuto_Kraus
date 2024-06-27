@@ -1,4 +1,4 @@
-import { useState, useContext} from "react";
+import { useState, useContext } from "react";
 import {
   Box,
   Button,
@@ -86,7 +86,7 @@ const CompanyJobOpportunities = () => {
           borderRadius="lg"
           maxWidth="600px"
           mx="auto"
-          mt="12rem"
+          mt={{ base: "2rem", lg: "8rem" }}
         >
           <Formik
             initialValues={{
