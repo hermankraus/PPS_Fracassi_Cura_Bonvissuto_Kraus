@@ -2,6 +2,8 @@ import React, { useContext, useState } from 'react';
 import { HStack, Image, Text, Link, Box, VStack } from '@chakra-ui/react';
 import { useNavigate } from 'react-router-dom';
 import images from '../../assets/constants/images';
+import { RxDropdownMenu } from "react-icons/rx";
+import { FaWindowClose } from "react-icons/fa";
 import './navbar.css';
 import { useLogout } from '../../hooks/logout-handler';
 import { ThemeContext } from '../../components/context/theme-context/theme-context';
@@ -44,7 +46,7 @@ export const NavbarAdmin = () => {
 export const NavbarUser = () => {
   const navigate = useNavigate();
   const { confirmLogout, LogoutDialog } = useLogout();
-
+  const { isDarkMode } = useContext(ThemeContext);
   const [isMenuVisible, setIsMenuVisible] = useState(false);
 
   const handleEmojiNavbarClick = () => {
@@ -54,7 +56,7 @@ export const NavbarUser = () => {
   return (
     <>
       <HStack
-        className={`navbar`}
+        className={`navbar ${isDarkMode ? 'dark' : 'light'}`}
         p={2}
         overflowX="auto"
         minW="full"
@@ -62,10 +64,13 @@ export const NavbarUser = () => {
       >
         <Image
           src={images.logo}
+          className='image'
           alt="Logo"
           w="14rem"
           h="4.5rem"
+          mr="12rem"
           p={0}
+
           cursor="pointer"
           onClick={() => {
             navigate('/student/my-profile');
@@ -96,17 +101,17 @@ export const NavbarUser = () => {
       </HStack>
 
       <HStack hideFrom="1200px" justifyContent="center" alignContent="center" mt="2rem" p="0.5rem" boxShadow="md">
-        <Image
-          src={images.emojiNavbar}
+        <RxDropdownMenu
           alt="Emoji Navbar"
-          w="3rem"
-          h="3rem"
+          size="4rem"
           onClick={handleEmojiNavbarClick}
           cursor="pointer"
           ml="5rem"
+          className='emoji'
         />
         <Image
           src={images.logo}
+          className='image'
           alt="Logo"
           w="14rem"
           h="4.5rem"
@@ -119,21 +124,19 @@ export const NavbarUser = () => {
           left="0"
           right="0"
           zIndex="99"
-          bg="white"
           boxShadow="md"
           p={4}
           display={{ base: 'flex', lg: 'none' }}
+          className={`navbar ${isDarkMode ? 'dark' : 'light'}`}
         >
-          <Image
-            src={images.emojiNavbar}
-            alt="Emoji Navbar"
-            w="3rem"
-            h="3rem"
+          <FaWindowClose
+            size="2rem"
             onClick={handleEmojiNavbarClick}
             cursor="pointer"
           />
           <Image
             src={images.logo}
+            className='image'
             alt="Logo"
             w="14rem"
             h="4.5rem"
@@ -191,6 +194,7 @@ export const NavbarCompany = () => {
         hideBelow="1020px"
       >
         <Image
+          className='image'
           src={images.logo}
           alt="Logo"
           mr="10rem"
@@ -234,17 +238,18 @@ export const NavbarCompany = () => {
         mt="2rem"
         p="0.5rem"
         boxShadow="xl">
-        <Image
-          src={images.emojiNavbar}
+        <RxDropdownMenu
           alt="Emoji Navbar"
-          w="3rem"
-          h="3rem"
+          size="4rem"
           onClick={handleEmojiNavbarClick}
           cursor="pointer"
           ml="5rem"
+          className='emoji'
         />
+
         <Image
           src={images.logo}
+          className='image'
           alt="Logo"
           w="14rem"
           h="4.5rem"
@@ -257,21 +262,19 @@ export const NavbarCompany = () => {
           left="0"
           right="0"
           zIndex="99"
-          bg="white"
           boxShadow="md"
           p={4}
           display={{ base: 'flex', lg: 'none' }}
+          className={`navbar ${isDarkMode ? 'dark' : 'light'}`}
         >
-          <Image
-            src={images.emojiNavbar}
-            alt="Emoji Navbar"
-            w="3rem"
-            h="3rem"
+          <FaWindowClose
+            size="2rem"
             onClick={handleEmojiNavbarClick}
             cursor="pointer"
           />
           <Image
             src={images.logo}
+            className='image'
             alt="Logo"
             w="14rem"
             h="4.5rem"

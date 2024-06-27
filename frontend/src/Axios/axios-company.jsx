@@ -21,18 +21,22 @@ export const GetCompanyByCuit = async (cuit) => {
   return response.data;
 };
 
-// get jobOffer by cuit 
 
-// SEGUNDO ENDPOINT
-export const GetPostulationsStudentToCompany = async (idJobOffer) => {
-  const response = await api.get('/Company/postulations', {
+////
+export const GetPostulationsByCuit = async (cuit) => {
+  const response = await api.get(`/Company/postulationsbycuit`, {
     params: {
-      idJobOffer: idJobOffer.toString(),
-
-    }
+      cuit: cuit.toString(),
+    },
   });
-  return response.data
+  return response.data;
 }
+
+export const GetPostulationsStudentToCompany = async (idJobOffer) => {
+  const response = await api.get(`/Company/postulatedstudents/${idJobOffer}`);
+  return response.data;
+}
+
 
 export const myPostulationsByLegajo = (legajo) => {
   return api.get(`/Student/joboffers/${legajo}`)

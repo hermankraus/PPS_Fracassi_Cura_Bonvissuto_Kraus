@@ -5,9 +5,7 @@ import Cookies from "js-cookie";
 const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
-  //const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
- // const [isLoggedIn, setIsLoggedIn] = useState(!!Cookies.get("token"));
+  const [isLoggedIn, setIsLoggedIn] = useState(!!Cookies.get("token"));
 
   useEffect(() => {
     const token = Cookies.get("token");

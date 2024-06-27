@@ -88,7 +88,7 @@ export const CompanyProfile = () => {
       <NavbarCompany />
       <VStack spacing={0}>
         <Container
-          mt={{ base: "12rem", lg: "8rem" }}
+          mt={{ base: "2rem", lg: "8rem" }}
           textAlign="center"
           justifyContent="center"
           minW={{ base: "10rem", lg: "63rem" }} className={`${isDarkMode ? "dark" : "light"}`}
