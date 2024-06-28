@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
-using WorkRepAPI.Context;
+﻿using WorkRepAPI.Context;
 using WorkRepAPI.Data.Interfaces;
 using WorkRepAPI.Entities;
 using WorkRepAPI.Services.Interfaces;

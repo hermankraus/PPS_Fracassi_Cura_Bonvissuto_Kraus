@@ -24,7 +24,7 @@
             {
                 To = _email,
                 Subject = "Estado cambiado",
-                Body = "El estado ha cambiado."
+                Body = $"<strong>{message}</strong>"
             };
             _emailService.SendEmailAsync(emailRequest);
         }

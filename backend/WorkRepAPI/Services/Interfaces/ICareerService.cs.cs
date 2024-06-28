@@ -1,7 +1,4 @@
-﻿using WorkRepAPI.Entities;
-using System.Collections.Generic;
-using WorkRepAPI.Enums;
-using WorkRepAPI.Models.CareerDTOs;
+﻿using WorkRepAPI.Models.CareerDTOs;
 
 namespace WorkRepAPI.Services.Interfaces
 {

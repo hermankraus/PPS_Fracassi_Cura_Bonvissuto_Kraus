@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using System;
 using WorkRepAPI.Models.JobOfferDTOs;
 using WorkRepAPI.Services.Interfaces;
 

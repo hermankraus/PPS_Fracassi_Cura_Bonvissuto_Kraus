@@ -56,7 +56,7 @@ namespace WorkRepAPI.Controllers
         }
 
         [HttpPost("apply")]
-       [Authorize(Roles = "Student")]
+        [Authorize(Roles = "Student")]
         public async Task<IActionResult> Apply([FromBody] StudentApplicationDTO studentApplication)
         {
             try
@@ -87,6 +87,7 @@ namespace WorkRepAPI.Controllers
         }
 
         [HttpGet("joboffers/{legajo}")]
+        [Authorize(Roles = "Student")]
         public async Task<IActionResult> GetJobOffersByLegajo(int legajo)
         {
             var jobOffers = await _studentService.GetJobOffersByLegajoAsync(legajo);
@@ -98,7 +99,7 @@ namespace WorkRepAPI.Controllers
         }
 
         [HttpPut("completeprofile")]
-
+        [Authorize(Roles = "Student")]
         public ActionResult CompleteProfile(CompleteProfileDTO student){
 
             try{

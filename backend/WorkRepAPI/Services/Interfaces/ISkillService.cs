@@ -1,6 +1,4 @@
-﻿
-
-using WorkRepAPI.Models.SkillDTOs;
+﻿using WorkRepAPI.Models.SkillDTOs;
 
 namespace WorkRepAPI.Services.Interfaces
 {

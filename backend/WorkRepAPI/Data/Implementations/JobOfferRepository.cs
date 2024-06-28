@@ -1,8 +1,6 @@
 ﻿using WorkRepAPI.Context;
 using WorkRepAPI.Data.Interfaces;
 using WorkRepAPI.Entities;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace WorkRepAPI.Data.Implementations
 {

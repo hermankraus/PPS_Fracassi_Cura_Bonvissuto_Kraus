@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using WorkRepAPI.Enums;
+﻿using WorkRepAPI.Enums;
 
 namespace WorkRepAPI.Entities
 {

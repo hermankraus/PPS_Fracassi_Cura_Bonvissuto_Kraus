@@ -1,7 +1,5 @@
-﻿using System.Security.Cryptography.X509Certificates;
-using WorkRepAPI.Data.Interfaces;
+﻿using WorkRepAPI.Data.Interfaces;
 using WorkRepAPI.Entities;
-using WorkRepAPI.Models.CompanyDTOs;
 using WorkRepAPI.Models.CompanyDTOs;
 using WorkRepAPI.Services.Interfaces;
 
