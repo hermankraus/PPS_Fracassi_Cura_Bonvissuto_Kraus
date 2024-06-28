@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { HStack, Image, Text, Link, Box, VStack } from '@chakra-ui/react';
+import { HStack, Image, Link, VStack } from '@chakra-ui/react';
 import { useNavigate } from 'react-router-dom';
 import images from '../../assets/constants/images';
 import { RxDropdownMenu } from "react-icons/rx";
@@ -7,6 +7,7 @@ import { FaWindowClose } from "react-icons/fa";
 import './navbar.css';
 import { useLogout } from '../../hooks/logout-handler';
 import { ThemeContext } from '../../components/context/theme-context/theme-context';
+import AnimatedButton from '../../shared/button';
 
 export const NavbarAdmin = () => {
   const navigate = useNavigate();
@@ -33,9 +34,14 @@ export const NavbarAdmin = () => {
         <Link onClick={() => navigate('/admin/career')} ml="2rem">
           Añadir carreras universitarias
         </Link>
-        <Box ml="auto" onClick={confirmLogout} cursor="pointer">
-          <Text>Cerrar Sesión</Text>
-        </Box>
+        <AnimatedButton
+          color="black"
+          minW="10rem"
+          minH="1rem"
+          onClick={confirmLogout}
+          cursor="pointer">
+          Cerrar Sesión
+        </AnimatedButton>
       </HStack>
       <LogoutDialog />
     </>
@@ -95,9 +101,15 @@ export const NavbarUser = () => {
         }} ml="2rem">
           Mi Perfil
         </Link>
-        <Box ml="auto" onClick={confirmLogout} cursor="pointer">
-          <Text>Cerrar Sesión</Text>
-        </Box>
+        <AnimatedButton
+          color="black"
+          minW="10rem"
+          minH="1rem"
+          ml="9rem"
+          onClick={confirmLogout}
+          cursor="pointer">
+          Cerrar Sesión
+        </AnimatedButton>
       </HStack>
 
       <HStack hideFrom="1200px" justifyContent="center" alignContent="center" mt="2rem" p="0.5rem" boxShadow="md">
@@ -165,7 +177,14 @@ export const NavbarUser = () => {
           }} >
             Mi Perfil
           </Link>
-          <Text onClick={confirmLogout} cursor="pointer">Cerrar Sesión</Text>
+          <AnimatedButton
+            color="black"
+            minW="10rem"
+            minH="1rem"
+            onClick={confirmLogout}
+            cursor="pointer">
+            Cerrar Sesión
+          </AnimatedButton>
         </VStack>
       )}
       <LogoutDialog />
@@ -210,10 +229,10 @@ export const NavbarCompany = () => {
         <Link onClick={() => {
           navigate('/company/oportunities');
           setIsMenuVisible(false);
-        }} ml="2rem">
+        }}>
           Oportunidades Laborales
         </Link>
-        <Link onClick={() => {
+        <Link ml="1rem" onClick={() => {
           navigate("/company/postulations"
           );
           setIsMenuVisible(false);
@@ -226,9 +245,15 @@ export const NavbarCompany = () => {
         }} ml="2rem">
           Mi Perfil
         </Link>
-        <Box ml="auto" onClick={confirmLogout} cursor="pointer">
-          <Text>Cerrar Sesión</Text>
-        </Box>
+        <AnimatedButton
+          color="black"
+          minW="10rem"
+          minH="1rem"
+          ml="9rem"
+          onClick={confirmLogout}
+          cursor="pointer">
+          Cerrar Sesión
+        </AnimatedButton>
       </HStack>
 
       <HStack
@@ -304,7 +329,14 @@ export const NavbarCompany = () => {
           }} >
             Mi Perfil
           </Link>
-          <Text onClick={confirmLogout} cursor="pointer">Cerrar Sesión</Text>
+          <AnimatedButton
+            color="black"
+            minW="10rem"
+            minH="1rem"
+            onClick={confirmLogout}
+            cursor="pointer">
+            Cerrar Sesión
+          </AnimatedButton>
         </VStack>
       )}
       <LogoutDialog />

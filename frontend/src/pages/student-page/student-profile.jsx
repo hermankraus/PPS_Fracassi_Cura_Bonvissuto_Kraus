@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import {
   Container,
   Heading,
-  Button,
   VStack,
   Flex,
   FormControl,
@@ -21,6 +20,7 @@ import Cookies from "js-cookie";
 import { getStudentByLegajo, completeprofile } from "../../Axios/axios-student";
 import useToaster from "../../hooks/useToaster";
 import { ThemeContext } from "../../components/context/theme-context/theme-context";
+import AnimatedButton from "../../shared/button";
 
 export const StudentProfile = () => {
   const { isDarkMode } = useContext(ThemeContext);
@@ -479,12 +479,13 @@ export const StudentProfile = () => {
                     </FormControl>
                   </Flex>
                   <Flex justifyContent="center" mt={6}>
-                    <Button
+                    <AnimatedButton
                       type="submit"
                       bg="#265171"
                       color="white"
-                      minW="8rem"
-                      minH="2rem"
+                      mt="0.5rem"
+                      minW="10rem"
+                      minH="3rem"
                       borderRadius={6}
                       fontSize={16}
                       ml="1rem"
@@ -495,7 +496,7 @@ export const StudentProfile = () => {
                       isLoading={isSubmitting}
                     >
                       Cargar mis datos
-                    </Button>
+                    </AnimatedButton>
                   </Flex>
                 </Box>
               </Form>

@@ -1,6 +1,5 @@
 import {
   Box,
-  Button,
   Container,
   FormControl,
   FormLabel,
@@ -10,7 +9,6 @@ import {
   Stack,
 } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
-import "./login-company.css";
 import { ThemeContext } from "../../context/theme-context/theme-context";
 import { useContext } from "react";
 import { Formik, ErrorMessage, Field, Form } from "formik";
@@ -18,6 +16,7 @@ import * as Yup from "yup";
 import LoginApi from "../../../Axios/login-service";
 import Cookies from "js-cookie";
 import useToaster from "../../../hooks/useToaster";
+import AnimatedButton from "../../../shared/button";
 
 const LoginCompany = () => {
   const navigate = useNavigate();
@@ -39,7 +38,7 @@ const LoginCompany = () => {
       const State = response.data.state;
       const cuit = response.data.cuit;
 
-      Cookies.set("token", token, { expires: 100});
+      Cookies.set("token", token, { expires: 100 });
       Cookies.set("cuit", cuit);
 
       if (Role === "Company" && State === "Pending") {
@@ -130,28 +129,30 @@ const LoginCompany = () => {
                 direction={{ base: "column", lg: "row" }}
                 alignItems="center"
               >
-                <Button
+                <AnimatedButton
                   type="submit"
                   bg="#265171"
                   color="white"
-                  maxW="8rem"
-                  minH="2rem"
+                  minW="8rem"
+                  minH="2.5rem"
                   borderRadius={6}
                   fontSize={16}
                   ml="1rem"
                   mb="1rem"
+                  mt="0.5rem"
                   cursor="pointer"
                   className="login"
                 >
                   Iniciar sesión
-                </Button>
-                <Button
+                </AnimatedButton>
+                <AnimatedButton
                   fontSize={16}
                   minW="8rem"
-                  minH="2rem"
+                  minH="2.5rem"
                   borderRadius={6}
                   bg="#265171"
                   color="white"
+                  mt="0.5rem"
                   onClick={() => navigate("/register")}
                   mr={{ base: "-1rem", lg: "1rem" }}
                   mb="1rem"
@@ -160,7 +161,7 @@ const LoginCompany = () => {
                   display={{ base: "row" }}
                 >
                   Registrate
-                </Button>
+                </AnimatedButton>
               </Stack>
             </Form>
           </Formik>

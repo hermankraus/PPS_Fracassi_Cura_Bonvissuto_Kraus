@@ -1,10 +1,10 @@
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { HStack, Button, Image, VStack, Box, Text } from "@chakra-ui/react";
+import { HStack, Image, VStack, Box, Text } from "@chakra-ui/react";
 import { ThemeContext } from "../../components/context/theme-context/theme-context";
 import images from "../../assets/constants/images";
 import "./home-page.css";
-
+import AnimatedButton from "../../shared/button";
 
 export const HomePage = () => {
   const { isDarkMode } = useContext(ThemeContext);
@@ -95,18 +95,18 @@ export const HomePage = () => {
                 <a onClick={handlerRegister}>registrarte aquí.</a>
               </Text>
 
-              <Button
+              <AnimatedButton
                 mt={30}
-                onClick={handlerLogin}
                 w={140}
                 h={10}
                 borderRadius={50}
                 cursor="pointer"
                 bg="white"
                 color="#265171"
+                onClick={handlerLogin}
               >
                 Iniciar sesión
-              </Button>
+              </AnimatedButton>
             </Box>
           </VStack>
         </HStack>
