@@ -1,7 +1,6 @@
 import { useEffect, useState, useContext } from "react";
 import {
   Box,
-  Button,
   Heading,
   Text,
   Accordion,

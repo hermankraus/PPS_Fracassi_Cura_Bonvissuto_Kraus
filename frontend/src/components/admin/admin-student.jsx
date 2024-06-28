@@ -18,6 +18,7 @@ import {
   Text
 } from '@chakra-ui/react';
 import { NavbarAdmin } from "../navbar/navbar";
+import AnimatedButton from "../../shared/button";
 
 const stateMap = {
   0: 'En proceso',
@@ -97,7 +98,17 @@ const AdminStudent = () => {
               onChange={(e) => setSearchTerm(e.target.value)}
               type="number"
             />
-            <Button color="black" onClick={searchStudentHandler}>Buscar</Button>
+            <AnimatedButton
+              bg="#265171"
+              color="white"
+              minW="5rem"
+              minH="2.5rem"
+              ml="1rem"
+              borderRadius={12}
+              onClick={searchStudentHandler}
+            >
+              Buscar
+            </AnimatedButton>
             {searched && <Button color="black" onClick={reloadPage}>Recargar</Button>}
           </HStack>
         </div>

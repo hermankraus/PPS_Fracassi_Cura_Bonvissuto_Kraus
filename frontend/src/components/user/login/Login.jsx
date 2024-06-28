@@ -84,7 +84,7 @@ export default function Login() {
               {isCompany ? <LoginCompany /> : <LoginStudent />}
             </Box>
           </HStack>
-          
+
         </Box>
       </Flex>
     </>

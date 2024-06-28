@@ -1,7 +1,6 @@
 import { useContext, useState } from "react";
 import {
   Box,
-  Button,
   Container,
   FormControl,
   FormLabel,
@@ -18,8 +17,7 @@ import useToaster from "../../../hooks/useToaster";
 import { ThemeContext } from "../../context/theme-context/theme-context";
 import Cookies from "js-cookie";
 import "../../context/theme-context/theme-context.css"
-
-import "./login-student.css";
+import AnimatedButton from "../../../shared/button";
 
 const LoginStudent = () => {
   const navigate = useNavigate();
@@ -137,37 +135,40 @@ const LoginStudent = () => {
                   direction={{ base: "column", lg: "row" }}
                   alignItems="center"
                 >
-                  <Button
+                  <AnimatedButton
                     type="submit"
                     bg="#265171"
                     color="white"
-                    maxW="8rem"
-                    minH="2rem"
+                    minW="8rem"
+                    minH="2.5rem"
                     borderRadius={6}
                     fontSize={16}
+                    mt="0.5rem"
                     ml="1rem"
                     mb="1rem"
                     cursor="pointer"
                     className="login"
                   >
                     Iniciar sesión
-                  </Button>
-                  <Button
+                  </AnimatedButton>
+                  <AnimatedButton
                     fontSize={16}
                     minW="8rem"
-                    minH="2rem"
+                    minH="2.5rem"
                     borderRadius={6}
                     bg="#265171"
                     color="white"
                     onClick={() => navigate("/register")}
                     mr={{ base: "-1rem", lg: "1rem" }}
                     mb="1rem"
+                    mt="0.5rem"
+
                     cursor="pointer"
                     className="login"
                     display={{ base: "row" }}
                   >
                     Registrate
-                  </Button>
+                  </AnimatedButton>
                 </Stack>
               </Form>
             </Formik>

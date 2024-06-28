@@ -18,6 +18,7 @@ import { ThemeContext } from "../../components/context/theme-context/theme-conte
 import { GetCompanyByCuit, completeprofile } from "../../Axios/axios-company";
 import useToaster from "../../hooks/useToaster";
 import Cookies from "js-cookie";
+import AnimatedButton from "../../shared/button";
 
 export const CompanyProfile = () => {
   const { isDarkMode } = useContext(ThemeContext);
@@ -179,12 +180,13 @@ export const CompanyProfile = () => {
                     justifyContent="center"
                     alignItems="center"
                   >
-                    <Button
+                    <AnimatedButton
                       type="submit"
                       bg="#265171"
                       color="white"
-                      minW="8rem"
-                      minH="2rem"
+                      mt="0.5rem"
+                      minW="10rem"
+                      minH="3rem"
                       borderRadius={6}
                       fontSize={16}
                       ml="1rem"
@@ -195,7 +197,7 @@ export const CompanyProfile = () => {
                       isLoading={isSubmitting}
                     >
                       Cargar mis datos
-                    </Button>
+                    </AnimatedButton>
                   </Flex>
                 </Box>
               </Form>

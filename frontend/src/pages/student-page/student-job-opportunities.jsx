@@ -1,7 +1,6 @@
 import { useEffect, useState, useContext } from "react";
 import {
   Box,
-  Button,
   Heading,
   Text,
   Accordion,
@@ -15,6 +14,7 @@ import { ThemeContext } from "../../components/context/theme-context/theme-conte
 import { getAllJobOffer, studentApplyToJobOffer } from "../../Axios/axios-student";
 import useToaster from "../../hooks/useToaster";
 import Cookies from "js-cookie";
+import AnimatedButton from "../../shared/button";
 
 const contractTypeMap = {
   0: "Contrato Temporal",
@@ -134,9 +134,19 @@ const StudentJobOpportunities = () => {
                     <strong>Duración de la Pasantía:</strong>{" "}
                     {offer.internshipDuration}
                   </Text>
-                  <Button onClick={() => handlePostulate(offer.idJobOffer)}>
+                  <AnimatedButton
+                    onClick={() => handlePostulate(offer.idJobOffer)}
+                    mt="0.5rem"
+                    minW="6rem"
+                    minH="2rem"
+                    color="white"
+                    bg="#265171"
+                    cursor="pointer"
+                    borderRadius={6}
+                    fontSize={16}
+                  >
                     Postularse
-                  </Button>
+                  </AnimatedButton>
                 </AccordionPanel>
               </AccordionItem>
             ))
