@@ -12,8 +12,12 @@ Aplicando las distintas herramientas que aprendimos durante el recorrido de la c
 Durante el desarrollo, utilizamos la metodología __Scrum__, con _Springs_ de 15 días, el proyecto llego al nivel de produccion a finales del 8vo _Spring_.
 
 ### Tecnologías
-- [Javascript],[ReactJs] Fueron el lenguaje y la libreria principal para el desarrollo en frontend 
+- [Javascript],[ReactJs] Fueron el lenguaje y la libreria principal para el desarrollo en frontend.
+  Para complementar el diseño UI de la pagina, se agregaron las librerias [Chakra] y [Framer Motions].
 - [C#], [.NET], [Mysql] Fueron las 3 tecnologias principales que usamos en el back y la Bdd.
+  Con el transcurso del desarrollo se agregaron dependencias, como [JWT],para el manejo de sesiones y roles de usuario.
+  [MailKit], para enviar mails, a traves de programación reactiva entre otras dependencias mas tipicas y necesarias
+  para conectarnos con la bdd [MySql]
 
 
 ### Instalación
