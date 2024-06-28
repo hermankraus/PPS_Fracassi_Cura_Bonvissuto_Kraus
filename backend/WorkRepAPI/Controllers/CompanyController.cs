@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using WorkRepAPI.Models.CompanyDTOs;
 using WorkRepAPI.Services.Interfaces;
@@ -7,6 +8,7 @@ namespace WorkRepAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class CompanyController : Controller
     {
         private readonly ICompanyService _companyService;
@@ -19,7 +21,7 @@ namespace WorkRepAPI.Controllers
         }
 
         [HttpGet("companies")]
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         public ActionResult<ICollection<ReadAllCompaniesDTO>> GetCompanies()
         {
             try
@@ -34,7 +36,7 @@ namespace WorkRepAPI.Controllers
         }
 
         [HttpPut("updstate")]
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         public ActionResult SetCompanyState(UpdCompanyDTO company)
         {
             try
@@ -49,7 +51,7 @@ namespace WorkRepAPI.Controllers
         }
 
         [HttpPut("completeprofile")]
-
+        [Authorize(Roles = "Company")]
         public ActionResult CompleteProfile(CompleteCompanyProfileDTO company)
         {
 
@@ -83,6 +85,7 @@ namespace WorkRepAPI.Controllers
         }
 
         [HttpGet("postulationsbycuit")]
+        [Authorize(Roles = "Company")]
         public ActionResult GetPostulationsbyCuit(string cuit)
         {
             var offers = _companyService.getPostulationsbyCompany(cuit);
@@ -90,6 +93,7 @@ namespace WorkRepAPI.Controllers
             return Ok(offers);
         }
         [HttpGet("postulatedstudents/{idJobOffer}")]
+        [Authorize(Roles = "Company")]
         public async Task<IActionResult>GetPostulatedStudents(int idJobOffer)
         {
             var students = await _companyService.getPostulatedStudents(idJobOffer);

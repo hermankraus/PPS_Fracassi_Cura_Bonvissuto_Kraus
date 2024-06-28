@@ -1,5 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-using WorkRepAPI.Enums;
+﻿using WorkRepAPI.Enums;
 
 namespace WorkRepAPI.Models.CompanyDTOs
 {

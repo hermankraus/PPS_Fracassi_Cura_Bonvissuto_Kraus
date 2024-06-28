@@ -1,7 +1,5 @@
-﻿
-using WorkRepAPI.Entities;
+﻿using WorkRepAPI.Entities;
 using WorkRepAPI.Data.Interfaces;
-using System.Linq;
 using WorkRepAPI.Context;
 
 namespace WorkRepAPI.Data.Implementations

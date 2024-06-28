@@ -1,5 +1,4 @@
 ﻿using WorkRepAPI.Models.JobOfferDTOs;
-using System.Collections.Generic;
 
 namespace WorkRepAPI.Services.Interfaces
 {

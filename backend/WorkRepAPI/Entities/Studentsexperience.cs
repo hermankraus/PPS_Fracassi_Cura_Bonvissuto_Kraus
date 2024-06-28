@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace WorkRepAPI.Entities
+﻿namespace WorkRepAPI.Entities
 {
     public partial class Studentsexperience
     {

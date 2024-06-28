@@ -1,5 +1,4 @@
 ﻿using WorkRepAPI.Entities;
-using System.Collections.Generic;
 
 namespace WorkRepAPI.Data.Interfaces
 {

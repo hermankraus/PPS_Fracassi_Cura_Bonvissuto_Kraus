@@ -9,7 +9,7 @@ namespace WorkRepAPI.Models.CareerDTOs
         [Required]
         public int IdCareers { get; set; }
         
-        [JsonConverter(typeof(JsonStringEnumConverter))] //Hace string el enum
+        [JsonConverter(typeof(JsonStringEnumConverter))]
         public State State { get; set; } = State.Rejected;
     }
 }

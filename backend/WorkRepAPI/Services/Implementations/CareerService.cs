@@ -1,8 +1,6 @@
 ﻿using WorkRepAPI.Entities;
 using WorkRepAPI.Data.Interfaces;
 using WorkRepAPI.Services.Interfaces;
-
-using WorkRepAPI.Models.CompanyDTOs;
 using WorkRepAPI.Models.CareerDTOs;
 
 namespace WorkRepAPI.Services.Implementations
@@ -26,7 +24,7 @@ namespace WorkRepAPI.Services.Implementations
                 NameCareers = career.NameCareers,
                 InstitutionCareers = career.InstitutionCareers,
                 Type = career.Type,
-                State =Enums.State.Accepted,
+                State = Enums.State.Accepted,
             };
 
             bool newCareer = _careerRepository.CreateCareer(careerData);

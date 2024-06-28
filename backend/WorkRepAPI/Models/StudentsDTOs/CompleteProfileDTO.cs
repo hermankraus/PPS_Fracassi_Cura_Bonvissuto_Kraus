@@ -1,6 +1,4 @@
-﻿using WorkRepAPI.Enums;
-
-namespace WorkRepAPI;
+﻿namespace WorkRepAPI;
 
 public class CompleteProfileDTO
 {

@@ -2,7 +2,6 @@
 using WorkRepAPI.Services.Interfaces;
 using WorkRepAPI.Models.CareerDTOs;
 using Microsoft.AspNetCore.Authorization;
-using WorkRepAPI.Models.SkillDTOs;
 
 namespace WorkRepAPI.Controllers
 {
@@ -20,7 +19,7 @@ namespace WorkRepAPI.Controllers
         }
 
         [HttpPost("create")]
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
 
         public ActionResult CreateCareer(CareerDTO career)
         {
