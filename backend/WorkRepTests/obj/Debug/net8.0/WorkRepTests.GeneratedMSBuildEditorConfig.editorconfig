@@ -8,6 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = WorkRepTests
-build_property.ProjectDir = C:\Users\PC\Desktop\pps\PPS_Fracassi_Cura_Bonvissuto_Kraus\backend\WorkRepTests\
+build_property.ProjectDir = C:\Users\Usuario\Documents\PPS_Fracassi_Cura_Bonvissuto_Kraus\backend\WorkRepTests\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 

@@ -7,7 +7,7 @@ namespace WorkRepAPI.Models.JobOfferDTOs
     public class JobOfferGetAllDTO
     {
         public int IdJobOffer { get; set; }
-        public string Title { get; set; } = null!;
+        
         public ContractType ContractType { get; set; }
         public EmploymentType EmploymentType { get; set; }
         public WorkLocation WorkLocation { get; set; }
@@ -24,5 +24,6 @@ namespace WorkRepAPI.Models.JobOfferDTOs
         public int? MinSubjects { get; set; }
         public DateTime? EstimatedDate { get; set; }
         public string? InternshipDuration { get; set; }
+        public string Title { get; set; } = null!;
     }
 }

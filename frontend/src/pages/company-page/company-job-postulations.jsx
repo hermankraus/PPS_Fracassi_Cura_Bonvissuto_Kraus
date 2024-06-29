@@ -9,8 +9,8 @@ const JobPostulationsCompany = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  // const cuit = Cookies.get("cuit");
-  const cuit = "30653813402";
+  const cuit = Cookies.get("cuit");
+ 
 
   useEffect(() => {
     const fetchPostulations = async () => {
@@ -63,7 +63,7 @@ const JobPostulationsCompany = () => {
               <Accordion allowMultiple textAlign="center">
                 {postulations.map(({ jobOffer, students }) => (
                   <AccordionItem key={jobOffer.idJoboffer}>
-                    <AccordionButton>
+                   <AccordionButton>
                       <Box flex="1" textAlign="left">
                         {jobOffer.title}
                       </Box>

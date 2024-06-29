@@ -233,8 +233,7 @@ export const NavbarCompany = () => {
           Oportunidades Laborales
         </Link>
         <Link ml="1rem" onClick={() => {
-          navigate("/company/postulations"
-          );
+          navigate("/company/postulations");
           setIsMenuVisible(false);
         }} >
           Postulaciones

@@ -97,8 +97,8 @@ const StudentJobOpportunities = () => {
                 </AccordionButton>
                 <AccordionPanel pb={4}>
                   <Text>
-                    <strong>ID:</strong>
-                    {[offer.idJobOffer]}
+                    <strong>Titulo:</strong>
+                    {[offer.title]}
                   </Text>
                   <Text>
                     <strong>Tipo de Contrato:</strong>{" "}

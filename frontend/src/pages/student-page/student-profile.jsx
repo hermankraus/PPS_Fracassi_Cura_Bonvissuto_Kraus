@@ -47,7 +47,6 @@ export const StudentProfile = () => {
 
   const validationSchema = Yup.object().shape({
     phoneNumber: Yup.string()
-      .required("El número de telefono es requerido")
       .matches(/^\d+$/, "El número de teléfono solo puede contener números"),
     cellPhoneNumber: Yup.string()
       .matches(/^\d+$/, "El número de celular solo puede contener números")
@@ -57,9 +56,11 @@ export const StudentProfile = () => {
       .matches(/^\d+$/, "El número de domicilio solo puede contener números")
       .required("El número de domicilio es requerido"),
     floor: Yup.string()
-      .required("El número de piso es requerido")
-      .matches(/^\d+$/, "El piso debe ser un número"),
-    flat: Yup.string().required("El departamento es requerido"),
+    .matches(/^\d+$/, "El piso solo puede contener números")
+      .required("El piso es requerido"),
+    flat: Yup.string()
+    .matches(/^\d+$/, "El departamento solo puede contener números")
+    .required("El departamento es requerido"),
     country: Yup.string().required("El país es requerido"),
     province: Yup.string().required("La provincia es requerida"),
     city: Yup.string().required("La ciudad es requerida"),
@@ -95,14 +96,13 @@ export const StudentProfile = () => {
     biography: Yup.string().required("La biografía es requerida"),
     secondaryTitle: Yup.string().required("El título secundario es requerido"),
     githubUrl: Yup.string()
-      .url("URL de Github inválida")
-      .required("URL de Github requerida"),
+      .url("URL de Github inválida"),
     linkedUrl: Yup.string()
       .url("URL de LinkedIn inválida")
-      .required("URL de LinkedIn requerida"),
   });
 
   const legajo = Cookies.get("legajo");
+  const Role = Cookies.get("role");
   useEffect(() => {
     const fetchStudentData = async () => {
       if (legajo) {
@@ -111,6 +111,7 @@ export const StudentProfile = () => {
           const student = response.data;
 
           setStudentData(student);
+          console.log(studentData);
         } catch (error) {
           console.error("Error al obtener los datos del estudiante:", error);
         }
@@ -118,6 +119,7 @@ export const StudentProfile = () => {
     };
     fetchStudentData();
   }, [legajo]);
+  console.log(studentData.name);
 
   const studentProfileFormHandler = async (values, { setSubmitting }) => {
     const userData = {
@@ -160,7 +162,7 @@ export const StudentProfile = () => {
       setSubmitting(false);
     }
   };
-
+  
   const formWidth = useBreakpointValue({ base: "100%", md: "80%" });
   return (
     <>
@@ -172,13 +174,13 @@ export const StudentProfile = () => {
           </Heading>
           <Formik
             initialValues={{
-              phoneNumber: "",
+              phoneNumber: "0",
               cellPhoneNumber: "",
               address: "",
               addressNumber: "",
-              floor: "",
-              flat: "",
-              country: "",
+              floor: "0",
+              flat: "0",
+              country: "Argentina",
               province: "",
               city: "",
               dateOfBirth: "",
@@ -194,8 +196,8 @@ export const StudentProfile = () => {
               yearOfEntry: "",
               biography: "",
               secondaryTitle: "",
-              githubUrl: "",
-              linkedUrl: "",
+              githubUrl: "https://github.com/",
+              linkedUrl: "https://linkedin.com/",
             }}
             validationSchema={validationSchema}
             onSubmit={studentProfileFormHandler}

@@ -51,7 +51,7 @@ namespace WorkRepAPI.Controllers
         }
 
         [HttpPut("completeprofile")]
-        [Authorize(Roles = "Company")]
+       // [Authorize(Roles = "Company")]
         public ActionResult CompleteProfile(CompleteCompanyProfileDTO company)
         {
 
@@ -67,6 +67,7 @@ namespace WorkRepAPI.Controllers
         }
 
         [HttpGet("postulations")]
+        [Authorize(Roles = "Company")]
 
         public ActionResult Postulations(string cuit)
         {
@@ -75,6 +76,7 @@ namespace WorkRepAPI.Controllers
         }
 
         [HttpGet("getCompany")]
+        [Authorize(Roles = "Company")]
 
         public ReadAllCompaniesDTO GetCompanyByCuit(string Cuit)
         {

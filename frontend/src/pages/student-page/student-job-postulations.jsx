@@ -74,6 +74,9 @@ const StudentJobPostulations = () => {
                   <AccordionIcon />
                 </AccordionButton>
                 <AccordionPanel pb={4} className={`${isDarkMode ? "accordion-panel" : ""}`}>
+                <Text>
+                    <strong>Titulo:</strong> {offer.title}
+                  </Text>
                   <Text>
                     <strong>Tipo de Contrato:</strong>{" "}
                     {contractTypeMap[offer.contractType]}

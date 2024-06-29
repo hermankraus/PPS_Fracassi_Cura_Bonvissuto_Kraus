@@ -44,7 +44,7 @@ namespace WorkRepAPI.Controllers
         }
 
         [HttpGet("{legajo}")]
-        [Authorize(Roles = "Admin")]
+  
         public ActionResult GetStudentByLegajo(int legajo)
         {
             var student = _studentService.GetStudentbyLegajo(legajo);
@@ -99,7 +99,8 @@ namespace WorkRepAPI.Controllers
         }
 
         [HttpPut("completeprofile")]
-        [Authorize(Roles = "Student")]
+
+       [Authorize(Roles = "Student")]
         public ActionResult CompleteProfile(CompleteProfileDTO student){
 
             try{

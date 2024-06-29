@@ -15,18 +15,20 @@ import { postJobOffer } from "../../Axios/axios-company";
 import useToaster from "../../hooks/useToaster";
 import { NavbarCompany } from "../../components/navbar/navbar";
 import { ThemeContext } from "../../components/context/theme-context/theme-context";
+import { useNavigate } from 'react-router-dom';
 
 const CompanyJobOpportunities = () => {
   const { isDarkMode } = useContext(ThemeContext);
   const { successToast, errorToast } = useToaster();
   const [isLoading, setIsLoading] = useState(false);
+  const navigate = useNavigate();
 
   const convertToNumber = (value) => {
     const number = Number(value);
     return isNaN(number) ? 0 : number;
   };
 
-  const handleSubmitU = async (values, { resetForm }) => {
+  const handleSubmitU = async (values) => {
     const Values = {
       ContractType: convertToNumber(values.contractType),
       EmploymentType: convertToNumber(values.employmentType),
@@ -39,13 +41,14 @@ const CompanyJobOpportunities = () => {
       MinSubjects: values.minSubjects,
       EstimatedDate: values.estimatedDate,
       InternshipDuration: values.internshipDuration,
+      Title: values.title
     };
     setIsLoading(true);
 
     try {
       const response = await postJobOffer(Values);
       successToast(response.data);
-      resetForm();
+      navigate("/company/postulations")
     } catch (error) {
       errorToast("Error al agregar la oferta laboral");
     }
@@ -56,6 +59,7 @@ const CompanyJobOpportunities = () => {
   today.setHours(0, 0, 0, 0);
 
   const validationSchema = Yup.object({
+    title: Yup.string().required("El titulo es requerido"),
     contractType: Yup.string().required("El tipo de contrato es requerido"),
     employmentType: Yup.string().required("El tipo de empleo es requerido"),
     workLocation: Yup.string().required("La ubicación de trabajo es requerida"),
@@ -65,15 +69,10 @@ const CompanyJobOpportunities = () => {
       .min(today, "La fecha debe ser posterior a la de hoy")
       .required("La fecha límite es requerida"),
     workPlace: Yup.string().required("El lugar de trabajo es requerido"),
-    minSubjects: Yup.string().required(
-      "Las asignaturas mínimas son requeridas"
-    ),
+    minSubjects: Yup.string().required("Las asignaturas mínimas son requeridas"),
     estimatedDate: Yup.date().required("La fecha estimada es requerida")
-      .min(today, "La fecha debe ser posterior a la de hoy")
-    ,
-    internshipDuration: Yup.string().required(
-      "La duración de la pasantía es requerida"
-    ),
+      .min(today, "La fecha debe ser posterior a la de hoy"),
+    internshipDuration: Yup.string().required("La duración de la pasantía es requerida"),
   });
 
   return (
@@ -100,6 +99,7 @@ const CompanyJobOpportunities = () => {
               minSubjects: "",
               estimatedDate: "",
               internshipDuration: "",
+              title: ""
             }}
             validationSchema={validationSchema}
             onSubmit={handleSubmitU}
@@ -107,6 +107,16 @@ const CompanyJobOpportunities = () => {
             {({ handleSubmit }) => (
               <Form onSubmit={handleSubmit}>
                 <VStack spacing={4} align="stretch">
+                  <FormControl>
+                    <FormLabel>Titulo</FormLabel>
+                    <Field as={Input} name="title" className={`custom-input ${isDarkMode ? "custom-select" : ""}`} />
+                    <ErrorMessage
+                      name="title"
+                      component="div"
+                      className="error"
+                    />
+                  </FormControl>
+
                   <FormControl>
                     <FormLabel>Tipo de Contrato</FormLabel>
                     <Field as={Select} name="contractType" className={`custom-input ${isDarkMode ? "custom-select" : ""}`}>

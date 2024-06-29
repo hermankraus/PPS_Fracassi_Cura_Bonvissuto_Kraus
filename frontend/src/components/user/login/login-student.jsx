@@ -41,6 +41,7 @@ const LoginStudent = () => {
       Cookies.set("token", token, { expires: 100 });
       Cookies.set("legajo", legajo);
 
+
       if (Role === "Administrator") {
         setIsAdmin(true);
         navigate("/admin-page");
