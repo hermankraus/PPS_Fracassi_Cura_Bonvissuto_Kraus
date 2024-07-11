@@ -8,6 +8,10 @@ import {
   AccordionButton,
   AccordionPanel,
   AccordionIcon,
+  Button,
+  HStack,
+  
+  Select
 } from "@chakra-ui/react";
 import { NavbarUser } from "../../components/navbar/navbar";
 import { ThemeContext } from "../../components/context/theme-context/theme-context";
@@ -15,6 +19,7 @@ import { getAllJobOffer, studentApplyToJobOffer } from "../../Axios/axios-studen
 import useToaster from "../../hooks/useToaster";
 import Cookies from "js-cookie";
 import AnimatedButton from "../../shared/button";
+
 
 const contractTypeMap = {
   0: "Contrato Temporal",
@@ -32,9 +37,12 @@ const workLocationMap = {
   2: "Híbrido",
 };
 
+
 const StudentJobOpportunities = () => {
   const { isDarkMode } = useContext(ThemeContext);
   const [jobOffers, setJobOffers] = useState([]);
+  const [OriginaljobOffers, setOriginalJobOffers] = useState([]);
+  const [searchTerm, setSearchTerm] = useState('');
   const { successToast, errorToast } = useToaster();
 
 
@@ -45,6 +53,7 @@ const StudentJobOpportunities = () => {
         console.log(response.data);
 
         setJobOffers(response.data);
+        setOriginalJobOffers(response.data)
       } catch (error) {
         console.error("Error fetching job offers:", error);
       }
@@ -75,11 +84,48 @@ const StudentJobOpportunities = () => {
       errorToast('Postulacion no aceptada.');
     }
   };
+  const  searchOfferHandler = () => {
+    const filteredJobOffers = OriginaljobOffers.filter(jobOffers => jobOffers.contractType === parseInt(searchTerm) );
+    if (parseInt(searchTerm) === 2){
+      setJobOffers(OriginaljobOffers)
+    }
+    else
+    {
+    setJobOffers(filteredJobOffers);
+    }
+  };
 
   return (
     <>
       <NavbarUser />
-
+      <div>
+      <HStack p="2rem" mt={20}>
+            <Text fontSize="17px">Tipo de Contrato</Text>
+            <Select
+              
+              maxW="11rem"
+              value={searchTerm}
+              variant="filled"
+              onChange={(e) => setSearchTerm(e.target.value)}
+             
+            > 
+              <option value="2">Todas las ofertas</option>
+              <option value="0">Pasantia</option>
+              <option value="1">Contrato Permanente</option>
+            </Select>
+            <AnimatedButton
+              bg="#265171"
+              color="white"
+              minW="5rem"
+              minH="2.5rem"
+              ml="1rem"
+              borderRadius={12}
+              onClick={searchOfferHandler}
+            >
+              Buscar
+            </AnimatedButton>
+            </HStack>
+          </div>
       <Box mt={{ base: "1rem", lg: "6rem" }} p={10} className={`${isDarkMode ? 'dark' : 'light'}`}>
         <Heading as="h1" overflow="hidden" size="xl" mb={4} textAlign="center">Ofertas Laborales</Heading>
 
