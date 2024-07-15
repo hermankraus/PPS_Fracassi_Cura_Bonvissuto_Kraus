@@ -97,6 +97,7 @@ const LoginCompany = () => {
                     as={Input}
                     variant="filled"
                     name="companyEmail"
+                    autoComplete = "username"
                   />
                   <ErrorMessage
                     name="companyEmail"
@@ -115,6 +116,7 @@ const LoginCompany = () => {
                     type="password"
                     name="companyPassword"
                     mb="1rem"
+                    autoComplete = "current-password"
                   />
                   <ErrorMessage
                     name="companyPassword"

@@ -104,6 +104,8 @@ const LoginStudent = () => {
                       as={Input}
                       variant="filled"
                       name="studentFileNumber"
+                      autoComplete = "username"
+                      
                     />
                     <ErrorMessage
                       name="studentFileNumber"
@@ -122,6 +124,7 @@ const LoginStudent = () => {
                       type="password"
                       name="studentPassword"
                       mb="1rem"
+                      autoComplete = "current-password"
                     />
                     <ErrorMessage
                       name="studentPassword"
