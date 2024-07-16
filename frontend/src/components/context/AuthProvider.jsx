@@ -5,7 +5,8 @@ import Cookies from "js-cookie";
 const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
-  const [isLoggedIn, setIsLoggedIn] = useState(!!Cookies.get("token"));
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  // const [isLoggedIn, setIsLoggedIn] = useState(!!Cookies.get("token"));
 
   useEffect(() => {
     const token = Cookies.get("token");
@@ -15,7 +16,6 @@ const AuthProvider = ({ children }) => {
       setIsLoggedIn(false);
     }
   }, []);
-
   const login = async (Legajo, password) => {
     try {
       const response = await api.post("/Auth/login", {
@@ -23,25 +23,23 @@ const AuthProvider = ({ children }) => {
         password,
       });
       const token = response.data.token;
-      Cookies.set("token", token);
-      setIsLoggedIn(true);
-
+      if (token) {
+        Cookies.set("token", token);
+        setIsLoggedIn(true);
+      }
       return { success: true, data: response.data };
     } catch (error) {
       return { success: false, message: error.message };
     }
   };
-
   const logout = () => {
     Cookies.remove("token");
     setIsLoggedIn(false);
   };
-
   return (
     <AuthContext.Provider value={{ isLoggedIn, login, logout }}>
       {children}
     </AuthContext.Provider>
   );
 };
-
 export { AuthContext, AuthProvider };

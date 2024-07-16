@@ -5,6 +5,8 @@ import { ThemeProvider } from "./components/context/theme-context/theme-context"
 
 import "./index.css";
 
+import { AuthProvider } from "./components/context/AuthProvider.jsx";
+
 ReactDOM.createRoot(document.getElementById("root")).render(
   <ChakraProvider>
     <ThemeProvider>
