@@ -14,8 +14,9 @@ import {
   HStack,
   Input,
   Text,
-  Heading
+  Heading,
 } from '@chakra-ui/react';
+import AnimatedButton from "../../shared/button";
 import { NavbarAdmin } from "../navbar/navbar";
 import { ThemeContext } from '../../components/context/theme-context/theme-context';
 
@@ -30,12 +31,15 @@ const AdminCompany = () => {
   const [companies, setCompanies] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [searched, setSearched] = useState(false);
+  const [reloadAllCompanies, setRealoadAllCompanies] = useState([]);
+
 
   useEffect(() => {
     const fetchCompaniesData = async () => {
       try {
         const companiesData = await CompaniesData();
         setCompanies(companiesData.data);
+        setRealoadAllCompanies(companiesData.data);
       } catch (error) {
         console.error("Error al obtener la información de las empresas:", error);
       }
@@ -78,9 +82,21 @@ const AdminCompany = () => {
     setSearched(true);
   }
 
+  const searchCompanyAproveHandler = () => {
+    const filteredCompanies = companies.filter(company => company.state === 1);
+    setCompanies(filteredCompanies);
+    setSearched(true);
+  };
+
+  const searchCompanyRejectedHandler = () => {
+    const filteredCompanies = companies.filter(companies => companies.state === 2 || companies.state === 0);
+    setCompanies(filteredCompanies);
+    setSearched(true);
+  };
+
   const reloadPage = () => {
-    window.location.reload();
-  }
+    setCompanies(reloadAllCompanies);
+  };
 
   return (
     <div className={isDarkMode ? "dark" : "light"}>
@@ -95,8 +111,50 @@ const AdminCompany = () => {
             onChange={(e) => setSearchTerm(e.target.value)}
             type="number"
           />
-          <Button color="black" onClick={searchCompanyHandler}>Buscar</Button>
-          {searched && <Button color="black" onClick={reloadPage}>Recargar</Button>}
+          <AnimatedButton
+            bg="#265171"
+            color="white"
+            minW="5rem"
+            minH="2.5rem"
+            ml="1rem"
+            borderRadius={12} onClick={searchCompanyHandler}
+          >
+            Buscar
+          </AnimatedButton>
+          <AnimatedButton
+            bg="#265171"
+            color="white"
+            minW="12rem"
+            minH="2.5rem"
+            ml="1rem"
+            borderRadius={12}
+            onClick={searchCompanyAproveHandler}
+          >
+            Companias habilitados
+          </AnimatedButton>
+
+          <AnimatedButton
+            bg="#265171"
+            color="white"
+            minW="14rem"
+            minH="2.5rem"
+            ml="1rem"
+            borderRadius={12}
+            onClick={searchCompanyRejectedHandler}
+          >
+            Companias deshabilitados
+          </AnimatedButton>
+
+          <AnimatedButton
+            bg="#265171"
+            color="white"
+            minW="8rem"
+            minH="2.5rem"
+            ml="1rem"
+            borderRadius={12} onClick={reloadPage}
+          >
+            Recargar
+          </AnimatedButton>
         </HStack>
       </div>
       <TableContainer p="1rem" maxWidth="90rem" overflow-x="auto">

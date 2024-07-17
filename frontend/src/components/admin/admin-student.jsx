@@ -31,12 +31,14 @@ const AdminStudent = () => {
   const [students, setStudents] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [searched, setSearched] = useState(false);
+  const [reloadAllStudents, setRealoadAllStudents] = useState([]);
 
   useEffect(() => {
     const fetchStudentsData = async () => {
       try {
         const studentsData = await StudentsData();
         setStudents(studentsData.data);
+        setRealoadAllStudents(studentsData.data);
       } catch (error) {
         console.error("Error al obtener la información de los estudiantes:", error);
       }
@@ -80,8 +82,22 @@ const AdminStudent = () => {
     setSearched(true);
   };
 
+  const searchStudentAproveHandler = () => {
+    setStudents(reloadAllStudents)
+    const filteredStudents = students.filter(student => student.state === 1);
+    setStudents(filteredStudents);
+    setSearched(true);
+  };
+
+  const searchStudentRejectedHandler = () => {
+    setStudents(reloadAllStudents)
+    const filteredStudents = students.filter(student => student.state === 2 || student.state === 0);
+    setStudents(filteredStudents);
+    setSearched(true);
+  };
+
   const reloadPage = () => {
-    window.location.reload();
+    setStudents(reloadAllStudents);
   };
 
   return (
@@ -109,7 +125,40 @@ const AdminStudent = () => {
             >
               Buscar
             </AnimatedButton>
-            {searched && <Button color="black" onClick={reloadPage}>Recargar</Button>}
+            <AnimatedButton
+              bg="#265171"
+              color="white"
+              minW="12rem"
+              minH="2.5rem"
+              ml="1rem"
+              borderRadius={12}
+              onClick={searchStudentAproveHandler}
+            >
+              Estudiantes habilitados
+            </AnimatedButton>
+
+            <AnimatedButton
+              bg="#265171"
+              color="white"
+              minW="14rem"
+              minH="2.5rem"
+              ml="1rem"
+              borderRadius={12}
+              onClick={searchStudentRejectedHandler}
+            >
+              Estudiantes deshabilitados
+            </AnimatedButton>
+
+            <AnimatedButton
+              bg="#265171"
+              color="white"
+              minW="8rem"
+              minH="2.5rem"
+              ml="1rem"
+              borderRadius={12} onClick={reloadPage}
+            >
+              Recargar
+            </AnimatedButton>
           </HStack>
         </div>
         <TableContainer p="2rem">
